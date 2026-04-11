@@ -11,9 +11,11 @@ function registerServiceWorker() {
   }
 
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/serviceworker.js").catch((error) => {
-      console.error("Service worker registration failed:", error);
-    });
+    navigator.serviceWorker
+      .register(`${import.meta.env.BASE_URL}serviceworker.js`)
+      .catch((error) => {
+        console.error("Service worker registration failed:", error);
+      });
   });
 }
 

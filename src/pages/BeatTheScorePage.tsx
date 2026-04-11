@@ -33,7 +33,7 @@ type PathChip = {
 
 const publishedGame = publishedGameData as DailyGame;
 const POSITIONS: Position[] = ["PG", "SG", "SF", "PF", "C"];
-const SILHOUETTE_URL = "/cpu-silhouette.svg";
+const SILHOUETTE_URL = `${import.meta.env.BASE_URL}cpu-silhouette.svg`;
 const JACKPOT_SCORE_MULTIPLIER = 1.1;
 const BEAT_GAME_STORAGE_KEY = "cut-trade-sign:beat-game";
 const BEAT_STATE_STORAGE_KEY = "cut-trade-sign:beat-state";
@@ -179,7 +179,6 @@ export function BeatTheScorePage({
   const [loadingTitle, setLoadingTitle] = useState("Building CPU Opponent");
   const [statusLogs, setStatusLogs] = useState<string[]>([]);
 
-
   useEffect(() => {
     persistGame(game);
   }, [game]);
@@ -192,9 +191,12 @@ export function BeatTheScorePage({
     persistSolution(solution);
   }, [solution]);
 
-  const dispatch = useCallback((action: GameAction) => {
-    setState((previousState) => gameReducer(previousState, action, game));
-  }, [game]);
+  const dispatch = useCallback(
+    (action: GameAction) => {
+      setState((previousState) => gameReducer(previousState, action, game));
+    },
+    [game],
+  );
 
   const handleStatus = useCallback((status: string) => {
     setStatusLogs((previous) => {

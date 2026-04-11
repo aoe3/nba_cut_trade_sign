@@ -1,6 +1,12 @@
 const STATIC_CACHE = "cts-static-v1";
 const IMAGE_CACHE = "cts-images-v1";
-const STATIC_ASSETS = ["/", "/favicon.svg", "/cpu-silhouette.svg", "/icons.svg"];
+const BASE_PATH = self.location.pathname.replace(/serviceworker\.js$/, "");
+const STATIC_ASSETS = [
+  BASE_PATH,
+  `${BASE_PATH}favicon.svg`,
+  `${BASE_PATH}cpu-silhouette.svg`,
+  `${BASE_PATH}icons.svg`,
+];
 
 /**
  * Pre-caches a tiny set of stable assets so the app shell loads reliably on repeat visits.
