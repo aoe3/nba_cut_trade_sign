@@ -153,6 +153,13 @@ export function HowToPlayModal({ isOpen, onClose }: HowToPlayModalProps) {
                 <s>Stop it. Get some help.</s>
               </a>
             </li>
+            <li>
+              "Beat The Score" mode creates a lineup for you to beat... but
+              you'll ONLY know their ending score to start!
+            </li>
+            <li>
+              "Shootout" mode is YOU vs. the CPU in turn-based decision warfare!
+            </li>
           </ul>
         </div>
       </div>
