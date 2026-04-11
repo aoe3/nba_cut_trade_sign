@@ -839,7 +839,7 @@ h1 {
 }
 
 .beat-row__cell {
-  min-height: 142px;
+  min-height: 128px;
 }
 
 .beat-info-panel {
@@ -1513,6 +1513,7 @@ h1 {
 }
 
 .shootout-scorebar {
+  display: grid;
   grid-template-columns: minmax(108px, 0.62fr) minmax(0, 1.45fr) 136px minmax(0, 1.45fr) minmax(108px, 0.62fr);
   align-items: center;
 }
@@ -1632,27 +1633,19 @@ h1 {
     height: 14px;
   }
 
-  .roster-grid,
-  .beat-board {
+  .roster-grid {
     gap: 10px;
   }
 
-  .roster-row,
-  .beat-row {
-    gap: 8px;
-  }
-
-  .beat-row__user,
-  .beat-row__cpu {
+  .roster-row {
     gap: 8px;
   }
 
   .row-cell,
   .action-buttons,
   .info-panel,
-  .cut-history,
-  .beat-row__cell {
-    min-height: 126px;
+  .cut-history {
+    min-height: 118px;
   }
 
   .row-cell {
@@ -1684,9 +1677,7 @@ h1 {
   }
 
   .info-panel,
-  .cut-history,
-  .beat-info-panel,
-  .beat-cpu-score {
+  .cut-history {
     padding: 10px;
   }
 
@@ -1738,37 +1729,13 @@ h1 {
     font-size: 0.75rem;
   }
 
-  .beat-stats-grid {
-    margin-top: 6px;
-    gap: 6px;
-  }
-
-  .beat-cpu-score {
-    padding: 12px;
-  }
-
-  .beat-cpu-score__label {
-    font-size: 0.74rem;
-    margin-bottom: 6px;
-  }
-
-  .beat-cpu-score__value {
-    font-size: 1.55rem;
-  }
-
-  .beat-scorebar,
   .scorebar {
     padding: 12px 16px;
     gap: 14px;
   }
 
-  .beat-scorebar__label,
   .scorebar__label {
     font-size: 0.9rem;
-  }
-
-  .beat-scorebar__value {
-    font-size: 1.45rem;
   }
 
   .scorebar__value {
@@ -1779,37 +1746,101 @@ h1 {
     font-size: 0.9rem;
   }
 
+  .rating--legend,
+  .rating--superstar {
+    font-size: 1.3rem;
+  }
+
+  /* Keep Beat The Score and Shootout rows aligned to the same low-height
+     desktop row rhythm as Daily / Forever instead of using their taller
+     default row sizing. */
+  .beat-board {
+    gap: 10px;
+  }
+
+  .beat-row {
+    gap: 8px;
+  }
+
+  .beat-row__user,
+  .beat-row__cpu {
+    gap: 8px;
+  }
+
+  .beat-row__cell,
+  .beat-info-panel,
+  .beat-cpu-score {
+    min-height: 128px;
+  }
+
+  .beat-info-panel,
+  .beat-cpu-score {
+    padding: 4px;
+  }
+
+  .beat-stats-grid {
+    margin-top: 6px;
+    gap: 6px;
+  }
+
+  .beat-cpu-score__label {
+    margin-bottom: 8px;
+    font-size: 0.76rem;
+  }
+
+  .beat-cpu-score__value {
+    font-size: 1.4rem;
+  }
+
+  .beat-scorebar {
+    padding: 10px 14px;
+    gap: 10px;
+  }
+
+  .beat-scorebar__label {
+    font-size: 0.78rem;
+    margin-bottom: 2px;
+  }
+
+  .beat-scorebar__value {
+    font-size: 1.4rem;
+  }
+
+  .beat-scorebar__paths {
+    gap: 8px;
+  }
+
   .beat-paths__column {
     padding: 8px 10px;
   }
 
   .beat-paths__label {
+    font-size: 0.68rem;
     margin-bottom: 6px;
-    font-size: 0.7rem;
+  }
+
+  .beat-paths__chips {
+    gap: 5px;
   }
 
   .beat-path-chip {
     font-size: 0.7rem;
-    padding: 5px 7px;
+    padding: 6px 8px;
   }
 
   .shootout-scorebar {
-    grid-template-columns: minmax(96px, 0.6fr) minmax(0, 1.35fr) 116px minmax(0, 1.35fr) minmax(96px, 0.6fr);
+    gap: 8px;
   }
 
   .shootout-turn-badge {
-    min-height: 78px;
-    gap: 6px;
+    min-height: 72px;
+    padding: 10px 12px;
+    font-size: 0.9rem;
   }
 
   .shootout-turn-badge__ball {
-    width: 22px;
-    height: 22px;
-  }
-
-  .rating--legend,
-  .rating--superstar {
-    font-size: 1.3rem;
+    width: 26px;
+    height: 26px;
   }
 }
 
