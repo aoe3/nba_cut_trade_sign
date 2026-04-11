@@ -1,16 +1,12 @@
-const STATIC_CACHE = "cts-static-v1";
-const IMAGE_CACHE = "cts-images-v1";
+const STATIC_CACHE = "cts-static-v2";
+const IMAGE_CACHE = "cts-images-v2";
 const BASE_PATH = self.location.pathname.replace(/serviceworker\.js$/, "");
 const STATIC_ASSETS = [
-  BASE_PATH,
   `${BASE_PATH}favicon.svg`,
   `${BASE_PATH}cpu-silhouette.svg`,
   `${BASE_PATH}icons.svg`,
 ];
 
-/**
- * Pre-caches a tiny set of stable assets so the app shell loads reliably on repeat visits.
- */
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(STATIC_CACHE).then((cache) => cache.addAll(STATIC_ASSETS)),
@@ -18,9 +14,6 @@ self.addEventListener("install", (event) => {
   self.skipWaiting();
 });
 
-/**
- * Clears older cache versions after an updated worker becomes active.
- */
 self.addEventListener("activate", (event) => {
   event.waitUntil((async () => {
     const names = await caches.keys();
@@ -37,10 +30,6 @@ function isImageRequest(request) {
   return request.destination === "image";
 }
 
-/**
- * Uses stale-while-revalidate for images so already-seen headshots appear immediately while the
- * cache quietly refreshes in the background.
- */
 async function handleImageRequest(request) {
   const cache = await caches.open(IMAGE_CACHE);
   const cached = await cache.match(request);
@@ -67,9 +56,5 @@ self.addEventListener("fetch", (event) => {
   if (isImageRequest(request)) {
     event.respondWith(handleImageRequest(request));
     return;
-  }
-
-  if (STATIC_ASSETS.includes(new URL(request.url).pathname)) {
-    event.respondWith(caches.match(request).then((cached) => cached ?? fetch(request)));
   }
 });
