@@ -1513,7 +1513,6 @@ h1 {
 }
 
 .shootout-scorebar {
-  display: grid;
   grid-template-columns: minmax(108px, 0.62fr) minmax(0, 1.45fr) 136px minmax(0, 1.45fr) minmax(108px, 0.62fr);
   align-items: center;
 }
@@ -1633,19 +1632,27 @@ h1 {
     height: 14px;
   }
 
-  .roster-grid {
+  .roster-grid,
+  .beat-board {
     gap: 10px;
   }
 
-  .roster-row {
+  .roster-row,
+  .beat-row {
+    gap: 8px;
+  }
+
+  .beat-row__user,
+  .beat-row__cpu {
     gap: 8px;
   }
 
   .row-cell,
   .action-buttons,
   .info-panel,
-  .cut-history {
-    min-height: 128px;
+  .cut-history,
+  .beat-row__cell {
+    min-height: 126px;
   }
 
   .row-cell {
@@ -1677,7 +1684,9 @@ h1 {
   }
 
   .info-panel,
-  .cut-history {
+  .cut-history,
+  .beat-info-panel,
+  .beat-cpu-score {
     padding: 10px;
   }
 
@@ -1729,13 +1738,37 @@ h1 {
     font-size: 0.75rem;
   }
 
+  .beat-stats-grid {
+    margin-top: 6px;
+    gap: 6px;
+  }
+
+  .beat-cpu-score {
+    padding: 12px;
+  }
+
+  .beat-cpu-score__label {
+    font-size: 0.74rem;
+    margin-bottom: 6px;
+  }
+
+  .beat-cpu-score__value {
+    font-size: 1.55rem;
+  }
+
+  .beat-scorebar,
   .scorebar {
     padding: 12px 16px;
     gap: 14px;
   }
 
+  .beat-scorebar__label,
   .scorebar__label {
     font-size: 0.9rem;
+  }
+
+  .beat-scorebar__value {
+    font-size: 1.45rem;
   }
 
   .scorebar__value {
@@ -1744,6 +1777,34 @@ h1 {
 
   .scorebar__value--small {
     font-size: 0.9rem;
+  }
+
+  .beat-paths__column {
+    padding: 8px 10px;
+  }
+
+  .beat-paths__label {
+    margin-bottom: 6px;
+    font-size: 0.7rem;
+  }
+
+  .beat-path-chip {
+    font-size: 0.7rem;
+    padding: 5px 7px;
+  }
+
+  .shootout-scorebar {
+    grid-template-columns: minmax(96px, 0.6fr) minmax(0, 1.35fr) 116px minmax(0, 1.35fr) minmax(96px, 0.6fr);
+  }
+
+  .shootout-turn-badge {
+    min-height: 78px;
+    gap: 6px;
+  }
+
+  .shootout-turn-badge__ball {
+    width: 22px;
+    height: 22px;
   }
 
   .rating--legend,
