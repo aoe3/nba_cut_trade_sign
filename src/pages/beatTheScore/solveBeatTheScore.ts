@@ -193,7 +193,7 @@ function getLegalNextStates(
 }
 
 function yieldToBrowser(): Promise<void> {
-  return new Promise((resolve) => globalThis.setTimeout(resolve, 0));
+  return Promise.resolve();
 }
 
 const JACKPOT_SCORE_MULTIPLIER = 1.1;

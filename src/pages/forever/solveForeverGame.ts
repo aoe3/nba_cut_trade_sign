@@ -115,7 +115,7 @@ function terminalScore(state: GameState): number {
 }
 
 async function yieldToBrowser(): Promise<void> {
-  await new Promise((resolve) => globalThis.setTimeout(resolve, 0));
+  await Promise.resolve();
 }
 
 export async function solveForeverGame(
