@@ -1,0 +1,2132 @@
+{
+  "PG": {
+    "options": [
+      {
+        "player": {
+          "name": "Tyrese Haliburton",
+          "position": "PG",
+          "team": "TBD",
+          "age": 26,
+          "bpm": 6.0,
+          "salary_millions": 42.0,
+          "isRookie": false,
+          "gamesPlayed": 56,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "Stephen Curry",
+            "position": "PG",
+            "team": "TBD",
+            "age": 38,
+            "bpm": 7.2,
+            "salary_millions": 55.8,
+            "isRookie": false,
+            "gamesPlayed": 69,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "LaMelo Ball",
+            "position": "PG",
+            "team": "TBD",
+            "age": 25,
+            "bpm": 3.5,
+            "salary_millions": 35.0,
+            "isRookie": false,
+            "gamesPlayed": 70,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Luka Doncic",
+            "position": "PG",
+            "team": "TBD",
+            "age": 27,
+            "bpm": 8.7,
+            "salary_millions": 43.0,
+            "isRookie": false,
+            "gamesPlayed": 70,
+            "teamGamesPlayed": null
+          }
+        ]
+      },
+      {
+        "player": {
+          "name": "Ja Morant",
+          "position": "PG",
+          "team": "TBD",
+          "age": 27,
+          "bpm": 5.1,
+          "salary_millions": 36.7,
+          "isRookie": false,
+          "gamesPlayed": 71,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "LaMelo Ball",
+            "position": "PG",
+            "team": "TBD",
+            "age": 25,
+            "bpm": 3.5,
+            "salary_millions": 35.0,
+            "isRookie": false,
+            "gamesPlayed": 70,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "De'Aaron Fox",
+            "position": "PG",
+            "team": "TBD",
+            "age": 29,
+            "bpm": 3.3,
+            "salary_millions": 34.8,
+            "isRookie": false,
+            "gamesPlayed": 54,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Stephen Curry",
+            "position": "PG",
+            "team": "TBD",
+            "age": 38,
+            "bpm": 7.2,
+            "salary_millions": 55.8,
+            "isRookie": false,
+            "gamesPlayed": 69,
+            "teamGamesPlayed": null
+          }
+        ]
+      },
+      {
+        "player": {
+          "name": "Trae Young",
+          "position": "PG",
+          "team": "TBD",
+          "age": 28,
+          "bpm": 4.7,
+          "salary_millions": 43.0,
+          "isRookie": false,
+          "gamesPlayed": 67,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "LaMelo Ball",
+            "position": "PG",
+            "team": "TBD",
+            "age": 25,
+            "bpm": 3.5,
+            "salary_millions": 35.0,
+            "isRookie": false,
+            "gamesPlayed": 70,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "De'Aaron Fox",
+            "position": "PG",
+            "team": "TBD",
+            "age": 29,
+            "bpm": 3.3,
+            "salary_millions": 34.8,
+            "isRookie": false,
+            "gamesPlayed": 54,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Jamal Murray",
+            "position": "PG",
+            "team": "TBD",
+            "age": 29,
+            "bpm": 2.9,
+            "salary_millions": 36.0,
+            "isRookie": false,
+            "gamesPlayed": 71,
+            "teamGamesPlayed": null
+          }
+        ]
+      },
+      {
+        "player": {
+          "name": "Jalen Brunson",
+          "position": "PG",
+          "team": "TBD",
+          "age": 30,
+          "bpm": 5.8,
+          "salary_millions": 24.9,
+          "isRookie": false,
+          "gamesPlayed": 63,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "Stephen Curry",
+            "position": "PG",
+            "team": "TBD",
+            "age": 38,
+            "bpm": 7.2,
+            "salary_millions": 55.8,
+            "isRookie": false,
+            "gamesPlayed": 69,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "LaMelo Ball",
+            "position": "PG",
+            "team": "TBD",
+            "age": 25,
+            "bpm": 3.5,
+            "salary_millions": 35.0,
+            "isRookie": false,
+            "gamesPlayed": 70,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "De'Aaron Fox",
+            "position": "PG",
+            "team": "TBD",
+            "age": 29,
+            "bpm": 3.3,
+            "salary_millions": 34.8,
+            "isRookie": false,
+            "gamesPlayed": 54,
+            "teamGamesPlayed": null
+          }
+        ]
+      },
+      {
+        "player": {
+          "name": "Darius Garland",
+          "position": "PG",
+          "team": "TBD",
+          "age": 26,
+          "bpm": 3.8,
+          "salary_millions": 36.7,
+          "isRookie": false,
+          "gamesPlayed": 72,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "LaMelo Ball",
+            "position": "PG",
+            "team": "TBD",
+            "age": 25,
+            "bpm": 3.5,
+            "salary_millions": 35.0,
+            "isRookie": false,
+            "gamesPlayed": 70,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "De'Aaron Fox",
+            "position": "PG",
+            "team": "TBD",
+            "age": 29,
+            "bpm": 3.3,
+            "salary_millions": 34.8,
+            "isRookie": false,
+            "gamesPlayed": 54,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Jamal Murray",
+            "position": "PG",
+            "team": "TBD",
+            "age": 29,
+            "bpm": 2.9,
+            "salary_millions": 36.0,
+            "isRookie": false,
+            "gamesPlayed": 71,
+            "teamGamesPlayed": null
+          }
+        ]
+      },
+      {
+        "player": {
+          "name": "Fred VanVleet",
+          "position": "PG",
+          "team": "TBD",
+          "age": 32,
+          "bpm": 2.1,
+          "salary_millions": 42.8,
+          "isRookie": false,
+          "gamesPlayed": 78,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "Coby White",
+            "position": "PG",
+            "team": "TBD",
+            "age": 26,
+            "bpm": 1.8,
+            "salary_millions": 12.9,
+            "isRookie": false,
+            "gamesPlayed": 67,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Cade Cunningham",
+            "position": "PG",
+            "team": "TBD",
+            "age": 25,
+            "bpm": 2.6,
+            "salary_millions": 13.9,
+            "isRookie": false,
+            "gamesPlayed": 52,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Jamal Murray",
+            "position": "PG",
+            "team": "TBD",
+            "age": 29,
+            "bpm": 2.9,
+            "salary_millions": 36.0,
+            "isRookie": false,
+            "gamesPlayed": 71,
+            "teamGamesPlayed": null
+          }
+        ]
+      }
+    ],
+    "tradeCandidatePool": [
+      {
+        "name": "Shai Gilgeous-Alexander",
+        "position": "PG",
+        "team": "TBD",
+        "age": 27,
+        "bpm": 9.1,
+        "salary_millions": 36.0,
+        "isRookie": false,
+        "gamesPlayed": 59,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Luka Doncic",
+        "position": "PG",
+        "team": "TBD",
+        "age": 27,
+        "bpm": 8.7,
+        "salary_millions": 43.0,
+        "isRookie": false,
+        "gamesPlayed": 70,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Stephen Curry",
+        "position": "PG",
+        "team": "TBD",
+        "age": 38,
+        "bpm": 7.2,
+        "salary_millions": 55.8,
+        "isRookie": false,
+        "gamesPlayed": 69,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "LaMelo Ball",
+        "position": "PG",
+        "team": "TBD",
+        "age": 25,
+        "bpm": 3.5,
+        "salary_millions": 35.0,
+        "isRookie": false,
+        "gamesPlayed": 70,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "De'Aaron Fox",
+        "position": "PG",
+        "team": "TBD",
+        "age": 29,
+        "bpm": 3.3,
+        "salary_millions": 34.8,
+        "isRookie": false,
+        "gamesPlayed": 54,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Jamal Murray",
+        "position": "PG",
+        "team": "TBD",
+        "age": 29,
+        "bpm": 2.9,
+        "salary_millions": 36.0,
+        "isRookie": false,
+        "gamesPlayed": 71,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Cade Cunningham",
+        "position": "PG",
+        "team": "TBD",
+        "age": 25,
+        "bpm": 2.6,
+        "salary_millions": 13.9,
+        "isRookie": false,
+        "gamesPlayed": 52,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Coby White",
+        "position": "PG",
+        "team": "TBD",
+        "age": 26,
+        "bpm": 1.8,
+        "salary_millions": 12.9,
+        "isRookie": false,
+        "gamesPlayed": 67,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Tyus Jones",
+        "position": "PG",
+        "team": "TBD",
+        "age": 30,
+        "bpm": 1.2,
+        "salary_millions": 14.0,
+        "isRookie": false,
+        "gamesPlayed": 60,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Mike Conley",
+        "position": "PG",
+        "team": "TBD",
+        "age": 38,
+        "bpm": 0.9,
+        "salary_millions": 10.8,
+        "isRookie": false,
+        "gamesPlayed": 69,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Scoot Henderson",
+        "position": "PG",
+        "team": "TBD",
+        "age": 22,
+        "bpm": -0.2,
+        "salary_millions": 10.6,
+        "isRookie": false,
+        "gamesPlayed": 59,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Chris Paul",
+        "position": "PG",
+        "team": "TBD",
+        "age": 41,
+        "bpm": 0.7,
+        "salary_millions": 11.0,
+        "isRookie": false,
+        "gamesPlayed": 58,
+        "teamGamesPlayed": null
+      }
+    ]
+  },
+  "SG": {
+    "options": [
+      {
+        "player": {
+          "name": "Jalen Williams",
+          "position": "SG",
+          "team": "TBD",
+          "age": 25,
+          "bpm": 5.2,
+          "salary_millions": 6.6,
+          "isRookie": false,
+          "gamesPlayed": 78,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "Devin Booker",
+            "position": "SG",
+            "team": "TBD",
+            "age": 30,
+            "bpm": 5.9,
+            "salary_millions": 49.2,
+            "isRookie": false,
+            "gamesPlayed": 69,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Anthony Edwards",
+            "position": "SG",
+            "team": "TBD",
+            "age": 25,
+            "bpm": 6.8,
+            "salary_millions": 42.2,
+            "isRookie": false,
+            "gamesPlayed": 74,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Zach LaVine",
+            "position": "SG",
+            "team": "TBD",
+            "age": 31,
+            "bpm": 2.8,
+            "salary_millions": 43.0,
+            "isRookie": false,
+            "gamesPlayed": 64,
+            "teamGamesPlayed": null
+          }
+        ]
+      },
+      {
+        "player": {
+          "name": "Tyler Herro",
+          "position": "SG",
+          "team": "TBD",
+          "age": 27,
+          "bpm": 3.8,
+          "salary_millions": 29.0,
+          "isRookie": false,
+          "gamesPlayed": 69,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "Zach LaVine",
+            "position": "SG",
+            "team": "TBD",
+            "age": 31,
+            "bpm": 2.8,
+            "salary_millions": 43.0,
+            "isRookie": false,
+            "gamesPlayed": 64,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "CJ McCollum",
+            "position": "SG",
+            "team": "TBD",
+            "age": 35,
+            "bpm": 2.3,
+            "salary_millions": 30.7,
+            "isRookie": false,
+            "gamesPlayed": 72,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Anfernee Simons",
+            "position": "SG",
+            "team": "TBD",
+            "age": 27,
+            "bpm": 1.9,
+            "salary_millions": 25.9,
+            "isRookie": false,
+            "gamesPlayed": 56,
+            "teamGamesPlayed": null
+          }
+        ]
+      },
+      {
+        "player": {
+          "name": "Desmond Bane",
+          "position": "SG",
+          "team": "TBD",
+          "age": 28,
+          "bpm": 3.6,
+          "salary_millions": 36.7,
+          "isRookie": false,
+          "gamesPlayed": 67,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "Zach LaVine",
+            "position": "SG",
+            "team": "TBD",
+            "age": 31,
+            "bpm": 2.8,
+            "salary_millions": 43.0,
+            "isRookie": false,
+            "gamesPlayed": 64,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "CJ McCollum",
+            "position": "SG",
+            "team": "TBD",
+            "age": 35,
+            "bpm": 2.3,
+            "salary_millions": 30.7,
+            "isRookie": false,
+            "gamesPlayed": 72,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Anfernee Simons",
+            "position": "SG",
+            "team": "TBD",
+            "age": 27,
+            "bpm": 1.9,
+            "salary_millions": 25.9,
+            "isRookie": false,
+            "gamesPlayed": 56,
+            "teamGamesPlayed": null
+          }
+        ]
+      },
+      {
+        "player": {
+          "name": "Donovan Mitchell",
+          "position": "SG",
+          "team": "TBD",
+          "age": 30,
+          "bpm": 6.1,
+          "salary_millions": 35.4,
+          "isRookie": false,
+          "gamesPlayed": 67,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "Devin Booker",
+            "position": "SG",
+            "team": "TBD",
+            "age": 30,
+            "bpm": 5.9,
+            "salary_millions": 49.2,
+            "isRookie": false,
+            "gamesPlayed": 69,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Anthony Edwards",
+            "position": "SG",
+            "team": "TBD",
+            "age": 25,
+            "bpm": 6.8,
+            "salary_millions": 42.2,
+            "isRookie": false,
+            "gamesPlayed": 74,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Zach LaVine",
+            "position": "SG",
+            "team": "TBD",
+            "age": 31,
+            "bpm": 2.8,
+            "salary_millions": 43.0,
+            "isRookie": false,
+            "gamesPlayed": 64,
+            "teamGamesPlayed": null
+          }
+        ]
+      },
+      {
+        "player": {
+          "name": "Austin Reaves",
+          "position": "SG",
+          "team": "TBD",
+          "age": 28,
+          "bpm": 2.9,
+          "salary_millions": 14.0,
+          "isRookie": false,
+          "gamesPlayed": 79,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "Zach LaVine",
+            "position": "SG",
+            "team": "TBD",
+            "age": 31,
+            "bpm": 2.8,
+            "salary_millions": 43.0,
+            "isRookie": false,
+            "gamesPlayed": 64,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "CJ McCollum",
+            "position": "SG",
+            "team": "TBD",
+            "age": 35,
+            "bpm": 2.3,
+            "salary_millions": 30.7,
+            "isRookie": false,
+            "gamesPlayed": 72,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Anfernee Simons",
+            "position": "SG",
+            "team": "TBD",
+            "age": 27,
+            "bpm": 1.9,
+            "salary_millions": 25.9,
+            "isRookie": false,
+            "gamesPlayed": 56,
+            "teamGamesPlayed": null
+          }
+        ]
+      },
+      {
+        "player": {
+          "name": "Malik Monk",
+          "position": "SG",
+          "team": "TBD",
+          "age": 28,
+          "bpm": 1.3,
+          "salary_millions": 17.4,
+          "isRookie": false,
+          "gamesPlayed": 79,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "Norman Powell",
+            "position": "SG",
+            "team": "TBD",
+            "age": 33,
+            "bpm": 1.4,
+            "salary_millions": 20.5,
+            "isRookie": false,
+            "gamesPlayed": 56,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Cam Thomas",
+            "position": "SG",
+            "team": "TBD",
+            "age": 25,
+            "bpm": 1.5,
+            "salary_millions": 4.0,
+            "isRookie": false,
+            "gamesPlayed": 72,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Jordan Poole",
+            "position": "SG",
+            "team": "TBD",
+            "age": 27,
+            "bpm": 1.6,
+            "salary_millions": 29.7,
+            "isRookie": false,
+            "gamesPlayed": 59,
+            "teamGamesPlayed": null
+          }
+        ]
+      }
+    ],
+    "tradeCandidatePool": [
+      {
+        "name": "Anthony Edwards",
+        "position": "SG",
+        "team": "TBD",
+        "age": 25,
+        "bpm": 6.8,
+        "salary_millions": 42.2,
+        "isRookie": false,
+        "gamesPlayed": 74,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Devin Booker",
+        "position": "SG",
+        "team": "TBD",
+        "age": 30,
+        "bpm": 5.9,
+        "salary_millions": 49.2,
+        "isRookie": false,
+        "gamesPlayed": 69,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Zach LaVine",
+        "position": "SG",
+        "team": "TBD",
+        "age": 31,
+        "bpm": 2.8,
+        "salary_millions": 43.0,
+        "isRookie": false,
+        "gamesPlayed": 64,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "CJ McCollum",
+        "position": "SG",
+        "team": "TBD",
+        "age": 35,
+        "bpm": 2.3,
+        "salary_millions": 30.7,
+        "isRookie": false,
+        "gamesPlayed": 72,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Anfernee Simons",
+        "position": "SG",
+        "team": "TBD",
+        "age": 27,
+        "bpm": 1.9,
+        "salary_millions": 25.9,
+        "isRookie": false,
+        "gamesPlayed": 56,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Jordan Poole",
+        "position": "SG",
+        "team": "TBD",
+        "age": 27,
+        "bpm": 1.6,
+        "salary_millions": 29.7,
+        "isRookie": false,
+        "gamesPlayed": 59,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Cam Thomas",
+        "position": "SG",
+        "team": "TBD",
+        "age": 25,
+        "bpm": 1.5,
+        "salary_millions": 4.0,
+        "isRookie": false,
+        "gamesPlayed": 72,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Norman Powell",
+        "position": "SG",
+        "team": "TBD",
+        "age": 33,
+        "bpm": 1.4,
+        "salary_millions": 20.5,
+        "isRookie": false,
+        "gamesPlayed": 56,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Kentavious Caldwell-Pope",
+        "position": "SG",
+        "team": "TBD",
+        "age": 33,
+        "bpm": 0.8,
+        "salary_millions": 22.0,
+        "isRookie": false,
+        "gamesPlayed": 68,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Josh Hart",
+        "position": "SG",
+        "team": "TBD",
+        "age": 31,
+        "bpm": 1.0,
+        "salary_millions": 18.1,
+        "isRookie": false,
+        "gamesPlayed": 64,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Brandin Podziemski",
+        "position": "SG",
+        "team": "TBD",
+        "age": 23,
+        "bpm": 0.3,
+        "salary_millions": 3.6,
+        "isRookie": false,
+        "gamesPlayed": 75,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Dalton Knecht",
+        "position": "SG",
+        "team": "TBD",
+        "age": 25,
+        "bpm": -0.1,
+        "salary_millions": 3.8,
+        "isRookie": true,
+        "gamesPlayed": 25,
+        "teamGamesPlayed": 78
+      }
+    ]
+  },
+  "SF": {
+    "options": [
+      {
+        "player": {
+          "name": "Franz Wagner",
+          "position": "SF",
+          "team": "TBD",
+          "age": 25,
+          "bpm": 4.7,
+          "salary_millions": 38.7,
+          "isRookie": false,
+          "gamesPlayed": 76,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "Jimmy Butler",
+            "position": "SF",
+            "team": "TBD",
+            "age": 37,
+            "bpm": 5.0,
+            "salary_millions": 48.8,
+            "isRookie": false,
+            "gamesPlayed": 57,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Kawhi Leonard",
+            "position": "SF",
+            "team": "TBD",
+            "age": 35,
+            "bpm": 4.1,
+            "salary_millions": 50.0,
+            "isRookie": false,
+            "gamesPlayed": 53,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Brandon Ingram",
+            "position": "SF",
+            "team": "TBD",
+            "age": 29,
+            "bpm": 3.4,
+            "salary_millions": 36.0,
+            "isRookie": false,
+            "gamesPlayed": 61,
+            "teamGamesPlayed": null
+          }
+        ]
+      },
+      {
+        "player": {
+          "name": "Jaylen Brown",
+          "position": "SF",
+          "team": "TBD",
+          "age": 29,
+          "bpm": 4.3,
+          "salary_millions": 53.1,
+          "isRookie": false,
+          "gamesPlayed": 70,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "Kawhi Leonard",
+            "position": "SF",
+            "team": "TBD",
+            "age": 35,
+            "bpm": 4.1,
+            "salary_millions": 50.0,
+            "isRookie": false,
+            "gamesPlayed": 53,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Jimmy Butler",
+            "position": "SF",
+            "team": "TBD",
+            "age": 37,
+            "bpm": 5.0,
+            "salary_millions": 48.8,
+            "isRookie": false,
+            "gamesPlayed": 57,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Brandon Ingram",
+            "position": "SF",
+            "team": "TBD",
+            "age": 29,
+            "bpm": 3.4,
+            "salary_millions": 36.0,
+            "isRookie": false,
+            "gamesPlayed": 61,
+            "teamGamesPlayed": null
+          }
+        ]
+      },
+      {
+        "player": {
+          "name": "Mikal Bridges",
+          "position": "SF",
+          "team": "TBD",
+          "age": 30,
+          "bpm": 3.3,
+          "salary_millions": 24.9,
+          "isRookie": false,
+          "gamesPlayed": 76,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "Brandon Ingram",
+            "position": "SF",
+            "team": "TBD",
+            "age": 29,
+            "bpm": 3.4,
+            "salary_millions": 36.0,
+            "isRookie": false,
+            "gamesPlayed": 61,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Kawhi Leonard",
+            "position": "SF",
+            "team": "TBD",
+            "age": 35,
+            "bpm": 4.1,
+            "salary_millions": 50.0,
+            "isRookie": false,
+            "gamesPlayed": 53,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Michael Porter Jr.",
+            "position": "SF",
+            "team": "TBD",
+            "age": 28,
+            "bpm": 2.5,
+            "salary_millions": 35.9,
+            "isRookie": false,
+            "gamesPlayed": 78,
+            "teamGamesPlayed": null
+          }
+        ]
+      },
+      {
+        "player": {
+          "name": "Kevin Durant",
+          "position": "SF",
+          "team": "TBD",
+          "age": 38,
+          "bpm": 6.4,
+          "salary_millions": 51.2,
+          "isRookie": false,
+          "gamesPlayed": 76,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "LeBron James",
+            "position": "SF",
+            "team": "TBD",
+            "age": 41,
+            "bpm": 6.2,
+            "salary_millions": 52.6,
+            "isRookie": false,
+            "gamesPlayed": 54,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Jimmy Butler",
+            "position": "SF",
+            "team": "TBD",
+            "age": 37,
+            "bpm": 5.0,
+            "salary_millions": 48.8,
+            "isRookie": false,
+            "gamesPlayed": 57,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Jayson Tatum",
+            "position": "SF",
+            "team": "TBD",
+            "age": 28,
+            "bpm": 7.9,
+            "salary_millions": 54.1,
+            "isRookie": false,
+            "gamesPlayed": 73,
+            "teamGamesPlayed": null
+          }
+        ]
+      },
+      {
+        "player": {
+          "name": "OG Anunoby",
+          "position": "SF",
+          "team": "TBD",
+          "age": 29,
+          "bpm": 3.2,
+          "salary_millions": 36.6,
+          "isRookie": false,
+          "gamesPlayed": 52,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "Brandon Ingram",
+            "position": "SF",
+            "team": "TBD",
+            "age": 29,
+            "bpm": 3.4,
+            "salary_millions": 36.0,
+            "isRookie": false,
+            "gamesPlayed": 61,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Michael Porter Jr.",
+            "position": "SF",
+            "team": "TBD",
+            "age": 28,
+            "bpm": 2.5,
+            "salary_millions": 35.9,
+            "isRookie": false,
+            "gamesPlayed": 78,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Kawhi Leonard",
+            "position": "SF",
+            "team": "TBD",
+            "age": 35,
+            "bpm": 4.1,
+            "salary_millions": 50.0,
+            "isRookie": false,
+            "gamesPlayed": 53,
+            "teamGamesPlayed": null
+          }
+        ]
+      },
+      {
+        "player": {
+          "name": "RJ Barrett",
+          "position": "SF",
+          "team": "TBD",
+          "age": 26,
+          "bpm": 1.6,
+          "salary_millions": 25.8,
+          "isRookie": false,
+          "gamesPlayed": 60,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "Herb Jones",
+            "position": "SF",
+            "team": "TBD",
+            "age": 28,
+            "bpm": 1.7,
+            "salary_millions": 13.9,
+            "isRookie": false,
+            "gamesPlayed": 75,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Trey Murphy III",
+            "position": "SF",
+            "team": "TBD",
+            "age": 26,
+            "bpm": 1.9,
+            "salary_millions": 25.0,
+            "isRookie": false,
+            "gamesPlayed": 71,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Khris Middleton",
+            "position": "SF",
+            "team": "TBD",
+            "age": 35,
+            "bpm": 1.3,
+            "salary_millions": 31.7,
+            "isRookie": false,
+            "gamesPlayed": 67,
+            "teamGamesPlayed": null
+          }
+        ]
+      }
+    ],
+    "tradeCandidatePool": [
+      {
+        "name": "Jayson Tatum",
+        "position": "SF",
+        "team": "TBD",
+        "age": 28,
+        "bpm": 7.9,
+        "salary_millions": 54.1,
+        "isRookie": false,
+        "gamesPlayed": 73,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "LeBron James",
+        "position": "SF",
+        "team": "TBD",
+        "age": 41,
+        "bpm": 6.2,
+        "salary_millions": 52.6,
+        "isRookie": false,
+        "gamesPlayed": 54,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Jimmy Butler",
+        "position": "SF",
+        "team": "TBD",
+        "age": 37,
+        "bpm": 5.0,
+        "salary_millions": 48.8,
+        "isRookie": false,
+        "gamesPlayed": 57,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Kawhi Leonard",
+        "position": "SF",
+        "team": "TBD",
+        "age": 35,
+        "bpm": 4.1,
+        "salary_millions": 50.0,
+        "isRookie": false,
+        "gamesPlayed": 53,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Brandon Ingram",
+        "position": "SF",
+        "team": "TBD",
+        "age": 29,
+        "bpm": 3.4,
+        "salary_millions": 36.0,
+        "isRookie": false,
+        "gamesPlayed": 61,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Michael Porter Jr.",
+        "position": "SF",
+        "team": "TBD",
+        "age": 28,
+        "bpm": 2.5,
+        "salary_millions": 35.9,
+        "isRookie": false,
+        "gamesPlayed": 78,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "DeMar DeRozan",
+        "position": "SF",
+        "team": "TBD",
+        "age": 37,
+        "bpm": 2.2,
+        "salary_millions": 24.8,
+        "isRookie": false,
+        "gamesPlayed": 79,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Khris Middleton",
+        "position": "SF",
+        "team": "TBD",
+        "age": 35,
+        "bpm": 1.3,
+        "salary_millions": 31.7,
+        "isRookie": false,
+        "gamesPlayed": 67,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Trey Murphy III",
+        "position": "SF",
+        "team": "TBD",
+        "age": 26,
+        "bpm": 1.9,
+        "salary_millions": 25.0,
+        "isRookie": false,
+        "gamesPlayed": 71,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Herb Jones",
+        "position": "SF",
+        "team": "TBD",
+        "age": 28,
+        "bpm": 1.7,
+        "salary_millions": 13.9,
+        "isRookie": false,
+        "gamesPlayed": 75,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Zaccharie Risacher",
+        "position": "SF",
+        "team": "TBD",
+        "age": 21,
+        "bpm": 0.2,
+        "salary_millions": 12.6,
+        "isRookie": true,
+        "gamesPlayed": 49,
+        "teamGamesPlayed": 78
+      },
+      {
+        "name": "Andrew Wiggins",
+        "position": "SF",
+        "team": "TBD",
+        "age": 31,
+        "bpm": 0.8,
+        "salary_millions": 26.3,
+        "isRookie": false,
+        "gamesPlayed": 74,
+        "teamGamesPlayed": null
+      }
+    ]
+  },
+  "PF": {
+    "options": [
+      {
+        "player": {
+          "name": "Paolo Banchero",
+          "position": "PF",
+          "team": "TBD",
+          "age": 24,
+          "bpm": 4.8,
+          "salary_millions": 15.3,
+          "isRookie": false,
+          "gamesPlayed": 65,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "Evan Mobley",
+            "position": "PF",
+            "team": "TBD",
+            "age": 25,
+            "bpm": 4.6,
+            "salary_millions": 11.2,
+            "isRookie": false,
+            "gamesPlayed": 75,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Zion Williamson",
+            "position": "PF",
+            "team": "TBD",
+            "age": 26,
+            "bpm": 4.0,
+            "salary_millions": 39.4,
+            "isRookie": false,
+            "gamesPlayed": 56,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Lauri Markkanen",
+            "position": "PF",
+            "team": "TBD",
+            "age": 29,
+            "bpm": 3.9,
+            "salary_millions": 42.2,
+            "isRookie": false,
+            "gamesPlayed": 77,
+            "teamGamesPlayed": null
+          }
+        ]
+      },
+      {
+        "player": {
+          "name": "Jaren Jackson Jr.",
+          "position": "PF",
+          "team": "TBD",
+          "age": 27,
+          "bpm": 4.7,
+          "salary_millions": 23.4,
+          "isRookie": false,
+          "gamesPlayed": 64,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "Evan Mobley",
+            "position": "PF",
+            "team": "TBD",
+            "age": 25,
+            "bpm": 4.6,
+            "salary_millions": 11.2,
+            "isRookie": false,
+            "gamesPlayed": 75,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Zion Williamson",
+            "position": "PF",
+            "team": "TBD",
+            "age": 26,
+            "bpm": 4.0,
+            "salary_millions": 39.4,
+            "isRookie": false,
+            "gamesPlayed": 56,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Lauri Markkanen",
+            "position": "PF",
+            "team": "TBD",
+            "age": 29,
+            "bpm": 3.9,
+            "salary_millions": 42.2,
+            "isRookie": false,
+            "gamesPlayed": 77,
+            "teamGamesPlayed": null
+          }
+        ]
+      },
+      {
+        "player": {
+          "name": "Julius Randle",
+          "position": "PF",
+          "team": "TBD",
+          "age": 31,
+          "bpm": 3.2,
+          "salary_millions": 31.0,
+          "isRookie": false,
+          "gamesPlayed": 70,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "Lauri Markkanen",
+            "position": "PF",
+            "team": "TBD",
+            "age": 29,
+            "bpm": 3.9,
+            "salary_millions": 42.2,
+            "isRookie": false,
+            "gamesPlayed": 77,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Aaron Gordon",
+            "position": "PF",
+            "team": "TBD",
+            "age": 31,
+            "bpm": 2.5,
+            "salary_millions": 23.8,
+            "isRookie": false,
+            "gamesPlayed": 80,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Zion Williamson",
+            "position": "PF",
+            "team": "TBD",
+            "age": 26,
+            "bpm": 4.0,
+            "salary_millions": 39.4,
+            "isRookie": false,
+            "gamesPlayed": 56,
+            "teamGamesPlayed": null
+          }
+        ]
+      },
+      {
+        "player": {
+          "name": "Pascal Siakam",
+          "position": "PF",
+          "team": "TBD",
+          "age": 32,
+          "bpm": 4.1,
+          "salary_millions": 45.9,
+          "isRookie": false,
+          "gamesPlayed": 66,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "Zion Williamson",
+            "position": "PF",
+            "team": "TBD",
+            "age": 26,
+            "bpm": 4.0,
+            "salary_millions": 39.4,
+            "isRookie": false,
+            "gamesPlayed": 56,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Lauri Markkanen",
+            "position": "PF",
+            "team": "TBD",
+            "age": 29,
+            "bpm": 3.9,
+            "salary_millions": 42.2,
+            "isRookie": false,
+            "gamesPlayed": 77,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Evan Mobley",
+            "position": "PF",
+            "team": "TBD",
+            "age": 25,
+            "bpm": 4.6,
+            "salary_millions": 11.2,
+            "isRookie": false,
+            "gamesPlayed": 75,
+            "teamGamesPlayed": null
+          }
+        ]
+      },
+      {
+        "player": {
+          "name": "P.J. Washington",
+          "position": "PF",
+          "team": "TBD",
+          "age": 28,
+          "bpm": 1.6,
+          "salary_millions": 15.5,
+          "isRookie": false,
+          "gamesPlayed": 56,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "Jonathan Kuminga",
+            "position": "PF",
+            "team": "TBD",
+            "age": 23,
+            "bpm": 1.8,
+            "salary_millions": 7.6,
+            "isRookie": false,
+            "gamesPlayed": 53,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Keegan Murray",
+            "position": "PF",
+            "team": "TBD",
+            "age": 26,
+            "bpm": 1.4,
+            "salary_millions": 8.8,
+            "isRookie": false,
+            "gamesPlayed": 58,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Bobby Portis",
+            "position": "PF",
+            "team": "TBD",
+            "age": 31,
+            "bpm": 1.3,
+            "salary_millions": 12.6,
+            "isRookie": false,
+            "gamesPlayed": 60,
+            "teamGamesPlayed": null
+          }
+        ]
+      },
+      {
+        "player": {
+          "name": "John Collins",
+          "position": "PF",
+          "team": "TBD",
+          "age": 29,
+          "bpm": 1.7,
+          "salary_millions": 26.6,
+          "isRookie": false,
+          "gamesPlayed": 63,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "Jonathan Kuminga",
+            "position": "PF",
+            "team": "TBD",
+            "age": 23,
+            "bpm": 1.8,
+            "salary_millions": 7.6,
+            "isRookie": false,
+            "gamesPlayed": 53,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Keegan Murray",
+            "position": "PF",
+            "team": "TBD",
+            "age": 26,
+            "bpm": 1.4,
+            "salary_millions": 8.8,
+            "isRookie": false,
+            "gamesPlayed": 58,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Bobby Portis",
+            "position": "PF",
+            "team": "TBD",
+            "age": 31,
+            "bpm": 1.3,
+            "salary_millions": 12.6,
+            "isRookie": false,
+            "gamesPlayed": 60,
+            "teamGamesPlayed": null
+          }
+        ]
+      }
+    ],
+    "tradeCandidatePool": [
+      {
+        "name": "Giannis Antetokounmpo",
+        "position": "PF",
+        "team": "TBD",
+        "age": 31,
+        "bpm": 9.0,
+        "salary_millions": 57.6,
+        "isRookie": false,
+        "gamesPlayed": 77,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Evan Mobley",
+        "position": "PF",
+        "team": "TBD",
+        "age": 25,
+        "bpm": 4.6,
+        "salary_millions": 11.2,
+        "isRookie": false,
+        "gamesPlayed": 75,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Lauri Markkanen",
+        "position": "PF",
+        "team": "TBD",
+        "age": 29,
+        "bpm": 3.9,
+        "salary_millions": 42.2,
+        "isRookie": false,
+        "gamesPlayed": 77,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Zion Williamson",
+        "position": "PF",
+        "team": "TBD",
+        "age": 26,
+        "bpm": 4.0,
+        "salary_millions": 39.4,
+        "isRookie": false,
+        "gamesPlayed": 56,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Aaron Gordon",
+        "position": "PF",
+        "team": "TBD",
+        "age": 31,
+        "bpm": 2.5,
+        "salary_millions": 23.8,
+        "isRookie": false,
+        "gamesPlayed": 80,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Kyle Kuzma",
+        "position": "PF",
+        "team": "TBD",
+        "age": 31,
+        "bpm": 1.2,
+        "salary_millions": 21.5,
+        "isRookie": false,
+        "gamesPlayed": 55,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Jonathan Kuminga",
+        "position": "PF",
+        "team": "TBD",
+        "age": 23,
+        "bpm": 1.8,
+        "salary_millions": 7.6,
+        "isRookie": false,
+        "gamesPlayed": 53,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Jabari Smith Jr.",
+        "position": "PF",
+        "team": "TBD",
+        "age": 23,
+        "bpm": 1.1,
+        "salary_millions": 12.7,
+        "isRookie": false,
+        "gamesPlayed": 67,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Keegan Murray",
+        "position": "PF",
+        "team": "TBD",
+        "age": 26,
+        "bpm": 1.4,
+        "salary_millions": 8.8,
+        "isRookie": false,
+        "gamesPlayed": 58,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Bobby Portis",
+        "position": "PF",
+        "team": "TBD",
+        "age": 31,
+        "bpm": 1.3,
+        "salary_millions": 12.6,
+        "isRookie": false,
+        "gamesPlayed": 60,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Jarace Walker",
+        "position": "PF",
+        "team": "TBD",
+        "age": 22,
+        "bpm": 0.3,
+        "salary_millions": 6.0,
+        "isRookie": false,
+        "gamesPlayed": 73,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Matas Buzelis",
+        "position": "PF",
+        "team": "TBD",
+        "age": 21,
+        "bpm": 0.1,
+        "salary_millions": 5.1,
+        "isRookie": true,
+        "gamesPlayed": 52,
+        "teamGamesPlayed": 78
+      }
+    ]
+  },
+  "C": {
+    "options": [
+      {
+        "player": {
+          "name": "Bam Adebayo",
+          "position": "C",
+          "team": "TBD",
+          "age": 29,
+          "bpm": 4.5,
+          "salary_millions": 34.8,
+          "isRookie": false,
+          "gamesPlayed": 65,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "Kristaps Porzingis",
+            "position": "C",
+            "team": "TBD",
+            "age": 31,
+            "bpm": 3.7,
+            "salary_millions": 30.7,
+            "isRookie": false,
+            "gamesPlayed": 70,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Rudy Gobert",
+            "position": "C",
+            "team": "TBD",
+            "age": 34,
+            "bpm": 2.9,
+            "salary_millions": 35.0,
+            "isRookie": false,
+            "gamesPlayed": 69,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Jarrett Allen",
+            "position": "C",
+            "team": "TBD",
+            "age": 28,
+            "bpm": 2.8,
+            "salary_millions": 20.0,
+            "isRookie": false,
+            "gamesPlayed": 70,
+            "teamGamesPlayed": null
+          }
+        ]
+      },
+      {
+        "player": {
+          "name": "Domantas Sabonis",
+          "position": "C",
+          "team": "TBD",
+          "age": 30,
+          "bpm": 4.4,
+          "salary_millions": 43.6,
+          "isRookie": false,
+          "gamesPlayed": 68,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "Kristaps Porzingis",
+            "position": "C",
+            "team": "TBD",
+            "age": 31,
+            "bpm": 3.7,
+            "salary_millions": 30.7,
+            "isRookie": false,
+            "gamesPlayed": 70,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Rudy Gobert",
+            "position": "C",
+            "team": "TBD",
+            "age": 34,
+            "bpm": 2.9,
+            "salary_millions": 35.0,
+            "isRookie": false,
+            "gamesPlayed": 69,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Jarrett Allen",
+            "position": "C",
+            "team": "TBD",
+            "age": 28,
+            "bpm": 2.8,
+            "salary_millions": 20.0,
+            "isRookie": false,
+            "gamesPlayed": 70,
+            "teamGamesPlayed": null
+          }
+        ]
+      },
+      {
+        "player": {
+          "name": "Karl-Anthony Towns",
+          "position": "C",
+          "team": "TBD",
+          "age": 31,
+          "bpm": 4.2,
+          "salary_millions": 53.1,
+          "isRookie": false,
+          "gamesPlayed": 78,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "Kristaps Porzingis",
+            "position": "C",
+            "team": "TBD",
+            "age": 31,
+            "bpm": 3.7,
+            "salary_millions": 30.7,
+            "isRookie": false,
+            "gamesPlayed": 70,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Rudy Gobert",
+            "position": "C",
+            "team": "TBD",
+            "age": 34,
+            "bpm": 2.9,
+            "salary_millions": 35.0,
+            "isRookie": false,
+            "gamesPlayed": 69,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Jarrett Allen",
+            "position": "C",
+            "team": "TBD",
+            "age": 28,
+            "bpm": 2.8,
+            "salary_millions": 20.0,
+            "isRookie": false,
+            "gamesPlayed": 70,
+            "teamGamesPlayed": null
+          }
+        ]
+      },
+      {
+        "player": {
+          "name": "Victor Wembanyama",
+          "position": "C",
+          "team": "TBD",
+          "age": 22,
+          "bpm": 6.8,
+          "salary_millions": 16.9,
+          "isRookie": false,
+          "gamesPlayed": 79,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "Joel Embiid",
+            "position": "C",
+            "team": "TBD",
+            "age": 32,
+            "bpm": 7.0,
+            "salary_millions": 51.4,
+            "isRookie": false,
+            "gamesPlayed": 72,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Anthony Davis",
+            "position": "C",
+            "team": "TBD",
+            "age": 33,
+            "bpm": 6.5,
+            "salary_millions": 57.6,
+            "isRookie": false,
+            "gamesPlayed": 61,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Kristaps Porzingis",
+            "position": "C",
+            "team": "TBD",
+            "age": 31,
+            "bpm": 3.7,
+            "salary_millions": 30.7,
+            "isRookie": false,
+            "gamesPlayed": 70,
+            "teamGamesPlayed": null
+          }
+        ]
+      },
+      {
+        "player": {
+          "name": "Alperen Sengun",
+          "position": "C",
+          "team": "TBD",
+          "age": 24,
+          "bpm": 4.0,
+          "salary_millions": 33.9,
+          "isRookie": false,
+          "gamesPlayed": 64,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "Kristaps Porzingis",
+            "position": "C",
+            "team": "TBD",
+            "age": 31,
+            "bpm": 3.7,
+            "salary_millions": 30.7,
+            "isRookie": false,
+            "gamesPlayed": 70,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Rudy Gobert",
+            "position": "C",
+            "team": "TBD",
+            "age": 34,
+            "bpm": 2.9,
+            "salary_millions": 35.0,
+            "isRookie": false,
+            "gamesPlayed": 69,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Jarrett Allen",
+            "position": "C",
+            "team": "TBD",
+            "age": 28,
+            "bpm": 2.8,
+            "salary_millions": 20.0,
+            "isRookie": false,
+            "gamesPlayed": 70,
+            "teamGamesPlayed": null
+          }
+        ]
+      },
+      {
+        "player": {
+          "name": "Myles Turner",
+          "position": "C",
+          "team": "TBD",
+          "age": 30,
+          "bpm": 3.0,
+          "salary_millions": 20.9,
+          "isRookie": false,
+          "gamesPlayed": 63,
+          "teamGamesPlayed": null
+        },
+        "trades": [
+          {
+            "name": "Rudy Gobert",
+            "position": "C",
+            "team": "TBD",
+            "age": 34,
+            "bpm": 2.9,
+            "salary_millions": 35.0,
+            "isRookie": false,
+            "gamesPlayed": 69,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Jarrett Allen",
+            "position": "C",
+            "team": "TBD",
+            "age": 28,
+            "bpm": 2.8,
+            "salary_millions": 20.0,
+            "isRookie": false,
+            "gamesPlayed": 70,
+            "teamGamesPlayed": null
+          },
+          {
+            "name": "Kristaps Porzingis",
+            "position": "C",
+            "team": "TBD",
+            "age": 31,
+            "bpm": 3.7,
+            "salary_millions": 30.7,
+            "isRookie": false,
+            "gamesPlayed": 70,
+            "teamGamesPlayed": null
+          }
+        ]
+      }
+    ],
+    "tradeCandidatePool": [
+      {
+        "name": "Nikola Jokic",
+        "position": "C",
+        "team": "TBD",
+        "age": 31,
+        "bpm": 10.8,
+        "salary_millions": 55.2,
+        "isRookie": false,
+        "gamesPlayed": 76,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Joel Embiid",
+        "position": "C",
+        "team": "TBD",
+        "age": 32,
+        "bpm": 7.0,
+        "salary_millions": 51.4,
+        "isRookie": false,
+        "gamesPlayed": 72,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Anthony Davis",
+        "position": "C",
+        "team": "TBD",
+        "age": 33,
+        "bpm": 6.5,
+        "salary_millions": 57.6,
+        "isRookie": false,
+        "gamesPlayed": 61,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Kristaps Porzingis",
+        "position": "C",
+        "team": "TBD",
+        "age": 31,
+        "bpm": 3.7,
+        "salary_millions": 30.7,
+        "isRookie": false,
+        "gamesPlayed": 70,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Rudy Gobert",
+        "position": "C",
+        "team": "TBD",
+        "age": 34,
+        "bpm": 2.9,
+        "salary_millions": 35.0,
+        "isRookie": false,
+        "gamesPlayed": 69,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Jarrett Allen",
+        "position": "C",
+        "team": "TBD",
+        "age": 28,
+        "bpm": 2.8,
+        "salary_millions": 20.0,
+        "isRookie": false,
+        "gamesPlayed": 70,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Naz Reid",
+        "position": "C",
+        "team": "TBD",
+        "age": 27,
+        "bpm": 2.2,
+        "salary_millions": 13.9,
+        "isRookie": false,
+        "gamesPlayed": 65,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Nic Claxton",
+        "position": "C",
+        "team": "TBD",
+        "age": 27,
+        "bpm": 1.8,
+        "salary_millions": 27.0,
+        "isRookie": false,
+        "gamesPlayed": 70,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Brook Lopez",
+        "position": "C",
+        "team": "TBD",
+        "age": 38,
+        "bpm": 1.5,
+        "salary_millions": 24.0,
+        "isRookie": false,
+        "gamesPlayed": 59,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Nikola Vucevic",
+        "position": "C",
+        "team": "TBD",
+        "age": 35,
+        "bpm": 1.1,
+        "salary_millions": 21.5,
+        "isRookie": false,
+        "gamesPlayed": 80,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Dereck Lively II",
+        "position": "C",
+        "team": "TBD",
+        "age": 22,
+        "bpm": 1.0,
+        "salary_millions": 5.0,
+        "isRookie": false,
+        "gamesPlayed": 62,
+        "teamGamesPlayed": null
+      },
+      {
+        "name": "Donovan Clingan",
+        "position": "C",
+        "team": "TBD",
+        "age": 22,
+        "bpm": 0.4,
+        "salary_millions": 6.2,
+        "isRookie": true,
+        "gamesPlayed": 68,
+        "teamGamesPlayed": 78
+      }
+    ]
+  }
+}
