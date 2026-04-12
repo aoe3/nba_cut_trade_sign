@@ -3452,6 +3452,36 @@ h1 {
   }
 }
 
+.stack-battle__lane-cell--offer-jackpot {
+  border-color: rgba(255, 215, 0, 0.92);
+  box-shadow:
+    0 0 0 2px rgba(255, 215, 0, 0.22),
+    0 0 18px rgba(255, 215, 0, 0.16);
+}
+
+.stack-battle__lane-cell--offer-jackpot:hover {
+  border-color: rgba(255, 221, 87, 1);
+  box-shadow:
+    0 0 0 2px rgba(255, 215, 0, 0.28),
+    0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+.stack-battle__lane-cell--offer-jackpot.stack-battle__lane-cell--offer-selected {
+  border-color: rgba(255, 221, 87, 1);
+  box-shadow:
+    0 0 0 2px rgba(255, 215, 0, 0.34),
+    0 0 22px rgba(255, 215, 0, 0.22);
+}
+
+.stack-player--jackpot::after {
+  content: "★";
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  font-size: 12px;
+  color: #f5c542;
+}
+
 @media (max-width: 1080px) {
   .stack-battle__slot-top {
     grid-template-columns: 1fr !important;

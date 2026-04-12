@@ -412,6 +412,12 @@ def main() -> None:
     if output_csv_path:
         print(f"CSV:  {output_csv_path}")
 
+def first_present(row: Dict[str, Any], keys: Sequence[str]) -> Optional[str]:
+    for key in keys:
+        value = row.get(key)
+        if value not in (None, ""):
+            return str(value)
+    return None
 
 def looks_like_season(value: str) -> bool:
     return bool(re.fullmatch(r"\d{4}-\d{2}", value))
@@ -671,15 +677,57 @@ def fetch_basketball_reference_per_game(season: str) -> Dict[str, Dict[str, Any]
     html = fetch_html(url)
     soup = load_br_soup(html)
 
-    table = find_br_stats_table(
-        soup,
-        required_data_stats={"player", "team_id", "g", "pts", "trb", "ast", "stl", "blk", "fg", "fga"},
+    # Try the most likely table IDs first.
+    table = (
+        soup.select_one("table#per_game_stats")
+        or soup.select_one("table#per_game")
+        or soup.select_one("table#players_per_game")
     )
+
+    # Fall back to a looser scan if IDs don't hit.
+    if table is None:
+        for candidate in soup.select("table"):
+            data_stats = {
+                el.get("data-stat")
+                for el in candidate.select("[data-stat]")
+                if el.get("data-stat")
+            }
+
+            has_core = {"player", "g"}.issubset(data_stats)
+            has_team = "team_id" in data_stats or "team_name_abbr" in data_stats
+            has_points = "pts_per_g" in data_stats or "pts" in data_stats
+            has_fg = "fg_per_g" in data_stats or "fg" in data_stats
+
+            if has_core and has_team and has_points and has_fg:
+                table = candidate
+                break
+
     if table is None:
         with open("br_per_game_debug.html", "w", encoding="utf-8") as f:
             f.write(html)
+
+        debug_tables: List[Dict[str, Any]] = []
+        for candidate in soup.select("table"):
+            debug_tables.append(
+                {
+                    "id": candidate.get("id"),
+                    "class": candidate.get("class"),
+                    "sample_data_stats": sorted(
+                        {
+                            el.get("data-stat")
+                            for el in candidate.select("[data-stat]")
+                            if el.get("data-stat")
+                        }
+                    )[:80],
+                }
+            )
+
+        with open("br_per_game_tables_debug.json", "w", encoding="utf-8") as f:
+            json.dump(debug_tables, f, indent=2)
+
         raise RuntimeError(
-            "Could not find Basketball Reference per-game table. Saved raw HTML to br_per_game_debug.html"
+            "Could not find Basketball Reference per-game table. "
+            "Saved raw HTML to br_per_game_debug.html and table metadata to br_per_game_tables_debug.json"
         )
 
     parsed_rows = parse_bbr_player_rows_from_table(table)
@@ -710,20 +758,44 @@ def fetch_basketball_reference_per_game(season: str) -> Dict[str, Dict[str, Any]
             "displayTeam": display_team,
             "statsRow": {
                 "gamesPlayed": games_played,
-                "position": normalize_position(stats_row_raw.get("pos")),
-                "age": safe_int(stats_row_raw.get("age")),
-                "ppg": round_or_none(safe_float(stats_row_raw.get("pts")), 1),
-                "rpg": round_or_none(safe_float(stats_row_raw.get("trb")), 1),
-                "apg": round_or_none(safe_float(stats_row_raw.get("ast")), 1),
-                "spg": round_or_none(safe_float(stats_row_raw.get("stl")), 1),
-                "bpg": round_or_none(safe_float(stats_row_raw.get("blk")), 1),
-                "fgm": round_or_none(safe_float(stats_row_raw.get("fg")), 1),
-                "fga": round_or_none(safe_float(stats_row_raw.get("fga")), 1),
-                "threePm": round_or_none(safe_float(stats_row_raw.get("fg3")), 1),
-                "threePa": round_or_none(safe_float(stats_row_raw.get("fg3a")), 1),
-                "fgPct": round_or_none(safe_float(stats_row_raw.get("fg_pct")), 4),
-                "threePct": round_or_none(safe_float(stats_row_raw.get("fg3_pct")), 4),
-                "ftPct": round_or_none(safe_float(stats_row_raw.get("ft_pct")), 4),
+                "position": normalize_position(first_present(stats_row_raw, ["pos"])),
+                "age": safe_int(first_present(stats_row_raw, ["age"])),
+                "ppg": round_or_none(
+                    safe_float(first_present(stats_row_raw, ["pts_per_g", "pts"])), 1
+                ),
+                "rpg": round_or_none(
+                    safe_float(first_present(stats_row_raw, ["trb_per_g", "trb"])), 1
+                ),
+                "apg": round_or_none(
+                    safe_float(first_present(stats_row_raw, ["ast_per_g", "ast"])), 1
+                ),
+                "spg": round_or_none(
+                    safe_float(first_present(stats_row_raw, ["stl_per_g", "stl"])), 1
+                ),
+                "bpg": round_or_none(
+                    safe_float(first_present(stats_row_raw, ["blk_per_g", "blk"])), 1
+                ),
+                "fgm": round_or_none(
+                    safe_float(first_present(stats_row_raw, ["fg_per_g", "fg"])), 1
+                ),
+                "fga": round_or_none(
+                    safe_float(first_present(stats_row_raw, ["fga_per_g", "fga"])), 1
+                ),
+                "threePm": round_or_none(
+                    safe_float(first_present(stats_row_raw, ["fg3_per_g", "fg3"])), 1
+                ),
+                "threePa": round_or_none(
+                    safe_float(first_present(stats_row_raw, ["fg3a_per_g", "fg3a"])), 1
+                ),
+                "fgPct": round_or_none(
+                    safe_float(first_present(stats_row_raw, ["fg_pct"])), 4
+                ),
+                "threePct": round_or_none(
+                    safe_float(first_present(stats_row_raw, ["fg3_pct"])), 4
+                ),
+                "ftPct": round_or_none(
+                    safe_float(first_present(stats_row_raw, ["ft_pct"])), 4
+                ),
             },
         }
 
@@ -736,18 +808,55 @@ def fetch_basketball_reference_advanced(season: str) -> Dict[str, Dict[str, Dict
     html = fetch_html(url)
     soup = load_br_soup(html)
 
-    table = find_br_stats_table(
-        soup,
-        required_data_stats={"player", "team_id", "pos", "age", "per", "ws_per_48", "bpm", "usg_pct", "mp"},
+    # Try known table IDs first
+    table = (
+        soup.select_one("table#advanced_stats")
+        or soup.select_one("table#advanced")
     )
+
+    # Fallback: looser detection
+    if table is None:
+        for candidate in soup.select("table"):
+            data_stats = {
+                el.get("data-stat")
+                for el in candidate.select("[data-stat]")
+                if el.get("data-stat")
+            }
+
+            has_core = {"player", "team_id"}.issubset(data_stats)
+            has_metrics = {"per", "bpm", "usg_pct", "mp"}.issubset(data_stats)
+
+            if has_core and has_metrics:
+                table = candidate
+                break
+
+    # If still nothing → dump debug
     if table is None:
         with open("br_advanced_debug.html", "w", encoding="utf-8") as f:
             f.write(html)
+
+        debug_tables = []
+        for candidate in soup.select("table"):
+            debug_tables.append({
+                "id": candidate.get("id"),
+                "class": candidate.get("class"),
+                "sample_data_stats": sorted({
+                    el.get("data-stat")
+                    for el in candidate.select("[data-stat]")
+                    if el.get("data-stat")
+                })[:50],
+            })
+
+        with open("br_advanced_tables_debug.json", "w", encoding="utf-8") as f:
+            json.dump(debug_tables, f, indent=2)
+
         raise RuntimeError(
-            "Could not find Basketball Reference advanced stats table. Saved raw HTML to br_advanced_debug.html"
+            "Could not find Basketball Reference advanced stats table. "
+            "Saved raw HTML to br_advanced_debug.html and table metadata to br_advanced_tables_debug.json"
         )
 
     parsed_rows = parse_bbr_player_rows_from_table(table)
+
     result: Dict[str, Dict[str, Dict[str, Any]]] = {}
 
     for row in parsed_rows:
@@ -766,6 +875,7 @@ def fetch_basketball_reference_advanced(season: str) -> Dict[str, Dict[str, Dict
 
         bucket = result.setdefault(normalized_player, {})
         bucket[team] = row_data
+
         if "__fallback__" not in bucket:
             bucket["__fallback__"] = row_data
 

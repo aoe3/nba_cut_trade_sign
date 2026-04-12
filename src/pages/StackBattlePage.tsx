@@ -188,20 +188,13 @@ function getCurrentOption(
   return pool.options[pool.currentIndex] ?? null;
 }
 
-function getValidTradeTargets(
-  game: StackBattleGame,
-  slot: BattleSlot,
-): StackBattlePlayer[] {
-  const pool = game.pools[slot];
+function getValidTradeTargets(game: StackBattleGame, slot: BattleSlot) {
   const currentOption = getCurrentOption(game, slot);
   if (!currentOption) {
     return [];
   }
 
-  return pool.options
-    .map((option) => option.player)
-    .filter((player) => player.id !== currentOption.player.id)
-    .slice(0, 3);
+  return currentOption.tradeTargets ?? [];
 }
 
 function getAvailableCutSlots(game: StackBattleGame): BattleSlot[] {
@@ -488,7 +481,7 @@ function StackCards({
                 selectedTradeTargetId === target.id
                   ? " stack-battle__lane-cell--offer-selected"
                   : ""
-              }`}
+              }${target.isJackpot ? " stack-battle__lane-cell--offer-jackpot" : ""}`}
               onClick={() => onSelectTradeTarget(lane, target.id)}
             >
               <div className="stack-battle__offer-headshot-wrap">
