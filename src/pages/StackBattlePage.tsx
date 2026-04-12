@@ -593,18 +593,20 @@ function RosterColumn({
                     </div>
                   </div>
 
-                  <div className="stack-battle__slot-bottom stack-battle__slot-bottom--inline">
-                    <div className="stack-battle__slot-left">
-                      <div className="stack-battle__slot-player">
-                        {signed.player.name}
+                  <div className="stack-battle__slot-bottom">
+                    <div className="stack-battle__slot-bottom-grid">
+                      <div className="stack-battle__slot-left">
+                        <div className="stack-battle__slot-player">
+                          {signed.player.name}
+                        </div>
+                        <div className="stack-battle__slot-meta">
+                          {signed.player.position} · {signed.player.team}
+                        </div>
                       </div>
-                      <div className="stack-battle__slot-meta">
-                        {signed.player.position} · {signed.player.team}
-                      </div>
-                    </div>
 
-                    <div className="stack-battle__slot-score">
-                      Score: {signed.score.toFixed(1)}
+                      <div className="stack-battle__slot-score">
+                        Score: {signed.score.toFixed(1)}
+                      </div>
                     </div>
                   </div>
                 </div>
