@@ -15,24 +15,36 @@ type BattleSlot = "G" | "F" | "C";
 const BATTLE_SLOTS: BattleSlot[] = ["G", "F", "C"];
 
 function StackCards({ lane }: { lane: BattleSlot }) {
-  const placeholders = useMemo(() => Array.from({ length: 12 }, (_, index) => index + 1), []);
+  const placeholders = useMemo(
+    () => Array.from({ length: 12 }, (_, index) => index + 1),
+    [],
+  );
 
   return (
     <div className="stack-battle__stack-shell">
       <div className="stack-battle__stack-header">
         <div>
-          <div className="stack-battle__stack-eyebrow">Contested Stack</div>
-          <div className="stack-battle__stack-title">{lane} Pool</div>
+          <div className="stack-battle__stack-title">
+            {lane === "G" ? "Guard" : lane === "F" ? "Forward" : "Center"} Pool
+          </div>
         </div>
 
         <div className="stack-battle__stack-meta">12 deep</div>
       </div>
 
-      <div className="stack-battle__stack-hand" aria-label={`${lane} stack placeholder`}>
+      <div
+        className="stack-battle__stack-hand"
+        aria-label={`${lane} stack placeholder`}
+      >
         {placeholders.map((value) => (
           <div key={`${lane}-${value}`} className="stack-battle__stack-card">
-            <div className="stack-battle__stack-card-rank">{String(value).padStart(2, "0")}</div>
-            <div className="stack-battle__stack-card-headshot" aria-hidden="true" />
+            <div className="stack-battle__stack-card-rank">
+              {String(value).padStart(2, "0")}
+            </div>
+            <div
+              className="stack-battle__stack-card-headshot"
+              aria-hidden="true"
+            />
             <div className="stack-battle__stack-card-name">Player {value}</div>
             <div className="stack-battle__stack-card-meta">{lane} · TEAM</div>
           </div>
@@ -54,11 +66,19 @@ function StackCards({ lane }: { lane: BattleSlot }) {
   );
 }
 
-function EmptyRosterColumn({ title, side }: { title: string; side: "user" | "cpu" }) {
+function EmptyRosterColumn({
+  title,
+  side,
+}: {
+  title: string;
+  side: "user" | "cpu";
+}) {
   return (
     <section className={`stack-battle__roster stack-battle__roster--${side}`}>
       <div className="stack-battle__column-header">
-        <div className="stack-battle__column-eyebrow">{side === "user" ? "Your Side" : "CPU Side"}</div>
+        <div className="stack-battle__column-eyebrow">
+          {side === "user" ? "Your Side" : "CPU Side"}
+        </div>
         <h2 className="stack-battle__column-title">{title}</h2>
       </div>
 
@@ -67,7 +87,9 @@ function EmptyRosterColumn({ title, side }: { title: string; side: "user" | "cpu
           <div key={`${side}-${slot}`} className="stack-battle__slot-card">
             <div className="stack-battle__slot-badge">{slot}</div>
             <div className="stack-battle__slot-title">Empty slot</div>
-            <div className="stack-battle__slot-copy">Future signed player lands here</div>
+            <div className="stack-battle__slot-copy">
+              Future signed player lands here
+            </div>
           </div>
         ))}
       </div>
@@ -75,7 +97,10 @@ function EmptyRosterColumn({ title, side }: { title: string; side: "user" | "cpu
   );
 }
 
-export function StackBattlePage({ activeMode, onChangeMode }: StackBattlePageProps) {
+export function StackBattlePage({
+  activeMode,
+  onChangeMode,
+}: StackBattlePageProps) {
   const [isHowToOpen, setIsHowToOpen] = useState(false);
 
   return (
@@ -93,7 +118,10 @@ export function StackBattlePage({ activeMode, onChangeMode }: StackBattlePagePro
 
           <div className="topbar__center">
             <div className="topbar__control-strip">
-              <ModeDropdown activeMode={activeMode} onChangeMode={onChangeMode} />
+              <ModeDropdown
+                activeMode={activeMode}
+                onChangeMode={onChangeMode}
+              />
 
               <div className="topbar__divider" aria-hidden="true" />
 
@@ -129,8 +157,7 @@ export function StackBattlePage({ activeMode, onChangeMode }: StackBattlePagePro
 
           <section className="stack-battle__center">
             <div className="stack-battle__column-header stack-battle__column-header--center">
-              <div className="stack-battle__column-eyebrow">Shared Board</div>
-              <h2 className="stack-battle__column-title">Contested Stacks</h2>
+              <h2 className="stack-battle__column-title"></h2>
             </div>
 
             <div className="stack-battle__lanes">
@@ -146,24 +173,33 @@ export function StackBattlePage({ activeMode, onChangeMode }: StackBattlePagePro
         <section className="stack-battle__footer">
           <div className="stack-battle__footer-card">
             <div className="stack-battle__footer-label">Turn Order</div>
-            <div className="stack-battle__footer-value">Coin flip decides opening control</div>
+            <div className="stack-battle__footer-value">
+              Coin flip decides opening control
+            </div>
           </div>
 
           <div className="stack-battle__footer-card stack-battle__footer-card--wide">
             <div className="stack-battle__footer-label">Mode Shape</div>
             <div className="stack-battle__footer-value">
-              Three contested pools: G, F, C. Each stack is twelve deep. Both sides spend five moves on cuts and trades, then close empty slots with free signs.
+              Three contested pools: G, F, C. Each stack is twelve deep. Both
+              sides spend five moves on cuts and trades, then close empty slots
+              with free signs.
             </div>
           </div>
 
           <div className="stack-battle__footer-card">
             <div className="stack-battle__footer-label">Current Goal</div>
-            <div className="stack-battle__footer-value">Layout only for inspection</div>
+            <div className="stack-battle__footer-value">
+              Layout only for inspection
+            </div>
           </div>
         </section>
       </div>
 
-      <HowToPlayModal isOpen={isHowToOpen} onClose={() => setIsHowToOpen(false)} />
+      <HowToPlayModal
+        isOpen={isHowToOpen}
+        onClose={() => setIsHowToOpen(false)}
+      />
     </div>
   );
 }
