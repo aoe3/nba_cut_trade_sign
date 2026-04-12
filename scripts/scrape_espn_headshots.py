@@ -302,16 +302,50 @@ def fetch_espn_team_list(session: requests.Session) -> List[Dict[str, Any]]:
 
 
 def fetch_espn_roster_athletes_for_team(session: requests.Session, team_id: str) -> List[Dict[str, Any]]:
-    # Public site API roster endpoint used by ESPN's site.
     url = f"{ESPN_SITE_BASE}/teams/{team_id}/roster"
     data = request_json(session, url, params={"lang": "en", "region": "us"})
 
     athletes: List[Dict[str, Any]] = []
-    for section in data.get("athletes") or []:
-        items = section.get("items") or []
-        for athlete in items:
-            if athlete:
-                athletes.append(athlete)
+
+    raw_athletes = data.get("athletes")
+
+    if isinstance(raw_athletes, list):
+        for entry in raw_athletes:
+            if not isinstance(entry, dict):
+                continue
+
+            # Case 1: section-style wrapper with "items"
+            items = entry.get("items")
+            if isinstance(items, list):
+                for athlete in items:
+                    if isinstance(athlete, dict):
+                        athletes.append(athlete)
+                continue
+
+            # Case 2: athlete object directly in the list
+            if entry.get("id") and (
+                entry.get("displayName") or entry.get("fullName") or entry.get("shortName")
+            ):
+                athletes.append(entry)
+
+    elif isinstance(raw_athletes, dict):
+        # Case 3: athletes is a dict with nested groups
+        for value in raw_athletes.values():
+            if isinstance(value, list):
+                for entry in value:
+                    if not isinstance(entry, dict):
+                        continue
+
+                    items = entry.get("items")
+                    if isinstance(items, list):
+                        for athlete in items:
+                            if isinstance(athlete, dict):
+                                athletes.append(athlete)
+                    elif entry.get("id") and (
+                        entry.get("displayName") or entry.get("fullName") or entry.get("shortName")
+                    ):
+                        athletes.append(entry)
+
     return athletes
 
 
@@ -332,6 +366,8 @@ def fetch_espn_athlete_index(session: requests.Session, verbose: bool = False) -
             print(f"Fetching roster for {team_name} ({team_id})...")
 
         athletes = fetch_espn_roster_athletes_for_team(session, team_id)
+        if verbose:
+            print(f"  -> got {len(athletes)} athletes")
         total_athletes += len(athletes)
 
         for athlete in athletes:
@@ -375,6 +411,13 @@ def fetch_espn_athlete_index(session: requests.Session, verbose: bool = False) -
 
         time.sleep(DEFAULT_SLEEP_BETWEEN_REQUESTS_SECONDS)
 
+    if verbose and by_normalized_name:
+        print("Sample indexed ESPN names:")
+        for i, (name, entry) in enumerate(by_normalized_name.items()):
+            print(f"  - {name} -> {entry['espnId']} ({entry['espnName']})")
+            if i >= 9:
+                break
+            
     print(
         f"Indexed {len(by_normalized_name)} unique ESPN athlete names from {total_athletes} roster entries."
     )

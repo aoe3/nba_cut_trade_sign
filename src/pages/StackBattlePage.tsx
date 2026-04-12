@@ -226,7 +226,10 @@ function removePlayersFromPool(
       [slot]: {
         ...pool,
         options: nextOptions,
-        currentIndex: nextOptions.length === 0 ? 0 : Math.min(pool.currentIndex, nextOptions.length - 1),
+        currentIndex:
+          nextOptions.length === 0
+            ? 0
+            : Math.min(pool.currentIndex, nextOptions.length - 1),
       },
     },
   };
@@ -248,7 +251,10 @@ function isLineupComplete(lineup: StackBattleLineup): boolean {
 
 function scoreLineup(lineup: StackBattleLineup): number {
   return Number(
-    BATTLE_SLOTS.reduce((sum, slot) => sum + (lineup[slot]?.score ?? 0), 0).toFixed(1),
+    BATTLE_SLOTS.reduce(
+      (sum, slot) => sum + (lineup[slot]?.score ?? 0),
+      0,
+    ).toFixed(1),
   );
 }
 
@@ -317,6 +323,19 @@ function getRightScoreText(session: StackBattleSession): string {
   return scoreLineup(session.cpuLineup).toFixed(1);
 }
 
+function getRosterStats(
+  player: StackBattlePlayer,
+): Array<{ label: string; value: string }> {
+  return [
+    { label: "PPG", value: player.ppg.toFixed(1) },
+    { label: "RPG", value: player.rpg.toFixed(1) },
+    { label: "APG", value: player.apg.toFixed(1) },
+    { label: "SPG", value: player.spg.toFixed(1) },
+    { label: "BPG", value: player.bpg.toFixed(1) },
+    { label: "FG%", value: `${(player.fgPct * 100).toFixed(1)}%` },
+  ];
+}
+
 function StackCards({
   lane,
   game,
@@ -363,12 +382,11 @@ function StackCards({
   const remainingCount = game.pools[lane].options.length;
   const validTradeTargets = getValidTradeTargets(game, lane);
   const canTrade =
-    !isTradeDisabled &&
-    !isTradeLocked &&
-    validTradeTargets.length > 0;
+    !isTradeDisabled && !isTradeLocked && validTradeTargets.length > 0;
   const canCut = !isCutDisabled && !isTradeLocked && remainingCount > 0;
   const selectedTradeTarget =
-    validTradeTargets.find((target) => target.id === selectedTradeTargetId) ?? null;
+    validTradeTargets.find((target) => target.id === selectedTradeTargetId) ??
+    null;
 
   return (
     <div className="stack-battle__stack-shell">
@@ -392,7 +410,9 @@ function StackCards({
               )}
             </div>
             <div className="stack-battle__lane-info">
-              <div className="stack-battle__lane-name">{currentOption.player.name}</div>
+              <div className="stack-battle__lane-name">
+                {currentOption.player.name}
+              </div>
               <div className="stack-battle__lane-meta">
                 {currentOption.player.position} · {currentOption.player.team}
               </div>
@@ -451,7 +471,9 @@ function StackCards({
               )}
             </div>
             <div className="stack-battle__lane-info">
-              <div className="stack-battle__lane-name">{currentOption.player.name}</div>
+              <div className="stack-battle__lane-name">
+                {currentOption.player.name}
+              </div>
               <div className="stack-battle__lane-meta">
                 {currentOption.player.position} · {currentOption.player.team}
               </div>
@@ -477,7 +499,10 @@ function StackCards({
                     className="stack-battle__offer-headshot"
                   />
                 ) : (
-                  <div className="stack-battle__offer-headshot" aria-hidden="true" />
+                  <div
+                    className="stack-battle__offer-headshot"
+                    aria-hidden="true"
+                  />
                 )}
               </div>
               <div className="stack-battle__offer-name">{target.name}</div>
@@ -534,23 +559,50 @@ function RosterColumn({
               ) : null}
 
               {signed ? (
-                <div className="stack-battle__slot-filled">
-                  {signed.player.headshotUrl ? (
-                    <img
-                      src={signed.player.headshotUrl}
-                      alt={`${signed.player.name} headshot`}
-                      className="stack-battle__slot-headshot"
-                    />
-                  ) : (
-                    <div className="stack-battle__slot-headshot" aria-hidden="true" />
-                  )}
-                  <div className="stack-battle__slot-info">
-                    <div className="stack-battle__slot-player">
-                      {signed.player.name}
+                <div className="stack-battle__slot-filled stack-battle__slot-filled--detailed">
+                  <div className="stack-battle__slot-top">
+                    <div className="stack-battle__slot-headshot-shell">
+                      {signed.player.headshotUrl ? (
+                        <img
+                          src={signed.player.headshotUrl}
+                          alt={`${signed.player.name} headshot`}
+                          className="stack-battle__slot-headshot"
+                        />
+                      ) : (
+                        <div
+                          className="stack-battle__slot-headshot"
+                          aria-hidden="true"
+                        />
+                      )}
                     </div>
-                    <div className="stack-battle__slot-meta">
-                      {signed.player.position} · {signed.player.team}
+
+                    <div className="stack-battle__slot-stat-grid">
+                      {getRosterStats(signed.player).map((stat) => (
+                        <div
+                          key={`${side}-${slot}-${stat.label}`}
+                          className="stack-battle__slot-stat"
+                        >
+                          <div className="stack-battle__slot-stat-value">
+                            {stat.value}
+                          </div>
+                          <div className="stack-battle__slot-stat-label">
+                            {stat.label}
+                          </div>
+                        </div>
+                      ))}
                     </div>
+                  </div>
+
+                  <div className="stack-battle__slot-bottom stack-battle__slot-bottom--inline">
+                    <div className="stack-battle__slot-left">
+                      <div className="stack-battle__slot-player">
+                        {signed.player.name}
+                      </div>
+                      <div className="stack-battle__slot-meta">
+                        {signed.player.position} · {signed.player.team}
+                      </div>
+                    </div>
+
                     <div className="stack-battle__slot-score">
                       Score: {signed.score.toFixed(1)}
                     </div>
@@ -592,8 +644,12 @@ export function StackBattlePage({
   });
   const [isHowToOpen, setIsHowToOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [tradePickerSlot, setTradePickerSlot] = useState<BattleSlot | null>(null);
-  const [selectedTradeTargetId, setSelectedTradeTargetId] = useState<string | null>(null);
+  const [tradePickerSlot, setTradePickerSlot] = useState<BattleSlot | null>(
+    null,
+  );
+  const [selectedTradeTargetId, setSelectedTradeTargetId] = useState<
+    string | null
+  >(null);
 
   useEffect(() => {
     persistGame(game);
@@ -762,8 +818,9 @@ export function StackBattlePage({
       }
 
       const chosenTarget =
-        getValidTradeTargets(game, slot).find((target) => target.id === selectedTradeTargetId) ??
-        null;
+        getValidTradeTargets(game, slot).find(
+          (target) => target.id === selectedTradeTargetId,
+        ) ?? null;
       const currentOption = getCurrentOption(game, slot);
 
       if (!currentOption || !chosenTarget) {
@@ -781,7 +838,10 @@ export function StackBattlePage({
       setSession((currentSession) =>
         finalizeSession({
           ...currentSession,
-          userMovesRemaining: Math.max(0, currentSession.userMovesRemaining - 1),
+          userMovesRemaining: Math.max(
+            0,
+            currentSession.userMovesRemaining - 1,
+          ),
           userLineup: {
             ...currentSession.userLineup,
             [slot]: createSignedLineupSlot(chosenTarget),
@@ -926,7 +986,9 @@ export function StackBattlePage({
           const currentOption = getCurrentOption(game, emptyCpuSlot);
           if (currentOption) {
             setGame((currentGame) =>
-              removePlayersFromPool(currentGame, emptyCpuSlot, [currentOption.player.id]),
+              removePlayersFromPool(currentGame, emptyCpuSlot, [
+                currentOption.player.id,
+              ]),
             );
             setSession((currentSession) =>
               finalizeSession({
@@ -976,7 +1038,10 @@ export function StackBattlePage({
             setSession((currentSession) =>
               finalizeSession({
                 ...currentSession,
-                cpuMovesRemaining: Math.max(0, currentSession.cpuMovesRemaining - 1),
+                cpuMovesRemaining: Math.max(
+                  0,
+                  currentSession.cpuMovesRemaining - 1,
+                ),
                 cpuLineup: {
                   ...currentSession.cpuLineup,
                   [chosenSlot]: createSignedLineupSlot(chosenTarget),
@@ -1002,11 +1067,16 @@ export function StackBattlePage({
 
           if (currentOption) {
             setGame((currentGame) =>
-              removePlayersFromPool(currentGame, randomSlot, [currentOption.player.id]),
+              removePlayersFromPool(currentGame, randomSlot, [
+                currentOption.player.id,
+              ]),
             );
             setSession((currentSession) => ({
               ...currentSession,
-              cpuMovesRemaining: Math.max(0, currentSession.cpuMovesRemaining - 1),
+              cpuMovesRemaining: Math.max(
+                0,
+                currentSession.cpuMovesRemaining - 1,
+              ),
               activeTurn: "user",
               history: appendHistory(
                 currentSession.history,
@@ -1022,7 +1092,9 @@ export function StackBattlePage({
           const currentOption = getCurrentOption(game, emptyCpuSlot);
           if (currentOption) {
             setGame((currentGame) =>
-              removePlayersFromPool(currentGame, emptyCpuSlot, [currentOption.player.id]),
+              removePlayersFromPool(currentGame, emptyCpuSlot, [
+                currentOption.player.id,
+              ]),
             );
             setSession((currentSession) =>
               finalizeSession({

@@ -2950,3 +2950,338 @@ h1 {
   color: #c0c0c0;
   text-shadow: 0 0 6px rgba(192, 192, 192, 0.35);
 }
+
+
+/* Stack Battle side-card refactor */
+.stack-battle__slot-card--filled {
+  padding: 16px 18px;
+}
+
+.stack-battle__slot-filled--detailed {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  margin-top: 0;
+}
+
+.stack-battle__slot-top {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 14px;
+  align-items: stretch;
+  width: 100%;
+}
+
+.stack-battle__slot-headshot-shell {
+  width: 96px;
+  height: 96px;
+  border-radius: 24px;
+  border: 1px solid rgba(124, 143, 181, 0.22);
+  background: rgba(31, 39, 56, 0.78);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.stack-battle__slot-headshot {
+  width: 88px;
+  height: 88px;
+  border-radius: 20px;
+  object-fit: cover;
+  background: rgba(84, 108, 154, 0.18);
+  display: block;
+}
+
+.stack-battle__slot-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  min-width: 0;
+}
+
+.stack-battle__slot-stat {
+  min-height: 52px;
+  border-radius: 14px;
+  background: rgba(13, 19, 31, 0.82);
+  border: 1px solid rgba(124, 143, 181, 0.16);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 8px;
+  text-align: center;
+}
+
+.stack-battle__slot-stat-value {
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1.05;
+  color: #eef3ff;
+}
+
+.stack-battle__slot-stat-label {
+  margin-top: 3px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9aa7c0;
+  line-height: 1;
+}
+
+.stack-battle__slot-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stack-battle__slot-info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stack-battle__slot-player {
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.12;
+  color: #eef3ff;
+  word-break: break-word;
+}
+
+.stack-battle__slot-meta {
+  font-size: 0.8rem;
+  color: #9aa7c0;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.stack-battle__slot-score {
+  font-size: 0.98rem;
+  font-weight: 900;
+  color: #eef3ff;
+}
+
+@media (max-width: 1380px) {
+  .stack-battle__slot-top {
+    grid-template-columns: 84px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .stack-battle__slot-headshot-shell {
+    width: 84px;
+    height: 84px;
+  }
+
+  .stack-battle__slot-headshot {
+    width: 76px;
+    height: 76px;
+  }
+
+  .stack-battle__slot-stat {
+    min-height: 48px;
+  }
+
+  .stack-battle__slot-stat-value {
+    font-size: 0.84rem;
+  }
+
+  .stack-battle__slot-player {
+    font-size: 0.94rem;
+  }
+}
+
+@media (max-width: 1080px) {
+  .stack-battle__slot-top {
+    grid-template-columns: 1fr;
+  }
+
+  .stack-battle__slot-headshot-shell {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto;
+  }
+}
+
+
+/* Stack Battle compact side-card refactor */
+.stack-battle__slot-card--filled {
+  padding: 14px 16px;
+}
+
+.stack-battle__slot-filled--detailed {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin-top: 0;
+}
+
+.stack-battle__slot-top {
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr);
+  gap: 12px;
+  align-items: stretch;
+  width: 100%;
+}
+
+.stack-battle__slot-headshot-shell {
+  width: 84px;
+  height: 84px;
+  border-radius: 20px;
+  border: 1px solid rgba(124, 143, 181, 0.22);
+  background: rgba(31, 39, 56, 0.78);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.stack-battle__slot-headshot {
+  width: 76px;
+  height: 76px;
+  border-radius: 16px;
+  object-fit: cover;
+  background: rgba(84, 108, 154, 0.18);
+  display: block;
+}
+
+.stack-battle__slot-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  min-width: 0;
+  align-content: stretch;
+}
+
+.stack-battle__slot-stat {
+  min-height: 44px;
+  border-radius: 12px;
+  background: rgba(13, 19, 31, 0.82);
+  border: 1px solid rgba(124, 143, 181, 0.16);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 6px;
+  text-align: center;
+}
+
+.stack-battle__slot-stat-value {
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1.05;
+  color: #eef3ff;
+}
+
+.stack-battle__slot-stat-label {
+  margin-top: 2px;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9aa7c0;
+  line-height: 1;
+}
+
+.stack-battle__slot-bottom--inline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.stack-battle__slot-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.stack-battle__slot-player {
+  font-size: 0.94rem;
+  font-weight: 800;
+  line-height: 1.12;
+  color: #eef3ff;
+  word-break: break-word;
+}
+
+.stack-battle__slot-meta {
+  font-size: 0.76rem;
+  color: #9aa7c0;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.stack-battle__slot-score {
+  font-size: 0.92rem;
+  font-weight: 900;
+  color: #eef3ff;
+  white-space: nowrap;
+}
+
+@media (max-width: 1380px) {
+  .stack-battle__slot-top {
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .stack-battle__slot-headshot-shell {
+    width: 76px;
+    height: 76px;
+  }
+
+  .stack-battle__slot-headshot {
+    width: 68px;
+    height: 68px;
+  }
+
+  .stack-battle__slot-stat {
+    min-height: 40px;
+  }
+
+  .stack-battle__slot-stat-value {
+    font-size: 0.76rem;
+  }
+
+  .stack-battle__slot-player {
+    font-size: 0.88rem;
+  }
+
+  .stack-battle__slot-bottom--inline {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    align-items: start;
+  }
+}
+
+@media (max-width: 1080px) {
+  .stack-battle__slot-top {
+    grid-template-columns: 1fr;
+  }
+
+  .stack-battle__slot-headshot-shell {
+    width: 84px;
+    height: 84px;
+    margin: 0 auto;
+  }
+
+  .stack-battle__slot-stat-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .stack-battle__slot-bottom--inline {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    align-items: start;
+  }
+}
