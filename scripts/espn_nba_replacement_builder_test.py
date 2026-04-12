@@ -888,24 +888,64 @@ def fetch_basketball_reference_team_games_played(season: str) -> Dict[str, int]:
     html = fetch_html(url)
     soup = load_br_soup(html)
 
-    table = find_br_stats_table(
-        soup,
-        required_data_stats={"team_name_abbr", "g"},
+    table = (
+        soup.select_one("table#per_game-team")
+        or soup.select_one("table#advanced-team")
+        or soup.select_one("table#team-stats-per_game")
+        or soup.select_one("table#team-stats-base")
     )
+
+    if table is None:
+        for candidate in soup.select("table"):
+            data_stats = {
+                el.get("data-stat")
+                for el in candidate.select("[data-stat]")
+                if el.get("data-stat")
+            }
+
+            has_team = "team_name_abbr" in data_stats or "team" in data_stats
+            has_gp = "g" in data_stats
+
+            if has_team and has_gp:
+                table = candidate
+                break
+
     if table is None:
         with open("br_league_debug.html", "w", encoding="utf-8") as f:
             f.write(html)
+
+        debug_tables = []
+        for candidate in soup.select("table"):
+            debug_tables.append({
+                "id": candidate.get("id"),
+                "class": candidate.get("class"),
+                "sample_data_stats": sorted({
+                    el.get("data-stat")
+                    for el in candidate.select("[data-stat]")
+                    if el.get("data-stat")
+                })[:50],
+            })
+
+        with open("br_league_tables_debug.json", "w", encoding="utf-8") as f:
+            json.dump(debug_tables, f, indent=2)
+
         raise RuntimeError(
-            "Could not find Basketball Reference team table with GP. Saved raw HTML to br_league_debug.html"
+            "Could not find Basketball Reference team table with GP. "
+            "Saved raw HTML to br_league_debug.html and table metadata to br_league_tables_debug.json"
         )
 
     result: Dict[str, int] = {}
+
     for tr in table.select("tbody tr"):
         if "thead" in (tr.get("class") or []):
             continue
 
-        team_cell = first_of(tr, ['td[data-stat="team_name_abbr"]', 'th[data-stat="team_name_abbr"]'])
+        team_cell = (
+            first_of(tr, ['td[data-stat="team_name_abbr"]', 'th[data-stat="team_name_abbr"]'])
+            or first_of(tr, ['td[data-stat="team"]', 'th[data-stat="team"]'])
+        )
         g_cell = first_of(tr, ['td[data-stat="g"]', 'th[data-stat="g"]'])
+
         if team_cell is None or g_cell is None:
             continue
 
@@ -918,7 +958,12 @@ def fetch_basketball_reference_team_games_played(season: str) -> Dict[str, int]:
             result[team] = games
 
     if not result:
-        raise RuntimeError("Could not parse team games played from Basketball Reference league page.")
+        with open("br_league_debug.html", "w", encoding="utf-8") as f:
+            f.write(html)
+        raise RuntimeError(
+            "Parsed a candidate team table but found no team GP rows. "
+            "Saved raw HTML to br_league_debug.html"
+        )
 
     return result
 
