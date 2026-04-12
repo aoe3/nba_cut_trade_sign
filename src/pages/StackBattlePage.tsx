@@ -1,52 +1,96 @@
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import type { AppMode } from "../App";
 import { HowToPlayModal } from "../components/HowToPlayModal";
+import { LoadingOverlay } from "../components/LoadingOverlay";
 import { ModeDropdown } from "../components/ModeDropdown";
 import { ShootoutMoveCounter } from "../components/ShootoutMoveCounter";
+import {
+  createStackBattleGame,
+  type BattleSlot,
+  type StackBattleGame,
+} from "./stackBattle/createStackBattleGame";
 
 type StackBattlePageProps = {
   activeMode: AppMode;
   onChangeMode: (mode: AppMode) => void;
 };
 
-type BattleSlot = "G" | "F" | "C";
-
 const BATTLE_SLOTS: BattleSlot[] = ["G", "F", "C"];
+const STACK_BATTLE_GAME_STORAGE_KEY = "cut-trade-sign:stack-battle-game";
 
-function StackCards({ lane }: { lane: BattleSlot }) {
-  const placeholders = useMemo(
-    () => Array.from({ length: 12 }, (_, index) => index + 1),
-    [],
-  );
+function getPoolLabel(slot: BattleSlot): string {
+  switch (slot) {
+    case "G":
+      return "Guard Pool";
+    case "F":
+      return "Forward Pool";
+    case "C":
+      return "Center Pool";
+    default:
+      return slot;
+  }
+}
+
+function loadStoredGame(): StackBattleGame | null {
+  try {
+    const raw = window.localStorage.getItem(STACK_BATTLE_GAME_STORAGE_KEY);
+    if (!raw) return null;
+    return JSON.parse(raw) as StackBattleGame;
+  } catch {
+    return null;
+  }
+}
+
+function persistGame(game: StackBattleGame) {
+  window.localStorage.setItem(STACK_BATTLE_GAME_STORAGE_KEY, JSON.stringify(game));
+}
+
+function StackCards({
+  lane,
+  game,
+}: {
+  lane: BattleSlot;
+  game: StackBattleGame;
+}) {
+  const options = game.pools[lane].options;
 
   return (
     <div className="stack-battle__stack-shell">
       <div className="stack-battle__stack-header">
-        <div>
-          <div className="stack-battle__stack-title">
-            {lane === "G" ? "Guard" : lane === "F" ? "Forward" : "Center"} Pool
-          </div>
-        </div>
-
-        <div className="stack-battle__stack-meta">12 deep</div>
+        <div className="stack-battle__stack-title">{getPoolLabel(lane)}</div>
+        <div className="stack-battle__stack-meta">{options.length} deep</div>
       </div>
 
-      <div
-        className="stack-battle__stack-hand"
-        aria-label={`${lane} stack placeholder`}
-      >
-        {placeholders.map((value) => (
-          <div key={`${lane}-${value}`} className="stack-battle__stack-card">
+      <div className="stack-battle__stack-hand" aria-label={`${lane} player stack`}>
+        {options.map((option, index) => (
+          <div
+            key={`${lane}-${option.player.id}`}
+            className={`stack-battle__stack-card${index === 0 ? " stack-battle__stack-card--current" : ""}`}
+            style={{
+              left: `${index * 22}px`,
+              zIndex: options.length - index,
+            }}
+            aria-hidden={index !== 0}
+          >
             <div className="stack-battle__stack-card-rank">
-              {String(value).padStart(2, "0")}
+              {String(index + 1).padStart(2, "0")}
             </div>
-            <div
-              className="stack-battle__stack-card-headshot"
-              aria-hidden="true"
-            />
-            <div className="stack-battle__stack-card-name">Player {value}</div>
-            <div className="stack-battle__stack-card-meta">{lane} · TEAM</div>
+
+            {option.player.headshotUrl ? (
+              <img
+                src={option.player.headshotUrl}
+                alt={index === 0 ? `${option.player.name} headshot` : ""}
+                className="stack-battle__stack-card-image"
+              />
+            ) : (
+              <div className="stack-battle__stack-card-headshot" aria-hidden="true" />
+            )}
+
+            <div className="stack-battle__stack-card-name">{option.player.name}</div>
+            <div className="stack-battle__stack-card-meta">
+              {option.player.position} · {option.player.team}
+            </div>
           </div>
         ))}
       </div>
@@ -101,7 +145,45 @@ export function StackBattlePage({
   activeMode,
   onChangeMode,
 }: StackBattlePageProps) {
+  const [game, setGame] = useState<StackBattleGame>(() => {
+    if (typeof window === "undefined") {
+      return createStackBattleGame();
+    }
+
+    return loadStoredGame() ?? createStackBattleGame();
+  });
   const [isHowToOpen, setIsHowToOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    persistGame(game);
+  }, [game]);
+
+  const resetGame = useCallback(() => {
+    const stored = loadStoredGame();
+    if (stored) {
+      setGame(stored);
+      return;
+    }
+
+    const freshGame = createStackBattleGame();
+    setGame(freshGame);
+    persistGame(freshGame);
+  }, []);
+
+  const buildNewGame = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      await Promise.resolve();
+      const freshGame = createStackBattleGame();
+      setGame(freshGame);
+      persistGame(freshGame);
+    } finally {
+      window.setTimeout(() => {
+        setIsLoading(false);
+      }, 150);
+    }
+  }, []);
 
   return (
     <div className="app-shell">
@@ -131,15 +213,26 @@ export function StackBattlePage({
                     type="button"
                     className="how-to-btn"
                     onClick={() => setIsHowToOpen(true)}
+                    disabled={isLoading}
                   >
                     How To Play
                   </button>
 
-                  <button type="button" className="mode-btn">
+                  <button
+                    type="button"
+                    className="mode-btn"
+                    onClick={resetGame}
+                    disabled={isLoading}
+                  >
                     Reset Game
                   </button>
 
-                  <button type="button" className="mode-btn mode-btn--forever">
+                  <button
+                    type="button"
+                    className="mode-btn mode-btn--forever"
+                    onClick={() => void buildNewGame()}
+                    disabled={isLoading}
+                  >
                     Build New Game
                   </button>
                 </div>
@@ -156,13 +249,9 @@ export function StackBattlePage({
           <EmptyRosterColumn title="Your Lineup" side="user" />
 
           <section className="stack-battle__center">
-            <div className="stack-battle__column-header stack-battle__column-header--center">
-              <h2 className="stack-battle__column-title"></h2>
-            </div>
-
             <div className="stack-battle__lanes">
               {BATTLE_SLOTS.map((slot) => (
-                <StackCards key={slot} lane={slot} />
+                <StackCards key={slot} lane={slot} game={game} />
               ))}
             </div>
           </section>
@@ -190,7 +279,7 @@ export function StackBattlePage({
           <div className="stack-battle__footer-card">
             <div className="stack-battle__footer-label">Current Goal</div>
             <div className="stack-battle__footer-value">
-              Layout only for inspection
+              Initial stack generation only
             </div>
           </div>
         </section>
@@ -200,6 +289,14 @@ export function StackBattlePage({
         isOpen={isHowToOpen}
         onClose={() => setIsHowToOpen(false)}
       />
+
+      {isLoading ? (
+        <LoadingOverlay
+          title="Building Game"
+          currentStatus="Generating stack battle pools"
+          logs={["Generating stack battle pools"]}
+        />
+      ) : null}
     </div>
   );
 }

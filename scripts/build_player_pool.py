@@ -34,6 +34,9 @@ RETRY_BACKOFF_SECONDS = 5.0
 CURRENT_SEASON_DURABILITY_THRESHOLD_GAMES = 20
 
 NBA_HEADERS = {
+    "Host": "stats.nba.com",
+    "Connection": "keep-alive",
+    "Accept": "application/json, text/plain, */*",
     "User-Agent": (
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
         "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -41,8 +44,22 @@ NBA_HEADERS = {
     ),
     "Referer": "https://www.nba.com/",
     "Origin": "https://www.nba.com",
-    "Accept": "application/json, text/plain, */*",
+    "x-nba-stats-origin": "stats",
+    "x-nba-stats-token": "true",
     "Accept-Language": "en-US,en;q=0.9",
+    "Cache-Control": "no-cache",
+    "Pragma": "no-cache",
+}
+
+HTML_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/146.0.0.0 Safari/537.36"
+    ),
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Referer": "https://www.google.com/",
     "Cache-Control": "no-cache",
     "Pragma": "no-cache",
     "Connection": "keep-alive",
@@ -74,12 +91,6 @@ CONTRACT_NAME_ALIASES = {
 }
 
 T = TypeVar("T")
-
-from nba_api.stats.endpoints import (
-    commonallplayers,
-    leaguedashplayerstats,
-    leaguedashteamstats,
-)
 
 def nba_request(factory: Callable[..., T], **kwargs: Any) -> T:
     return retry_nba_endpoint(
@@ -645,14 +656,7 @@ def fetch_html(url: str) -> str:
         try:
             response = requests.get(
                 url,
-                headers={
-                    "User-Agent": NBA_HEADERS["User-Agent"],
-                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-                    "Accept-Language": "en-US,en;q=0.9",
-                    "Referer": "https://www.google.com/",
-                    "Cache-Control": "no-cache",
-                    "Pragma": "no-cache",
-                },
+                headers=HTML_HEADERS,
                 timeout=HTML_TIMEOUT_SECONDS,
             )
             response.raise_for_status()
