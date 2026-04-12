@@ -838,6 +838,13 @@
     "normalizedInputName": "chet holmgren",
     "similarity": 1.0
   },
+  "chris manon": {
+    "athleteApiRef": null,
+    "espnId": "4702972",
+    "espnName": "Chris Manon",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4702972.png",
+    "inputName": "Chris Manon"
+  },
   "chris youngblood": {
     "athleteApiRef": null,
     "espnId": "4706557",
@@ -1135,6 +1142,13 @@
     "espnName": "David Jones Garcia",
     "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4713010.png",
     "inputName": "David Jones Garc\u00c3\u00ada"
+  },
+  "david jones garcia": {
+    "athleteApiRef": null,
+    "espnId": "4713010",
+    "espnName": "David Jones Garcia",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4713010.png",
+    "inputName": "David Jones Garcia"
   },
   "david roddy": {
     "athleteApiRef": null,
@@ -1585,6 +1599,13 @@
     "normalizedEspnName": "e j liddell",
     "normalizedInputName": "e j liddell",
     "similarity": 1.0
+  },
+  "egor d min": {
+    "athleteApiRef": null,
+    "espnId": "5175643",
+    "espnName": "Egor Demin",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/5175643.png",
+    "inputName": "Egor D\u0435min"
   },
   "egor demin": {
     "athleteApiRef": null,
@@ -5316,6 +5337,13 @@
     "normalizedEspnName": "victor wembanyama",
     "normalizedInputName": "victor wembanyama",
     "similarity": 1.0
+  },
+  "vit krejci": {
+    "athleteApiRef": null,
+    "espnId": "4578893",
+    "espnName": "Vit Krejci",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4578893.png",
+    "inputName": "Vit Krejci"
   },
   "vj edgecombe": {
     "athleteApiRef": null,

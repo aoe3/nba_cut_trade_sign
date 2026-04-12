@@ -2,7 +2,7 @@ export type Position = "PG" | "SG" | "SF" | "PF" | "C";
 
 export type Player = {
   id: string;
-  nbaPlayerId: number;
+  nbaPlayerId: number | null;
   name: string;
   team: string;
   position: Position;

@@ -1,0 +1,461 @@
+[
+  {
+    "name": "Adama-Alpha Bal",
+    "team": "MEM",
+    "position": "SG",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Alondes Williams",
+    "team": "WAS",
+    "position": "SG",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Andersson Garcia",
+    "team": "UTA",
+    "position": "SF",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Bobi Klintman",
+    "team": "DET",
+    "position": "SF",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Buddy Boeheim",
+    "team": "OKC",
+    "position": "SF",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Cam Thomas",
+    "team": "MIL",
+    "position": "SG",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Cameron Payne",
+    "team": "PHI",
+    "position": "PG",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Chris Boucher",
+    "team": "BOS",
+    "position": "PF",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Chris Livingston",
+    "team": "CLE",
+    "position": "SF",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Chris Paul",
+    "team": "LAC",
+    "position": "PG",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Cody Martin",
+    "team": "IND",
+    "position": "SF",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Colby Jones",
+    "team": "DET",
+    "position": "SG",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Cole Anthony",
+    "team": "MIL",
+    "position": "PG",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "DaQuan Jeffries",
+    "team": "SAC",
+    "position": "SG",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Dario Saric",
+    "team": "SAC",
+    "position": "C",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Darius Brown II",
+    "team": "CLE",
+    "position": "SG",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "DeJon Jarreau",
+    "team": "MEM",
+    "position": "SG",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Drew Peterson",
+    "team": "CHA",
+    "position": "PF",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Duop Reath",
+    "team": "POR",
+    "position": "C",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Eric Gordon",
+    "team": "PHI",
+    "position": "SG",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Garrison Mathews",
+    "team": "IND",
+    "position": "SG",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Grant Nelson",
+    "team": "BKN",
+    "position": "PF",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Hunter Sallis",
+    "team": "PHI",
+    "position": "SG",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Hunter Tyson",
+    "team": "DEN",
+    "position": "PF",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Jacob Toppin",
+    "team": "ATL",
+    "position": "SF",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Jaden Ivey",
+    "team": "CHI",
+    "position": "SG",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Jahmyl Telfort",
+    "team": "LAC",
+    "position": "PF",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "James Wiseman",
+    "team": "IND",
+    "position": "C",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Javonte Cooke",
+    "team": "POR",
+    "position": "SG",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Jeremiah Robinson-Earl",
+    "team": "DAL",
+    "position": "PF",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Johnny Juzang",
+    "team": "MIN",
+    "position": "SG",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Kadary Richmond",
+    "team": "WAS",
+    "position": "SG",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Kobe Bufkin",
+    "team": "LAL",
+    "position": "SG",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Lawson Lovering",
+    "team": "MEM",
+    "position": "C",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Lonzo Ball",
+    "team": "CLE",
+    "position": "PG",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Luke Travers",
+    "team": "CLE",
+    "position": "SG",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Malaki Branham",
+    "team": "WAS",
+    "position": "SG",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Mark Sears",
+    "team": "MIL",
+    "position": "PG",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Markelle Fultz",
+    "team": "TOR",
+    "position": "PG",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Miles Kelly",
+    "team": "DAL",
+    "position": "PG",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Mo Bamba",
+    "team": "UTA",
+    "position": "C",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Monte Morris",
+    "team": "IND",
+    "position": "PG",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "N'Faly Dante",
+    "team": "ATL",
+    "position": "C",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Nigel Hayes-Davis",
+    "team": "PHX",
+    "position": "SF",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Orlando Robinson",
+    "team": "ORL",
+    "position": "C",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Skal Labissiere",
+    "team": "WAS",
+    "position": "PF",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Stanley Umude",
+    "team": "SAS",
+    "position": "SG",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Tre Scott",
+    "team": "BKN",
+    "position": "PF",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Trentyn Flowers",
+    "team": "CHI",
+    "position": "SF",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Tyler Burton",
+    "team": "MEM",
+    "position": "SF",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Vince Williams Jr.",
+    "team": "UTA",
+    "position": "SG",
+    "missingFields": [
+      "espnPlayerId",
+      "headshotUrl"
+    ]
+  }
+]

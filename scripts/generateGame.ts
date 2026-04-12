@@ -6,7 +6,7 @@ type Position = "PG" | "SG" | "SF" | "PF" | "C";
 
 type Player = {
   id: string;
-  nbaPlayerId: number;
+  nbaPlayerId: number | null;
   name: string;
   team: string;
   position: Position;
