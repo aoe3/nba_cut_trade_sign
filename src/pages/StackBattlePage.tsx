@@ -50,10 +50,10 @@ type StackBattleSession = {
 };
 
 const BATTLE_SLOTS: BattleSlot[] = ["G", "F", "C"];
-const STACK_BATTLE_GAME_STORAGE_KEY = "cut-trade-sign:stack-battle-game";
+const STACK_BATTLE_GAME_STORAGE_KEY = "cut-trade-sign:draft-battle-game";
 const STACK_BATTLE_INITIAL_GAME_STORAGE_KEY =
-  "cut-trade-sign:stack-battle-initial-game";
-const STACK_BATTLE_SESSION_STORAGE_KEY = "cut-trade-sign:stack-battle-session";
+  "cut-trade-sign:draft-battle-initial-game";
+const STACK_BATTLE_SESSION_STORAGE_KEY = "cut-trade-sign:draft-battle-session";
 const CPU_TURN_DELAY_MS = 850;
 const AUTO_SIGN_DELAY_MS = 600;
 
@@ -362,12 +362,12 @@ function StackCards({
 
   if (!currentOption || !currentOption.player) {
     return (
-      <div className="stack-battle__stack-shell">
-        <div className="stack-battle__stack-header">
-          <div className="stack-battle__stack-title">{getPoolLabel(lane)}</div>
-          <div className="stack-battle__stack-meta">0 left</div>
+      <div className="draft-battle__stack-shell">
+        <div className="draft-battle__stack-header">
+          <div className="draft-battle__stack-title">{getPoolLabel(lane)}</div>
+          <div className="draft-battle__stack-meta">0 left</div>
         </div>
-        <div className="stack-battle__stack-empty">No assets left</div>
+        <div className="draft-battle__stack-empty">No assets left</div>
       </div>
     );
   }
@@ -382,31 +382,31 @@ function StackCards({
     null;
 
   return (
-    <div className="stack-battle__stack-shell">
-      <div className="stack-battle__stack-header">
-        <div className="stack-battle__stack-title">{getPoolLabel(lane)}</div>
-        <div className="stack-battle__stack-meta">{remainingCount} left</div>
+    <div className="draft-battle__stack-shell">
+      <div className="draft-battle__stack-header">
+        <div className="draft-battle__stack-title">{getPoolLabel(lane)}</div>
+        <div className="draft-battle__stack-meta">{remainingCount} left</div>
       </div>
 
       {!isTradeOpen ? (
-        <div className="stack-battle__lane-grid">
-          <div className="stack-battle__lane-cell stack-battle__lane-cell--identity">
-            <div className="stack-battle__lane-headshot-wrap">
+        <div className="draft-battle__lane-grid">
+          <div className="draft-battle__lane-cell draft-battle__lane-cell--identity">
+            <div className="draft-battle__lane-headshot-wrap">
               {currentOption.player.headshotUrl ? (
                 <img
                   src={currentOption.player.headshotUrl}
                   alt={`${currentOption.player.name} headshot`}
-                  className="stack-battle__headshot"
+                  className="draft-battle__headshot"
                 />
               ) : (
-                <div className="stack-battle__headshot" aria-hidden="true" />
+                <div className="draft-battle__headshot" aria-hidden="true" />
               )}
             </div>
-            <div className="stack-battle__lane-info">
-              <div className="stack-battle__lane-name">
+            <div className="draft-battle__lane-info">
+              <div className="draft-battle__lane-name">
                 {currentOption.player.name}
               </div>
-              <div className="stack-battle__lane-meta">
+              <div className="draft-battle__lane-meta">
                 {currentOption.player.position} · {currentOption.player.team}
               </div>
             </div>
@@ -415,17 +415,17 @@ function StackCards({
           {(currentOption.stats ?? []).slice(0, 3).map((stat) => (
             <div
               key={`${currentOption.player.id}-${stat.key}`}
-              className="stack-battle__lane-cell stack-battle__lane-cell--stat"
+              className="draft-battle__lane-cell draft-battle__lane-cell--stat"
             >
-              <div className="stack-battle__stat-value">{stat.value}</div>
-              <div className="stack-battle__stat-label">{stat.label}</div>
+              <div className="draft-battle__stat-value">{stat.value}</div>
+              <div className="draft-battle__stat-label">{stat.label}</div>
             </div>
           ))}
 
-          <div className="stack-battle__lane-cell stack-battle__lane-cell--actions">
+          <div className="draft-battle__lane-cell draft-battle__lane-cell--actions">
             <button
               type="button"
-              className="stack-battle__action-btn stack-battle__action-btn--sign"
+              className="draft-battle__action-btn draft-battle__action-btn--sign"
               onClick={() => onSign(lane)}
               disabled={isSignDisabled || isTradeLocked}
             >
@@ -433,7 +433,7 @@ function StackCards({
             </button>
             <button
               type="button"
-              className="stack-battle__action-btn stack-battle__action-btn--trade"
+              className="draft-battle__action-btn draft-battle__action-btn--trade"
               onClick={() => onToggleTrade(lane)}
               disabled={!canTrade}
             >
@@ -441,7 +441,7 @@ function StackCards({
             </button>
             <button
               type="button"
-              className="stack-battle__action-btn stack-battle__action-btn--cut"
+              className="draft-battle__action-btn draft-battle__action-btn--cut"
               onClick={() => onCut(lane)}
               disabled={!canCut}
             >
@@ -450,24 +450,24 @@ function StackCards({
           </div>
         </div>
       ) : (
-        <div className="stack-battle__lane-grid">
-          <div className="stack-battle__lane-cell stack-battle__lane-cell--identity">
-            <div className="stack-battle__lane-headshot-wrap">
+        <div className="draft-battle__lane-grid">
+          <div className="draft-battle__lane-cell draft-battle__lane-cell--identity">
+            <div className="draft-battle__lane-headshot-wrap">
               {currentOption.player.headshotUrl ? (
                 <img
                   src={currentOption.player.headshotUrl}
                   alt={`${currentOption.player.name} headshot`}
-                  className="stack-battle__headshot"
+                  className="draft-battle__headshot"
                 />
               ) : (
-                <div className="stack-battle__headshot" aria-hidden="true" />
+                <div className="draft-battle__headshot" aria-hidden="true" />
               )}
             </div>
-            <div className="stack-battle__lane-info">
-              <div className="stack-battle__lane-name">
+            <div className="draft-battle__lane-info">
+              <div className="draft-battle__lane-name">
                 {currentOption.player.name}
               </div>
-              <div className="stack-battle__lane-meta">
+              <div className="draft-battle__lane-meta">
                 {currentOption.player.position} · {currentOption.player.team}
               </div>
             </div>
@@ -477,35 +477,35 @@ function StackCards({
             <button
               key={`${lane}-${target.id}`}
               type="button"
-              className={`stack-battle__lane-cell stack-battle__lane-cell--offer${
+              className={`draft-battle__lane-cell draft-battle__lane-cell--offer${
                 selectedTradeTargetId === target.id
-                  ? " stack-battle__lane-cell--offer-selected"
+                  ? " draft-battle__lane-cell--offer-selected"
                   : ""
-              }${target.isJackpot ? " stack-battle__lane-cell--offer-jackpot" : ""}`}
+              }${target.isJackpot ? " draft-battle__lane-cell--offer-jackpot" : ""}`}
               onClick={() => onSelectTradeTarget(lane, target.id)}
             >
-              <div className="stack-battle__offer-headshot-wrap">
+              <div className="draft-battle__offer-headshot-wrap">
                 {target.headshotUrl ? (
                   <img
                     src={target.headshotUrl}
                     alt={`${target.name} headshot`}
-                    className="stack-battle__offer-headshot"
+                    className="draft-battle__offer-headshot"
                   />
                 ) : (
                   <div
-                    className="stack-battle__offer-headshot"
+                    className="draft-battle__offer-headshot"
                     aria-hidden="true"
                   />
                 )}
               </div>
-              <div className="stack-battle__offer-name">{target.name}</div>
+              <div className="draft-battle__offer-name">{target.name}</div>
             </button>
           ))}
 
-          <div className="stack-battle__lane-cell stack-battle__lane-cell--execute">
+          <div className="draft-battle__lane-cell draft-battle__lane-cell--execute">
             <button
               type="button"
-              className="stack-battle__action-btn stack-battle__action-btn--execute"
+              className="draft-battle__action-btn draft-battle__action-btn--execute"
               onClick={() => onExecuteTrade(lane)}
               disabled={!selectedTradeTarget}
             >
@@ -528,57 +528,57 @@ function RosterColumn({
   lineup: StackBattleLineup;
 }) {
   return (
-    <section className={`stack-battle__roster stack-battle__roster--${side}`}>
-      <div className="stack-battle__column-header">
-        <div className="stack-battle__column-eyebrow">
+    <section className={`draft-battle__roster draft-battle__roster--${side}`}>
+      <div className="draft-battle__column-header">
+        <div className="draft-battle__column-eyebrow">
           {side === "user" ? "Your Side" : "CPU Side"}
         </div>
-        <h2 className="stack-battle__column-title">{title}</h2>
+        <h2 className="draft-battle__column-title">{title}</h2>
       </div>
 
-      <div className="stack-battle__slots">
+      <div className="draft-battle__slots">
         {BATTLE_SLOTS.map((slot) => {
           const signed = lineup[slot];
 
           return (
             <div
               key={`${side}-${slot}`}
-              className={`stack-battle__slot-card${
-                signed ? " stack-battle__slot-card--filled" : ""
+              className={`draft-battle__slot-card${
+                signed ? " draft-battle__slot-card--filled" : ""
               }`}
             >
               {!signed ? (
-                <div className="stack-battle__slot-badge">{slot}</div>
+                <div className="draft-battle__slot-badge">{slot}</div>
               ) : null}
 
               {signed ? (
-                <div className="stack-battle__slot-filled stack-battle__slot-filled--detailed">
-                  <div className="stack-battle__slot-top">
-                    <div className="stack-battle__slot-headshot-shell">
+                <div className="draft-battle__slot-filled draft-battle__slot-filled--detailed">
+                  <div className="draft-battle__slot-top">
+                    <div className="draft-battle__slot-headshot-shell">
                       {signed.player.headshotUrl ? (
                         <img
                           src={signed.player.headshotUrl}
                           alt={`${signed.player.name} headshot`}
-                          className="stack-battle__slot-headshot"
+                          className="draft-battle__slot-headshot"
                         />
                       ) : (
                         <div
-                          className="stack-battle__slot-headshot"
+                          className="draft-battle__slot-headshot"
                           aria-hidden="true"
                         />
                       )}
                     </div>
 
-                    <div className="stack-battle__slot-stat-grid">
+                    <div className="draft-battle__slot-stat-grid">
                       {getRosterStats(signed.player).map((stat) => (
                         <div
                           key={`${side}-${slot}-${stat.label}`}
-                          className="stack-battle__slot-stat"
+                          className="draft-battle__slot-stat"
                         >
-                          <div className="stack-battle__slot-stat-value">
+                          <div className="draft-battle__slot-stat-value">
                             {stat.value}
                           </div>
-                          <div className="stack-battle__slot-stat-label">
+                          <div className="draft-battle__slot-stat-label">
                             {stat.label}
                           </div>
                         </div>
@@ -586,18 +586,18 @@ function RosterColumn({
                     </div>
                   </div>
 
-                  <div className="stack-battle__slot-bottom">
-                    <div className="stack-battle__slot-bottom-grid">
-                      <div className="stack-battle__slot-left">
-                        <div className="stack-battle__slot-player">
+                  <div className="draft-battle__slot-bottom">
+                    <div className="draft-battle__slot-bottom-grid">
+                      <div className="draft-battle__slot-left">
+                        <div className="draft-battle__slot-player">
                           {signed.player.name}
                         </div>
-                        <div className="stack-battle__slot-meta">
+                        <div className="draft-battle__slot-meta">
                           {signed.player.position} · {signed.player.team}
                         </div>
                       </div>
 
-                      <div className="stack-battle__slot-score">
+                      <div className="draft-battle__slot-score">
                         Score: {signed.score.toFixed(1)}
                       </div>
                     </div>
@@ -605,8 +605,8 @@ function RosterColumn({
                 </div>
               ) : (
                 <>
-                  <div className="stack-battle__slot-title">Empty slot</div>
-                  <div className="stack-battle__slot-copy">
+                  <div className="draft-battle__slot-title">Empty slot</div>
+                  <div className="draft-battle__slot-copy">
                     Future signed player lands here
                   </div>
                 </>
@@ -1186,66 +1186,66 @@ export function StackBattlePage({
 
   const userScoreCardClass = useMemo(() => {
     if (!session.gameOver) {
-      return "stack-battle__footer-card";
+      return "draft-battle__footer-card";
     }
 
     if (session.winner === "user") {
-      return "stack-battle__footer-card stack-battle__footer-card--winner";
+      return "draft-battle__footer-card draft-battle__footer-card--winner";
     }
 
     if (session.winner === "cpu") {
-      return "stack-battle__footer-card stack-battle__footer-card--loser";
+      return "draft-battle__footer-card draft-battle__footer-card--loser";
     }
 
-    return "stack-battle__footer-card";
+    return "draft-battle__footer-card";
   }, [session.gameOver, session.winner]);
 
   const cpuScoreCardClass = useMemo(() => {
     if (!session.gameOver) {
-      return "stack-battle__footer-card";
+      return "draft-battle__footer-card";
     }
 
     if (session.winner === "cpu") {
-      return "stack-battle__footer-card stack-battle__footer-card--winner";
+      return "draft-battle__footer-card draft-battle__footer-card--winner";
     }
 
     if (session.winner === "user") {
-      return "stack-battle__footer-card stack-battle__footer-card--loser";
+      return "draft-battle__footer-card draft-battle__footer-card--loser";
     }
 
-    return "stack-battle__footer-card";
+    return "draft-battle__footer-card";
   }, [session.gameOver, session.winner]);
 
   const userScoreValueClass = useMemo(() => {
     if (!session.gameOver) {
-      return "stack-battle__footer-score";
+      return "draft-battle__footer-score";
     }
 
     if (session.winner === "user") {
-      return "stack-battle__footer-score stack-battle__footer-score--winner";
+      return "draft-battle__footer-score draft-battle__footer-score--winner";
     }
 
     if (session.winner === "cpu") {
-      return "stack-battle__footer-score stack-battle__footer-score--loser";
+      return "draft-battle__footer-score draft-battle__footer-score--loser";
     }
 
-    return "stack-battle__footer-score";
+    return "draft-battle__footer-score";
   }, [session.gameOver, session.winner]);
 
   const cpuScoreValueClass = useMemo(() => {
     if (!session.gameOver) {
-      return "stack-battle__footer-score";
+      return "draft-battle__footer-score";
     }
 
     if (session.winner === "cpu") {
-      return "stack-battle__footer-score stack-battle__footer-score--winner";
+      return "draft-battle__footer-score draft-battle__footer-score--winner";
     }
 
     if (session.winner === "user") {
-      return "stack-battle__footer-score stack-battle__footer-score--loser";
+      return "draft-battle__footer-score draft-battle__footer-score--loser";
     }
 
-    return "stack-battle__footer-score";
+    return "draft-battle__footer-score";
   }, [session.gameOver, session.winner]);
 
   return (
@@ -1255,7 +1255,7 @@ export function StackBattlePage({
           <div className="topbar__left">
             <div className="topbar__title-block">
               <div className="eyebrow" style={{ textAlign: "left" }}>
-                Stack Battle
+                Draft Battle
               </div>
               <h1 style={{ textAlign: "left" }}>Cut / Trade / Sign</h1>
             </div>
@@ -1311,15 +1311,15 @@ export function StackBattlePage({
           </div>
         </header>
 
-        <main className="stack-battle">
+        <main className="draft-battle">
           <RosterColumn
             title="Your Lineup"
             side="user"
             lineup={session.userLineup}
           />
 
-          <section className="stack-battle__center">
-            <div className="stack-battle__lanes">
+          <section className="draft-battle__center">
+            <div className="draft-battle__lanes">
               {BATTLE_SLOTS.map((slot) => (
                 <StackCards
                   key={slot}
@@ -1354,28 +1354,28 @@ export function StackBattlePage({
           />
         </main>
 
-        <section className="stack-battle__footer stack-battle__footer--history">
+        <section className="draft-battle__footer draft-battle__footer--history">
           <div className={userScoreCardClass}>
-            <div className="stack-battle__footer-label">Your Score</div>
+            <div className="draft-battle__footer-label">Your Score</div>
             <div className={userScoreValueClass}>
               {getLeftScoreText(session)}
             </div>
           </div>
 
-          <div className="stack-battle__footer-card stack-battle__footer-card--wide">
-            <div className="stack-battle__footer-label">Transaction Log</div>
-            <div className="stack-battle__history-list">
+          <div className="draft-battle__footer-card draft-battle__footer-card--wide">
+            <div className="draft-battle__footer-label">Transaction Log</div>
+            <div className="draft-battle__history-list">
               {session.history.length > 0 ? (
                 session.history.map((entry) => (
                   <div
                     key={entry.id}
-                    className={`stack-battle__history-entry stack-battle__history-entry--${entry.owner}`}
+                    className={`draft-battle__history-entry draft-battle__history-entry--${entry.owner}`}
                   >
                     {entry.text}
                   </div>
                 ))
               ) : (
-                <div className="stack-battle__history-empty">
+                <div className="draft-battle__history-empty">
                   No actions yet
                 </div>
               )}
@@ -1383,7 +1383,7 @@ export function StackBattlePage({
           </div>
 
           <div className={cpuScoreCardClass}>
-            <div className="stack-battle__footer-label">CPU Score</div>
+            <div className="draft-battle__footer-label">CPU Score</div>
             <div className={cpuScoreValueClass}>
               {getRightScoreText(session)}
             </div>
@@ -1404,8 +1404,8 @@ export function StackBattlePage({
       {isLoading ? (
         <LoadingOverlay
           title="Building Game"
-          currentStatus="Generating stack battle pools"
-          logs={["Generating stack battle pools"]}
+          currentStatus="Generating draft battle pools"
+          logs={["Generating draft battle pools"]}
         />
       ) : null}
     </div>

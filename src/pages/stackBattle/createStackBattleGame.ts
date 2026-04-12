@@ -161,7 +161,7 @@ function buildOrderedPool(
   filteredPlayers: ScoredStackBattlePlayer[],
 ): ScoredStackBattlePlayer[] {
   if (filteredPlayers.length < STACK_DEPTH) {
-    throw new Error("Not enough players to build Stack Battle pool.");
+    throw new Error("Not enough players to build Draft Battle pool.");
   }
 
   const playersByScore = [...filteredPlayers].sort(
