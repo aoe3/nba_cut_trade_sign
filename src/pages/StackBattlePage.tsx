@@ -529,7 +529,9 @@ function RosterColumn({
                 signed ? " stack-battle__slot-card--filled" : ""
               }`}
             >
-              <div className="stack-battle__slot-badge">{slot}</div>
+              {!signed ? (
+                <div className="stack-battle__slot-badge">{slot}</div>
+              ) : null}
 
               {signed ? (
                 <div className="stack-battle__slot-filled">
@@ -1115,6 +1117,70 @@ export function StackBattlePage({
     );
   }, [session]);
 
+  const userScoreCardClass = useMemo(() => {
+    if (!session.gameOver) {
+      return "stack-battle__footer-card";
+    }
+
+    if (session.winner === "user") {
+      return "stack-battle__footer-card stack-battle__footer-card--winner";
+    }
+
+    if (session.winner === "cpu") {
+      return "stack-battle__footer-card stack-battle__footer-card--loser";
+    }
+
+    return "stack-battle__footer-card";
+  }, [session.gameOver, session.winner]);
+
+  const cpuScoreCardClass = useMemo(() => {
+    if (!session.gameOver) {
+      return "stack-battle__footer-card";
+    }
+
+    if (session.winner === "cpu") {
+      return "stack-battle__footer-card stack-battle__footer-card--winner";
+    }
+
+    if (session.winner === "user") {
+      return "stack-battle__footer-card stack-battle__footer-card--loser";
+    }
+
+    return "stack-battle__footer-card";
+  }, [session.gameOver, session.winner]);
+
+  const userScoreValueClass = useMemo(() => {
+    if (!session.gameOver) {
+      return "stack-battle__footer-score";
+    }
+
+    if (session.winner === "user") {
+      return "stack-battle__footer-score stack-battle__footer-score--winner";
+    }
+
+    if (session.winner === "cpu") {
+      return "stack-battle__footer-score stack-battle__footer-score--loser";
+    }
+
+    return "stack-battle__footer-score";
+  }, [session.gameOver, session.winner]);
+
+  const cpuScoreValueClass = useMemo(() => {
+    if (!session.gameOver) {
+      return "stack-battle__footer-score";
+    }
+
+    if (session.winner === "cpu") {
+      return "stack-battle__footer-score stack-battle__footer-score--winner";
+    }
+
+    if (session.winner === "user") {
+      return "stack-battle__footer-score stack-battle__footer-score--loser";
+    }
+
+    return "stack-battle__footer-score";
+  }, [session.gameOver, session.winner]);
+
   return (
     <div className="app-shell">
       <div className="app-frame">
@@ -1222,9 +1288,9 @@ export function StackBattlePage({
         </main>
 
         <section className="stack-battle__footer stack-battle__footer--history">
-          <div className="stack-battle__footer-card">
+          <div className={userScoreCardClass}>
             <div className="stack-battle__footer-label">Your Score</div>
-            <div className="stack-battle__footer-score">
+            <div className={userScoreValueClass}>
               {getLeftScoreText(session)}
             </div>
           </div>
@@ -1249,9 +1315,9 @@ export function StackBattlePage({
             </div>
           </div>
 
-          <div className="stack-battle__footer-card">
+          <div className={cpuScoreCardClass}>
             <div className="stack-battle__footer-label">CPU Score</div>
-            <div className="stack-battle__footer-score">
+            <div className={cpuScoreValueClass}>
               {getRightScoreText(session)}
             </div>
           </div>

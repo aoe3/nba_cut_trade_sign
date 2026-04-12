@@ -2924,3 +2924,29 @@ h1 {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Stack Battle endgame polish */
+.stack-battle__slot-card--filled {
+  padding: 18px 20px;
+}
+
+.stack-battle__footer-card--winner {
+  background: linear-gradient(135deg, rgba(23, 61, 41, 0.9), rgba(12, 63, 29, 0.82));
+  border-color: rgba(98, 210, 129, 0.24);
+}
+
+.stack-battle__footer-card--loser {
+  background: linear-gradient(135deg, rgba(72, 31, 39, 0.88), rgba(55, 19, 29, 0.8));
+  border-color: rgba(194, 102, 116, 0.24);
+}
+
+.stack-battle__footer-score--winner {
+  color: #ffd700;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.45);
+}
+
+.stack-battle__footer-score--loser {
+  color: #c0c0c0;
+  text-shadow: 0 0 6px rgba(192, 192, 192, 0.35);
+}
