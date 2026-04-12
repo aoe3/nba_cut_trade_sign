@@ -28,15 +28,13 @@ function StackCards({ lane }: { lane: BattleSlot }) {
         <div className="stack-battle__stack-meta">12 deep</div>
       </div>
 
-      <div className="stack-battle__stack-fan" aria-label={`${lane} stack placeholder`}>
+      <div className="stack-battle__stack-hand" aria-label={`${lane} stack placeholder`}>
         {placeholders.map((value) => (
-          <div
-            key={`${lane}-${value}`}
-            className="stack-battle__stack-card"
-            style={{ transform: `translateY(${(value - 1) * 6}px)` }}
-          >
-            <span className="stack-battle__stack-card-index">{String(value).padStart(2, "0")}</span>
-            <span className="stack-battle__stack-card-label">Player placeholder</span>
+          <div key={`${lane}-${value}`} className="stack-battle__stack-card">
+            <div className="stack-battle__stack-card-rank">{String(value).padStart(2, "0")}</div>
+            <div className="stack-battle__stack-card-headshot" aria-hidden="true" />
+            <div className="stack-battle__stack-card-name">Player {value}</div>
+            <div className="stack-battle__stack-card-meta">{lane} · TEAM</div>
           </div>
         ))}
       </div>

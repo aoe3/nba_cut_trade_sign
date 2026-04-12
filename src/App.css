@@ -1844,6 +1844,15 @@ h1 {
   }
 }
 
+
+@media (max-width: 1500px) {
+  .stack-battle__stack-card {
+    width: 68px;
+    min-width: 68px;
+    margin-left: -24px;
+  }
+}
+
 @media (max-width: 1380px) {
   .roster-row {
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -2246,7 +2255,7 @@ h1 {
 
 .stack-battle__stack-shell {
   padding: 14px;
-  min-height: 184px;
+  min-height: 212px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -2268,37 +2277,73 @@ h1 {
   font-weight: 700;
 }
 
-.stack-battle__stack-fan {
-  position: relative;
-  min-height: 88px;
-  padding-bottom: 66px;
+.stack-battle__stack-hand {
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  padding: 2px 0 4px;
 }
 
 .stack-battle__stack-card {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  min-height: 54px;
-  border-radius: 14px;
+  position: relative;
+  z-index: 1;
+  width: 74px;
+  min-width: 74px;
+  min-height: 118px;
+  margin-left: -22px;
+  border-radius: 16px;
   background: linear-gradient(180deg, rgba(27, 36, 53, 0.96), rgba(18, 25, 38, 0.98));
-  border: 1px solid rgba(124, 143, 181, 0.18);
+  border: 1px solid rgba(124, 143, 181, 0.2);
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 14px;
+  justify-content: flex-start;
+  padding: 8px 6px 10px;
+  text-align: center;
 }
 
-.stack-battle__stack-card-index {
-  font-size: 0.8rem;
+.stack-battle__stack-card:first-child {
+  margin-left: 0;
+}
+
+.stack-battle__stack-card:hover {
+  z-index: 3;
+}
+
+.stack-battle__stack-card-rank {
+  font-size: 0.7rem;
   font-weight: 900;
   letter-spacing: 0.08em;
   color: #8aa7d9;
+  margin-bottom: 6px;
 }
 
-.stack-battle__stack-card-label {
-  font-size: 0.86rem;
-  color: #cdd7ea;
+.stack-battle__stack-card-headshot {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(84, 108, 154, 0.18);
+  border: 1px solid rgba(124, 143, 181, 0.18);
+  margin-bottom: 8px;
+}
+
+.stack-battle__stack-card-name {
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #eef3ff;
+  margin-bottom: 6px;
+}
+
+.stack-battle__stack-card-meta {
+  font-size: 0.62rem;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  color: #99a8c2;
+  text-transform: uppercase;
 }
 
 .stack-battle__stack-actions {
@@ -2360,7 +2405,7 @@ h1 {
 
   .stack-battle__slot-card,
   .stack-battle__stack-shell {
-    min-height: 168px;
+    min-height: 188px;
     padding: 12px;
   }
 
@@ -2368,14 +2413,36 @@ h1 {
     gap: 10px;
   }
 
-  .stack-battle__stack-fan {
-    min-height: 76px;
-    padding-bottom: 58px;
+  .stack-battle__stack-hand {
+    padding-bottom: 2px;
   }
 
   .stack-battle__stack-card {
-    min-height: 48px;
-    padding: 0 12px;
+    width: 66px;
+    min-width: 66px;
+    min-height: 104px;
+    margin-left: -20px;
+    padding: 7px 5px 8px;
+  }
+
+  .stack-battle__stack-card-rank {
+    font-size: 0.66rem;
+    margin-bottom: 5px;
+  }
+
+  .stack-battle__stack-card-headshot {
+    width: 34px;
+    height: 34px;
+    margin-bottom: 6px;
+  }
+
+  .stack-battle__stack-card-name {
+    font-size: 0.66rem;
+    margin-bottom: 5px;
+  }
+
+  .stack-battle__stack-card-meta {
+    font-size: 0.58rem;
   }
 
   .stack-battle__stack-actions {

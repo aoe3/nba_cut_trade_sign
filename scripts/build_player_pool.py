@@ -26,10 +26,10 @@ DEFAULT_JSON_OUTPUT_PATH = "src/data/players.json"
 DEFAULT_CURRENT_SEASON = "2025-26"
 DEFAULT_PREVIOUS_SEASON = "2024-25"
 
-NBA_TIMEOUT_SECONDS = 60
+NBA_TIMEOUT_SECONDS = 75
 HTML_TIMEOUT_SECONDS = 45
-MAX_RETRIES = 5
-RETRY_BACKOFF_SECONDS = 4.0
+MAX_RETRIES = 6
+RETRY_BACKOFF_SECONDS = 5.0
 
 CURRENT_SEASON_DURABILITY_THRESHOLD_GAMES = 20
 
@@ -75,6 +75,20 @@ CONTRACT_NAME_ALIASES = {
 
 T = TypeVar("T")
 
+from nba_api.stats.endpoints import (
+    commonallplayers,
+    leaguedashplayerstats,
+    leaguedashteamstats,
+)
+
+def nba_request(factory: Callable[..., T], **kwargs: Any) -> T:
+    return retry_nba_endpoint(
+        lambda: factory(
+            headers=NBA_HEADERS,
+            timeout=NBA_TIMEOUT_SECONDS,
+            **kwargs,
+        )
+    )
 
 @dataclass
 class OutputPlayer:
@@ -150,6 +164,9 @@ def main() -> None:
 
     print("Fetching CommonAllPlayers...")
     all_players_rows = fetch_common_all_players(current_season)
+
+    time.sleep(2.5)
+
     active_players = [
         row for row in all_players_rows if safe_int(row.get("ROSTERSTATUS")) == 1
     ]
@@ -159,6 +176,8 @@ def main() -> None:
 
     print("Fetching current-season player stats...")
     current_player_stats = fetch_league_dash_player_stats(current_season)
+
+    time.sleep(2.5)
 
     players_with_games: List[Dict[str, Any]] = []
     for player_row in active_players:
@@ -176,6 +195,8 @@ def main() -> None:
 
     print("Fetching previous-season player stats...")
     previous_player_stats = fetch_league_dash_player_stats(previous_season)
+
+    time.sleep(2.5)
 
     print("Fetching current-season team stats...")
     current_team_stats = fetch_league_dash_team_stats(current_season, team_id_to_abbr)
@@ -550,27 +571,23 @@ def retry_nba_endpoint(factory: Callable[[], T]) -> T:
 
 
 def fetch_common_all_players(season: str) -> List[Dict[str, Any]]:
-    endpoint = retry_nba_endpoint(
-        lambda: commonallplayers.CommonAllPlayers(
-            is_only_current_season=1,
-            league_id="00",
-            season=season,
-            timeout=NBA_TIMEOUT_SECONDS,
-        )
+    endpoint = nba_request(
+        commonallplayers.CommonAllPlayers,
+        is_only_current_season=1,
+        league_id="00",
+        season=season,
     )
     return endpoint.get_normalized_dict()["CommonAllPlayers"]
 
 
 def fetch_league_dash_player_stats(season: str) -> Dict[int, Dict[str, Any]]:
-    endpoint = retry_nba_endpoint(
-        lambda: leaguedashplayerstats.LeagueDashPlayerStats(
-            season=season,
-            season_type_all_star="Regular Season",
-            per_mode_detailed="PerGame",
-            measure_type_detailed_defense="Base",
-            league_id_nullable="00",
-            timeout=NBA_TIMEOUT_SECONDS,
-        )
+    endpoint = nba_request(
+        leaguedashplayerstats.LeagueDashPlayerStats,
+        season=season,
+        season_type_all_star="Regular Season",
+        per_mode_detailed="PerGame",
+        measure_type_detailed_defense="Base",
+        league_id_nullable="00",
     )
     rows = endpoint.get_normalized_dict()["LeagueDashPlayerStats"]
     return {
@@ -584,15 +601,13 @@ def fetch_league_dash_team_stats(
     season: str,
     team_id_to_abbr: Dict[int, str],
 ) -> Dict[str, Dict[str, Any]]:
-    endpoint = retry_nba_endpoint(
-        lambda: leaguedashteamstats.LeagueDashTeamStats(
-            season=season,
-            season_type_all_star="Regular Season",
-            per_mode_detailed="PerGame",
-            measure_type_detailed_defense="Base",
-            league_id_nullable="00",
-            timeout=NBA_TIMEOUT_SECONDS,
-        )
+    endpoint = nba_request(
+        leaguedashteamstats.LeagueDashTeamStats,
+        season=season,
+        season_type_all_star="Regular Season",
+        per_mode_detailed="PerGame",
+        measure_type_detailed_defense="Base",
+        league_id_nullable="00",
     )
     rows = endpoint.get_normalized_dict()["LeagueDashTeamStats"]
 
