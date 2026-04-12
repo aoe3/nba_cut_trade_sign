@@ -6,6 +6,7 @@ from __future__ import annotations
 import csv
 import json
 import os
+import random
 import re
 import sys
 import time
@@ -25,10 +26,10 @@ DEFAULT_JSON_OUTPUT_PATH = "src/data/players.json"
 DEFAULT_CURRENT_SEASON = "2025-26"
 DEFAULT_PREVIOUS_SEASON = "2024-25"
 
-NBA_TIMEOUT_SECONDS = 45
+NBA_TIMEOUT_SECONDS = 60
 HTML_TIMEOUT_SECONDS = 45
-MAX_RETRIES = 3
-RETRY_BACKOFF_SECONDS = 1.5
+MAX_RETRIES = 5
+RETRY_BACKOFF_SECONDS = 4.0
 
 CURRENT_SEASON_DURABILITY_THRESHOLD_GAMES = 20
 
@@ -537,7 +538,9 @@ def retry_nba_endpoint(factory: Callable[[], T]) -> T:
         except Exception as exc:
             last_error = exc
             if attempt < MAX_RETRIES:
-                sleep_for = RETRY_BACKOFF_SECONDS * attempt
+                base_sleep = RETRY_BACKOFF_SECONDS * (2 ** (attempt - 1))
+                jitter = random.uniform(0.5, 2.0)
+                sleep_for = base_sleep + jitter
                 print(f"  NBA request failed (attempt {attempt}/{MAX_RETRIES}): {exc}")
                 print(f"  Retrying in {sleep_for:.1f}s...")
                 time.sleep(sleep_for)
@@ -642,7 +645,9 @@ def fetch_html(url: str) -> str:
         except Exception as exc:
             last_error = exc
             if attempt < MAX_RETRIES:
-                sleep_for = RETRY_BACKOFF_SECONDS * attempt
+                base_sleep = RETRY_BACKOFF_SECONDS * (2 ** (attempt - 1))
+                jitter = random.uniform(0.5, 2.0)
+                sleep_for = base_sleep + jitter
                 print(f"  HTML request failed (attempt {attempt}/{MAX_RETRIES}): {exc}")
                 print(f"  Retrying in {sleep_for:.1f}s...")
                 time.sleep(sleep_for)

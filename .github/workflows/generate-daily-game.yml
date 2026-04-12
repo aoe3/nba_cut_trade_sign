@@ -2,7 +2,11 @@ name: Generate Daily Game
 
 on:
   schedule:
-    - cron: "10 9 * * *"
+    # Multiple attempts across early morning ET (DST-safe window)
+    - cron: "20,40 8 * * *"
+    - cron: "0,10 9 * * *"
+    - cron: "20,40 9 * * *"
+    - cron: "0,10 10 * * *"
 
   workflow_dispatch:
     inputs:
@@ -13,6 +17,10 @@ on:
 
 permissions:
   contents: write
+
+concurrency:
+  group: generate-daily-game
+  cancel-in-progress: false
 
 jobs:
   generate-daily-game:
@@ -57,26 +65,18 @@ jobs:
           echo "BUILD_DATE=$BUILD_DATE" >> "$GITHUB_ENV"
           echo "Using BUILD_DATE=$BUILD_DATE"
 
-      - name: Build player pool
+      - name: Build player pool (robust)
         id: build_pool
         continue-on-error: true
-        shell: bash
         run: |
-          echo "Attempting to rebuild src/data/players.json..."
+          echo "Building player pool..."
           python scripts/build_player_pool.py
 
-      - name: Report player pool result
-        shell: bash
+      - name: Ensure player pool exists
         run: |
-          if [ "${{ steps.build_pool.outcome }}" = "success" ]; then
-            echo "Fresh players.json built successfully."
-          else
-            echo "WARNING: build_player_pool.py failed."
-            echo "Continuing with existing checked-in src/data/players.json."
-            if [ ! -f src/data/players.json ]; then
-              echo "ERROR: src/data/players.json does not exist, so there is no fallback."
-              exit 1
-            fi
+          if [ ! -f src/data/players.json ]; then
+            echo "ERROR: players.json missing."
+            exit 1
           fi
 
       - name: Build game + solution
@@ -86,7 +86,6 @@ jobs:
         run: npx tsx scripts/setCurrentGameDate.ts --date "$BUILD_DATE"
 
       - name: Commit generated files
-        shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

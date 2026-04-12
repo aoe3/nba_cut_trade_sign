@@ -4,8 +4,14 @@ import { BeatTheScorePage } from "./pages/BeatTheScorePage";
 import { DailyPage } from "./pages/DailyPage";
 import { ForeverPage } from "./pages/ForeverPage";
 import { ShootoutPage } from "./pages/ShootoutPage";
+import { StackBattlePage } from "./pages/StackBattlePage";
 
-export type AppMode = "daily" | "forever" | "beatTheScore" | "shootout";
+export type AppMode =
+  | "daily"
+  | "forever"
+  | "beatTheScore"
+  | "shootout"
+  | "stackBattle";
 
 /**
  * Hosts the four game modes and controls mode-to-mode transitions.
@@ -33,6 +39,10 @@ export default function App() {
 
   if (mode === "shootout") {
     return <ShootoutPage activeMode={mode} onChangeMode={setMode} />;
+  }
+
+  if (mode === "stackBattle") {
+    return <StackBattlePage activeMode={mode} onChangeMode={setMode} />;
   }
 
   return (
