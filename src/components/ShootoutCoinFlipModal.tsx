@@ -7,14 +7,13 @@ type TossWinner = TurnOwner | null;
 type ShootoutCoinFlipModalProps = {
   isOpen: boolean;
   onComplete: (firstTurn: TurnOwner) => void;
+  cpuPrefersFirstOnWin?: boolean;
 };
 
-/**
- * Handles the Shootout toss flow and resolves who takes the first turn.
- */
 export function ShootoutCoinFlipModal({
   isOpen,
   onComplete,
+  cpuPrefersFirstOnWin = false,
 }: ShootoutCoinFlipModalProps) {
   const [pickedSide, setPickedSide] = useState<CoinSide | null>(null);
   const [isFlipping, setIsFlipping] = useState(false);
@@ -119,7 +118,11 @@ export function ShootoutCoinFlipModal({
         return;
       }
 
-      const cpuFirstTurn: TurnOwner = Math.random() < 0.5 ? "user" : "cpu";
+      const cpuFirstTurn: TurnOwner = cpuPrefersFirstOnWin
+        ? "cpu"
+        : Math.random() < 0.5
+          ? "user"
+          : "cpu";
       setFirstTurn(cpuFirstTurn);
     }, 1100);
   }

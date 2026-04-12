@@ -633,21 +633,43 @@ def find_br_stats_table(
 
 def parse_bbr_player_rows_from_table(table: Any) -> List[Dict[str, Any]]:
     rows: List[Dict[str, Any]] = []
+
     for tr in table.select("tbody tr"):
         if "thead" in (tr.get("class") or []):
             continue
 
-        player_cell = first_of(tr, ['td[data-stat="player"]', 'td[data-stat="name_display"]'])
-        team_cell = first_of(tr, ['td[data-stat="team_id"]', 'td[data-stat="team_name_abbr"]'])
+        player_cell = first_of(
+            tr,
+            [
+                'th[data-stat="player"]',
+                'td[data-stat="player"]',
+                'th[data-stat="name_display"]',
+                'td[data-stat="name_display"]',
+            ],
+        )
+        team_cell = first_of(
+            tr,
+            [
+                'td[data-stat="team_id"]',
+                'td[data-stat="team_name_abbr"]',
+                'th[data-stat="team_id"]',
+                'th[data-stat="team_name_abbr"]',
+            ],
+        )
+
         if player_cell is None or team_cell is None:
             continue
 
         name = player_cell.get_text(strip=True)
         team = normalize_team_abbr(team_cell.get_text(strip=True))
+
         if not name or not team:
             continue
 
-        row_data: Dict[str, Any] = {"name": name, "team": team}
+        row_data: Dict[str, Any] = {
+            "name": name,
+            "team": team,
+        }
 
         for cell in tr.select("th[data-stat], td[data-stat]"):
             data_stat = cell.get("data-stat")
@@ -656,6 +678,7 @@ def parse_bbr_player_rows_from_table(table: Any) -> List[Dict[str, Any]]:
             row_data[data_stat] = cell.get_text(strip=True)
 
         rows.append(row_data)
+
     return rows
 
 
@@ -677,28 +700,46 @@ def fetch_basketball_reference_per_game(season: str) -> Dict[str, Dict[str, Any]
     html = fetch_html(url)
     soup = load_br_soup(html)
 
-    # Try the most likely table IDs first.
-    table = (
-        soup.select_one("table#per_game_stats")
-        or soup.select_one("table#per_game")
-        or soup.select_one("table#players_per_game")
-    )
+    def non_header_rows(candidate: Any) -> List[Any]:
+        return [
+            tr
+            for tr in candidate.select("tbody tr")
+            if "thead" not in (tr.get("class") or [])
+        ]
 
-    # Fall back to a looser scan if IDs don't hit.
+    def looks_like_player_per_game_table(candidate: Any) -> bool:
+        data_stats = {
+            el.get("data-stat")
+            for el in candidate.select("[data-stat]")
+            if el.get("data-stat")
+        }
+
+        has_name = "player" in data_stats or "name_display" in data_stats
+        has_games = "g" in data_stats or "games" in data_stats
+        has_team = "team_id" in data_stats or "team_name_abbr" in data_stats
+        has_points = "pts_per_g" in data_stats or "pts" in data_stats
+        has_fg = "fg_per_g" in data_stats or "fg" in data_stats
+        enough_rows = len(non_header_rows(candidate)) >= 100
+
+        return has_name and has_games and has_team and has_points and has_fg and enough_rows
+
+    table = None
+
+    # Try known IDs first, but only accept them if they look real.
+    for selector in (
+        "table#per_game_stats",
+        "table#per_game",
+        "table#players_per_game",
+    ):
+        candidate = soup.select_one(selector)
+        if candidate is not None and looks_like_player_per_game_table(candidate):
+            table = candidate
+            break
+
+    # Fall back to scanning every table.
     if table is None:
         for candidate in soup.select("table"):
-            data_stats = {
-                el.get("data-stat")
-                for el in candidate.select("[data-stat]")
-                if el.get("data-stat")
-            }
-
-            has_core = {"player", "g"}.issubset(data_stats)
-            has_team = "team_id" in data_stats or "team_name_abbr" in data_stats
-            has_points = "pts_per_g" in data_stats or "pts" in data_stats
-            has_fg = "fg_per_g" in data_stats or "fg" in data_stats
-
-            if has_core and has_team and has_points and has_fg:
+            if looks_like_player_per_game_table(candidate):
                 table = candidate
                 break
 
@@ -712,6 +753,7 @@ def fetch_basketball_reference_per_game(season: str) -> Dict[str, Dict[str, Any]
                 {
                     "id": candidate.get("id"),
                     "class": candidate.get("class"),
+                    "row_count": len(non_header_rows(candidate)),
                     "sample_data_stats": sorted(
                         {
                             el.get("data-stat")
@@ -726,11 +768,38 @@ def fetch_basketball_reference_per_game(season: str) -> Dict[str, Dict[str, Any]
             json.dump(debug_tables, f, indent=2)
 
         raise RuntimeError(
-            "Could not find Basketball Reference per-game table. "
+            "Could not find Basketball Reference per-game player table. "
             "Saved raw HTML to br_per_game_debug.html and table metadata to br_per_game_tables_debug.json"
         )
 
     parsed_rows = parse_bbr_player_rows_from_table(table)
+
+    if len(parsed_rows) < 100:
+        with open("br_per_game_debug.html", "w", encoding="utf-8") as f:
+            f.write(html)
+
+        debug_info = {
+            "selected_table_id": table.get("id"),
+            "selected_table_class": table.get("class"),
+            "selected_row_count": len(non_header_rows(table)),
+            "parsed_row_count": len(parsed_rows),
+            "selected_table_data_stats": sorted(
+                {
+                    el.get("data-stat")
+                    for el in table.select("[data-stat]")
+                    if el.get("data-stat")
+                }
+            )[:120],
+        }
+
+        with open("br_per_game_selected_table_debug.json", "w", encoding="utf-8") as f:
+            json.dump(debug_info, f, indent=2)
+
+        raise RuntimeError(
+            "Selected a per-game table candidate, but parsed too few player rows. "
+            "Saved raw HTML to br_per_game_debug.html and selected-table metadata to "
+            "br_per_game_selected_table_debug.json"
+        )
 
     by_player: Dict[str, List[Dict[str, Any]]] = {}
     display_name_by_norm: Dict[str, str] = {}
@@ -749,7 +818,7 @@ def fetch_basketball_reference_per_game(season: str) -> Dict[str, Dict[str, Any]
         if stats_row_raw is None or not display_team:
             continue
 
-        games_played = safe_int(stats_row_raw.get("g"))
+        games_played = safe_int(first_present(stats_row_raw, ["g", "games"]))
         if games_played is None or games_played <= 0:
             continue
 
@@ -798,6 +867,11 @@ def fetch_basketball_reference_per_game(season: str) -> Dict[str, Dict[str, Any]
                 ),
             },
         }
+
+    if not result:
+        raise RuntimeError(
+            "Per-game table parsed, but produced zero players after row normalization."
+        )
 
     return result
 

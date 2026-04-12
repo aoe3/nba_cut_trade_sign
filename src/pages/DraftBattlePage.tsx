@@ -22,6 +22,7 @@ type DraftBattlePageProps = {
 
 type TurnOwner = "user" | "cpu";
 type GameWinner = TurnOwner | "tie" | null;
+type TradeTarget = DraftBattlePlayer & { isJackpot?: boolean };
 
 type SignedLineupSlot = {
   player: DraftBattlePlayer;
@@ -50,12 +51,15 @@ type DraftBattleSession = {
 };
 
 const BATTLE_SLOTS: BattleSlot[] = ["G", "F", "C"];
-const STACK_BATTLE_GAME_STORAGE_KEY = "cut-trade-sign:draft-battle-game";
-const STACK_BATTLE_INITIAL_GAME_STORAGE_KEY =
+const DRAFT_BATTLE_GAME_STORAGE_KEY = "cut-trade-sign:draft-battle-game";
+const DRAFT_BATTLE_INITIAL_GAME_STORAGE_KEY =
   "cut-trade-sign:draft-battle-initial-game";
-const STACK_BATTLE_SESSION_STORAGE_KEY = "cut-trade-sign:draft-battle-session";
+const DRAFT_BATTLE_SESSION_STORAGE_KEY = "cut-trade-sign:draft-battle-session";
 const CPU_TURN_DELAY_MS = 850;
 const AUTO_SIGN_DELAY_MS = 600;
+const CPU_SIGN_SCORE_THRESHOLD = 55;
+const CPU_TRADE_SCORE_THRESHOLD = 53;
+const CPU_DEFENSIVE_CUT_THRESHOLD = 54;
 
 function getPoolLabel(slot: BattleSlot): string {
   switch (slot) {
@@ -142,16 +146,16 @@ function loadGameFromStorage(key: string): DraftBattleGame | null {
 }
 
 function loadStoredGame(): DraftBattleGame | null {
-  return loadGameFromStorage(STACK_BATTLE_GAME_STORAGE_KEY);
+  return loadGameFromStorage(DRAFT_BATTLE_GAME_STORAGE_KEY);
 }
 
 function loadInitialGame(): DraftBattleGame | null {
-  return loadGameFromStorage(STACK_BATTLE_INITIAL_GAME_STORAGE_KEY);
+  return loadGameFromStorage(DRAFT_BATTLE_INITIAL_GAME_STORAGE_KEY);
 }
 
 function loadStoredSession(): DraftBattleSession | null {
   try {
-    const raw = window.localStorage.getItem(STACK_BATTLE_SESSION_STORAGE_KEY);
+    const raw = window.localStorage.getItem(DRAFT_BATTLE_SESSION_STORAGE_KEY);
     if (!raw) return null;
     return normalizeStoredSession(JSON.parse(raw));
   } catch {
@@ -161,21 +165,21 @@ function loadStoredSession(): DraftBattleSession | null {
 
 function persistGame(game: DraftBattleGame) {
   window.localStorage.setItem(
-    STACK_BATTLE_GAME_STORAGE_KEY,
+    DRAFT_BATTLE_GAME_STORAGE_KEY,
     JSON.stringify(game),
   );
 }
 
 function persistInitialGame(game: DraftBattleGame) {
   window.localStorage.setItem(
-    STACK_BATTLE_INITIAL_GAME_STORAGE_KEY,
+    DRAFT_BATTLE_INITIAL_GAME_STORAGE_KEY,
     JSON.stringify(game),
   );
 }
 
 function persistSession(session: DraftBattleSession) {
   window.localStorage.setItem(
-    STACK_BATTLE_SESSION_STORAGE_KEY,
+    DRAFT_BATTLE_SESSION_STORAGE_KEY,
     JSON.stringify(session),
   );
 }
@@ -188,7 +192,10 @@ function getCurrentOption(
   return pool.options[pool.currentIndex] ?? null;
 }
 
-function getValidTradeTargets(game: DraftBattleGame, slot: BattleSlot) {
+function getValidTradeTargets(
+  game: DraftBattleGame,
+  slot: BattleSlot,
+): TradeTarget[] {
   const currentOption = getCurrentOption(game, slot);
   if (!currentOption) {
     return [];
@@ -327,6 +334,117 @@ function getRosterStats(
     { label: "BPG", value: player.bpg.toFixed(1) },
     { label: "FG%", value: `${(player.fgPct * 100).toFixed(1)}%` },
   ];
+}
+
+function getTopVisibleThreat(
+  game: DraftBattleGame,
+  lineup: DraftBattleLineup,
+): { slot: BattleSlot; player: DraftBattlePlayer; score: number } | null {
+  const threats = BATTLE_SLOTS
+    .filter((slot) => !lineup[slot])
+    .map((slot) => {
+      const currentOption = getCurrentOption(game, slot);
+      if (!currentOption) {
+        return null;
+      }
+
+      return {
+        slot,
+        player: currentOption.player,
+        score: scorePlayer(currentOption.player),
+      };
+    })
+    .filter(
+      (
+        threat,
+      ): threat is { slot: BattleSlot; player: DraftBattlePlayer; score: number } =>
+        threat !== null,
+    )
+    .sort((a, b) => b.score - a.score);
+
+  return threats[0] ?? null;
+}
+
+function chooseCpuTradeMove(
+  game: DraftBattleGame,
+  cpuLineup: DraftBattleLineup,
+):
+  | { slot: BattleSlot; target: TradeTarget; basePlayer: DraftBattlePlayer }
+  | null {
+  const candidates = BATTLE_SLOTS
+    .filter((slot) => !cpuLineup[slot])
+    .map((slot) => {
+      const currentOption = getCurrentOption(game, slot);
+      const tradeTargets = getValidTradeTargets(game, slot);
+
+      if (!currentOption || tradeTargets.length === 0) {
+        return null;
+      }
+
+      const bestTarget = [...tradeTargets].sort((a, b) => {
+        const scoreDelta = scorePlayer(b) - scorePlayer(a);
+        if (scoreDelta !== 0) return scoreDelta;
+        return Number(Boolean(b.isJackpot)) - Number(Boolean(a.isJackpot));
+      })[0];
+
+      if (!bestTarget) {
+        return null;
+      }
+
+      const currentScore = scorePlayer(currentOption.player);
+      const targetScore = scorePlayer(bestTarget);
+
+      return {
+        slot,
+        target: bestTarget,
+        basePlayer: currentOption.player,
+        improvement: targetScore - currentScore,
+        targetScore,
+        isJackpot: Boolean(bestTarget.isJackpot),
+      };
+    })
+    .filter(
+      (
+        candidate,
+      ): candidate is {
+        slot: BattleSlot;
+        target: TradeTarget;
+        basePlayer: DraftBattlePlayer;
+        improvement: number;
+        targetScore: number;
+        isJackpot: boolean;
+      } => candidate !== null,
+    )
+    .sort((a, b) => {
+      if (b.isJackpot !== a.isJackpot) {
+        return Number(b.isJackpot) - Number(a.isJackpot);
+      }
+
+      if (b.improvement !== a.improvement) {
+        return b.improvement - a.improvement;
+      }
+
+      return b.targetScore - a.targetScore;
+    });
+
+  const top = candidates[0];
+  if (!top) {
+    return null;
+  }
+
+  if (
+    top.isJackpot ||
+    top.improvement >= 4 ||
+    top.targetScore >= CPU_TRADE_SCORE_THRESHOLD
+  ) {
+    return {
+      slot: top.slot,
+      target: top.target,
+      basePlayer: top.basePlayer,
+    };
+  }
+
+  return null;
 }
 
 function StackCards({
@@ -481,7 +599,11 @@ function StackCards({
                 selectedTradeTargetId === target.id
                   ? " draft-battle__lane-cell--offer-selected"
                   : ""
-              }${target.isJackpot ? " draft-battle__lane-cell--offer-jackpot" : ""}`}
+              }${
+                target.isJackpot
+                  ? " draft-battle__lane-cell--offer-jackpot"
+                  : ""
+              }`}
               onClick={() => onSelectTradeTarget(lane, target.id)}
             >
               <div className="draft-battle__offer-headshot-wrap">
@@ -927,6 +1049,9 @@ export function DraftBattlePage({
         setTradePickerSlot(null);
         setSelectedTradeTargetId(null);
 
+        const cpuNeedsSlots = !isLineupComplete(session.cpuLineup);
+        const userNeedsSlots = !isLineupComplete(session.userLineup);
+
         if (session.cpuMovesRemaining <= 0) {
           const slot = getFirstEmptySlot(session.cpuLineup);
           if (!slot) {
@@ -967,103 +1092,13 @@ export function DraftBattlePage({
           return;
         }
 
-        const emptyCpuSlot = getFirstEmptySlot(session.cpuLineup);
-        const signShouldHappen =
-          emptyCpuSlot !== null &&
-          (() => {
-            const currentOption = getCurrentOption(game, emptyCpuSlot);
-            if (!currentOption) return false;
-            const currentScore = scorePlayer(currentOption.player);
-            return currentScore >= 55 || Math.random() < 0.45;
-          })();
+        if (!cpuNeedsSlots && userNeedsSlots) {
+          const topThreat = getTopVisibleThreat(game, session.userLineup);
 
-        if (signShouldHappen && emptyCpuSlot) {
-          const currentOption = getCurrentOption(game, emptyCpuSlot);
-          if (currentOption) {
+          if (topThreat && topThreat.score >= CPU_DEFENSIVE_CUT_THRESHOLD) {
             setGame((currentGame) =>
-              removePlayersFromPool(currentGame, emptyCpuSlot, [
-                currentOption.player.id,
-              ]),
-            );
-            setSession((currentSession) =>
-              finalizeSession({
-                ...currentSession,
-                cpuLineup: {
-                  ...currentSession.cpuLineup,
-                  [emptyCpuSlot]: createSignedLineupSlot(currentOption.player),
-                },
-                activeTurn: "user",
-                history: appendHistory(
-                  currentSession.history,
-                  "cpu",
-                  `CPU signed ${currentOption.player.name} to ${emptyCpuSlot}.`,
-                ),
-              }),
-            );
-            return;
-          }
-        }
-
-        const availableTradeSlots = BATTLE_SLOTS.filter((slot) => {
-          if (session.cpuLineup[slot]) return false;
-          return getValidTradeTargets(game, slot).length > 0;
-        });
-        const availableCutSlots = getAvailableCutSlots(game);
-
-        if (
-          availableTradeSlots.length > 0 &&
-          (availableCutSlots.length === 0 || Math.random() < 0.45)
-        ) {
-          const chosenSlot =
-            availableTradeSlots[
-              Math.floor(Math.random() * availableTradeSlots.length)
-            ];
-          const validTargets = getValidTradeTargets(game, chosenSlot);
-          const chosenTarget =
-            validTargets[Math.floor(Math.random() * validTargets.length)];
-          const currentOption = getCurrentOption(game, chosenSlot);
-
-          if (currentOption && chosenTarget) {
-            setGame((currentGame) =>
-              removePlayersFromPool(currentGame, chosenSlot, [
-                currentOption.player.id,
-                chosenTarget.id,
-              ]),
-            );
-            setSession((currentSession) =>
-              finalizeSession({
-                ...currentSession,
-                cpuMovesRemaining: Math.max(
-                  0,
-                  currentSession.cpuMovesRemaining - 1,
-                ),
-                cpuLineup: {
-                  ...currentSession.cpuLineup,
-                  [chosenSlot]: createSignedLineupSlot(chosenTarget),
-                },
-                activeTurn: "user",
-                history: appendHistory(
-                  currentSession.history,
-                  "cpu",
-                  `CPU traded ${chosenSlot} into ${chosenTarget.name}.`,
-                ),
-              }),
-            );
-            return;
-          }
-        }
-
-        if (availableCutSlots.length > 0) {
-          const randomSlot =
-            availableCutSlots[
-              Math.floor(Math.random() * availableCutSlots.length)
-            ];
-          const currentOption = getCurrentOption(game, randomSlot);
-
-          if (currentOption) {
-            setGame((currentGame) =>
-              removePlayersFromPool(currentGame, randomSlot, [
-                currentOption.player.id,
+              removePlayersFromPool(currentGame, topThreat.slot, [
+                topThreat.player.id,
               ]),
             );
             setSession((currentSession) => ({
@@ -1076,7 +1111,135 @@ export function DraftBattlePage({
               history: appendHistory(
                 currentSession.history,
                 "cpu",
-                `CPU cut ${currentOption.player.name} from ${randomSlot}.`,
+                `CPU cut ${topThreat.player.name} from ${topThreat.slot} to deny your next pickup.`,
+              ),
+            }));
+            return;
+          }
+        }
+
+        const emptyCpuSlot = getFirstEmptySlot(session.cpuLineup);
+        if (emptyCpuSlot) {
+          const currentOption = getCurrentOption(game, emptyCpuSlot);
+          if (currentOption) {
+            const currentScore = scorePlayer(currentOption.player);
+
+            if (
+              currentScore >= CPU_SIGN_SCORE_THRESHOLD ||
+              Math.random() < 0.4
+            ) {
+              setGame((currentGame) =>
+                removePlayersFromPool(currentGame, emptyCpuSlot, [
+                  currentOption.player.id,
+                ]),
+              );
+              setSession((currentSession) =>
+                finalizeSession({
+                  ...currentSession,
+                  cpuLineup: {
+                    ...currentSession.cpuLineup,
+                    [emptyCpuSlot]: createSignedLineupSlot(
+                      currentOption.player,
+                    ),
+                  },
+                  activeTurn: "user",
+                  history: appendHistory(
+                    currentSession.history,
+                    "cpu",
+                    `CPU signed ${currentOption.player.name} to ${emptyCpuSlot}.`,
+                  ),
+                }),
+              );
+              return;
+            }
+          }
+        }
+
+        const cpuTradeMove = chooseCpuTradeMove(game, session.cpuLineup);
+        if (cpuTradeMove && session.cpuMovesRemaining > 0) {
+          setGame((currentGame) =>
+            removePlayersFromPool(currentGame, cpuTradeMove.slot, [
+              cpuTradeMove.basePlayer.id,
+              cpuTradeMove.target.id,
+            ]),
+          );
+          setSession((currentSession) =>
+            finalizeSession({
+              ...currentSession,
+              cpuMovesRemaining: Math.max(
+                0,
+                currentSession.cpuMovesRemaining - 1,
+              ),
+              cpuLineup: {
+                ...currentSession.cpuLineup,
+                [cpuTradeMove.slot]: createSignedLineupSlot(
+                  cpuTradeMove.target,
+                ),
+              },
+              activeTurn: "user",
+              history: appendHistory(
+                currentSession.history,
+                "cpu",
+                `CPU traded ${cpuTradeMove.slot} into ${cpuTradeMove.target.name}.`,
+              ),
+            }),
+          );
+          return;
+        }
+
+        const availableCutSlots = getAvailableCutSlots(game);
+        if (availableCutSlots.length > 0) {
+          const defensiveThreat = getTopVisibleThreat(game, session.userLineup);
+
+          if (
+            defensiveThreat &&
+            (defensiveThreat.score >= CPU_DEFENSIVE_CUT_THRESHOLD ||
+              (!cpuNeedsSlots && userNeedsSlots))
+          ) {
+            setGame((currentGame) =>
+              removePlayersFromPool(currentGame, defensiveThreat.slot, [
+                defensiveThreat.player.id,
+              ]),
+            );
+            setSession((currentSession) => ({
+              ...currentSession,
+              cpuMovesRemaining: Math.max(
+                0,
+                currentSession.cpuMovesRemaining - 1,
+              ),
+              activeTurn: "user",
+              history: appendHistory(
+                currentSession.history,
+                "cpu",
+                `CPU cut ${defensiveThreat.player.name} from ${defensiveThreat.slot}.`,
+              ),
+            }));
+            return;
+          }
+
+          const fallbackSlot =
+            availableCutSlots[
+              Math.floor(Math.random() * availableCutSlots.length)
+            ];
+          const fallbackOption = getCurrentOption(game, fallbackSlot);
+
+          if (fallbackOption) {
+            setGame((currentGame) =>
+              removePlayersFromPool(currentGame, fallbackSlot, [
+                fallbackOption.player.id,
+              ]),
+            );
+            setSession((currentSession) => ({
+              ...currentSession,
+              cpuMovesRemaining: Math.max(
+                0,
+                currentSession.cpuMovesRemaining - 1,
+              ),
+              activeTurn: "user",
+              history: appendHistory(
+                currentSession.history,
+                "cpu",
+                `CPU cut ${fallbackOption.player.name} from ${fallbackSlot}.`,
               ),
             }));
             return;
@@ -1325,18 +1488,28 @@ export function DraftBattlePage({
                   key={slot}
                   lane={slot}
                   game={game}
-                  isTradeLocked={isTradeLocked && tradePickerSlot !== slot}
+                  isTradeLocked={tradePickerSlot !== null && tradePickerSlot !== slot}
                   isSignDisabled={
-                    isSignDisabled || Boolean(session.userLineup[slot])
+                    (!session.setupComplete ||
+                      session.activeTurn !== "user" ||
+                      session.gameOver) || Boolean(session.userLineup[slot])
                   }
                   isTradeDisabled={
-                    isTradeDisabled || Boolean(session.userLineup[slot])
+                    (!session.setupComplete ||
+                      session.activeTurn !== "user" ||
+                      session.userMovesRemaining <= 0 ||
+                      session.gameOver) || Boolean(session.userLineup[slot])
                   }
                   isTradeOpen={tradePickerSlot === slot}
                   selectedTradeTargetId={
                     tradePickerSlot === slot ? selectedTradeTargetId : null
                   }
-                  isCutDisabled={isCutDisabled}
+                  isCutDisabled={
+                    !session.setupComplete ||
+                    session.activeTurn !== "user" ||
+                    session.userMovesRemaining <= 0 ||
+                    session.gameOver
+                  }
                   onSign={signCurrentCard}
                   onToggleTrade={toggleTradePicker}
                   onSelectTradeTarget={selectTradeTarget}
@@ -1399,6 +1572,7 @@ export function DraftBattlePage({
       <ShootoutCoinFlipModal
         isOpen={!isLoading && !session.setupComplete}
         onComplete={handleCoinFlipComplete}
+        cpuPrefersFirstOnWin
       />
 
       {isLoading ? (

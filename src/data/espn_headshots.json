@@ -10,6 +10,13 @@
     "normalizedInputName": "a j green",
     "similarity": 1.0
   },
+  "a j lawson": {
+    "athleteApiRef": null,
+    "espnId": "4067017",
+    "espnName": "A.J. Lawson",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4067017.png",
+    "inputName": "A.J. Lawson"
+  },
   "aaron gordon": {
     "athleteApiRef": null,
     "espnId": "3064290",
@@ -120,6 +127,13 @@
     "normalizedInputName": "al horford",
     "similarity": 1.0
   },
+  "alex antetokounmpo": {
+    "athleteApiRef": null,
+    "espnId": "4432452",
+    "espnName": "Alex Antetokounmpo",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4432452.png",
+    "inputName": "Alex Antetokounmpo"
+  },
   "alex caruso": {
     "athleteApiRef": null,
     "espnId": "2991350",
@@ -131,6 +145,13 @@
     "normalizedInputName": "alex caruso",
     "similarity": 1.0
   },
+  "alex morales": {
+    "athleteApiRef": null,
+    "espnId": "4593034",
+    "espnName": "Alex Morales",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4593034.png",
+    "inputName": "Alex Morales"
+  },
   "alex sarr": {
     "athleteApiRef": null,
     "espnId": "5160992",
@@ -141,6 +162,13 @@
     "normalizedEspnName": "alex sarr",
     "normalizedInputName": "alex sarr",
     "similarity": 1.0
+  },
+  "alijah martin": {
+    "athleteApiRef": null,
+    "espnId": "4702656",
+    "espnName": "Alijah Martin",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4702656.png",
+    "inputName": "Alijah Martin"
   },
   "alperen sengun": {
     "athleteApiRef": null,
@@ -285,6 +313,13 @@
     "normalizedInputName": "anthony gill",
     "similarity": 1.0
   },
+  "antonio reeves": {
+    "athleteApiRef": null,
+    "espnId": "4592686",
+    "espnName": "Antonio Reeves",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4592686.png",
+    "inputName": "Antonio Reeves"
+  },
   "ariel hukporti": {
     "athleteApiRef": null,
     "espnId": "4871141",
@@ -395,6 +430,13 @@
     "normalizedInputName": "bennedict mathurin",
     "similarity": 1.0
   },
+  "bez mbeng": {
+    "athleteApiRef": null,
+    "espnId": "4898237",
+    "espnName": "Bez Mbeng",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4898237.png",
+    "inputName": "Bez Mbeng"
+  },
   "bilal coulibaly": {
     "athleteApiRef": null,
     "espnId": "5104155",
@@ -417,6 +459,13 @@
     "normalizedInputName": "bismack biyombo",
     "similarity": 1.0
   },
+  "blake hinson": {
+    "athleteApiRef": null,
+    "espnId": "4396963",
+    "espnName": "Blake Hinson",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4396963.png",
+    "inputName": "Blake Hinson"
+  },
   "blake wesley": {
     "athleteApiRef": null,
     "espnId": "4683935",
@@ -438,6 +487,13 @@
     "normalizedEspnName": "bobby portis",
     "normalizedInputName": "bobby portis",
     "similarity": 1.0
+  },
+  "bogdan bogdanovia": {
+    "athleteApiRef": null,
+    "espnId": "3037789",
+    "espnName": "Bogdan Bogdanovic",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/3037789.png",
+    "inputName": "Bogdan Bogdanovi\u00c4\u0087"
   },
   "bogdan bogdanovic": {
     "athleteApiRef": null,
@@ -471,6 +527,13 @@
     "normalizedEspnName": "bradley beal",
     "normalizedInputName": "bradley beal",
     "similarity": 1.0
+  },
+  "branden carlson": {
+    "athleteApiRef": null,
+    "espnId": "4592435",
+    "espnName": "Branden Carlson",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4592435.png",
+    "inputName": "Branden Carlson"
   },
   "brandin podziemski": {
     "athleteApiRef": null,
@@ -560,6 +623,13 @@
     "normalizedInputName": "brook lopez",
     "similarity": 1.0
   },
+  "brooks barnhizer": {
+    "athleteApiRef": null,
+    "espnId": "4684208",
+    "espnName": "Brooks Barnhizer",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4684208.png",
+    "inputName": "Brooks Barnhizer"
+  },
   "bruce brown": {
     "athleteApiRef": null,
     "espnId": "4065670",
@@ -614,6 +684,20 @@
     "normalizedEspnName": "cade cunningham",
     "normalizedInputName": "cade cunningham",
     "similarity": 1.0
+  },
+  "caleb houstan": {
+    "athleteApiRef": null,
+    "espnId": "4433623",
+    "espnName": "Caleb Houstan",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4433623.png",
+    "inputName": "Caleb Houstan"
+  },
+  "caleb love": {
+    "athleteApiRef": null,
+    "espnId": "4433144",
+    "espnName": "Caleb Love",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4433144.png",
+    "inputName": "Caleb Love"
   },
   "caleb martin": {
     "athleteApiRef": null,
@@ -714,6 +798,13 @@
     "normalizedInputName": "cedric coward",
     "similarity": 1.0
   },
+  "chaney johnson": {
+    "athleteApiRef": null,
+    "espnId": "5174655",
+    "espnName": "Chaney Johnson",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/5174655.png",
+    "inputName": "Chaney Johnson"
+  },
   "charles bassey": {
     "athleteApiRef": null,
     "espnId": "4397886",
@@ -747,6 +838,13 @@
     "normalizedInputName": "chet holmgren",
     "similarity": 1.0
   },
+  "chris youngblood": {
+    "athleteApiRef": null,
+    "espnId": "4706557",
+    "espnName": "Chris Youngblood",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4706557.png",
+    "inputName": "Chris Youngblood"
+  },
   "christian braun": {
     "athleteApiRef": null,
     "espnId": "4431767",
@@ -768,6 +866,20 @@
     "normalizedEspnName": "christian koloko",
     "normalizedInputName": "christian koloko",
     "similarity": 1.0
+  },
+  "chucky hepburn": {
+    "athleteApiRef": null,
+    "espnId": "4590360",
+    "espnName": "Chucky Hepburn",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4590360.png",
+    "inputName": "Chucky Hepburn"
+  },
+  "cj huntley": {
+    "athleteApiRef": null,
+    "espnId": "4702602",
+    "espnName": "CJ Huntley",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4702602.png",
+    "inputName": "CJ Huntley"
   },
   "cj mccollum": {
     "athleteApiRef": null,
@@ -812,6 +924,13 @@
     "normalizedEspnName": "cody williams",
     "normalizedInputName": "cody williams",
     "similarity": 1.0
+  },
+  "colin castleton": {
+    "athleteApiRef": null,
+    "espnId": "4397204",
+    "espnName": "Colin Castleton",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4397204.png",
+    "inputName": "Colin Castleton"
   },
   "collin gillespie": {
     "athleteApiRef": null,
@@ -868,6 +987,13 @@
     "normalizedInputName": "corey kispert",
     "similarity": 1.0
   },
+  "cormac ryan": {
+    "athleteApiRef": null,
+    "espnId": "4397114",
+    "espnName": "Cormac Ryan",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4397114.png",
+    "inputName": "Cormac Ryan"
+  },
   "craig porter": {
     "athleteApiRef": null,
     "espnId": "4701233",
@@ -879,6 +1005,13 @@
     "normalizedInputName": "craig porter",
     "similarity": 1.0
   },
+  "curtis jones": {
+    "athleteApiRef": null,
+    "espnId": "4898369",
+    "espnName": "Curtis Jones",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4898369.png",
+    "inputName": "Curtis Jones"
+  },
   "d angelo russell": {
     "athleteApiRef": null,
     "espnId": "3136776",
@@ -889,6 +1022,13 @@
     "normalizedEspnName": "d angelo russell",
     "normalizedInputName": "d angelo russell",
     "similarity": 1.0
+  },
+  "daeqwon plowden": {
+    "athleteApiRef": null,
+    "espnId": "4279318",
+    "espnName": "Daeqwon Plowden",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4279318.png",
+    "inputName": "Daeqwon Plowden"
   },
   "dalano banton": {
     "athleteApiRef": null,
@@ -988,6 +1128,20 @@
     "normalizedEspnName": "daron holmes",
     "normalizedInputName": "daron holmes",
     "similarity": 1.0
+  },
+  "david jones garca a": {
+    "athleteApiRef": null,
+    "espnId": "4713010",
+    "espnName": "David Jones Garcia",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4713010.png",
+    "inputName": "David Jones Garc\u00c3\u00ada"
+  },
+  "david roddy": {
+    "athleteApiRef": null,
+    "espnId": "4593041",
+    "espnName": "David Roddy",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4593041.png",
+    "inputName": "David Roddy"
   },
   "davion mitchell": {
     "athleteApiRef": null,
@@ -1109,6 +1263,13 @@
     "normalizedEspnName": "deni avdija",
     "normalizedInputName": "deni avdija",
     "similarity": 1.0
+  },
+  "dennis schra der": {
+    "athleteApiRef": null,
+    "espnId": "3032979",
+    "espnName": "Dennis Schroder",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/3032979.png",
+    "inputName": "Dennis Schr\u00c3\u00b6der"
   },
   "dennis schroder": {
     "athleteApiRef": null,
@@ -1385,6 +1546,13 @@
     "normalizedInputName": "dwight powell",
     "similarity": 1.0
   },
+  "dylan cardwell": {
+    "athleteApiRef": null,
+    "espnId": "4433174",
+    "espnName": "Dylan Cardwell",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4433174.png",
+    "inputName": "Dylan Cardwell"
+  },
   "dylan harper": {
     "athleteApiRef": null,
     "espnId": "5037871",
@@ -1428,6 +1596,34 @@
     "normalizedEspnName": "egor demin",
     "normalizedInputName": "egor demin",
     "similarity": 1.0
+  },
+  "elijah harkless": {
+    "athleteApiRef": null,
+    "espnId": "4397449",
+    "espnName": "Elijah Harkless",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4397449.png",
+    "inputName": "Elijah Harkless"
+  },
+  "emanuel miller": {
+    "athleteApiRef": null,
+    "espnId": "4432872",
+    "espnName": "Emanuel Miller",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4432872.png",
+    "inputName": "Emanuel Miller"
+  },
+  "enrique freeman": {
+    "athleteApiRef": null,
+    "espnId": "4592699",
+    "espnName": "Enrique Freeman",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4592699.png",
+    "inputName": "Enrique Freeman"
+  },
+  "ethan thompson": {
+    "athleteApiRef": null,
+    "espnId": "4278516",
+    "espnName": "Ethan Thompson",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4278516.png",
+    "inputName": "Ethan Thompson"
   },
   "evan mobley": {
     "athleteApiRef": null,
@@ -1605,6 +1801,13 @@
     "normalizedInputName": "harrison barnes",
     "similarity": 1.0
   },
+  "harrison ingram": {
+    "athleteApiRef": null,
+    "espnId": "4433618",
+    "espnName": "Harrison Ingram",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4433618.png",
+    "inputName": "Harrison Ingram"
+  },
   "haywood highsmith": {
     "athleteApiRef": null,
     "espnId": "4291678",
@@ -1627,6 +1830,13 @@
     "normalizedInputName": "herbert jones",
     "similarity": 1.0
   },
+  "hugo gonza lez": {
+    "athleteApiRef": null,
+    "espnId": "5175647",
+    "espnName": "Hugo Gonzalez",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/5175647.png",
+    "inputName": "Hugo Gonz\u00c3\u00a1lez"
+  },
   "hugo gonzalez": {
     "athleteApiRef": null,
     "espnId": "5175647",
@@ -1637,6 +1847,13 @@
     "normalizedEspnName": "hugo gonzalez",
     "normalizedInputName": "hugo gonzalez",
     "similarity": 1.0
+  },
+  "hunter dickinson": {
+    "athleteApiRef": null,
+    "espnId": "4432180",
+    "espnName": "Hunter Dickinson",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4432180.png",
+    "inputName": "Hunter Dickinson"
   },
   "immanuel quickley": {
     "athleteApiRef": null,
@@ -1682,6 +1899,13 @@
     "normalizedInputName": "isaiah collier",
     "similarity": 1.0
   },
+  "isaiah crawford": {
+    "athleteApiRef": null,
+    "espnId": "4592857",
+    "espnName": "Isaiah Crawford",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4592857.png",
+    "inputName": "Isaiah Crawford"
+  },
   "isaiah hartenstein": {
     "athleteApiRef": null,
     "espnId": "4222252",
@@ -1714,6 +1938,20 @@
     "normalizedEspnName": "isaiah joe",
     "normalizedInputName": "isaiah joe",
     "similarity": 1.0
+  },
+  "isaiah livers": {
+    "athleteApiRef": null,
+    "espnId": "4277957",
+    "espnName": "Isaiah Livers",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4277957.png",
+    "inputName": "Isaiah Livers"
+  },
+  "isaiah stevens": {
+    "athleteApiRef": null,
+    "espnId": "4432117",
+    "espnName": "Isaiah Stevens",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4432117.png",
+    "inputName": "Isaiah Stevens"
   },
   "isaiah stewart": {
     "athleteApiRef": null,
@@ -1814,6 +2052,20 @@
     "normalizedInputName": "jae sean tate",
     "similarity": 1.0
   },
+  "jahmai mashack": {
+    "athleteApiRef": null,
+    "espnId": "4683934",
+    "espnName": "Jahmai Mashack",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4683934.png",
+    "inputName": "Jahmai Mashack"
+  },
+  "jahmir young": {
+    "athleteApiRef": null,
+    "espnId": "4433133",
+    "espnName": "Jahmir Young",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4433133.png",
+    "inputName": "Jahmir Young"
+  },
   "jaime jaquez": {
     "athleteApiRef": null,
     "espnId": "4432848",
@@ -1902,6 +2154,13 @@
     "normalizedInputName": "jalen pickett",
     "similarity": 1.0
   },
+  "jalen slawson": {
+    "athleteApiRef": null,
+    "espnId": "4398207",
+    "espnName": "Jalen Slawson",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4398207.png",
+    "inputName": "Jalen Slawson"
+  },
   "jalen smith": {
     "athleteApiRef": null,
     "espnId": "4397189",
@@ -1946,6 +2205,13 @@
     "normalizedInputName": "jalen wilson",
     "similarity": 1.0
   },
+  "jamal cain": {
+    "athleteApiRef": null,
+    "espnId": "4278572",
+    "espnName": "Jamal Cain",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4278572.png",
+    "inputName": "Jamal Cain"
+  },
   "jamal murray": {
     "athleteApiRef": null,
     "espnId": "3936299",
@@ -1968,6 +2234,13 @@
     "normalizedInputName": "jamal shead",
     "similarity": 1.0
   },
+  "jamaree bouyea": {
+    "athleteApiRef": null,
+    "espnId": "4280245",
+    "espnName": "Jamaree Bouyea",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4280245.png",
+    "inputName": "Jamaree Bouyea"
+  },
   "james harden": {
     "athleteApiRef": null,
     "espnId": "3992",
@@ -1978,6 +2251,13 @@
     "normalizedEspnName": "james harden",
     "normalizedInputName": "james harden",
     "similarity": 1.0
+  },
+  "jamir watkins": {
+    "athleteApiRef": null,
+    "espnId": "4606840",
+    "espnName": "Jamir Watkins",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4606840.png",
+    "inputName": "Jamir Watkins"
   },
   "jamison battle": {
     "athleteApiRef": null,
@@ -2055,6 +2335,13 @@
     "normalizedEspnName": "jase richardson",
     "normalizedInputName": "jase richardson",
     "similarity": 1.0
+  },
+  "javon small": {
+    "athleteApiRef": null,
+    "espnId": "4781746",
+    "espnName": "Javon Small",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4781746.png",
+    "inputName": "Javon Small"
   },
   "javonte green": {
     "athleteApiRef": null,
@@ -2143,6 +2430,13 @@
     "normalizedEspnName": "jaylon tyson",
     "normalizedInputName": "jaylon tyson",
     "similarity": 1.0
+  },
+  "jayson kent": {
+    "athleteApiRef": null,
+    "espnId": "4703889",
+    "espnName": "Jayson Kent",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4703889.png",
+    "inputName": "Jayson Kent"
   },
   "jayson tatum": {
     "athleteApiRef": null,
@@ -2319,6 +2613,13 @@
     "normalizedEspnName": "john konchar",
     "normalizedInputName": "john konchar",
     "similarity": 1.0
+  },
+  "john poulakidas": {
+    "athleteApiRef": null,
+    "espnId": "4898238",
+    "espnName": "John Poulakidas",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4898238.png",
+    "inputName": "John Poulakidas"
   },
   "john tonje": {
     "athleteApiRef": null,
@@ -2529,6 +2830,13 @@
     "normalizedInputName": "josh minott",
     "similarity": 1.0
   },
+  "josh oduro": {
+    "athleteApiRef": null,
+    "espnId": "4432068",
+    "espnName": "Josh Oduro",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4432068.png",
+    "inputName": "Josh Oduro"
+  },
   "josh okogie": {
     "athleteApiRef": null,
     "espnId": "4065663",
@@ -2572,6 +2880,13 @@
     "normalizedEspnName": "julian phillips",
     "normalizedInputName": "julian phillips",
     "similarity": 1.0
+  },
+  "julian reese": {
+    "athleteApiRef": null,
+    "espnId": "4683742",
+    "espnName": "Julian Reese",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4683742.png",
+    "inputName": "Julian Reese"
   },
   "julian strawther": {
     "athleteApiRef": null,
@@ -2617,6 +2932,13 @@
     "normalizedInputName": "justin edwards",
     "similarity": 1.0
   },
+  "jusuf nurkia": {
+    "athleteApiRef": null,
+    "espnId": "3102530",
+    "espnName": "Jusuf Nurkic",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/3102530.png",
+    "inputName": "Jusuf Nurki\u00c4\u0087"
+  },
   "jusuf nurkic": {
     "athleteApiRef": null,
     "espnId": "3102530",
@@ -2650,6 +2972,13 @@
     "normalizedInputName": "karl anthony towns",
     "similarity": 1.0
   },
+  "karlo matkovia": {
+    "athleteApiRef": null,
+    "espnId": "4997538",
+    "espnName": "Karlo Matkovic",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4997538.png",
+    "inputName": "Karlo Matkovi\u00c4\u0087"
+  },
   "karlo matkovic": {
     "athleteApiRef": null,
     "espnId": "4997538",
@@ -2660,6 +2989,13 @@
     "normalizedEspnName": "karlo matkovic",
     "normalizedInputName": "karlo matkovic",
     "similarity": 1.0
+  },
+  "kasparas jakua ionis": {
+    "athleteApiRef": null,
+    "espnId": "5214640",
+    "espnName": "Kasparas Jakucionis",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/5214640.png",
+    "inputName": "Kasparas Jaku\u00c4\u008dionis"
   },
   "kasparas jakucionis": {
     "athleteApiRef": null,
@@ -2749,6 +3085,13 @@
     "normalizedInputName": "kelly oubre",
     "similarity": 1.0
   },
+  "kennedy chandler": {
+    "athleteApiRef": null,
+    "espnId": "4432646",
+    "espnName": "Kennedy Chandler",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4432646.png",
+    "inputName": "Kennedy Chandler"
+  },
   "kenrich williams": {
     "athleteApiRef": null,
     "espnId": "3133626",
@@ -2837,6 +3180,13 @@
     "normalizedInputName": "kevin love",
     "similarity": 1.0
   },
+  "kevin mccullar": {
+    "athleteApiRef": null,
+    "espnId": "4411057",
+    "espnName": "Kevin McCullar Jr.",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4411057.png",
+    "inputName": "Kevin McCullar Jr."
+  },
   "kevin porter": {
     "athleteApiRef": null,
     "espnId": "4397140",
@@ -2903,6 +3253,13 @@
     "normalizedInputName": "killian hayes",
     "similarity": 1.0
   },
+  "kj simpson": {
+    "athleteApiRef": null,
+    "espnId": "4683834",
+    "espnName": "KJ Simpson",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4683834.png",
+    "inputName": "KJ Simpson"
+  },
   "klay thompson": {
     "athleteApiRef": null,
     "espnId": "6475",
@@ -2935,6 +3292,13 @@
     "normalizedEspnName": "kobe sanders",
     "normalizedInputName": "kobe sanders",
     "similarity": 1.0
+  },
+  "koby brea": {
+    "athleteApiRef": null,
+    "espnId": "4591259",
+    "espnName": "Koby Brea",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4591259.png",
+    "inputName": "Koby Brea"
   },
   "kon knueppel": {
     "athleteApiRef": null,
@@ -3035,6 +3399,13 @@
     "normalizedInputName": "kyshawn george",
     "similarity": 1.0
   },
+  "lachlan olbrich": {
+    "athleteApiRef": null,
+    "espnId": "5107156",
+    "espnName": "Lachlan Olbrich",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/5107156.png",
+    "inputName": "Lachlan Olbrich"
+  },
   "lamelo ball": {
     "athleteApiRef": null,
     "espnId": "4432816",
@@ -3079,6 +3450,13 @@
     "normalizedInputName": "lauri markkanen",
     "similarity": 1.0
   },
+  "leaky black": {
+    "athleteApiRef": null,
+    "espnId": "4395650",
+    "espnName": "Leaky Black",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4395650.png",
+    "inputName": "Leaky Black"
+  },
   "lebron james": {
     "athleteApiRef": null,
     "espnId": "1966",
@@ -3122,6 +3500,20 @@
     "normalizedEspnName": "lindy waters",
     "normalizedInputName": "lindy waters",
     "similarity": 1.0
+  },
+  "lj cryer": {
+    "athleteApiRef": null,
+    "espnId": "4433149",
+    "espnName": "LJ Cryer",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4433149.png",
+    "inputName": "LJ Cryer"
+  },
+  "lucas williamson": {
+    "athleteApiRef": null,
+    "espnId": "4279147",
+    "espnName": "Lucas Williamson",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4279147.png",
+    "inputName": "Lucas Williamson"
   },
   "luguentz dort": {
     "athleteApiRef": null,
@@ -3200,6 +3592,13 @@
     "normalizedInputName": "malachi smith",
     "similarity": 1.0
   },
+  "malevy leons": {
+    "athleteApiRef": null,
+    "espnId": "4897449",
+    "espnName": "Malevy Leons",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4897449.png",
+    "inputName": "Malevy Leons"
+  },
   "malik monk": {
     "athleteApiRef": null,
     "espnId": "4066262",
@@ -3232,6 +3631,13 @@
     "normalizedEspnName": "marcus smart",
     "normalizedInputName": "marcus smart",
     "similarity": 1.0
+  },
+  "marjon beauchamp": {
+    "athleteApiRef": null,
+    "espnId": "4432179",
+    "espnName": "MarJon Beauchamp",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4432179.png",
+    "inputName": "MarJon Beauchamp"
   },
   "mark williams": {
     "athleteApiRef": null,
@@ -3298,6 +3704,13 @@
     "normalizedEspnName": "max christie",
     "normalizedInputName": "max christie",
     "similarity": 1.0
+  },
+  "max shulga": {
+    "athleteApiRef": null,
+    "espnId": "4701992",
+    "espnName": "Max Shulga",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4701992.png",
+    "inputName": "Max Shulga"
   },
   "max strus": {
     "athleteApiRef": null,
@@ -3453,6 +3866,13 @@
     "normalizedInputName": "moses moody",
     "similarity": 1.0
   },
+  "mouhamadou gueye": {
+    "athleteApiRef": null,
+    "espnId": "4592933",
+    "espnName": "Mouhamadou Gueye",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4592933.png",
+    "inputName": "Mouhamadou Gueye"
+  },
   "mouhamed gueye": {
     "athleteApiRef": null,
     "espnId": "4712863",
@@ -3463,6 +3883,20 @@
     "normalizedEspnName": "mouhamed gueye",
     "normalizedInputName": "mouhamed gueye",
     "similarity": 1.0
+  },
+  "moussa cisse": {
+    "athleteApiRef": null,
+    "espnId": "4701208",
+    "espnName": "Moussa Cisse",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4701208.png",
+    "inputName": "Moussa Cisse"
+  },
+  "moussa diabata": {
+    "athleteApiRef": null,
+    "espnId": "4433249",
+    "espnName": "Moussa Diabate",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4433249.png",
+    "inputName": "Moussa Diabat\u00c3\u00a9"
   },
   "moussa diabate": {
     "athleteApiRef": null,
@@ -3518,6 +3952,13 @@
     "normalizedEspnName": "naji marshall",
     "normalizedInputName": "naji marshall",
     "similarity": 1.0
+  },
+  "nate williams": {
+    "athleteApiRef": null,
+    "espnId": "4397821",
+    "espnName": "Nate Williams",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4397821.png",
+    "inputName": "Nate Williams"
   },
   "naz reid": {
     "athleteApiRef": null,
@@ -3596,6 +4037,13 @@
     "normalizedInputName": "nicolas batum",
     "similarity": 1.0
   },
+  "nikola jokia": {
+    "athleteApiRef": null,
+    "espnId": "3112335",
+    "espnName": "Nikola Jokic",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/3112335.png",
+    "inputName": "Nikola Joki\u00c4\u0087"
+  },
   "nikola jokic": {
     "athleteApiRef": null,
     "espnId": "3112335",
@@ -3607,6 +4055,13 @@
     "normalizedInputName": "nikola jokic",
     "similarity": 1.0
   },
+  "nikola jovia": {
+    "athleteApiRef": null,
+    "espnId": "4997528",
+    "espnName": "Nikola Jovic",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4997528.png",
+    "inputName": "Nikola Jovi\u00c4\u0087"
+  },
   "nikola jovic": {
     "athleteApiRef": null,
     "espnId": "4997528",
@@ -3617,6 +4072,13 @@
     "normalizedEspnName": "nikola jovic",
     "normalizedInputName": "nikola jovic",
     "similarity": 1.0
+  },
+  "nikola topia": {
+    "athleteApiRef": null,
+    "espnId": "5159925",
+    "espnName": "Nikola Topic",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/5159925.png",
+    "inputName": "Nikola Topi\u00c4\u0087"
   },
   "nikola topic": {
     "athleteApiRef": null,
@@ -3684,6 +4146,13 @@
     "normalizedInputName": "noah penda",
     "similarity": 1.0
   },
+  "nolan traora": {
+    "athleteApiRef": null,
+    "espnId": "5279130",
+    "espnName": "Nolan Traore",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/5279130.png",
+    "inputName": "Nolan Traor\u00c3\u00a9"
+  },
   "nolan traore": {
     "athleteApiRef": null,
     "espnId": "5279130",
@@ -3694,6 +4163,13 @@
     "normalizedEspnName": "nolan traore",
     "normalizedInputName": "nolan traore",
     "similarity": 1.0
+  },
+  "norchad omier": {
+    "athleteApiRef": null,
+    "espnId": "4702134",
+    "espnName": "Norchad Omier",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4702134.png",
+    "inputName": "Norchad Omier"
   },
   "norman powell": {
     "athleteApiRef": null,
@@ -3750,6 +4226,20 @@
     "normalizedInputName": "olivier maxence prosper",
     "similarity": 1.0
   },
+  "olivier sarr": {
+    "athleteApiRef": null,
+    "espnId": "4278046",
+    "espnName": "Olivier Sarr",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4278046.png",
+    "inputName": "Olivier Sarr"
+  },
+  "omer yurtseven": {
+    "athleteApiRef": null,
+    "espnId": "3074213",
+    "espnName": "Omer Yurtseven",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/3074213.png",
+    "inputName": "Omer Yurtseven"
+  },
   "onyeka okongwu": {
     "athleteApiRef": null,
     "espnId": "4431680",
@@ -3760,6 +4250,13 @@
     "normalizedEspnName": "onyeka okongwu",
     "normalizedInputName": "onyeka okongwu",
     "similarity": 1.0
+  },
+  "oscar tshiebwe": {
+    "athleteApiRef": null,
+    "espnId": "4432827",
+    "espnName": "Oscar Tshiebwe",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4432827.png",
+    "inputName": "Oscar Tshiebwe"
   },
   "oso ighodaro": {
     "athleteApiRef": null,
@@ -3793,6 +4290,13 @@
     "normalizedEspnName": "p j washington",
     "normalizedInputName": "p j washington",
     "similarity": 1.0
+  },
+  "paca me dadiet": {
+    "athleteApiRef": null,
+    "espnId": "5211983",
+    "espnName": "Pacome Dadiet",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/5211983.png",
+    "inputName": "Pac\u00c3\u00b4me Dadiet"
   },
   "pacome dadiet": {
     "athleteApiRef": null,
@@ -3904,6 +4408,13 @@
     "normalizedInputName": "payton pritchard",
     "similarity": 1.0
   },
+  "payton sandfort": {
+    "athleteApiRef": null,
+    "espnId": "4697270",
+    "espnName": "Payton Sandfort",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4697270.png",
+    "inputName": "Payton Sandfort"
+  },
   "pelle larsson": {
     "athleteApiRef": null,
     "espnId": "4601025",
@@ -3915,6 +4426,13 @@
     "normalizedInputName": "pelle larsson",
     "similarity": 1.0
   },
+  "pete nance": {
+    "athleteApiRef": null,
+    "espnId": "4397233",
+    "espnName": "Pete Nance",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4397233.png",
+    "inputName": "Pete Nance"
+  },
   "peyton watson": {
     "athleteApiRef": null,
     "espnId": "4576087",
@@ -3925,6 +4443,13 @@
     "normalizedEspnName": "peyton watson",
     "normalizedInputName": "peyton watson",
     "similarity": 1.0
+  },
+  "pj hall": {
+    "athleteApiRef": null,
+    "espnId": "4701225",
+    "espnName": "PJ Hall",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4701225.png",
+    "inputName": "PJ Hall"
   },
   "precious achiuwa": {
     "athleteApiRef": null,
@@ -3947,6 +4472,13 @@
     "normalizedEspnName": "quentin grimes",
     "normalizedInputName": "quentin grimes",
     "similarity": 1.0
+  },
+  "quenton jackson": {
+    "athleteApiRef": null,
+    "espnId": "4592829",
+    "espnName": "Quenton Jackson",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4592829.png",
+    "inputName": "Quenton Jackson"
   },
   "quinten post": {
     "athleteApiRef": null,
@@ -3981,6 +4513,13 @@
     "normalizedInputName": "rayan rupert",
     "similarity": 1.0
   },
+  "rayj dennis": {
+    "athleteApiRef": null,
+    "espnId": "4431941",
+    "espnName": "RayJ Dennis",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4431941.png",
+    "inputName": "RayJ Dennis"
+  },
   "reed sheppard": {
     "athleteApiRef": null,
     "espnId": "4711272",
@@ -3991,6 +4530,13 @@
     "normalizedEspnName": "reed sheppard",
     "normalizedInputName": "reed sheppard",
     "similarity": 1.0
+  },
+  "riley minix": {
+    "athleteApiRef": null,
+    "espnId": "5177362",
+    "espnName": "Riley Minix",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/5177362.png",
+    "inputName": "Riley Minix"
   },
   "rj barrett": {
     "athleteApiRef": null,
@@ -4024,6 +4570,20 @@
     "normalizedEspnName": "robert williams",
     "normalizedInputName": "robert williams",
     "similarity": 1.0
+  },
+  "rocco zikarsky": {
+    "athleteApiRef": null,
+    "espnId": "5157587",
+    "espnName": "Rocco Zikarsky",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/5157587.png",
+    "inputName": "Rocco Zikarsky"
+  },
+  "ron harper": {
+    "athleteApiRef": null,
+    "espnId": "4397251",
+    "espnName": "Ron Harper Jr.",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4397251.png",
+    "inputName": "Ron Harper Jr."
   },
   "ron holland": {
     "athleteApiRef": null,
@@ -4101,6 +4661,13 @@
     "normalizedEspnName": "ryan kalkbrenner",
     "normalizedInputName": "ryan kalkbrenner",
     "similarity": 1.0
+  },
+  "ryan nembhard": {
+    "athleteApiRef": null,
+    "espnId": "4433629",
+    "espnName": "Ryan Nembhard",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4433629.png",
+    "inputName": "Ryan Nembhard"
   },
   "ryan rollins": {
     "athleteApiRef": null,
@@ -4201,6 +4768,13 @@
     "normalizedInputName": "scotty pippen",
     "similarity": 1.0
   },
+  "sean pedulla": {
+    "athleteApiRef": null,
+    "espnId": "4709131",
+    "espnName": "Sean Pedulla",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4709131.png",
+    "inputName": "Sean Pedulla"
+  },
   "seth curry": {
     "athleteApiRef": null,
     "espnId": "2326307",
@@ -4233,6 +4807,13 @@
     "normalizedEspnName": "shai gilgeous alexander",
     "normalizedInputName": "shai gilgeous alexander",
     "similarity": 1.0
+  },
+  "sharife cooper": {
+    "athleteApiRef": null,
+    "espnId": "4432173",
+    "espnName": "Sharife Cooper",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4432173.png",
+    "inputName": "Sharife Cooper"
   },
   "sidy cissoko": {
     "athleteApiRef": null,
@@ -4332,6 +4913,20 @@
     "normalizedEspnName": "t j mcconnell",
     "normalizedInputName": "t j mcconnell",
     "similarity": 1.0
+  },
+  "taelon peter": {
+    "athleteApiRef": null,
+    "espnId": "4703421",
+    "espnName": "Taelon Peter",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4703421.png",
+    "inputName": "Taelon Peter"
+  },
+  "taj gibson": {
+    "athleteApiRef": null,
+    "espnId": "3986",
+    "espnName": "Taj Gibson",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/3986.png",
+    "inputName": "Taj Gibson"
   },
   "tari eason": {
     "athleteApiRef": null,
@@ -4443,6 +5038,20 @@
     "normalizedInputName": "tobias harris",
     "similarity": 1.0
   },
+  "toby okani": {
+    "athleteApiRef": null,
+    "espnId": "4700873",
+    "espnName": "Toby Okani",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4700873.png",
+    "inputName": "Toby Okani"
+  },
+  "tolu smith": {
+    "athleteApiRef": null,
+    "espnId": "4397882",
+    "espnName": "Tolu Smith",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4397882.png",
+    "inputName": "Tolu Smith"
+  },
   "tony bradley": {
     "athleteApiRef": null,
     "espnId": "4065673",
@@ -4453,6 +5062,13 @@
     "normalizedEspnName": "tony bradley",
     "normalizedInputName": "tony bradley",
     "similarity": 1.0
+  },
+  "tosan evbuomwan": {
+    "athleteApiRef": null,
+    "espnId": "4597865",
+    "espnName": "Tosan Evbuomwan",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4597865.png",
+    "inputName": "Tosan Evbuomwan"
   },
   "toumani camara": {
     "athleteApiRef": null,
@@ -4531,6 +5147,27 @@
     "normalizedInputName": "trendon watford",
     "similarity": 1.0
   },
+  "trevor keels": {
+    "athleteApiRef": null,
+    "espnId": "4432645",
+    "espnName": "Trevor Keels",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4432645.png",
+    "inputName": "Trevor Keels"
+  },
+  "trey alexander": {
+    "athleteApiRef": null,
+    "espnId": "4433268",
+    "espnName": "Trey Alexander",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4433268.png",
+    "inputName": "Trey Alexander"
+  },
+  "trey jemison": {
+    "athleteApiRef": null,
+    "espnId": "4395623",
+    "espnName": "Trey Jemison III",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4395623.png",
+    "inputName": "Trey Jemison"
+  },
   "trey murphy": {
     "athleteApiRef": null,
     "espnId": "4397688",
@@ -4552,6 +5189,20 @@
     "normalizedEspnName": "tristan da silva",
     "normalizedInputName": "tristan da silva",
     "similarity": 1.0
+  },
+  "tristan enaruna": {
+    "athleteApiRef": null,
+    "espnId": "4431734",
+    "espnName": "Tristan Enaruna",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4431734.png",
+    "inputName": "Tristan Enaruna"
+  },
+  "tristan vukcevic": {
+    "athleteApiRef": null,
+    "espnId": "4997537",
+    "espnName": "Tristan Vukcevic",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4997537.png",
+    "inputName": "Tristan Vukcevic"
   },
   "ty jerome": {
     "athleteApiRef": null,
@@ -4630,6 +5281,20 @@
     "normalizedInputName": "tyrese proctor",
     "similarity": 1.0
   },
+  "tyson etienne": {
+    "athleteApiRef": null,
+    "espnId": "4432887",
+    "espnName": "Tyson Etienne",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4432887.png",
+    "inputName": "Tyson Etienne"
+  },
+  "tyty washington": {
+    "athleteApiRef": null,
+    "espnId": "4683749",
+    "espnName": "TyTy Washington Jr.",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4683749.png",
+    "inputName": "TyTy Washington Jr."
+  },
   "tyus jones": {
     "athleteApiRef": null,
     "espnId": "3135046",
@@ -4663,6 +5328,13 @@
     "normalizedInputName": "vj edgecombe",
     "similarity": 1.0
   },
+  "vladislav goldin": {
+    "athleteApiRef": null,
+    "espnId": "4700818",
+    "espnName": "Vladislav Goldin",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4700818.png",
+    "inputName": "Vladislav Goldin"
+  },
   "walker kessler": {
     "athleteApiRef": null,
     "espnId": "4433136",
@@ -4695,6 +5367,13 @@
     "normalizedEspnName": "wendell carter",
     "normalizedInputName": "wendell carter",
     "similarity": 1.0
+  },
+  "wendell moore": {
+    "athleteApiRef": null,
+    "espnId": "4592187",
+    "espnName": "Wendell Moore Jr.",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4592187.png",
+    "inputName": "Wendell Moore Jr."
   },
   "will richard": {
     "athleteApiRef": null,
@@ -4740,6 +5419,13 @@
     "normalizedInputName": "yang hansen",
     "similarity": 1.0
   },
+  "yanic konan niederha user": {
+    "athleteApiRef": null,
+    "espnId": "5108024",
+    "espnName": "Yanic Konan Niederhauser",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/5108024.png",
+    "inputName": "Yanic Konan Niederh\u00c3\u00a4user"
+  },
   "yanic konan niederhauser": {
     "athleteApiRef": null,
     "espnId": "5108024",
@@ -4750,6 +5436,13 @@
     "normalizedEspnName": "yanic konan niederhauser",
     "normalizedInputName": "yanic konan niederhauser",
     "similarity": 1.0
+  },
+  "yuki kawamura": {
+    "athleteApiRef": null,
+    "espnId": "5159895",
+    "espnName": "Yuki Kawamura",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/5159895.png",
+    "inputName": "Yuki Kawamura"
   },
   "yves missi": {
     "athleteApiRef": null,
@@ -4838,5 +5531,12 @@
     "normalizedEspnName": "zion williamson",
     "normalizedInputName": "zion williamson",
     "similarity": 1.0
+  },
+  "zyon pullin": {
+    "athleteApiRef": null,
+    "espnId": "4592979",
+    "espnName": "Zyon Pullin",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4592979.png",
+    "inputName": "Zyon Pullin"
   }
 }

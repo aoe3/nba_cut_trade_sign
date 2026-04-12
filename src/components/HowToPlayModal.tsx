@@ -160,6 +160,10 @@ export function HowToPlayModal({ isOpen, onClose }: HowToPlayModalProps) {
             <li>
               "Shootout" mode is YOU vs. the CPU in turn-based decision warfare!
             </li>
+            <li>
+              "Draft Battle" Draft the best 3-man team! You only know 3 of their
+              stats to start!
+            </li>
           </ul>
         </div>
       </div>
