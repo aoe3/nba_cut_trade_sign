@@ -340,8 +340,7 @@ function getTopVisibleThreat(
   game: DraftBattleGame,
   lineup: DraftBattleLineup,
 ): { slot: BattleSlot; player: DraftBattlePlayer; score: number } | null {
-  const threats = BATTLE_SLOTS
-    .filter((slot) => !lineup[slot])
+  const threats = BATTLE_SLOTS.filter((slot) => !lineup[slot])
     .map((slot) => {
       const currentOption = getCurrentOption(game, slot);
       if (!currentOption) {
@@ -357,8 +356,11 @@ function getTopVisibleThreat(
     .filter(
       (
         threat,
-      ): threat is { slot: BattleSlot; player: DraftBattlePlayer; score: number } =>
-        threat !== null,
+      ): threat is {
+        slot: BattleSlot;
+        player: DraftBattlePlayer;
+        score: number;
+      } => threat !== null,
     )
     .sort((a, b) => b.score - a.score);
 
@@ -368,11 +370,12 @@ function getTopVisibleThreat(
 function chooseCpuTradeMove(
   game: DraftBattleGame,
   cpuLineup: DraftBattleLineup,
-):
-  | { slot: BattleSlot; target: TradeTarget; basePlayer: DraftBattlePlayer }
-  | null {
-  const candidates = BATTLE_SLOTS
-    .filter((slot) => !cpuLineup[slot])
+): {
+  slot: BattleSlot;
+  target: TradeTarget;
+  basePlayer: DraftBattlePlayer;
+} | null {
+  const candidates = BATTLE_SLOTS.filter((slot) => !cpuLineup[slot])
     .map((slot) => {
       const currentOption = getCurrentOption(game, slot);
       const tradeTargets = getValidTradeTargets(game, slot);
@@ -1320,33 +1323,6 @@ export function DraftBattlePage({
     }));
   }, []);
 
-  const isTradeLocked = tradePickerSlot !== null;
-  const isSignDisabled = useMemo(() => {
-    return (
-      !session.setupComplete ||
-      session.activeTurn !== "user" ||
-      session.gameOver
-    );
-  }, [session]);
-
-  const isTradeDisabled = useMemo(() => {
-    return (
-      !session.setupComplete ||
-      session.activeTurn !== "user" ||
-      session.userMovesRemaining <= 0 ||
-      session.gameOver
-    );
-  }, [session]);
-
-  const isCutDisabled = useMemo(() => {
-    return (
-      !session.setupComplete ||
-      session.activeTurn !== "user" ||
-      session.userMovesRemaining <= 0 ||
-      session.gameOver
-    );
-  }, [session]);
-
   const userScoreCardClass = useMemo(() => {
     if (!session.gameOver) {
       return "draft-battle__footer-card";
@@ -1488,17 +1464,21 @@ export function DraftBattlePage({
                   key={slot}
                   lane={slot}
                   game={game}
-                  isTradeLocked={tradePickerSlot !== null && tradePickerSlot !== slot}
+                  isTradeLocked={
+                    tradePickerSlot !== null && tradePickerSlot !== slot
+                  }
                   isSignDisabled={
-                    (!session.setupComplete ||
-                      session.activeTurn !== "user" ||
-                      session.gameOver) || Boolean(session.userLineup[slot])
+                    !session.setupComplete ||
+                    session.activeTurn !== "user" ||
+                    session.gameOver ||
+                    Boolean(session.userLineup[slot])
                   }
                   isTradeDisabled={
-                    (!session.setupComplete ||
-                      session.activeTurn !== "user" ||
-                      session.userMovesRemaining <= 0 ||
-                      session.gameOver) || Boolean(session.userLineup[slot])
+                    !session.setupComplete ||
+                    session.activeTurn !== "user" ||
+                    session.userMovesRemaining <= 0 ||
+                    session.gameOver ||
+                    Boolean(session.userLineup[slot])
                   }
                   isTradeOpen={tradePickerSlot === slot}
                   selectedTradeTargetId={
