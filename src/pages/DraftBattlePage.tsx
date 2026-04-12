@@ -8,14 +8,14 @@ import { ShootoutCoinFlipModal } from "../components/ShootoutCoinFlipModal";
 import { ShootoutMoveCounter } from "../components/ShootoutMoveCounter";
 import { scorePlayer } from "../game/scorePlayer";
 import {
-  createStackBattleGame,
+  createDraftBattleGame,
   type BattleSlot,
-  type StackBattleGame,
-  type StackBattlePlayer,
+  type DraftBattleGame,
+  type DraftBattlePlayer,
   type StackOption,
-} from "./stackBattle/createStackBattleGame";
+} from "./draftBattle/createDraftBattleGame";
 
-type StackBattlePageProps = {
+type DraftBattlePageProps = {
   activeMode: AppMode;
   onChangeMode: (mode: AppMode) => void;
 };
@@ -24,11 +24,11 @@ type TurnOwner = "user" | "cpu";
 type GameWinner = TurnOwner | "tie" | null;
 
 type SignedLineupSlot = {
-  player: StackBattlePlayer;
+  player: DraftBattlePlayer;
   score: number;
 };
 
-type StackBattleLineup = Record<BattleSlot, SignedLineupSlot | null>;
+type DraftBattleLineup = Record<BattleSlot, SignedLineupSlot | null>;
 
 type HistoryEntry = {
   id: string;
@@ -36,14 +36,14 @@ type HistoryEntry = {
   text: string;
 };
 
-type StackBattleSession = {
+type DraftBattleSession = {
   activeTurn: TurnOwner | null;
   initialTurn: TurnOwner | null;
   setupComplete: boolean;
   userMovesRemaining: number;
   cpuMovesRemaining: number;
-  userLineup: StackBattleLineup;
-  cpuLineup: StackBattleLineup;
+  userLineup: DraftBattleLineup;
+  cpuLineup: DraftBattleLineup;
   gameOver: boolean;
   winner: GameWinner;
   history: HistoryEntry[];
@@ -70,7 +70,7 @@ function getPoolLabel(slot: BattleSlot): string {
   }
 }
 
-function createEmptyLineup(): StackBattleLineup {
+function createEmptyLineup(): DraftBattleLineup {
   return {
     G: null,
     F: null,
@@ -78,7 +78,7 @@ function createEmptyLineup(): StackBattleLineup {
   };
 }
 
-function createInitialSession(): StackBattleSession {
+function createInitialSession(): DraftBattleSession {
   return {
     activeTurn: null,
     initialTurn: null,
@@ -93,12 +93,12 @@ function createInitialSession(): StackBattleSession {
   };
 }
 
-function normalizeStoredSession(raw: unknown): StackBattleSession | null {
+function normalizeStoredSession(raw: unknown): DraftBattleSession | null {
   if (!raw || typeof raw !== "object") {
     return null;
   }
 
-  const parsed = raw as Partial<StackBattleSession>;
+  const parsed = raw as Partial<DraftBattleSession>;
   const base = createInitialSession();
 
   return {
@@ -131,25 +131,25 @@ function normalizeStoredSession(raw: unknown): StackBattleSession | null {
   };
 }
 
-function loadGameFromStorage(key: string): StackBattleGame | null {
+function loadGameFromStorage(key: string): DraftBattleGame | null {
   try {
     const raw = window.localStorage.getItem(key);
     if (!raw) return null;
-    return JSON.parse(raw) as StackBattleGame;
+    return JSON.parse(raw) as DraftBattleGame;
   } catch {
     return null;
   }
 }
 
-function loadStoredGame(): StackBattleGame | null {
+function loadStoredGame(): DraftBattleGame | null {
   return loadGameFromStorage(STACK_BATTLE_GAME_STORAGE_KEY);
 }
 
-function loadInitialGame(): StackBattleGame | null {
+function loadInitialGame(): DraftBattleGame | null {
   return loadGameFromStorage(STACK_BATTLE_INITIAL_GAME_STORAGE_KEY);
 }
 
-function loadStoredSession(): StackBattleSession | null {
+function loadStoredSession(): DraftBattleSession | null {
   try {
     const raw = window.localStorage.getItem(STACK_BATTLE_SESSION_STORAGE_KEY);
     if (!raw) return null;
@@ -159,21 +159,21 @@ function loadStoredSession(): StackBattleSession | null {
   }
 }
 
-function persistGame(game: StackBattleGame) {
+function persistGame(game: DraftBattleGame) {
   window.localStorage.setItem(
     STACK_BATTLE_GAME_STORAGE_KEY,
     JSON.stringify(game),
   );
 }
 
-function persistInitialGame(game: StackBattleGame) {
+function persistInitialGame(game: DraftBattleGame) {
   window.localStorage.setItem(
     STACK_BATTLE_INITIAL_GAME_STORAGE_KEY,
     JSON.stringify(game),
   );
 }
 
-function persistSession(session: StackBattleSession) {
+function persistSession(session: DraftBattleSession) {
   window.localStorage.setItem(
     STACK_BATTLE_SESSION_STORAGE_KEY,
     JSON.stringify(session),
@@ -181,14 +181,14 @@ function persistSession(session: StackBattleSession) {
 }
 
 function getCurrentOption(
-  game: StackBattleGame,
+  game: DraftBattleGame,
   slot: BattleSlot,
 ): StackOption | null {
   const pool = game.pools[slot];
   return pool.options[pool.currentIndex] ?? null;
 }
 
-function getValidTradeTargets(game: StackBattleGame, slot: BattleSlot) {
+function getValidTradeTargets(game: DraftBattleGame, slot: BattleSlot) {
   const currentOption = getCurrentOption(game, slot);
   if (!currentOption) {
     return [];
@@ -197,15 +197,15 @@ function getValidTradeTargets(game: StackBattleGame, slot: BattleSlot) {
   return currentOption.tradeTargets ?? [];
 }
 
-function getAvailableCutSlots(game: StackBattleGame): BattleSlot[] {
+function getAvailableCutSlots(game: DraftBattleGame): BattleSlot[] {
   return BATTLE_SLOTS.filter((slot) => getCurrentOption(game, slot) !== null);
 }
 
 function removePlayersFromPool(
-  game: StackBattleGame,
+  game: DraftBattleGame,
   slot: BattleSlot,
   playerIds: string[],
-): StackBattleGame {
+): DraftBattleGame {
   const pool = game.pools[slot];
   const removedIds = new Set(playerIds);
   const nextOptions = pool.options.filter(
@@ -228,7 +228,7 @@ function removePlayersFromPool(
   };
 }
 
-function getFirstEmptySlot(lineup: StackBattleLineup): BattleSlot | null {
+function getFirstEmptySlot(lineup: DraftBattleLineup): BattleSlot | null {
   for (const slot of BATTLE_SLOTS) {
     if (!lineup[slot]) {
       return slot;
@@ -238,11 +238,11 @@ function getFirstEmptySlot(lineup: StackBattleLineup): BattleSlot | null {
   return null;
 }
 
-function isLineupComplete(lineup: StackBattleLineup): boolean {
+function isLineupComplete(lineup: DraftBattleLineup): boolean {
   return BATTLE_SLOTS.every((slot) => lineup[slot] !== null);
 }
 
-function scoreLineup(lineup: StackBattleLineup): number {
+function scoreLineup(lineup: DraftBattleLineup): number {
   return Number(
     BATTLE_SLOTS.reduce(
       (sum, slot) => sum + (lineup[slot]?.score ?? 0),
@@ -251,7 +251,7 @@ function scoreLineup(lineup: StackBattleLineup): number {
   );
 }
 
-function createSignedLineupSlot(player: StackBattlePlayer): SignedLineupSlot {
+function createSignedLineupSlot(player: DraftBattlePlayer): SignedLineupSlot {
   return {
     player,
     score: scorePlayer(player),
@@ -273,7 +273,7 @@ function appendHistory(
   ];
 }
 
-function finalizeSession(session: StackBattleSession): StackBattleSession {
+function finalizeSession(session: DraftBattleSession): DraftBattleSession {
   if (
     !isLineupComplete(session.userLineup) ||
     !isLineupComplete(session.cpuLineup)
@@ -308,16 +308,16 @@ function finalizeSession(session: StackBattleSession): StackBattleSession {
   };
 }
 
-function getLeftScoreText(session: StackBattleSession): string {
+function getLeftScoreText(session: DraftBattleSession): string {
   return scoreLineup(session.userLineup).toFixed(1);
 }
 
-function getRightScoreText(session: StackBattleSession): string {
+function getRightScoreText(session: DraftBattleSession): string {
   return scoreLineup(session.cpuLineup).toFixed(1);
 }
 
 function getRosterStats(
-  player: StackBattlePlayer,
+  player: DraftBattlePlayer,
 ): Array<{ label: string; value: string }> {
   return [
     { label: "PPG", value: player.ppg.toFixed(1) },
@@ -345,7 +345,7 @@ function StackCards({
   onCut,
 }: {
   lane: BattleSlot;
-  game: StackBattleGame;
+  game: DraftBattleGame;
   isTradeLocked: boolean;
   isSignDisabled: boolean;
   isTradeDisabled: boolean;
@@ -525,7 +525,7 @@ function RosterColumn({
 }: {
   title: string;
   side: "user" | "cpu";
-  lineup: StackBattleLineup;
+  lineup: DraftBattleLineup;
 }) {
   return (
     <section className={`draft-battle__roster draft-battle__roster--${side}`}>
@@ -619,18 +619,18 @@ function RosterColumn({
   );
 }
 
-export function StackBattlePage({
+export function DraftBattlePage({
   activeMode,
   onChangeMode,
-}: StackBattlePageProps) {
-  const [game, setGame] = useState<StackBattleGame>(() => {
+}: DraftBattlePageProps) {
+  const [game, setGame] = useState<DraftBattleGame>(() => {
     if (typeof window === "undefined") {
-      return createStackBattleGame();
+      return createDraftBattleGame();
     }
 
-    return loadStoredGame() ?? loadInitialGame() ?? createStackBattleGame();
+    return loadStoredGame() ?? loadInitialGame() ?? createDraftBattleGame();
   });
-  const [session, setSession] = useState<StackBattleSession>(() => {
+  const [session, setSession] = useState<DraftBattleSession>(() => {
     if (typeof window === "undefined") {
       return createInitialSession();
     }
@@ -673,7 +673,7 @@ export function StackBattlePage({
       return;
     }
 
-    const freshGame = createStackBattleGame();
+    const freshGame = createDraftBattleGame();
     setGame(freshGame);
     setSession(freshSession);
     persistGame(freshGame);
@@ -1129,7 +1129,7 @@ export function StackBattlePage({
       setTradePickerSlot(null);
       setSelectedTradeTargetId(null);
       await Promise.resolve();
-      const freshGame = createStackBattleGame();
+      const freshGame = createDraftBattleGame();
       const freshSession = createInitialSession();
       setGame(freshGame);
       setSession(freshSession);

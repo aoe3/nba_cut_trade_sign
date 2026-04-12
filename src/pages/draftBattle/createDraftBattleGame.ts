@@ -4,18 +4,18 @@ import type { Player } from "../../game/types";
 
 export type BattleSlot = "G" | "F" | "C";
 
-export type StackBattlePlayer = Player & (typeof players)[number];
+export type DraftBattlePlayer = Player & (typeof players)[number];
 
-export type StackBattleStat = {
+export type DraftBattleStat = {
   key: string;
   label: string;
   value: string;
 };
 
 export type StackOption = {
-  player: StackBattlePlayer;
-  stats: StackBattleStat[];
-  tradeTargets: (StackBattlePlayer & { isJackpot?: boolean })[];
+  player: DraftBattlePlayer;
+  stats: DraftBattleStat[];
+  tradeTargets: (DraftBattlePlayer & { isJackpot?: boolean })[];
 };
 
 export type StackPool = {
@@ -23,11 +23,11 @@ export type StackPool = {
   currentIndex: number;
 };
 
-export type StackBattleGame = {
+export type DraftBattleGame = {
   pools: Record<BattleSlot, StackPool>;
 };
 
-type ScoredStackBattlePlayer = StackBattlePlayer & {
+type ScoredDraftBattlePlayer = DraftBattlePlayer & {
   gameScore: number;
 };
 
@@ -40,7 +40,7 @@ const TRADE_JACKPOT_SCORE_MULTIPLIER = 1.1;
 const START_MIN_PERCENTILE = 0.58;
 const START_MAX_PERCENTILE = 0.9;
 
-const typedPlayers = (players as StackBattlePlayer[]).map((player) => ({
+const typedPlayers = (players as DraftBattlePlayer[]).map((player) => ({
   ...player,
   gameScore: scorePlayer(player),
 }));
@@ -82,7 +82,7 @@ function formatStatValue(key: string, value: number): string {
   return value.toFixed(1);
 }
 
-function pickRandomStats(player: StackBattlePlayer): StackBattleStat[] {
+function pickRandomStats(player: DraftBattlePlayer): DraftBattleStat[] {
   const statPool = [
     { key: "ppg", label: "PPG", value: player.ppg },
     { key: "rpg", label: "RPG", value: player.rpg },
@@ -104,7 +104,7 @@ function pickRandomStats(player: StackBattlePlayer): StackBattleStat[] {
   }));
 }
 
-function pickStarterBand(playersByScore: ScoredStackBattlePlayer[]): ScoredStackBattlePlayer {
+function pickStarterBand(playersByScore: ScoredDraftBattlePlayer[]): ScoredDraftBattlePlayer {
   const startIndex = percentileIndex(playersByScore.length, START_MIN_PERCENTILE);
   const endIndex = percentileIndex(playersByScore.length, START_MAX_PERCENTILE);
   const band = playersByScore.slice(Math.min(startIndex, endIndex), Math.max(startIndex, endIndex) + 1);
@@ -112,7 +112,7 @@ function pickStarterBand(playersByScore: ScoredStackBattlePlayer[]): ScoredStack
   return sampleOne(band.length > 0 ? band : playersByScore);
 }
 
-function rankClosest(playersPool: ScoredStackBattlePlayer[], targetScore: number): ScoredStackBattlePlayer[] {
+function rankClosest(playersPool: ScoredDraftBattlePlayer[], targetScore: number): ScoredDraftBattlePlayer[] {
   return [...playersPool].sort((a, b) => {
     const da = Math.abs(a.gameScore - targetScore);
     const db = Math.abs(b.gameScore - targetScore);
@@ -121,9 +121,9 @@ function rankClosest(playersPool: ScoredStackBattlePlayer[], targetScore: number
 }
 
 function pickNextPlayer(
-  remaining: ScoredStackBattlePlayer[],
-  basePlayer: ScoredStackBattlePlayer,
-): ScoredStackBattlePlayer {
+  remaining: ScoredDraftBattlePlayer[],
+  basePlayer: ScoredDraftBattlePlayer,
+): ScoredDraftBattlePlayer {
   const nearPool = remaining.filter(
     (candidate) =>
       Math.abs(candidate.gameScore - basePlayer.gameScore) <= TRADE_SCORE_WINDOW,
@@ -158,8 +158,8 @@ function pickNextPlayer(
 }
 
 function buildOrderedPool(
-  filteredPlayers: ScoredStackBattlePlayer[],
-): ScoredStackBattlePlayer[] {
+  filteredPlayers: ScoredDraftBattlePlayer[],
+): ScoredDraftBattlePlayer[] {
   if (filteredPlayers.length < STACK_DEPTH) {
     throw new Error("Not enough players to build Draft Battle pool.");
   }
@@ -168,7 +168,7 @@ function buildOrderedPool(
     (a, b) => a.gameScore - b.gameScore,
   );
 
-  const ordered: ScoredStackBattlePlayer[] = [];
+  const ordered: ScoredDraftBattlePlayer[] = [];
   const usedIds = new Set<string>();
 
   const firstPlayer = pickStarterBand(playersByScore);
@@ -193,9 +193,9 @@ function buildOrderedPool(
 }
 
 function buildTradeTargets(
-  orderedPlayers: ScoredStackBattlePlayer[],
+  orderedPlayers: ScoredDraftBattlePlayer[],
   playerIndex: number,
-): (StackBattlePlayer & { isJackpot?: boolean })[] {
+): (DraftBattlePlayer & { isJackpot?: boolean })[] {
   const basePlayer = orderedPlayers[playerIndex];
   const remainingAhead = orderedPlayers.slice(playerIndex + 1);
 
@@ -220,7 +220,7 @@ function buildTradeTargets(
 }
 
 function buildPool(
-  filterFn: (player: StackBattlePlayer) => boolean,
+  filterFn: (player: DraftBattlePlayer) => boolean,
 ): StackPool {
   const scoredPool = typedPlayers.filter(filterFn);
   const orderedPlayers = buildOrderedPool(scoredPool);
@@ -241,7 +241,7 @@ function buildPool(
   };
 }
 
-export function createStackBattleGame(): StackBattleGame {
+export function createDraftBattleGame(): DraftBattleGame {
   return {
     pools: {
       G: buildPool(

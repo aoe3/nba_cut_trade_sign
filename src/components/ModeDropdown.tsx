@@ -12,7 +12,7 @@ const MODE_LABELS: Record<AppMode, string> = {
   forever: "Forever",
   beatTheScore: "Beat The Score",
   shootout: "Shootout",
-  stackBattle: "Draft Battle",
+  draftBattle: "Draft Battle",
 };
 
 /**
