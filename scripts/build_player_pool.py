@@ -51,6 +51,8 @@ JSON_TIMEOUT_SECONDS = 30
 MAX_RETRIES = 5
 RETRY_BACKOFF_SECONDS = 2.0
 SLEEP_BETWEEN_ESPN_REQUESTS_SECONDS = 0.35
+SLEEP_BETWEEN_BBR_REQUESTS_SECONDS = 15.0
+BBR_429_RETRY_EXTRA_SECONDS = 30.0
 
 CURRENT_SEASON_DURABILITY_THRESHOLD_GAMES = 20
 ESPN_MIN_SIMILARITY = 0.88
@@ -213,6 +215,8 @@ ALL_STANDARD_TEAM_ABBRS = set(FULL_TEAM_NAME_TO_ABBR.values())
 STANDARD_TO_BBR_CONTRACT_TEAM = {"BKN": "BRK", "CHA": "CHO", "PHX": "PHO"}
 
 MOJIBAKE_MARKERS = ("Ã", "Å", "Ä", "Ð", "Ñ", "â", "€", "™", "œ", "ž", "š")
+
+_last_bbr_request_ts = 0.0
 
 
 @dataclass
@@ -795,31 +799,73 @@ def write_csv(file_path: str, rows: List[OutputPlayer]) -> None:
             writer.writerow(asdict(row))
 
 
+def is_bbr_url(url: str) -> bool:
+    return "basketball-reference.com" in url.lower()
+
+
+def throttle_bbr_request(url: str) -> None:
+    global _last_bbr_request_ts
+
+    if not is_bbr_url(url):
+        return
+
+    now = time.time()
+    elapsed = now - _last_bbr_request_ts
+    remaining = SLEEP_BETWEEN_BBR_REQUESTS_SECONDS - elapsed
+
+    if remaining > 0:
+        print(f"  BBR throttle: sleeping {remaining:.1f}s before request...")
+        time.sleep(remaining)
+
+    _last_bbr_request_ts = time.time()
+
+
 def retry_request(fn):
     last_error: Optional[Exception] = None
+    last_url: Optional[str] = None
+
     for attempt in range(1, MAX_RETRIES + 1):
         try:
             return fn()
         except Exception as exc:
             last_error = exc
+
+            response = getattr(exc, "response", None)
+            request = getattr(response, "request", None)
+            if request is not None:
+                last_url = getattr(request, "url", None)
+
             if attempt < MAX_RETRIES:
                 sleep_for = RETRY_BACKOFF_SECONDS * attempt
+
+                error_text = str(exc).lower()
+                is_429 = "429" in error_text or "too many requests" in error_text
+                if is_429:
+                    sleep_for += BBR_429_RETRY_EXTRA_SECONDS
+
+                if last_url and is_bbr_url(last_url):
+                    print(f"  BBR retry target: {last_url}")
+
                 print(f"  Request failed ({attempt}/{MAX_RETRIES}): {exc}")
                 print(f"  Retrying in {sleep_for:.1f}s...")
                 time.sleep(sleep_for)
+
     assert last_error is not None
     raise last_error
 
-
 def fetch_html(url: str) -> str:
     def run() -> str:
+        throttle_bbr_request(url)
+
         response = requests.get(url, headers=HTML_HEADERS, timeout=HTML_TIMEOUT_SECONDS)
         response.raise_for_status()
+
         if not response.encoding or response.encoding.lower() in ("iso-8859-1", "latin-1", "ascii"):
             response.encoding = response.apparent_encoding or "utf-8"
-        return maybe_fix_mojibake(response.text)
-    return retry_request(run)
 
+        return maybe_fix_mojibake(response.text)
+
+    return retry_request(run)
 
 def request_json(
     session: requests.Session,
@@ -1381,16 +1427,10 @@ def fetch_basketball_reference_contracts() -> Dict[Tuple[str, Optional[str]], Di
 def fetch_basketball_reference_team_contracts(team_abbrs: Sequence[str]) -> Dict[Tuple[str, str], Dict[str, Any]]:
     result: Dict[Tuple[str, str], Dict[str, Any]] = {}
 
-    normalized_team_abbrs = [
-        normalize_team_abbr(team_abbr)
-        for team_abbr in team_abbrs
-        if normalize_team_abbr(team_abbr)
-    ]
-
-    total_teams = len(normalized_team_abbrs)
-
-    for index, team_abbr in enumerate(normalized_team_abbrs, start=1):
-        print(f"  Team contract fallback: {team_abbr} ({index}/{total_teams})")
+    for team_abbr in team_abbrs:
+        team_abbr = normalize_team_abbr(team_abbr)
+        if not team_abbr:
+            continue
 
         bbr_team = STANDARD_TO_BBR_CONTRACT_TEAM.get(team_abbr, team_abbr)
         url = f"https://www.basketball-reference.com/contracts/{bbr_team}.html"
@@ -1398,16 +1438,12 @@ def fetch_basketball_reference_team_contracts(team_abbrs: Sequence[str]) -> Dict
         try:
             html = fetch_html(url)
             soup = load_br_soup(html)
-        except Exception as exc:
-            print(f"    Skipping {team_abbr}: {exc}")
+        except Exception:
             continue
 
         table = find_br_stats_table(soup, required_data_stats={"player"})
         if table is None:
-            print(f"    No contract table found for {team_abbr}")
             continue
-
-        added_for_team = 0
 
         for tr in table.select("tbody tr"):
             if "thead" in (tr.get("class") or []):
@@ -1435,9 +1471,6 @@ def fetch_basketball_reference_team_contracts(team_abbrs: Sequence[str]) -> Dict
             existing = result.get(key)
             if existing is None or (existing.get("salary") is None and salary is not None):
                 result[key] = {"salary": salary}
-                added_for_team += 1
-
-        print(f"    Cached {added_for_team} contract entries for {team_abbr}")
 
     return result
 
