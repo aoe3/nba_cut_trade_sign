@@ -1381,10 +1381,16 @@ def fetch_basketball_reference_contracts() -> Dict[Tuple[str, Optional[str]], Di
 def fetch_basketball_reference_team_contracts(team_abbrs: Sequence[str]) -> Dict[Tuple[str, str], Dict[str, Any]]:
     result: Dict[Tuple[str, str], Dict[str, Any]] = {}
 
-    for team_abbr in team_abbrs:
-        team_abbr = normalize_team_abbr(team_abbr)
-        if not team_abbr:
-            continue
+    normalized_team_abbrs = [
+        normalize_team_abbr(team_abbr)
+        for team_abbr in team_abbrs
+        if normalize_team_abbr(team_abbr)
+    ]
+
+    total_teams = len(normalized_team_abbrs)
+
+    for index, team_abbr in enumerate(normalized_team_abbrs, start=1):
+        print(f"  Team contract fallback: {team_abbr} ({index}/{total_teams})")
 
         bbr_team = STANDARD_TO_BBR_CONTRACT_TEAM.get(team_abbr, team_abbr)
         url = f"https://www.basketball-reference.com/contracts/{bbr_team}.html"
@@ -1392,12 +1398,16 @@ def fetch_basketball_reference_team_contracts(team_abbrs: Sequence[str]) -> Dict
         try:
             html = fetch_html(url)
             soup = load_br_soup(html)
-        except Exception:
+        except Exception as exc:
+            print(f"    Skipping {team_abbr}: {exc}")
             continue
 
         table = find_br_stats_table(soup, required_data_stats={"player"})
         if table is None:
+            print(f"    No contract table found for {team_abbr}")
             continue
+
+        added_for_team = 0
 
         for tr in table.select("tbody tr"):
             if "thead" in (tr.get("class") or []):
@@ -1425,6 +1435,9 @@ def fetch_basketball_reference_team_contracts(team_abbrs: Sequence[str]) -> Dict
             existing = result.get(key)
             if existing is None or (existing.get("salary") is None and salary is not None):
                 result[key] = {"salary": salary}
+                added_for_team += 1
+
+        print(f"    Cached {added_for_team} contract entries for {team_abbr}")
 
     return result
 
