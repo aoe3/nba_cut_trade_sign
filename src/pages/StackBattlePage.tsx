@@ -198,13 +198,10 @@ function getValidTradeTargets(
     return [];
   }
 
-  const remainingIds = new Set(
-    pool.options.map((option) => option.player.id).filter((id) => id !== currentOption.player.id),
-  );
-
-  return (currentOption.tradeTargets ?? []).filter((target) =>
-    remainingIds.has(target.id),
-  );
+  return pool.options
+    .map((option) => option.player)
+    .filter((player) => player.id !== currentOption.player.id)
+    .slice(0, 3);
 }
 
 function getAvailableCutSlots(game: StackBattleGame): BattleSlot[] {
@@ -496,13 +493,6 @@ function StackCards({
             >
               Execute Trade
             </button>
-            <button
-              type="button"
-              className="stack-battle__trade-cancel-btn"
-              onClick={() => onToggleTrade(lane)}
-            >
-              Cancel
-            </button>
           </div>
         </div>
       )}
@@ -738,11 +728,8 @@ export function StackBattlePage({
         return;
       }
 
-      setTradePickerSlot((current) => {
-        const next = current === slot ? null : slot;
-        setSelectedTradeTargetId(null);
-        return next;
-      });
+      setTradePickerSlot(slot);
+      setSelectedTradeTargetId(null);
     },
     [game, session],
   );
