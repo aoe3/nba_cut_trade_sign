@@ -48,6 +48,7 @@ DEFAULT_ESPN_SALARY_CACHE_PATH = "src/data/espn_salaries.json"
 
 HTML_TIMEOUT_SECONDS = 45
 JSON_TIMEOUT_SECONDS = 30
+IMAGE_TIMEOUT_SECONDS = 20
 MAX_RETRIES = 5
 RETRY_BACKOFF_SECONDS = 2.0
 SLEEP_BETWEEN_ESPN_REQUESTS_SECONDS = 0.35
@@ -859,6 +860,91 @@ def request_json(
             )
 
     return retry_request(run)
+
+
+def looks_like_image_bytes(content: bytes) -> bool:
+    if len(content) < 12:
+        return False
+
+    signatures = (
+        b"\x89PNG\r\n\x1a\n",
+        b"\xff\xd8\xff",
+        b"RIFF",
+        b"GIF87a",
+        b"GIF89a",
+    )
+
+    if content.startswith(signatures[0]):
+        return True
+    if content.startswith(signatures[1]):
+        return True
+    if content.startswith(signatures[3]) or content.startswith(signatures[4]):
+        return True
+    if content.startswith(signatures[2]) and content[8:12] == b"WEBP":
+        return True
+    return False
+
+
+def is_valid_headshot_response(response: requests.Response, first_chunk: bytes) -> bool:
+    if response.status_code != 200:
+        return False
+
+    content_type = response.headers.get("content-type", "").lower()
+    if not content_type.startswith("image/"):
+        return False
+
+    return looks_like_image_bytes(first_chunk)
+
+
+def validate_headshot_url(session: requests.Session, url: str) -> bool:
+    if not url:
+        return False
+
+    def run() -> bool:
+        response = session.get(
+            url,
+            headers=HTML_HEADERS,
+            timeout=IMAGE_TIMEOUT_SECONDS,
+            stream=True,
+            allow_redirects=True,
+        )
+        response.raise_for_status()
+
+        first_chunk = b""
+        for chunk in response.iter_content(chunk_size=64):
+            if chunk:
+                first_chunk = chunk
+                break
+
+        response.close()
+        return is_valid_headshot_response(response, first_chunk)
+
+    try:
+        return retry_request(run)
+    except Exception:
+        return False
+
+
+def resolve_valid_headshot_url(
+    session: requests.Session,
+    athlete_id: str,
+    candidate_url: Optional[str],
+) -> str:
+    urls_to_try: List[str] = []
+
+    cleaned_candidate = str(candidate_url or "").strip()
+    fallback_url = ESPN_HEADSHOT_TEMPLATE.format(espn_id=athlete_id) if athlete_id else ""
+
+    if cleaned_candidate:
+        urls_to_try.append(cleaned_candidate)
+    if fallback_url and fallback_url not in urls_to_try:
+        urls_to_try.append(fallback_url)
+
+    for url in urls_to_try:
+        if validate_headshot_url(session, url):
+            return url
+
+    return ""
 
 
 def load_br_soup(html: str) -> BeautifulSoup:
@@ -1748,14 +1834,13 @@ def fetch_espn_athlete_index(session: requests.Session) -> Dict[str, Dict[str, A
                 continue
 
             headshot = athlete.get("headshot") or {}
-            headshot_url = headshot.get("href") or ESPN_HEADSHOT_TEMPLATE.format(espn_id=athlete_id)
             athlete_ref = athlete.get("$ref")
 
             candidate = {
                 "espnId": athlete_id,
                 "espnName": athlete_name,
                 "normalizedEspnName": norm,
-                "headshotUrl": headshot_url,
+                "headshotCandidateUrl": str(headshot.get("href") or "").strip(),
                 "athleteApiRef": athlete_ref,
                 "team": normalize_team_abbr(str(team.get("abbreviation") or "").strip()),
             }
@@ -1765,7 +1850,7 @@ def fetch_espn_athlete_index(session: requests.Session) -> Dict[str, Dict[str, A
                 by_normalized_name[norm] = candidate
                 continue
 
-            if candidate.get("headshotUrl") and not existing.get("headshotUrl"):
+            if candidate.get("headshotCandidateUrl") and not existing.get("headshotCandidateUrl"):
                 by_normalized_name[norm] = candidate
 
         time.sleep(SLEEP_BETWEEN_ESPN_REQUESTS_SECONDS)
@@ -1816,32 +1901,56 @@ def load_or_build_espn_lookup(
         except Exception:
             cached_mapping = {}
 
+    session = requests.Session()
+    session.headers.update(JSON_HEADERS)
+
+    invalid_cached_norms: Set[str] = set()
+    for name in player_names:
+        norm = normalize_name(name)
+        cached_entry = cached_mapping.get(norm)
+        if cached_entry is None:
+            continue
+
+        cached_headshot_url = str(cached_entry.get("headshotUrl") or "").strip()
+        if not cached_headshot_url:
+            invalid_cached_norms.add(norm)
+            continue
+
+        if not validate_headshot_url(session, cached_headshot_url):
+            invalid_cached_norms.add(norm)
+
+    for norm in invalid_cached_norms:
+        cached_mapping.pop(norm, None)
+
     missing_names = [
         name for name in player_names
         if normalize_name(name) not in cached_mapping
     ]
 
-    if not missing_names and cached_mapping:
-        return cached_mapping
+    espn_index: Dict[str, Dict[str, Any]] = {}
+    if missing_names:
+        espn_index = fetch_espn_athlete_index(session)
 
-    session = requests.Session()
-    session.headers.update(JSON_HEADERS)
-    espn_index = fetch_espn_athlete_index(session)
-
-    for name in player_names:
+    for name in missing_names:
         norm = normalize_name(name)
-        if norm in cached_mapping:
-            continue
-
         match = choose_best_espn_match(name, espn_index)
         if match is None:
+            continue
+
+        resolved_headshot_url = resolve_valid_headshot_url(
+            session=session,
+            athlete_id=str(match["espnId"]),
+            candidate_url=match.get("headshotCandidateUrl"),
+        )
+        if not resolved_headshot_url:
+            cached_mapping.pop(norm, None)
             continue
 
         cached_mapping[norm] = {
             "inputName": name,
             "espnId": str(match["espnId"]),
             "espnName": str(match["espnName"]),
-            "headshotUrl": str(match["headshotUrl"]),
+            "headshotUrl": resolved_headshot_url,
             "athleteApiRef": match.get("athleteApiRef"),
         }
 

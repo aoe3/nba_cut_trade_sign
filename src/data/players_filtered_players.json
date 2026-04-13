@@ -8,6 +8,14 @@
     ]
   },
   {
+    "name": "Alex Antetokounmpo",
+    "team": "MIL",
+    "position": "SF",
+    "missingFields": [
+      "headshotUrl"
+    ]
+  },
+  {
     "name": "Alondes Williams",
     "team": "WAS",
     "position": "SG",
@@ -19,6 +27,14 @@
     "name": "Andersson Garcia",
     "team": "UTA",
     "position": "SF",
+    "missingFields": [
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Bez Mbeng",
+    "team": "UTA",
+    "position": "SG",
     "missingFields": [
       "headshotUrl"
     ]
@@ -176,6 +192,14 @@
     ]
   },
   {
+    "name": "Hayden Gray",
+    "team": "UTA",
+    "position": "C",
+    "missingFields": [
+      "headshotUrl"
+    ]
+  },
+  {
     "name": "Hunter Sallis",
     "team": "PHI",
     "position": "SG",
@@ -232,6 +256,14 @@
     ]
   },
   {
+    "name": "Jayson Kent",
+    "team": "POR",
+    "position": "SF",
+    "missingFields": [
+      "headshotUrl"
+    ]
+  },
+  {
     "name": "Jeremiah Robinson-Earl",
     "team": "DAL",
     "position": "PF",
@@ -240,9 +272,33 @@
     ]
   },
   {
+    "name": "John Poulakidas",
+    "team": "DAL",
+    "position": "SG",
+    "missingFields": [
+      "headshotUrl"
+    ]
+  },
+  {
     "name": "Johnny Juzang",
     "team": "MIN",
     "position": "SG",
+    "missingFields": [
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Josh Oduro",
+    "team": "NOP",
+    "position": "PF",
+    "missingFields": [
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Julian Reese",
+    "team": "WAS",
+    "position": "PF",
     "missingFields": [
       "headshotUrl"
     ]
@@ -280,8 +336,24 @@
     ]
   },
   {
+    "name": "Lucas Williamson",
+    "team": "MEM",
+    "position": "SG",
+    "missingFields": [
+      "headshotUrl"
+    ]
+  },
+  {
     "name": "Luke Travers",
     "team": "CLE",
+    "position": "SG",
+    "missingFields": [
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Malachi Smith",
+    "team": "BKN",
     "position": "SG",
     "missingFields": [
       "headshotUrl"
@@ -352,9 +424,33 @@
     ]
   },
   {
+    "name": "Norchad Omier",
+    "team": "LAC",
+    "position": "PF",
+    "missingFields": [
+      "headshotUrl"
+    ]
+  },
+  {
     "name": "Orlando Robinson",
     "team": "ORL",
     "position": "C",
+    "missingFields": [
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Payton Sandfort",
+    "team": "OKC",
+    "position": "SF",
+    "missingFields": [
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Sean Pedulla",
+    "team": "LAC",
+    "position": "PG",
     "missingFields": [
       "headshotUrl"
     ]
@@ -370,6 +466,14 @@
   {
     "name": "Stanley Umude",
     "team": "SAS",
+    "position": "SG",
+    "missingFields": [
+      "headshotUrl"
+    ]
+  },
+  {
+    "name": "Toby Okani",
+    "team": "MEM",
     "position": "SG",
     "missingFields": [
       "headshotUrl"
