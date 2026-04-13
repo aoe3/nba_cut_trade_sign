@@ -58,10 +58,10 @@ const DRAFT_BATTLE_SESSION_STORAGE_KEY = "cut-trade-sign:draft-battle-session";
 const CPU_TURN_DELAY_MS = 850;
 const AUTO_SIGN_DELAY_MS = 600;
 const CPU_SIGN_SCORE_THRESHOLD = 57;
-const CPU_TRADE_SCORE_THRESHOLD = 56;
+const CPU_TRADE_SCORE_THRESHOLD = 61;
 const CPU_DEFENSIVE_CUT_THRESHOLD = 58;
 const CPU_FISH_IMPROVEMENT_THRESHOLD = 3.5;
-const CPU_TRADE_IMPROVEMENT_THRESHOLD = 4.5;
+const CPU_TRADE_IMPROVEMENT_THRESHOLD = 7;
 const CPU_BIG_THREAT_MARGIN = 5.5;
 const CPU_LOOKAHEAD_DEPTH = 4;
 
@@ -455,6 +455,46 @@ function getTopVisibleThreat(
   return threats[0] ?? null;
 }
 
+function getBestVisibleCutOption(
+  game: DraftBattleGame,
+  preferredSlots: BattleSlot[],
+): { slot: BattleSlot; player: DraftBattlePlayer; score: number } | null {
+  const preferredSlotSet = new Set(preferredSlots);
+
+  const visibleOptions = BATTLE_SLOTS.map((slot) => {
+    const currentOption = getCurrentOption(game, slot);
+    if (!currentOption) {
+      return null;
+    }
+
+    return {
+      slot,
+      player: currentOption.player,
+      score: estimatePlayerValue(currentOption.player),
+      isPreferred: preferredSlotSet.has(slot),
+    };
+  }).filter(
+    (
+      option,
+    ): option is {
+      slot: BattleSlot;
+      player: DraftBattlePlayer;
+      score: number;
+      isPreferred: boolean;
+    } => option !== null,
+  );
+
+  visibleOptions.sort((a, b) => {
+    if (a.isPreferred !== b.isPreferred) {
+      return Number(b.isPreferred) - Number(a.isPreferred);
+    }
+
+    return b.score - a.score;
+  });
+
+  return visibleOptions[0] ?? null;
+}
+
 function chooseCpuTradeMove(
   game: DraftBattleGame,
   cpuLineup: DraftBattleLineup,
@@ -629,21 +669,45 @@ function chooseCpuDecision(
   const bestTradeMove = chooseCpuTradeMove(game, session.cpuLineup);
   const topUserThreat = getTopVisibleThreat(game, session.userLineup);
 
+  if (cpuSlotsLeft === 0 && session.cpuMovesRemaining > 0) {
+    const forcedCutTarget =
+      getBestVisibleCutOption(game, openUserSlots) ??
+      getBestVisibleCutOption(game, BATTLE_SLOTS);
+
+    if (forcedCutTarget) {
+      return {
+        type: "cut",
+        slot: forcedCutTarget.slot,
+        player: forcedCutTarget.player,
+        reason:
+          forcedCutTarget.slot && openUserSlots.includes(forcedCutTarget.slot)
+            ? `CPU cut ${forcedCutTarget.player.name} from ${forcedCutTarget.slot} to keep pressure on your open lane.`
+            : `CPU cut ${forcedCutTarget.player.name} from ${forcedCutTarget.slot} because its roster is full and it still has moves to spend.`,
+      };
+    }
+  }
+
   if (
     bestTradeMove &&
     (bestTradeMove.targetScore >= CPU_TRADE_SCORE_THRESHOLD ||
       bestTradeMove.improvement >= CPU_TRADE_IMPROVEMENT_THRESHOLD ||
-      Boolean(bestTradeMove.target.isJackpot))
+      (Boolean(bestTradeMove.target.isJackpot) &&
+        bestTradeMove.improvement >= CPU_TRADE_IMPROVEMENT_THRESHOLD - 1))
   ) {
-    const shouldTradeBecauseWeakCurrent =
-      bestTradeMove.currentScore < CPU_SIGN_SCORE_THRESHOLD;
-    const shouldTradeBecauseUpgrade =
+    const shouldTradeBecauseHugeUpgrade =
       bestTradeMove.improvement >= CPU_TRADE_IMPROVEMENT_THRESHOLD;
+    const shouldTradeBecauseBadCurrent =
+      bestTradeMove.currentScore < CPU_SIGN_SCORE_THRESHOLD - 6 &&
+      bestTradeMove.improvement >= CPU_TRADE_IMPROVEMENT_THRESHOLD - 1.5;
+    const shouldTradeBecauseJackpot =
+      Boolean(bestTradeMove.target.isJackpot) &&
+      bestTradeMove.targetScore >= CPU_TRADE_SCORE_THRESHOLD + 2 &&
+      bestTradeMove.improvement >= CPU_TRADE_IMPROVEMENT_THRESHOLD - 1;
 
     if (
-      shouldTradeBecauseUpgrade ||
-      (shouldTradeBecauseWeakCurrent && moveSlack >= 0) ||
-      (Boolean(bestTradeMove.target.isJackpot) && moveSlack >= -1)
+      shouldTradeBecauseHugeUpgrade ||
+      (shouldTradeBecauseBadCurrent && moveSlack >= 1) ||
+      (shouldTradeBecauseJackpot && moveSlack >= 0)
     ) {
       return {
         type: "trade",
@@ -725,6 +789,22 @@ function chooseCpuDecision(
       slot: bestOwnAvailable.slot,
       player: bestOwnAvailable.player,
       reason: `CPU signed ${bestOwnAvailable.player.name} to ${bestOwnAvailable.slot}.`,
+    };
+  }
+
+  const forcedFallbackCut =
+    getBestVisibleCutOption(game, openUserSlots) ??
+    getBestVisibleCutOption(game, openCpuSlots) ??
+    getBestVisibleCutOption(game, BATTLE_SLOTS);
+
+  if (forcedFallbackCut && session.cpuMovesRemaining > 0) {
+    return {
+      type: "cut",
+      slot: forcedFallbackCut.slot,
+      player: forcedFallbackCut.player,
+      reason: openUserSlots.includes(forcedFallbackCut.slot)
+        ? `CPU cut ${forcedFallbackCut.player.name} from ${forcedFallbackCut.slot} to keep your board from settling.`
+        : `CPU cut ${forcedFallbackCut.player.name} from ${forcedFallbackCut.slot} to spend its remaining move.`,
     };
   }
 
