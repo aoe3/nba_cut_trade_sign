@@ -3,7 +3,8 @@ name: Generate Daily Game
 on:
   schedule:
     # Only run once — AFTER player pool window
-    - cron: "15 10 * * *"
+    # 10:30 AM America/New_York during EDT
+    - cron: "30 14 * * *"
 
   workflow_dispatch:
     inputs:
