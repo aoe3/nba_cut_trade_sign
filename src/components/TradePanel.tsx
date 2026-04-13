@@ -132,7 +132,7 @@ export function EmptyPanel() {
   return (
     <div className="row-cell row-cell--trade-area info-panel info-panel--empty">
       <div className="info-panel__placeholder">
-        Trade candidates / score area
+        Locked stats or trade offers appear here
       </div>
     </div>
   );

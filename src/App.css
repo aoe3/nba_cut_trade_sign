@@ -3677,3 +3677,521 @@ h1 {
     justify-content: center;
   }
 }
+
+
+/* mobile compression pass: preserve desktop layout, tighten phone experience */
+@media (max-width: 768px) {
+  .app-shell {
+    padding: 10px 10px 18px;
+  }
+
+  .app-frame {
+    gap: 12px;
+  }
+
+  .topbar {
+    gap: 12px;
+    min-height: 0;
+    padding: 0;
+  }
+
+  .topbar__control-strip {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 18px;
+  }
+
+  .topbar__buttons,
+  .mode-actions,
+  .mode-actions--topbar {
+    width: 100%;
+  }
+
+  .mode-actions,
+  .mode-actions--topbar {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .mode-dropdown,
+  .topbar__buttons {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .mode-dropdown__trigger,
+  .how-to-btn,
+  .mode-btn,
+  .date-nav,
+  .move-counter {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .mode-dropdown__menu {
+    position: static;
+    top: auto;
+    left: auto;
+    right: auto;
+    width: 100%;
+    margin-top: 8px;
+    z-index: auto;
+  }
+
+  .mode-dropdown__trigger,
+  .how-to-btn,
+  .mode-btn {
+    min-height: 54px;
+    justify-content: center;
+  }
+
+  .date-nav {
+    min-height: 54px;
+    padding: 8px 12px;
+    border-radius: 18px;
+  }
+
+  .date-nav__arrow {
+    width: 42px;
+    height: 42px;
+  }
+
+  .date-nav__value {
+    font-size: 1rem;
+  }
+
+  .move-counter {
+    padding: 14px 14px 16px;
+    border-radius: 18px;
+  }
+
+  .move-counter__label {
+    margin-bottom: 10px;
+    font-size: 0.92rem;
+  }
+
+  .roster-grid {
+    gap: 12px;
+  }
+
+  .roster-row {
+    gap: 8px;
+  }
+
+  .row-cell,
+  .action-buttons,
+  .info-panel,
+  .cut-history {
+    min-height: 0;
+    border-radius: 18px;
+  }
+
+  .row-cell {
+    padding: 10px;
+  }
+
+  .row-cell--headshot {
+    padding: 6px 10px 2px;
+    min-height: 120px;
+  }
+
+  .row-cell__headshot-image,
+  .row-cell__headshot-fallback {
+    max-width: 100px;
+    max-height: 100px;
+  }
+
+  .row-cell--identity {
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 6px;
+    padding-bottom: 8px;
+    min-height: 96px;
+  }
+
+  .row-cell__name {
+    font-size: 0.92rem;
+    margin-bottom: 6px;
+  }
+
+  .row-cell__position {
+    font-size: 0.78rem;
+    margin-bottom: 4px;
+  }
+
+  .row-cell__team {
+    font-size: 0.8rem;
+  }
+
+  .action-buttons {
+    min-height: 60px;
+  }
+
+  .action-btn {
+    min-height: 60px;
+    font-size: 0.96rem;
+  }
+
+  .info-panel,
+  .cut-history {
+    padding: 10px;
+  }
+
+  .info-panel--empty {
+    min-height: 96px;
+  }
+
+  .info-panel__placeholder {
+    font-size: 0.9rem;
+  }
+
+  .info-panel--trade {
+    padding: 10px;
+  }
+
+  .trade-candidates--single-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .trade-candidate-card--row,
+  .execute-trade-btn--row {
+    min-height: 108px;
+  }
+
+  .trade-candidate-card {
+    padding: 8px;
+  }
+
+  .trade-candidate-card__portrait--row {
+    height: 62px;
+    margin-bottom: 8px;
+  }
+
+  .trade-candidate-card__name--row {
+    font-size: 0.74rem;
+  }
+
+  .execute-trade-btn {
+    padding: 8px;
+    font-size: 0.86rem;
+  }
+
+  .info-panel--locked {
+    padding: 10px;
+    gap: 6px;
+  }
+
+  .locked-badge {
+    font-size: 0.84rem;
+  }
+
+  .locked-score {
+    font-size: 0.96rem;
+  }
+
+  .locked-stats-grid {
+    margin-top: 4px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .locked-stat {
+    min-height: 54px;
+    padding: 7px 6px;
+    border-radius: 12px;
+  }
+
+  .locked-stat__value {
+    font-size: 0.94rem;
+  }
+
+  .locked-stat__label {
+    margin-top: 3px;
+    font-size: 0.6rem;
+  }
+
+  .cut-history__title {
+    margin-bottom: 8px;
+  }
+
+  .cut-history__list {
+    gap: 6px;
+  }
+
+  .cut-card {
+    padding: 8px 10px;
+  }
+
+  .cut-card__name {
+    font-size: 0.78rem;
+    line-height: 1.2;
+  }
+
+  .scorebar {
+    padding: 14px;
+    gap: 12px;
+    border-radius: 20px;
+  }
+
+  .scorebar__label {
+    font-size: 0.92rem;
+  }
+
+  .scorebar__value {
+    font-size: 1.55rem;
+  }
+
+  .scorebar__value--small {
+    font-size: 1rem;
+  }
+
+  .daily-share-launcher {
+    margin-top: -2px;
+  }
+
+  .modal-card--share {
+    width: min(96vw, 560px);
+  }
+
+  .daily-share-card {
+    padding: 18px 16px 20px;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 560px) {
+  .app-shell {
+    padding: 8px 8px 16px;
+  }
+
+  .app-frame {
+    gap: 10px;
+  }
+
+  .eyebrow {
+    margin-bottom: 4px;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 8vw, 2.55rem);
+    line-height: 0.98;
+  }
+
+  .topbar {
+    gap: 10px;
+  }
+
+  .topbar__control-strip {
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .mode-dropdown__trigger,
+  .how-to-btn,
+  .mode-btn,
+  .date-nav,
+  .move-counter {
+    border-radius: 16px;
+  }
+
+  .mode-dropdown__trigger,
+  .how-to-btn,
+  .mode-btn {
+    min-height: 50px;
+    padding: 10px 12px;
+  }
+
+  .date-nav {
+    min-height: 50px;
+    padding: 6px 10px;
+  }
+
+  .date-nav__arrow {
+    width: 38px;
+    height: 38px;
+  }
+
+  .date-nav__value {
+    font-size: 0.94rem;
+    letter-spacing: 0.08em;
+  }
+
+  .move-counter {
+    padding: 12px 12px 14px;
+  }
+
+  .move-counter__label {
+    margin-bottom: 8px;
+    font-size: 0.88rem;
+  }
+
+  .move-counter__dots {
+    gap: 8px;
+  }
+
+  .move-dot {
+    width: 12px;
+    height: 12px;
+  }
+
+  .roster-grid {
+    gap: 10px;
+  }
+
+  .roster-row {
+    gap: 6px;
+  }
+
+  .row-cell,
+  .action-buttons,
+  .info-panel,
+  .cut-history {
+    border-radius: 16px;
+  }
+
+  .row-cell {
+    padding: 8px;
+  }
+
+  .row-cell--headshot {
+    min-height: 108px;
+    padding: 4px 8px 0;
+  }
+
+  .row-cell__headshot-image,
+  .row-cell__headshot-fallback {
+    max-width: 88px;
+    max-height: 88px;
+  }
+
+  .row-cell--identity {
+    min-height: 86px;
+    padding: 6px 10px 8px;
+  }
+
+  .row-cell__name {
+    font-size: 0.86rem;
+    margin-bottom: 4px;
+  }
+
+  .row-cell__position {
+    font-size: 0.74rem;
+    margin-bottom: 3px;
+  }
+
+  .row-cell__team {
+    font-size: 0.76rem;
+  }
+
+  .action-buttons {
+    min-height: 56px;
+  }
+
+  .action-btn {
+    min-height: 56px;
+    font-size: 0.92rem;
+  }
+
+  .info-panel,
+  .cut-history {
+    padding: 8px;
+  }
+
+  .info-panel--empty {
+    min-height: 84px;
+  }
+
+  .trade-candidates--single-row {
+    gap: 6px;
+  }
+
+  .trade-candidate-card--row,
+  .execute-trade-btn--row {
+    min-height: 96px;
+  }
+
+  .trade-candidate-card__portrait--row {
+    height: 54px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+  }
+
+  .trade-candidate-card__name--row {
+    font-size: 0.68rem;
+  }
+
+  .execute-trade-btn {
+    font-size: 0.8rem;
+    line-height: 1.05;
+  }
+
+  .locked-badge {
+    font-size: 0.78rem;
+  }
+
+  .locked-score {
+    font-size: 0.9rem;
+  }
+
+  .locked-stats-grid {
+    gap: 5px;
+  }
+
+  .locked-stat {
+    min-height: 50px;
+    padding: 6px 5px;
+  }
+
+  .locked-stat__value {
+    font-size: 0.88rem;
+  }
+
+  .locked-stat__label {
+    font-size: 0.56rem;
+  }
+
+  .cut-card {
+    padding: 7px 9px;
+  }
+
+  .cut-card__name {
+    font-size: 0.74rem;
+  }
+
+  .scorebar {
+    padding: 12px;
+    gap: 10px;
+    border-radius: 18px;
+  }
+
+  .scorebar__label {
+    font-size: 0.88rem;
+  }
+
+  .scorebar__value {
+    font-size: 1.42rem;
+  }
+
+  .scorebar__value--small {
+    font-size: 0.94rem;
+  }
+
+  .loading-card {
+    padding: 18px 16px;
+  }
+
+  .modal-content {
+    padding: 20px 16px 18px;
+  }
+
+  .daily-share-card {
+    padding: 16px 14px 18px;
+  }
+}
