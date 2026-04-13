@@ -51,8 +51,6 @@ JSON_TIMEOUT_SECONDS = 30
 MAX_RETRIES = 5
 RETRY_BACKOFF_SECONDS = 2.0
 SLEEP_BETWEEN_ESPN_REQUESTS_SECONDS = 0.35
-SLEEP_BETWEEN_BBR_REQUESTS_SECONDS = 15.0
-BBR_429_RETRY_EXTRA_SECONDS = 30.0
 
 CURRENT_SEASON_DURABILITY_THRESHOLD_GAMES = 20
 ESPN_MIN_SIMILARITY = 0.88
@@ -77,7 +75,8 @@ MAX_ESPN_SALARY_PAGES = 20
 
 USE_MIN_SALARY_FALLBACK = True
 # Compatibility with build_player_pool.py output schema: nbaPlayerId remains present, espnPlayerId is not emitted.
-IMPUTED_MIN_SALARY = 1000000
+# Use 0 when salary cannot be recovered from Basketball Reference or ESPN.
+IMPUTED_MIN_SALARY = 0
 
 HTML_HEADERS = {
     "User-Agent": (
@@ -216,8 +215,6 @@ STANDARD_TO_BBR_CONTRACT_TEAM = {"BKN": "BRK", "CHA": "CHO", "PHX": "PHO"}
 
 MOJIBAKE_MARKERS = ("Ã", "Å", "Ä", "Ð", "Ñ", "â", "€", "™", "œ", "ž", "š")
 
-_last_bbr_request_ts = 0.0
-
 
 @dataclass
 class FilteredPlayerReport:
@@ -314,8 +311,8 @@ def main() -> None:
     print("Fetching Basketball Reference contracts...")
     br_contracts = fetch_basketball_reference_contracts()
 
-    print("Fetching Basketball Reference team contract fallbacks...")
-    team_contracts = fetch_basketball_reference_team_contracts(sorted({group["displayTeam"] for group in current_box.values()}))
+    print("Skipping Basketball Reference team contract fallbacks...")
+    team_contracts: Dict[Tuple[str, str], Dict[str, Any]] = {}
 
     print("Fetching ESPN salary fallbacks...")
     espn_salary_lookup = load_or_build_espn_salary_lookup(DEFAULT_ESPN_SALARY_CACHE_PATH)
@@ -799,73 +796,31 @@ def write_csv(file_path: str, rows: List[OutputPlayer]) -> None:
             writer.writerow(asdict(row))
 
 
-def is_bbr_url(url: str) -> bool:
-    return "basketball-reference.com" in url.lower()
-
-
-def throttle_bbr_request(url: str) -> None:
-    global _last_bbr_request_ts
-
-    if not is_bbr_url(url):
-        return
-
-    now = time.time()
-    elapsed = now - _last_bbr_request_ts
-    remaining = SLEEP_BETWEEN_BBR_REQUESTS_SECONDS - elapsed
-
-    if remaining > 0:
-        print(f"  BBR throttle: sleeping {remaining:.1f}s before request...")
-        time.sleep(remaining)
-
-    _last_bbr_request_ts = time.time()
-
-
 def retry_request(fn):
     last_error: Optional[Exception] = None
-    last_url: Optional[str] = None
-
     for attempt in range(1, MAX_RETRIES + 1):
         try:
             return fn()
         except Exception as exc:
             last_error = exc
-
-            response = getattr(exc, "response", None)
-            request = getattr(response, "request", None)
-            if request is not None:
-                last_url = getattr(request, "url", None)
-
             if attempt < MAX_RETRIES:
                 sleep_for = RETRY_BACKOFF_SECONDS * attempt
-
-                error_text = str(exc).lower()
-                is_429 = "429" in error_text or "too many requests" in error_text
-                if is_429:
-                    sleep_for += BBR_429_RETRY_EXTRA_SECONDS
-
-                if last_url and is_bbr_url(last_url):
-                    print(f"  BBR retry target: {last_url}")
-
                 print(f"  Request failed ({attempt}/{MAX_RETRIES}): {exc}")
                 print(f"  Retrying in {sleep_for:.1f}s...")
                 time.sleep(sleep_for)
-
     assert last_error is not None
     raise last_error
 
+
 def fetch_html(url: str) -> str:
     def run() -> str:
-        throttle_bbr_request(url)
-
         response = requests.get(url, headers=HTML_HEADERS, timeout=HTML_TIMEOUT_SECONDS)
         response.raise_for_status()
-
         if not response.encoding or response.encoding.lower() in ("iso-8859-1", "latin-1", "ascii"):
             response.encoding = response.apparent_encoding or "utf-8"
-
         return maybe_fix_mojibake(response.text)
-
     return retry_request(run)
+
 
 def request_json(
     session: requests.Session,

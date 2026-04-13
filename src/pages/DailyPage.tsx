@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { GameBoard } from "../components/GameBoard";
+import { DailyShareModal } from "../components/DailyShareModal";
 import { DateNavigator } from "../components/DateNavigator";
 import { HowToPlayModal } from "../components/HowToPlayModal";
 import { ModeDropdown } from "../components/ModeDropdown";
@@ -298,6 +299,7 @@ export function DailyPage({ activeMode, onChangeMode }: DailyPageProps) {
     );
   });
   const [isHowToOpen, setIsHowToOpen] = useState(false);
+  const [isShareOpen, setIsShareOpen] = useState(false);
 
   useEffect(() => {
     persistSelectedDate(selectedDate);
@@ -306,6 +308,14 @@ export function DailyPage({ activeMode, onChangeMode }: DailyPageProps) {
   useEffect(() => {
     persistState(selectedDate, state);
   }, [selectedDate, state]);
+
+  useEffect(() => {
+    setIsShareOpen(false);
+  }, [selectedDate]);
+
+  useEffect(() => {
+    setIsShareOpen((wasOpen) => (state.gameOver ? true : wasOpen && false));
+  }, [state.gameOver]);
 
   const dispatch = useCallback(
     (action: GameAction) => {
@@ -393,6 +403,18 @@ export function DailyPage({ activeMode, onChangeMode }: DailyPageProps) {
 
         <GameBoard game={activeGame} state={state} dispatch={dispatch} />
 
+        {state.gameOver ? (
+          <div className="daily-share-launcher">
+            <button
+              type="button"
+              className="mode-btn mode-btn--primary"
+              onClick={() => setIsShareOpen(true)}
+            >
+              Share Result
+            </button>
+          </div>
+        ) : null}
+
         <ScoreBar
           finalScore={state.finalScore}
           finalScorePct={state.finalScorePct}
@@ -406,6 +428,15 @@ export function DailyPage({ activeMode, onChangeMode }: DailyPageProps) {
       <HowToPlayModal
         isOpen={isHowToOpen}
         onClose={() => setIsHowToOpen(false)}
+      />
+
+      <DailyShareModal
+        isOpen={isShareOpen}
+        onClose={() => setIsShareOpen(false)}
+        date={activeGame.date}
+        state={state}
+        rating={puzzleRating}
+        ratingClass={ratingClass}
       />
     </div>
   );

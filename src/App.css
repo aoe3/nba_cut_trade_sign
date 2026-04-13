@@ -3508,3 +3508,172 @@ h1 {
     text-align: left !important;
   }
 }
+
+
+.mode-btn--primary {
+  border-color: rgba(99, 157, 255, 0.42);
+  background: linear-gradient(180deg, rgba(46, 88, 168, 0.95), rgba(27, 58, 117, 0.95));
+  color: #f7fbff;
+}
+
+.mode-btn--primary:hover:not(:disabled) {
+  border-color: rgba(138, 184, 255, 0.58);
+  background: linear-gradient(180deg, rgba(59, 104, 189, 0.98), rgba(33, 68, 133, 0.98));
+}
+
+.daily-share-launcher {
+  display: flex;
+  justify-content: center;
+  margin-top: -6px;
+}
+
+.modal-card--share {
+  width: min(720px, 96vw);
+}
+
+.daily-share-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 28px 28px 30px;
+  border-radius: 24px;
+  border: 1px solid rgba(125, 140, 168, 0.22);
+  background: linear-gradient(180deg, rgba(20, 28, 42, 0.96), rgba(11, 17, 27, 0.98));
+  box-shadow:
+    0 24px 50px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.daily-share-card__title {
+  font-size: clamp(1.45rem, 2.8vw, 2rem);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+.daily-share-card__rating-row {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+  font-weight: 800;
+}
+
+.daily-share-card__rating-separator {
+  color: #b8c3d9;
+}
+
+.daily-share-card__percent {
+  color: #f2f6ff;
+}
+
+.daily-share-card__meta {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #c9d3e6;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.daily-share-card__best-player-label {
+  width: min(100%, 420px);
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 2px solid rgba(125, 140, 168, 0.28);
+  text-align: center;
+  font-size: 0.86rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #95a3bf;
+}
+
+.daily-share-card__best-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.daily-share-card__headshot-wrap {
+  width: 148px;
+  height: 148px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(125, 140, 168, 0.24);
+  background: radial-gradient(circle at top, rgba(46, 67, 103, 0.85), rgba(14, 19, 31, 0.98));
+  box-shadow:
+    0 18px 36px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.daily-share-card__headshot,
+.daily-share-card__headshot-fallback {
+  width: 100%;
+  height: 100%;
+}
+
+.daily-share-card__headshot {
+  display: block;
+  object-fit: cover;
+}
+
+.daily-share-card__headshot-fallback {
+  background: linear-gradient(180deg, rgba(44, 61, 93, 0.9), rgba(16, 22, 35, 0.98));
+}
+
+.daily-share-card__player-name {
+  text-align: center;
+  font-size: clamp(1.25rem, 2.8vw, 1.65rem);
+  font-weight: 900;
+  color: #f5f8ff;
+}
+
+.daily-share-card__player-meta {
+  text-align: center;
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #a8b5cd;
+  text-transform: uppercase;
+}
+
+.daily-share-card__player-score {
+  text-align: center;
+  font-size: clamp(2.5rem, 5vw, 3.4rem);
+  line-height: 1;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.daily-share-card__empty {
+  padding: 20px 0 8px;
+  color: #b9c5db;
+}
+
+.daily-share-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 720px) {
+  .daily-share-card {
+    padding: 22px 18px 24px;
+  }
+
+  .daily-share-card__headshot-wrap {
+    width: 132px;
+    height: 132px;
+    border-radius: 20px;
+  }
+
+  .daily-share-card__meta {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
