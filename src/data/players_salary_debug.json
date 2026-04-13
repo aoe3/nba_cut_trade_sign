@@ -1604,8 +1604,8 @@
     "team": "MEM",
     "normalizedName": "lucas williamson",
     "formattedContractName": "lucas williamson",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
+    "salary": 21946,
+    "salarySource": "bbr_contracts"
   },
   {
     "name": "Egor D\u0435min",
@@ -2284,8 +2284,8 @@
     "team": "BKN",
     "normalizedName": "tre scott",
     "formattedContractName": "tre scott",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
+    "salary": 129503,
+    "salarySource": "bbr_contracts"
   },
   {
     "name": "Nate Williams",

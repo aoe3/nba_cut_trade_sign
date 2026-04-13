@@ -707,6 +707,11 @@ def normalize_team_abbr(team: Optional[str]) -> str:
     if not text:
         return ""
 
+    # Strip Basketball Reference decorations such as playoff asterisks
+    # and other marker symbols before attempting to normalize.
+    text = text.replace("*", "").replace("+", "").strip()
+    text = re.sub(r"\s+", " ", text)
+
     if text in FULL_TEAM_NAME_TO_ABBR:
         return FULL_TEAM_NAME_TO_ABBR[text]
 
