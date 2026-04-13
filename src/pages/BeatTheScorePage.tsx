@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import publishedGameData from "../data/games/game_2026-04-10.json";
 import { ActionButtons } from "../components/ActionButtons";
 import { HowToPlayModal } from "../components/HowToPlayModal";
@@ -165,7 +165,8 @@ export function BeatTheScorePage({
   activeMode,
   onChangeMode,
 }: BeatTheScorePageProps) {
-  const initialGame = loadStoredGame() ?? publishedGame;
+  const storedGame = loadStoredGame();
+  const initialGame = storedGame ?? publishedGame;
   const initialState = loadStoredState() ?? buildInitialGameState(initialGame);
   const initialSolution = loadStoredSolution();
 
@@ -175,9 +176,14 @@ export function BeatTheScorePage({
     initialSolution,
   );
   const [isHowToOpen, setIsHowToOpen] = useState(false);
-  const [isLoadingSolution, setIsLoadingSolution] = useState(!initialSolution);
-  const [loadingTitle, setLoadingTitle] = useState("Building CPU Opponent");
+  const [isLoadingSolution, setIsLoadingSolution] = useState(
+    !storedGame || !initialSolution,
+  );
+  const [loadingTitle, setLoadingTitle] = useState(
+    storedGame ? "Building CPU Opponent" : "Building Game",
+  );
   const [statusLogs, setStatusLogs] = useState<string[]>([]);
+  const shouldAutoBuildFreshGame = useRef(!storedGame);
 
   useEffect(() => {
     persistGame(game);
@@ -208,7 +214,7 @@ export function BeatTheScorePage({
   }, []);
 
   useEffect(() => {
-    if (solution) {
+    if (shouldAutoBuildFreshGame.current || solution) {
       return;
     }
 
@@ -287,6 +293,15 @@ export function BeatTheScorePage({
       }, 250);
     }
   }, [handleStatus]);
+
+  useEffect(() => {
+    if (!shouldAutoBuildFreshGame.current) {
+      return;
+    }
+
+    shouldAutoBuildFreshGame.current = false;
+    void startNewBeatTheScoreGame();
+  }, [startNewBeatTheScoreGame]);
 
   const revealedPositions = useMemo(() => {
     return new Set(POSITIONS.filter((position) => state.rows[position].locked));

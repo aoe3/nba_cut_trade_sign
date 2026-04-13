@@ -95,17 +95,17 @@ export function ForeverPage({
   autoGenerateToken,
   onChangeMode,
 }: ForeverPageProps) {
-  const initialGame = loadStoredGame() ?? publishedGame;
+  const storedGame = loadStoredGame();
+  const initialGame = storedGame ?? publishedGame;
   const initialState = loadStoredState() ?? buildInitialGameState(initialGame);
 
   const [game, setGame] = useState<DailyGame>(initialGame);
   const [state, setState] = useState<GameState>(initialState);
   const [isHowToOpen, setIsHowToOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(!storedGame);
   const [loadingTitle, setLoadingTitle] = useState("Preparing Forever Mode");
   const [statusLogs, setStatusLogs] = useState<string[]>([]);
   const handledAutoGenerateToken = useRef(0);
-
 
   useEffect(() => {
     persistGame(game);
@@ -115,9 +115,12 @@ export function ForeverPage({
     persistState(state);
   }, [state]);
 
-  const dispatch = useCallback((action: GameAction) => {
-    setState((previousState) => gameReducer(previousState, action, game));
-  }, [game]);
+  const dispatch = useCallback(
+    (action: GameAction) => {
+      setState((previousState) => gameReducer(previousState, action, game));
+    },
+    [game],
+  );
 
   const handleStatus = useCallback((status: string) => {
     setStatusLogs((previous) => {
@@ -173,6 +176,14 @@ export function ForeverPage({
     handledAutoGenerateToken.current = autoGenerateToken;
     void startNewForeverGame();
   }, [autoGenerateToken, startNewForeverGame]);
+
+  useEffect(() => {
+    if (storedGame || autoGenerateToken > 0) {
+      return;
+    }
+
+    void startNewForeverGame();
+  }, [autoGenerateToken, startNewForeverGame, storedGame]);
 
   const puzzleRating = useMemo(
     () => getPuzzleRating(state.finalScorePct),

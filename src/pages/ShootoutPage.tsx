@@ -278,7 +278,8 @@ function CpuActionButtons({ activeAction }: { activeAction?: CpuActionKind }) {
  * Renders the alternating-turn duel mode, including toss flow and CPU action playback.
  */
 export function ShootoutPage({ activeMode, onChangeMode }: ShootoutPageProps) {
-  const initialGame = loadStoredGame() ?? publishedGame;
+  const storedGame = loadStoredGame();
+  const initialGame = storedGame ?? publishedGame;
   const storedUserState = loadStoredState(SHOOTOUT_USER_STATE_STORAGE_KEY);
   const storedCpuState = loadStoredState(SHOOTOUT_CPU_STATE_STORAGE_KEY);
   const storedSolution = loadStoredSolution();
@@ -296,14 +297,17 @@ export function ShootoutPage({ activeMode, onChangeMode }: ShootoutPageProps) {
   );
   const [session, setSession] = useState<ShootoutSession>(storedSession);
   const [isHowToOpen, setIsHowToOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(!storedSolution);
-  const [loadingTitle, setLoadingTitle] = useState("Building Shootout");
+  const [isLoading, setIsLoading] = useState(!storedGame || !storedSolution);
+  const [loadingTitle, setLoadingTitle] = useState(
+    storedGame ? "Building Shootout" : "Building Game",
+  );
   const [statusLogs, setStatusLogs] = useState<string[]>([]);
   const [showCoinFlip, setShowCoinFlip] = useState(
-    !storedSession.setupComplete,
+    storedGame ? !storedSession.setupComplete : false,
   );
   const cpuTimeoutRef = useRef<number | null>(null);
   const skipTimeoutRef = useRef<number | null>(null);
+  const shouldAutoBuildFreshGame = useRef(!storedGame);
 
   useEffect(() => {
     persistGame(game);
@@ -346,7 +350,7 @@ export function ShootoutPage({ activeMode, onChangeMode }: ShootoutPageProps) {
   }, []);
 
   useEffect(() => {
-    if (solution) {
+    if (shouldAutoBuildFreshGame.current || solution) {
       return;
     }
 
@@ -582,6 +586,15 @@ export function ShootoutPage({ activeMode, onChangeMode }: ShootoutPageProps) {
       }, 250);
     }
   }, [handleStatus]);
+
+  useEffect(() => {
+    if (!shouldAutoBuildFreshGame.current) {
+      return;
+    }
+
+    shouldAutoBuildFreshGame.current = false;
+    void startNewShootoutGame();
+  }, [startNewShootoutGame]);
 
   const currentTurnOwner = getBadgeOwner(session.activeTurn, session.turnBadge);
 
