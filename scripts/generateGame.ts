@@ -454,24 +454,76 @@ function buildCutPool(
     .slice(0, CUTS_PER_POSITION);
 }
 
+function validatePositionOptions(options: GameOption[], position: Position): void {
+  if (options.length !== STARTER_COUNT_PER_POSITION) {
+    throw new Error(
+      `Position ${position} expected ${STARTER_COUNT_PER_POSITION} options, got ${options.length}.`,
+    );
+  }
+
+  const seenIds = new Set<string>();
+
+  for (const option of options) {
+    if (seenIds.has(option.player.id)) {
+      throw new Error(`Duplicate option player ${option.player.name} found in ${position}.`);
+    }
+    seenIds.add(option.player.id);
+
+    if (option.trades.length !== TRADES_PER_PLAYER) {
+      throw new Error(
+        `Player ${option.player.name} in ${position} expected ${TRADES_PER_PLAYER} trades, got ${option.trades.length}.`,
+      );
+    }
+
+    for (const trade of option.trades) {
+      if (trade.id === option.player.id) {
+        throw new Error(`Player ${option.player.name} in ${position} was assigned itself as a trade.`);
+      }
+      if (seenIds.has(trade.id)) {
+        throw new Error(`Duplicate trade target ${trade.name} found in ${position}.`);
+      }
+      seenIds.add(trade.id);
+    }
+  }
+
+  const expectedUniqueCount = STARTER_COUNT_PER_POSITION * (1 + TRADES_PER_PLAYER);
+  if (seenIds.size !== expectedUniqueCount) {
+    throw new Error(
+      `Position ${position} expected ${expectedUniqueCount} unique players, got ${seenIds.size}.`,
+    );
+  }
+}
+
 function buildPositionOptions(
+  position: Position,
   positionPlayers: ScoredPlayer[],
   isStarSlot: boolean,
 ): GameOption[] {
   const starter = pickStarter(positionPlayers, isStarSlot);
-  const usedIds = new Set<string>([starter.id]);
+  const reservedIds = new Set<string>([starter.id]);
 
-  const cuts = buildCutPool(positionPlayers, starter, usedIds);
+  const cuts = buildCutPool(positionPlayers, starter, reservedIds);
   for (const player of cuts) {
-    usedIds.add(player.id);
+    reservedIds.add(player.id);
   }
 
   const orderedPlayers = [starter, ...cuts];
+  const globallyUsedIds = new Set<string>(reservedIds);
 
-  return orderedPlayers.map((player) => ({
-    player: toGamePlayer(player),
-    trades: buildTradePool(positionPlayers, player, usedIds).map(toGamePlayer),
-  }));
+  const options = orderedPlayers.map((player) => {
+    const trades = buildTradePool(positionPlayers, player, globallyUsedIds);
+    for (const trade of trades) {
+      globallyUsedIds.add(trade.id);
+    }
+
+    return {
+      player: toGamePlayer(player),
+      trades: trades.map(toGamePlayer),
+    };
+  });
+
+  validatePositionOptions(options, position);
+  return options;
 }
 
 function pickStarPositions(): Set<Position> {
@@ -491,7 +543,7 @@ function buildGame(players: ScoredPlayer[]): DailyGame {
     }
 
     acc[position] = {
-      options: buildPositionOptions(positionPlayers, starPositions.has(position)),
+      options: buildPositionOptions(position, positionPlayers, starPositions.has(position)),
     };
 
     return acc;

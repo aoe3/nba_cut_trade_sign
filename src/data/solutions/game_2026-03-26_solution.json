@@ -1,8 +1,8 @@
 {
   "date": "2026-03-26",
-  "bestScore": 286,
-  "worstScore": 237.6,
-  "spread": 48.4,
+  "bestScore": 272.8,
+  "worstScore": 219.2,
+  "spread": 53.6,
   "terminalCount": 70725,
   "uniqueStateCount": 105726
 }
