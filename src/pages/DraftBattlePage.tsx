@@ -57,9 +57,13 @@ const DRAFT_BATTLE_INITIAL_GAME_STORAGE_KEY =
 const DRAFT_BATTLE_SESSION_STORAGE_KEY = "cut-trade-sign:draft-battle-session";
 const CPU_TURN_DELAY_MS = 850;
 const AUTO_SIGN_DELAY_MS = 600;
-const CPU_SIGN_SCORE_THRESHOLD = 55;
-const CPU_TRADE_SCORE_THRESHOLD = 53;
-const CPU_DEFENSIVE_CUT_THRESHOLD = 54;
+const CPU_SIGN_SCORE_THRESHOLD = 57;
+const CPU_TRADE_SCORE_THRESHOLD = 56;
+const CPU_DEFENSIVE_CUT_THRESHOLD = 58;
+const CPU_FISH_IMPROVEMENT_THRESHOLD = 3.5;
+const CPU_TRADE_IMPROVEMENT_THRESHOLD = 4.5;
+const CPU_BIG_THREAT_MARGIN = 5.5;
+const CPU_LOOKAHEAD_DEPTH = 4;
 
 function getPoolLabel(slot: BattleSlot): string {
   switch (slot) {
@@ -204,10 +208,6 @@ function getValidTradeTargets(
   return currentOption.tradeTargets ?? [];
 }
 
-function getAvailableCutSlots(game: DraftBattleGame): BattleSlot[] {
-  return BATTLE_SLOTS.filter((slot) => getCurrentOption(game, slot) !== null);
-}
-
 function removePlayersFromPool(
   game: DraftBattleGame,
   slot: BattleSlot,
@@ -336,11 +336,99 @@ function getRosterStats(
   ];
 }
 
+function clampNumber(value: number, min: number, max: number): number {
+  return Math.min(Math.max(value, min), max);
+}
+
+function safeNumber(value: unknown, fallback = 0): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : fallback;
+}
+
+function normalizeRange(value: number, min: number, max: number): number {
+  if (!Number.isFinite(value) || max <= min) {
+    return 0;
+  }
+
+  return clampNumber((value - min) / (max - min), 0, 1);
+}
+
+function hashPlayerId(playerId: string): number {
+  let hash = 0;
+
+  for (let index = 0; index < playerId.length; index += 1) {
+    hash = (hash * 31 + playerId.charCodeAt(index)) % 1000003;
+  }
+
+  return hash;
+}
+
+function estimatePlayerValue(player: DraftBattlePlayer): number {
+  const bpm = normalizeRange(safeNumber(player.bpm, -4), -7, 11);
+  const per = normalizeRange(safeNumber(player.per, 10), 7, 28);
+  const ws48 = normalizeRange(safeNumber(player.ws48, 0.05), -0.05, 0.25);
+  const mpg = normalizeRange(safeNumber(player.minutesPerGame, 18), 10, 35);
+  const ppg = normalizeRange(safeNumber(player.ppg, 8), 4, 28);
+  const rpg = normalizeRange(safeNumber(player.rpg, 3), 1, 12);
+  const apg = normalizeRange(safeNumber(player.apg, 2), 0.5, 9);
+  const spg = normalizeRange(safeNumber(player.spg, 0.6), 0.2, 2);
+  const bpg = normalizeRange(safeNumber(player.bpg, 0.4), 0, 2.5);
+  const fgPct = normalizeRange(safeNumber(player.fgPct, 0.46), 0.4, 0.62);
+  const threePct = normalizeRange(
+    safeNumber(player.threePct, 0.34),
+    0.28,
+    0.42,
+  );
+  const threePa = normalizeRange(safeNumber(player.threePa, 2), 0.5, 8);
+  const durability = normalizeRange(
+    safeNumber(player.durability, 0.8),
+    0.55,
+    1,
+  );
+  const age = safeNumber(player.age, 27);
+
+  const advancedCore =
+    (bpm * 0.34 + per * 0.24 + ws48 * 0.24 + mpg * 0.18) * 60;
+  const boxCreation =
+    (ppg * 0.42 + rpg * 0.18 + apg * 0.22 + spg * 0.1 + bpg * 0.08) * 24;
+  const shooting =
+    (fgPct * 0.65 + threePct * 0.35 * Math.max(0.4, threePa)) * 10;
+  const ageCurve =
+    age >= 24 && age <= 30 ? 2.2 : age <= 22 || age >= 34 ? -1.5 : 0;
+  const uncertainty = ((hashPlayerId(player.id) % 11) - 5) * 0.55;
+
+  return Number(
+    clampNumber(
+      advancedCore +
+        boxCreation +
+        shooting +
+        durability * 6 +
+        ageCurve +
+        uncertainty,
+      0,
+      100,
+    ).toFixed(1),
+  );
+}
+
+function getOpenSlots(lineup: DraftBattleLineup): BattleSlot[] {
+  return BATTLE_SLOTS.filter((slot) => !lineup[slot]);
+}
+
+function getProjectedSlotValues(
+  game: DraftBattleGame,
+  slot: BattleSlot,
+  lookahead = CPU_LOOKAHEAD_DEPTH,
+): number[] {
+  return game.pools[slot].options
+    .slice(0, lookahead)
+    .map((option) => estimatePlayerValue(option.player));
+}
+
 function getTopVisibleThreat(
   game: DraftBattleGame,
   lineup: DraftBattleLineup,
 ): { slot: BattleSlot; player: DraftBattlePlayer; score: number } | null {
-  const threats = BATTLE_SLOTS.filter((slot) => !lineup[slot])
+  const threats = getOpenSlots(lineup)
     .map((slot) => {
       const currentOption = getCurrentOption(game, slot);
       if (!currentOption) {
@@ -350,7 +438,7 @@ function getTopVisibleThreat(
       return {
         slot,
         player: currentOption.player,
-        score: scorePlayer(currentOption.player),
+        score: estimatePlayerValue(currentOption.player),
       };
     })
     .filter(
@@ -374,8 +462,11 @@ function chooseCpuTradeMove(
   slot: BattleSlot;
   target: TradeTarget;
   basePlayer: DraftBattlePlayer;
+  improvement: number;
+  targetScore: number;
+  currentScore: number;
 } | null {
-  const candidates = BATTLE_SLOTS.filter((slot) => !cpuLineup[slot])
+  const candidates = getOpenSlots(cpuLineup)
     .map((slot) => {
       const currentOption = getCurrentOption(game, slot);
       const tradeTargets = getValidTradeTargets(game, slot);
@@ -385,7 +476,7 @@ function chooseCpuTradeMove(
       }
 
       const bestTarget = [...tradeTargets].sort((a, b) => {
-        const scoreDelta = scorePlayer(b) - scorePlayer(a);
+        const scoreDelta = estimatePlayerValue(b) - estimatePlayerValue(a);
         if (scoreDelta !== 0) return scoreDelta;
         return Number(Boolean(b.isJackpot)) - Number(Boolean(a.isJackpot));
       })[0];
@@ -394,8 +485,8 @@ function chooseCpuTradeMove(
         return null;
       }
 
-      const currentScore = scorePlayer(currentOption.player);
-      const targetScore = scorePlayer(bestTarget);
+      const currentScore = estimatePlayerValue(currentOption.player);
+      const targetScore = estimatePlayerValue(bestTarget);
 
       return {
         slot,
@@ -403,6 +494,7 @@ function chooseCpuTradeMove(
         basePlayer: currentOption.player,
         improvement: targetScore - currentScore,
         targetScore,
+        currentScore,
         isJackpot: Boolean(bestTarget.isJackpot),
       };
     })
@@ -415,6 +507,7 @@ function chooseCpuTradeMove(
         basePlayer: DraftBattlePlayer;
         improvement: number;
         targetScore: number;
+        currentScore: number;
         isJackpot: boolean;
       } => candidate !== null,
     )
@@ -430,24 +523,212 @@ function chooseCpuTradeMove(
       return b.targetScore - a.targetScore;
     });
 
-  const top = candidates[0];
-  if (!top) {
-    return null;
-  }
+  return candidates[0] ?? null;
+}
 
-  if (
-    top.isJackpot ||
-    top.improvement >= 4 ||
-    top.targetScore >= CPU_TRADE_SCORE_THRESHOLD
-  ) {
+type CpuDecision =
+  | {
+      type: "sign";
+      slot: BattleSlot;
+      player: DraftBattlePlayer;
+      reason: string;
+    }
+  | {
+      type: "trade";
+      slot: BattleSlot;
+      basePlayer: DraftBattlePlayer;
+      target: TradeTarget;
+      reason: string;
+    }
+  | {
+      type: "cut";
+      slot: BattleSlot;
+      player: DraftBattlePlayer;
+      reason: string;
+    }
+  | {
+      type: "yield";
+    };
+
+function chooseCpuDecision(
+  game: DraftBattleGame,
+  session: DraftBattleSession,
+): CpuDecision {
+  const openCpuSlots = getOpenSlots(session.cpuLineup);
+  const openUserSlots = getOpenSlots(session.userLineup);
+  const cpuSlotsLeft = openCpuSlots.length;
+  const userSlotsLeft = openUserSlots.length;
+  const moveSlack = session.cpuMovesRemaining - cpuSlotsLeft;
+  const isBehindOnScore =
+    scoreLineup(session.cpuLineup) < scoreLineup(session.userLineup);
+  const hasExtraMoveEdge =
+    session.cpuMovesRemaining > session.userMovesRemaining;
+
+  if (session.cpuMovesRemaining <= 0) {
+    const forcedSlot = openCpuSlots[0] ?? null;
+    const forcedOption = forcedSlot ? getCurrentOption(game, forcedSlot) : null;
+
+    if (!forcedSlot || !forcedOption) {
+      return { type: "yield" };
+    }
+
     return {
-      slot: top.slot,
-      target: top.target,
-      basePlayer: top.basePlayer,
+      type: "sign",
+      slot: forcedSlot,
+      player: forcedOption.player,
+      reason: `CPU auto-signed ${forcedOption.player.name} to ${forcedSlot}.`,
     };
   }
 
-  return null;
+  const ownSlotReads = openCpuSlots
+    .map((slot) => {
+      const currentOption = getCurrentOption(game, slot);
+      if (!currentOption) {
+        return null;
+      }
+
+      const projectedValues = getProjectedSlotValues(game, slot);
+      const currentEstimate =
+        projectedValues[0] ?? estimatePlayerValue(currentOption.player);
+      const bestFutureEstimate = projectedValues
+        .slice(1)
+        .reduce((best, value) => Math.max(best, value), currentEstimate);
+
+      return {
+        slot,
+        player: currentOption.player,
+        currentEstimate,
+        bestFutureEstimate,
+        futureImprovement: bestFutureEstimate - currentEstimate,
+      };
+    })
+    .filter(
+      (
+        read,
+      ): read is {
+        slot: BattleSlot;
+        player: DraftBattlePlayer;
+        currentEstimate: number;
+        bestFutureEstimate: number;
+        futureImprovement: number;
+      } => read !== null,
+    )
+    .sort((a, b) => {
+      if (b.currentEstimate !== a.currentEstimate) {
+        return b.currentEstimate - a.currentEstimate;
+      }
+
+      return a.futureImprovement - b.futureImprovement;
+    });
+
+  const bestOwnAvailable = ownSlotReads[0] ?? null;
+  const weakestOwnAvailable =
+    [...ownSlotReads].sort(
+      (a, b) => a.currentEstimate - b.currentEstimate,
+    )[0] ?? null;
+  const bestTradeMove = chooseCpuTradeMove(game, session.cpuLineup);
+  const topUserThreat = getTopVisibleThreat(game, session.userLineup);
+
+  if (
+    bestTradeMove &&
+    (bestTradeMove.targetScore >= CPU_TRADE_SCORE_THRESHOLD ||
+      bestTradeMove.improvement >= CPU_TRADE_IMPROVEMENT_THRESHOLD ||
+      Boolean(bestTradeMove.target.isJackpot))
+  ) {
+    const shouldTradeBecauseWeakCurrent =
+      bestTradeMove.currentScore < CPU_SIGN_SCORE_THRESHOLD;
+    const shouldTradeBecauseUpgrade =
+      bestTradeMove.improvement >= CPU_TRADE_IMPROVEMENT_THRESHOLD;
+
+    if (
+      shouldTradeBecauseUpgrade ||
+      (shouldTradeBecauseWeakCurrent && moveSlack >= 0) ||
+      (Boolean(bestTradeMove.target.isJackpot) && moveSlack >= -1)
+    ) {
+      return {
+        type: "trade",
+        slot: bestTradeMove.slot,
+        basePlayer: bestTradeMove.basePlayer,
+        target: bestTradeMove.target,
+        reason: `CPU traded ${bestTradeMove.slot} into ${bestTradeMove.target.name}.`,
+      };
+    }
+  }
+
+  if (bestOwnAvailable) {
+    const shouldForceSign = session.cpuMovesRemaining <= cpuSlotsLeft;
+    const shouldTakeGreatPlayer =
+      bestOwnAvailable.currentEstimate >= CPU_SIGN_SCORE_THRESHOLD;
+    const shouldTakeSolidPlayerSoon =
+      moveSlack <= 1 &&
+      bestOwnAvailable.currentEstimate >= CPU_SIGN_SCORE_THRESHOLD - 4;
+    const laneLooksTappedOut = bestOwnAvailable.futureImprovement < 2.2;
+
+    if (
+      shouldForceSign ||
+      shouldTakeGreatPlayer ||
+      shouldTakeSolidPlayerSoon ||
+      laneLooksTappedOut
+    ) {
+      return {
+        type: "sign",
+        slot: bestOwnAvailable.slot,
+        player: bestOwnAvailable.player,
+        reason: `CPU signed ${bestOwnAvailable.player.name} to ${bestOwnAvailable.slot}.`,
+      };
+    }
+  }
+
+  if (weakestOwnAvailable) {
+    const shouldFishOwnLane =
+      moveSlack > 0 &&
+      weakestOwnAvailable.futureImprovement >=
+        (isBehindOnScore && hasExtraMoveEdge
+          ? CPU_FISH_IMPROVEMENT_THRESHOLD - 1
+          : CPU_FISH_IMPROVEMENT_THRESHOLD) &&
+      weakestOwnAvailable.currentEstimate < CPU_SIGN_SCORE_THRESHOLD;
+
+    if (shouldFishOwnLane) {
+      return {
+        type: "cut",
+        slot: weakestOwnAvailable.slot,
+        player: weakestOwnAvailable.player,
+        reason: `CPU cut ${weakestOwnAvailable.player.name} from ${weakestOwnAvailable.slot} looking for a stronger fit.`,
+      };
+    }
+  }
+
+  if (topUserThreat) {
+    const ownBoardIsStable = openCpuSlots.length === 0 || moveSlack > 0;
+    const denialMargin = bestOwnAvailable
+      ? topUserThreat.score - bestOwnAvailable.currentEstimate
+      : topUserThreat.score;
+
+    if (
+      ownBoardIsStable &&
+      topUserThreat.score >= CPU_DEFENSIVE_CUT_THRESHOLD &&
+      (denialMargin >= CPU_BIG_THREAT_MARGIN ||
+        (!cpuSlotsLeft && userSlotsLeft > 0))
+    ) {
+      return {
+        type: "cut",
+        slot: topUserThreat.slot,
+        player: topUserThreat.player,
+        reason: `CPU cut ${topUserThreat.player.name} from ${topUserThreat.slot} to block your best lane.`,
+      };
+    }
+  }
+
+  if (bestOwnAvailable) {
+    return {
+      type: "sign",
+      slot: bestOwnAvailable.slot,
+      player: bestOwnAvailable.player,
+      reason: `CPU signed ${bestOwnAvailable.player.name} to ${bestOwnAvailable.slot}.`,
+    };
+  }
+
+  return { type: "yield" };
 }
 
 function StackCards({
@@ -1052,118 +1333,37 @@ export function DraftBattlePage({
         setTradePickerSlot(null);
         setSelectedTradeTargetId(null);
 
-        const cpuNeedsSlots = !isLineupComplete(session.cpuLineup);
-        const userNeedsSlots = !isLineupComplete(session.userLineup);
+        const cpuDecision = chooseCpuDecision(game, session);
 
-        if (session.cpuMovesRemaining <= 0) {
-          const slot = getFirstEmptySlot(session.cpuLineup);
-          if (!slot) {
-            setSession((currentSession) => ({
-              ...currentSession,
-              activeTurn: "user",
-            }));
-            return;
-          }
-
-          const currentOption = getCurrentOption(game, slot);
-          if (!currentOption) {
-            setSession((currentSession) => ({
-              ...currentSession,
-              activeTurn: "user",
-            }));
-            return;
-          }
-
+        if (cpuDecision.type === "sign") {
           setGame((currentGame) =>
-            removePlayersFromPool(currentGame, slot, [currentOption.player.id]),
+            removePlayersFromPool(currentGame, cpuDecision.slot, [
+              cpuDecision.player.id,
+            ]),
           );
           setSession((currentSession) =>
             finalizeSession({
               ...currentSession,
               cpuLineup: {
                 ...currentSession.cpuLineup,
-                [slot]: createSignedLineupSlot(currentOption.player),
+                [cpuDecision.slot]: createSignedLineupSlot(cpuDecision.player),
               },
               activeTurn: "user",
               history: appendHistory(
                 currentSession.history,
                 "cpu",
-                `CPU auto-signed ${currentOption.player.name} to ${slot}.`,
+                cpuDecision.reason,
               ),
             }),
           );
           return;
         }
 
-        if (!cpuNeedsSlots && userNeedsSlots) {
-          const topThreat = getTopVisibleThreat(game, session.userLineup);
-
-          if (topThreat && topThreat.score >= CPU_DEFENSIVE_CUT_THRESHOLD) {
-            setGame((currentGame) =>
-              removePlayersFromPool(currentGame, topThreat.slot, [
-                topThreat.player.id,
-              ]),
-            );
-            setSession((currentSession) => ({
-              ...currentSession,
-              cpuMovesRemaining: Math.max(
-                0,
-                currentSession.cpuMovesRemaining - 1,
-              ),
-              activeTurn: "user",
-              history: appendHistory(
-                currentSession.history,
-                "cpu",
-                `CPU cut ${topThreat.player.name} from ${topThreat.slot} to deny your next pickup.`,
-              ),
-            }));
-            return;
-          }
-        }
-
-        const emptyCpuSlot = getFirstEmptySlot(session.cpuLineup);
-        if (emptyCpuSlot) {
-          const currentOption = getCurrentOption(game, emptyCpuSlot);
-          if (currentOption) {
-            const currentScore = scorePlayer(currentOption.player);
-
-            if (
-              currentScore >= CPU_SIGN_SCORE_THRESHOLD ||
-              Math.random() < 0.4
-            ) {
-              setGame((currentGame) =>
-                removePlayersFromPool(currentGame, emptyCpuSlot, [
-                  currentOption.player.id,
-                ]),
-              );
-              setSession((currentSession) =>
-                finalizeSession({
-                  ...currentSession,
-                  cpuLineup: {
-                    ...currentSession.cpuLineup,
-                    [emptyCpuSlot]: createSignedLineupSlot(
-                      currentOption.player,
-                    ),
-                  },
-                  activeTurn: "user",
-                  history: appendHistory(
-                    currentSession.history,
-                    "cpu",
-                    `CPU signed ${currentOption.player.name} to ${emptyCpuSlot}.`,
-                  ),
-                }),
-              );
-              return;
-            }
-          }
-        }
-
-        const cpuTradeMove = chooseCpuTradeMove(game, session.cpuLineup);
-        if (cpuTradeMove && session.cpuMovesRemaining > 0) {
+        if (cpuDecision.type === "trade") {
           setGame((currentGame) =>
-            removePlayersFromPool(currentGame, cpuTradeMove.slot, [
-              cpuTradeMove.basePlayer.id,
-              cpuTradeMove.target.id,
+            removePlayersFromPool(currentGame, cpuDecision.slot, [
+              cpuDecision.basePlayer.id,
+              cpuDecision.target.id,
             ]),
           );
           setSession((currentSession) =>
@@ -1175,105 +1375,39 @@ export function DraftBattlePage({
               ),
               cpuLineup: {
                 ...currentSession.cpuLineup,
-                [cpuTradeMove.slot]: createSignedLineupSlot(
-                  cpuTradeMove.target,
-                ),
+                [cpuDecision.slot]: createSignedLineupSlot(cpuDecision.target),
               },
               activeTurn: "user",
               history: appendHistory(
                 currentSession.history,
                 "cpu",
-                `CPU traded ${cpuTradeMove.slot} into ${cpuTradeMove.target.name}.`,
+                cpuDecision.reason,
               ),
             }),
           );
           return;
         }
 
-        const availableCutSlots = getAvailableCutSlots(game);
-        if (availableCutSlots.length > 0) {
-          const defensiveThreat = getTopVisibleThreat(game, session.userLineup);
-
-          if (
-            defensiveThreat &&
-            (defensiveThreat.score >= CPU_DEFENSIVE_CUT_THRESHOLD ||
-              (!cpuNeedsSlots && userNeedsSlots))
-          ) {
-            setGame((currentGame) =>
-              removePlayersFromPool(currentGame, defensiveThreat.slot, [
-                defensiveThreat.player.id,
-              ]),
-            );
-            setSession((currentSession) => ({
-              ...currentSession,
-              cpuMovesRemaining: Math.max(
-                0,
-                currentSession.cpuMovesRemaining - 1,
-              ),
-              activeTurn: "user",
-              history: appendHistory(
-                currentSession.history,
-                "cpu",
-                `CPU cut ${defensiveThreat.player.name} from ${defensiveThreat.slot}.`,
-              ),
-            }));
-            return;
-          }
-
-          const fallbackSlot =
-            availableCutSlots[
-              Math.floor(Math.random() * availableCutSlots.length)
-            ];
-          const fallbackOption = getCurrentOption(game, fallbackSlot);
-
-          if (fallbackOption) {
-            setGame((currentGame) =>
-              removePlayersFromPool(currentGame, fallbackSlot, [
-                fallbackOption.player.id,
-              ]),
-            );
-            setSession((currentSession) => ({
-              ...currentSession,
-              cpuMovesRemaining: Math.max(
-                0,
-                currentSession.cpuMovesRemaining - 1,
-              ),
-              activeTurn: "user",
-              history: appendHistory(
-                currentSession.history,
-                "cpu",
-                `CPU cut ${fallbackOption.player.name} from ${fallbackSlot}.`,
-              ),
-            }));
-            return;
-          }
-        }
-
-        if (emptyCpuSlot) {
-          const currentOption = getCurrentOption(game, emptyCpuSlot);
-          if (currentOption) {
-            setGame((currentGame) =>
-              removePlayersFromPool(currentGame, emptyCpuSlot, [
-                currentOption.player.id,
-              ]),
-            );
-            setSession((currentSession) =>
-              finalizeSession({
-                ...currentSession,
-                cpuLineup: {
-                  ...currentSession.cpuLineup,
-                  [emptyCpuSlot]: createSignedLineupSlot(currentOption.player),
-                },
-                activeTurn: "user",
-                history: appendHistory(
-                  currentSession.history,
-                  "cpu",
-                  `CPU signed ${currentOption.player.name} to ${emptyCpuSlot}.`,
-                ),
-              }),
-            );
-            return;
-          }
+        if (cpuDecision.type === "cut") {
+          setGame((currentGame) =>
+            removePlayersFromPool(currentGame, cpuDecision.slot, [
+              cpuDecision.player.id,
+            ]),
+          );
+          setSession((currentSession) => ({
+            ...currentSession,
+            cpuMovesRemaining: Math.max(
+              0,
+              currentSession.cpuMovesRemaining - 1,
+            ),
+            activeTurn: "user",
+            history: appendHistory(
+              currentSession.history,
+              "cpu",
+              cpuDecision.reason,
+            ),
+          }));
+          return;
         }
 
         setSession((currentSession) => ({

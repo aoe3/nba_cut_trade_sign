@@ -1829,6 +1829,13 @@
     "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4433618.png",
     "inputName": "Harrison Ingram"
   },
+  "hayden gray": {
+    "athleteApiRef": null,
+    "espnId": "5176420",
+    "espnName": "Hayden Gray",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/5176420.png",
+    "inputName": "Hayden Gray"
+  },
   "haywood highsmith": {
     "athleteApiRef": null,
     "espnId": "4291678",
@@ -5224,6 +5231,13 @@
     "espnName": "Tristan Vukcevic",
     "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4997537.png",
     "inputName": "Tristan Vukcevic"
+  },
+  "tristen newton": {
+    "athleteApiRef": null,
+    "espnId": "4592965",
+    "espnName": "Tristen Newton",
+    "headshotUrl": "https://a.espncdn.com/i/headshots/nba/players/full/4592965.png",
+    "inputName": "Tristen Newton"
   },
   "ty jerome": {
     "athleteApiRef": null,

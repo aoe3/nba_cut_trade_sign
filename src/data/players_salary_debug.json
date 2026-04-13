@@ -144,14 +144,6 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Cade Cunningham",
-    "team": "DET",
-    "normalizedName": "cade cunningham",
-    "formattedContractName": "cade cunningham",
-    "salary": 46394100,
-    "salarySource": "bbr_contracts"
-  },
-  {
     "name": "Michael Porter Jr.",
     "team": "BKN",
     "normalizedName": "michael porter",
@@ -165,6 +157,14 @@
     "normalizedName": "pascal siakam",
     "formattedContractName": "pascal siakam",
     "salary": 45550512,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Cade Cunningham",
+    "team": "DET",
+    "normalizedName": "cade cunningham",
+    "formattedContractName": "cade cunningham",
+    "salary": 46394100,
     "salarySource": "bbr_contracts"
   },
   {
@@ -224,14 +224,6 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Trey Murphy III",
-    "team": "NOP",
-    "normalizedName": "trey murphy",
-    "formattedContractName": "trey murphy",
-    "salary": 25000000,
-    "salarySource": "bbr_contracts"
-  },
-  {
     "name": "Brandon Ingram",
     "team": "TOR",
     "normalizedName": "brandon ingram",
@@ -240,11 +232,11 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Cooper Flagg",
-    "team": "DAL",
-    "normalizedName": "cooper flagg",
-    "formattedContractName": "cooper flagg",
-    "salary": 13825920,
+    "name": "Trey Murphy III",
+    "team": "NOP",
+    "normalizedName": "trey murphy",
+    "formattedContractName": "trey murphy",
+    "salary": 25000000,
     "salarySource": "bbr_contracts"
   },
   {
@@ -256,27 +248,11 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Shaedon Sharpe",
-    "team": "POR",
-    "normalizedName": "shaedon sharpe",
-    "formattedContractName": "shaedon sharpe",
-    "salary": 8399983,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Tyler Herro",
-    "team": "MIA",
-    "normalizedName": "tyler herro",
-    "formattedContractName": "tyler herro",
-    "salary": 31000000,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "LeBron James",
-    "team": "LAL",
-    "normalizedName": "lebron james",
-    "formattedContractName": "lebron james",
-    "salary": 52627153,
+    "name": "Cooper Flagg",
+    "team": "DAL",
+    "normalizedName": "cooper flagg",
+    "formattedContractName": "cooper flagg",
+    "salary": 13825920,
     "salarySource": "bbr_contracts"
   },
   {
@@ -288,6 +264,14 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "LeBron James",
+    "team": "LAL",
+    "normalizedName": "lebron james",
+    "formattedContractName": "lebron james",
+    "salary": 52627153,
+    "salarySource": "bbr_contracts"
+  },
+  {
     "name": "Nickeil Alexander-Walker",
     "team": "ATL",
     "normalizedName": "nickeil alexander walker",
@@ -296,11 +280,27 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Shaedon Sharpe",
+    "team": "POR",
+    "normalizedName": "shaedon sharpe",
+    "formattedContractName": "shaedon sharpe",
+    "salary": 8399983,
+    "salarySource": "bbr_contracts"
+  },
+  {
     "name": "Franz Wagner",
     "team": "ORL",
     "normalizedName": "franz wagner",
     "formattedContractName": "franz wagner",
     "salary": 38661750,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Tyler Herro",
+    "team": "MIA",
+    "normalizedName": "tyler herro",
+    "formattedContractName": "tyler herro",
+    "salary": 31000000,
     "salarySource": "bbr_contracts"
   },
   {
@@ -320,14 +320,6 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Desmond Bane",
-    "team": "ORL",
-    "normalizedName": "desmond bane",
-    "formattedContractName": "desmond bane",
-    "salary": 36725670,
-    "salarySource": "bbr_contracts"
-  },
-  {
     "name": "Dillon Brooks",
     "team": "PHX",
     "normalizedName": "dillon brooks",
@@ -344,6 +336,14 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Bam Adebayo",
+    "team": "MIA",
+    "normalizedName": "bam adebayo",
+    "formattedContractName": "bam adebayo",
+    "salary": 37096620,
+    "salarySource": "bbr_contracts"
+  },
+  {
     "name": "LaMelo Ball",
     "team": "CHA",
     "normalizedName": "lamelo ball",
@@ -352,19 +352,19 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Desmond Bane",
+    "team": "ORL",
+    "normalizedName": "desmond bane",
+    "formattedContractName": "desmond bane",
+    "salary": 36725670,
+    "salarySource": "bbr_contracts"
+  },
+  {
     "name": "Karl-Anthony Towns",
     "team": "NYK",
     "normalizedName": "karl anthony towns",
     "formattedContractName": "karl anthony towns",
     "salary": 53142264,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Bam Adebayo",
-    "team": "MIA",
-    "normalizedName": "bam adebayo",
-    "formattedContractName": "bam adebayo",
-    "salary": 37096620,
     "salarySource": "bbr_contracts"
   },
   {
@@ -408,19 +408,19 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Zach LaVine",
-    "team": "SAC",
-    "normalizedName": "zach lavine",
-    "formattedContractName": "zach lavine",
-    "salary": 47499660,
-    "salarySource": "bbr_contracts"
-  },
-  {
     "name": "RJ Barrett",
     "team": "TOR",
     "normalizedName": "rj barrett",
     "formattedContractName": "rj barrett",
     "salary": 27705357,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Zach LaVine",
+    "team": "SAC",
+    "normalizedName": "zach lavine",
+    "formattedContractName": "zach lavine",
+    "salary": 47499660,
     "salarySource": "bbr_contracts"
   },
   {
@@ -440,6 +440,14 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "De'Aaron Fox",
+    "team": "SAS",
+    "normalizedName": "de aaron fox",
+    "formattedContractName": "de aaron fox",
+    "salary": 37096620,
+    "salarySource": "bbr_contracts"
+  },
+  {
     "name": "Jerami Grant",
     "team": "POR",
     "normalizedName": "jerami grant",
@@ -453,14 +461,6 @@
     "normalizedName": "kon knueppel",
     "formattedContractName": "kon knueppel",
     "salary": 10015680,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "De'Aaron Fox",
-    "team": "SAS",
-    "normalizedName": "de aaron fox",
-    "formattedContractName": "de aaron fox",
-    "salary": 37096620,
     "salarySource": "bbr_contracts"
   },
   {
@@ -528,11 +528,11 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Paul George",
-    "team": "PHI",
-    "normalizedName": "paul george",
-    "formattedContractName": "paul george",
-    "salary": 51666090,
+    "name": "Coby White",
+    "team": "CHA",
+    "normalizedName": "coby white",
+    "formattedContractName": "coby white",
+    "salary": 12888889,
     "salarySource": "bbr_contracts"
   },
   {
@@ -544,11 +544,11 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Coby White",
-    "team": "CHA",
-    "normalizedName": "coby white",
-    "formattedContractName": "coby white",
-    "salary": 12888889,
+    "name": "Paul George",
+    "team": "PHI",
+    "normalizedName": "paul george",
+    "formattedContractName": "paul george",
+    "salary": 51666090,
     "salarySource": "bbr_contracts"
   },
   {
@@ -616,14 +616,6 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Stephon Castle",
-    "team": "SAS",
-    "normalizedName": "stephon castle",
-    "formattedContractName": "stephon castle",
-    "salary": 9560520,
-    "salarySource": "bbr_contracts"
-  },
-  {
     "name": "OG Anunoby",
     "team": "NYK",
     "normalizedName": "og anunoby",
@@ -632,19 +624,19 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Stephon Castle",
+    "team": "SAS",
+    "normalizedName": "stephon castle",
+    "formattedContractName": "stephon castle",
+    "salary": 9560520,
+    "salarySource": "bbr_contracts"
+  },
+  {
     "name": "Dejounte Murray",
     "team": "NOP",
     "normalizedName": "dejounte murray",
     "formattedContractName": "dejounte murray",
     "salary": 30801103,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Immanuel Quickley",
-    "team": "TOR",
-    "normalizedName": "immanuel quickley",
-    "formattedContractName": "immanuel quickley",
-    "salary": 32500000,
     "salarySource": "bbr_contracts"
   },
   {
@@ -664,11 +656,35 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Immanuel Quickley",
+    "team": "TOR",
+    "normalizedName": "immanuel quickley",
+    "formattedContractName": "immanuel quickley",
+    "salary": 32500000,
+    "salarySource": "bbr_contracts"
+  },
+  {
     "name": "Matas Buzelis",
     "team": "CHI",
     "normalizedName": "matas buzelis",
     "formattedContractName": "matas buzelis",
     "salary": 5455560,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Jrue Holiday",
+    "team": "POR",
+    "normalizedName": "jrue holiday",
+    "formattedContractName": "jrue holiday",
+    "salary": 32400000,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Dariq Whitehead",
+    "team": "MEM",
+    "normalizedName": "dariq whitehead",
+    "formattedContractName": "dariq whitehead",
+    "salary": 3262560,
     "salarySource": "bbr_contracts"
   },
   {
@@ -685,14 +701,6 @@
     "normalizedName": "aaron gordon",
     "formattedContractName": "aaron gordon",
     "salary": 22841455,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Jrue Holiday",
-    "team": "POR",
-    "normalizedName": "jrue holiday",
-    "formattedContractName": "jrue holiday",
-    "salary": 32400000,
     "salarySource": "bbr_contracts"
   },
   {
@@ -720,14 +728,6 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Andrew Wiggins",
-    "team": "MIA",
-    "normalizedName": "andrew wiggins",
-    "formattedContractName": "andrew wiggins",
-    "salary": 28223215,
-    "salarySource": "bbr_contracts"
-  },
-  {
     "name": "Collin Sexton",
     "team": "CHI",
     "normalizedName": "collin sexton",
@@ -749,6 +749,14 @@
     "normalizedName": "jaime jaquez",
     "formattedContractName": "jaime jaquez",
     "salary": 3861600,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Andrew Wiggins",
+    "team": "MIA",
+    "normalizedName": "andrew wiggins",
+    "formattedContractName": "andrew wiggins",
+    "salary": 28223215,
     "salarySource": "bbr_contracts"
   },
   {
@@ -832,19 +840,19 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Mikal Bridges",
-    "team": "NYK",
-    "normalizedName": "mikal bridges",
-    "formattedContractName": "mikal bridges",
-    "salary": 24900000,
-    "salarySource": "bbr_contracts"
-  },
-  {
     "name": "Peyton Watson",
     "team": "DEN",
     "normalizedName": "peyton watson",
     "formattedContractName": "peyton watson",
     "salary": 4356476,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Mikal Bridges",
+    "team": "NYK",
+    "normalizedName": "mikal bridges",
+    "formattedContractName": "mikal bridges",
+    "salary": 24900000,
     "salarySource": "bbr_contracts"
   },
   {
@@ -856,14 +864,6 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Dariq Whitehead",
-    "team": "MEM",
-    "normalizedName": "dariq whitehead",
-    "formattedContractName": "dariq whitehead",
-    "salary": 3262560,
-    "salarySource": "bbr_contracts"
-  },
-  {
     "name": "Anfernee Simons",
     "team": "CHI",
     "normalizedName": "anfernee simons",
@@ -872,27 +872,27 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Jeremiah Fears",
+    "team": "NOP",
+    "normalizedName": "jeremiah fears",
+    "formattedContractName": "jeremiah fears",
+    "salary": 7520040,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Cormac Ryan",
+    "team": "MIL",
+    "normalizedName": "cormac ryan",
+    "formattedContractName": "cormac ryan",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
     "name": "Scoot Henderson",
     "team": "POR",
     "normalizedName": "scoot henderson",
     "formattedContractName": "scoot henderson",
     "salary": 10748040,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Tre Jones",
-    "team": "CHI",
-    "normalizedName": "tre jones",
-    "formattedContractName": "tre jones",
-    "salary": 8000000,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Kelly Oubre Jr.",
-    "team": "PHI",
-    "normalizedName": "kelly oubre",
-    "formattedContractName": "kelly oubre",
-    "salary": 8382150,
     "salarySource": "bbr_contracts"
   },
   {
@@ -912,19 +912,27 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Tre Jones",
+    "team": "CHI",
+    "normalizedName": "tre jones",
+    "formattedContractName": "tre jones",
+    "salary": 8000000,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Kelly Oubre Jr.",
+    "team": "PHI",
+    "normalizedName": "kelly oubre",
+    "formattedContractName": "kelly oubre",
+    "salary": 8382150,
+    "salarySource": "bbr_contracts"
+  },
+  {
     "name": "Santi Aldama",
     "team": "MEM",
     "normalizedName": "santi aldama",
     "formattedContractName": "santi aldama",
     "salary": 18485916,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Jeremiah Fears",
-    "team": "NOP",
-    "normalizedName": "jeremiah fears",
-    "formattedContractName": "jeremiah fears",
-    "salary": 7520040,
     "salarySource": "bbr_contracts"
   },
   {
@@ -936,11 +944,11 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Brandin Podziemski",
-    "team": "GSW",
-    "normalizedName": "brandin podziemski",
-    "formattedContractName": "brandin podziemski",
-    "salary": 3687960,
+    "name": "Devin Vassell",
+    "team": "SAS",
+    "normalizedName": "devin vassell",
+    "formattedContractName": "devin vassell",
+    "salary": 27000000,
     "salarySource": "bbr_contracts"
   },
   {
@@ -960,11 +968,19 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Devin Vassell",
-    "team": "SAS",
-    "normalizedName": "devin vassell",
-    "formattedContractName": "devin vassell",
-    "salary": 27000000,
+    "name": "Brandin Podziemski",
+    "team": "GSW",
+    "normalizedName": "brandin podziemski",
+    "formattedContractName": "brandin podziemski",
+    "salary": 3687960,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Jalen Suggs",
+    "team": "ORL",
+    "normalizedName": "jalen suggs",
+    "formattedContractName": "jalen suggs",
+    "salary": 35000000,
     "salarySource": "bbr_contracts"
   },
   {
@@ -981,6 +997,14 @@
     "normalizedName": "bobby portis",
     "formattedContractName": "bobby portis",
     "salary": 13445754,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "John Collins",
+    "team": "LAC",
+    "normalizedName": "john collins",
+    "formattedContractName": "john collins",
+    "salary": 26580000,
     "salarySource": "bbr_contracts"
   },
   {
@@ -1016,27 +1040,11 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Jalen Suggs",
-    "team": "ORL",
-    "normalizedName": "jalen suggs",
-    "formattedContractName": "jalen suggs",
-    "salary": 35000000,
-    "salarySource": "bbr_contracts"
-  },
-  {
     "name": "Cam Thomas",
     "team": "MIL",
     "normalizedName": "cam thomas",
     "formattedContractName": "cam thomas",
     "salary": 6837779,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "John Collins",
-    "team": "LAC",
-    "normalizedName": "john collins",
-    "formattedContractName": "john collins",
-    "salary": 26580000,
     "salarySource": "bbr_contracts"
   },
   {
@@ -1046,14 +1054,6 @@
     "formattedContractName": "tim hardaway",
     "salary": 2296274,
     "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Cormac Ryan",
-    "team": "MIL",
-    "normalizedName": "cormac ryan",
-    "formattedContractName": "cormac ryan",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
   },
   {
     "name": "Reed Sheppard",
@@ -1072,19 +1072,19 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Jordan Poole",
-    "team": "NOP",
-    "normalizedName": "jordan poole",
-    "formattedContractName": "jordan poole",
-    "salary": 31848215,
-    "salarySource": "bbr_contracts"
-  },
-  {
     "name": "Quentin Grimes",
     "team": "PHI",
     "normalizedName": "quentin grimes",
     "formattedContractName": "quentin grimes",
     "salary": 8741209,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Jordan Poole",
+    "team": "NOP",
+    "normalizedName": "jordan poole",
+    "formattedContractName": "jordan poole",
+    "salary": 31848215,
     "salarySource": "bbr_contracts"
   },
   {
@@ -1144,19 +1144,19 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Deandre Ayton",
+    "team": "LAL",
+    "normalizedName": "deandre ayton",
+    "formattedContractName": "deandre ayton",
+    "salary": 33654814,
+    "salarySource": "bbr_contracts"
+  },
+  {
     "name": "GG Jackson II",
     "team": "MEM",
     "normalizedName": "gg jackson",
     "formattedContractName": "gg jackson",
     "salary": 2221677,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "De'Anthony Melton",
-    "team": "GSW",
-    "normalizedName": "de anthony melton",
-    "formattedContractName": "de anthony melton",
-    "salary": 3080921,
     "salarySource": "bbr_contracts"
   },
   {
@@ -1168,19 +1168,19 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Maxime Raynaud",
+    "team": "SAC",
+    "normalizedName": "maxime raynaud",
+    "formattedContractName": "maxime raynaud",
+    "salary": 1272870,
+    "salarySource": "bbr_contracts"
+  },
+  {
     "name": "Jaylen Wells",
     "team": "MEM",
     "normalizedName": "jaylen wells",
     "formattedContractName": "jaylen wells",
     "salary": 1955377,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Deandre Ayton",
-    "team": "LAL",
-    "normalizedName": "deandre ayton",
-    "formattedContractName": "deandre ayton",
-    "salary": 33654814,
     "salarySource": "bbr_contracts"
   },
   {
@@ -1200,19 +1200,11 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Donte DiVincenzo",
-    "team": "MIN",
-    "normalizedName": "donte divincenzo",
-    "formattedContractName": "donte divincenzo",
-    "salary": 11990000,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Maxime Raynaud",
-    "team": "SAC",
-    "normalizedName": "maxime raynaud",
-    "formattedContractName": "maxime raynaud",
-    "salary": 1272870,
+    "name": "De'Anthony Melton",
+    "team": "GSW",
+    "normalizedName": "de anthony melton",
+    "formattedContractName": "de anthony melton",
+    "salary": 3080921,
     "salarySource": "bbr_contracts"
   },
   {
@@ -1221,6 +1213,14 @@
     "normalizedName": "jonathan kuminga",
     "formattedContractName": "jonathan kuminga",
     "salary": 23799569,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Donte DiVincenzo",
+    "team": "MIN",
+    "normalizedName": "donte divincenzo",
+    "formattedContractName": "donte divincenzo",
+    "salary": 11990000,
     "salarySource": "bbr_contracts"
   },
   {
@@ -1256,14 +1256,6 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Blake Hinson",
-    "team": "UTA",
-    "normalizedName": "blake hinson",
-    "formattedContractName": "blake hinson",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
     "name": "Moses Moody",
     "team": "GSW",
     "normalizedName": "moses moody",
@@ -1288,12 +1280,20 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Wendell Carter Jr.",
-    "team": "ORL",
-    "normalizedName": "wendell carter",
-    "formattedContractName": "wendell carter",
-    "salary": 10850000,
+    "name": "Miles McBride",
+    "team": "NYK",
+    "normalizedName": "miles mcbride",
+    "formattedContractName": "miles mcbride",
+    "salary": 4333333,
     "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Tristen Newton",
+    "team": "HOU",
+    "normalizedName": "tristen newton",
+    "formattedContractName": "tristen newton",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
   },
   {
     "name": "Dyson Daniels",
@@ -1304,11 +1304,27 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Blake Hinson",
+    "team": "UTA",
+    "normalizedName": "blake hinson",
+    "formattedContractName": "blake hinson",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
     "name": "Myles Turner",
     "team": "MIL",
     "normalizedName": "myles turner",
     "formattedContractName": "myles turner",
     "salary": 25318251,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Wendell Carter Jr.",
+    "team": "ORL",
+    "normalizedName": "wendell carter",
+    "formattedContractName": "wendell carter",
+    "salary": 10850000,
     "salarySource": "bbr_contracts"
   },
   {
@@ -1320,12 +1336,12 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Miles McBride",
-    "team": "NYK",
-    "normalizedName": "miles mcbride",
-    "formattedContractName": "miles mcbride",
-    "salary": 4333333,
-    "salarySource": "bbr_contracts"
+    "name": "Julian Reese",
+    "team": "WAS",
+    "normalizedName": "julian reese",
+    "formattedContractName": "julian reese",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
   },
   {
     "name": "Nic Claxton",
@@ -1352,12 +1368,12 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Julian Reese",
-    "team": "WAS",
-    "normalizedName": "julian reese",
-    "formattedContractName": "julian reese",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
+    "name": "Derik Queen",
+    "team": "NOP",
+    "normalizedName": "derik queen",
+    "formattedContractName": "derik queen",
+    "salary": 5157960,
+    "salarySource": "bbr_contracts"
   },
   {
     "name": "Klay Thompson",
@@ -1376,6 +1392,14 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Obi Toppin",
+    "team": "IND",
+    "normalizedName": "obi toppin",
+    "formattedContractName": "obi toppin",
+    "salary": 14000000,
+    "salarySource": "bbr_contracts"
+  },
+  {
     "name": "Jarace Walker",
     "team": "IND",
     "normalizedName": "jarace walker",
@@ -1384,11 +1408,11 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Derik Queen",
-    "team": "NOP",
-    "normalizedName": "derik queen",
-    "formattedContractName": "derik queen",
-    "salary": 5157960,
+    "name": "Rui Hachimura",
+    "team": "LAL",
+    "normalizedName": "rui hachimura",
+    "formattedContractName": "rui hachimura",
+    "salary": 18259259,
     "salarySource": "bbr_contracts"
   },
   {
@@ -1416,11 +1440,11 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Rui Hachimura",
-    "team": "LAL",
-    "normalizedName": "rui hachimura",
-    "formattedContractName": "rui hachimura",
-    "salary": 18259259,
+    "name": "Sandro Mamukelashvili",
+    "team": "TOR",
+    "normalizedName": "sandro mamukelashvili",
+    "formattedContractName": "sandro mamukelashvili",
+    "salary": 2461463,
     "salarySource": "bbr_contracts"
   },
   {
@@ -1437,22 +1461,6 @@
     "normalizedName": "julian champagnie",
     "formattedContractName": "julian champagnie",
     "salary": 3000000,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Sandro Mamukelashvili",
-    "team": "TOR",
-    "normalizedName": "sandro mamukelashvili",
-    "formattedContractName": "sandro mamukelashvili",
-    "salary": 2461463,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Obi Toppin",
-    "team": "IND",
-    "normalizedName": "obi toppin",
-    "formattedContractName": "obi toppin",
-    "salary": 14000000,
     "salarySource": "bbr_contracts"
   },
   {
@@ -1520,20 +1528,20 @@
     "salarySource": "imputed_minimum"
   },
   {
-    "name": "Toby Okani",
-    "team": "MEM",
-    "normalizedName": "toby okani",
-    "formattedContractName": "toby okani",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
     "name": "Daeqwon Plowden",
     "team": "SAC",
     "normalizedName": "daeqwon plowden",
     "formattedContractName": "daeqwon plowden",
     "salary": 0,
     "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Bub Carrington",
+    "team": "WAS",
+    "normalizedName": "bub carrington",
+    "formattedContractName": "bub carrington",
+    "salary": 4677600,
+    "salarySource": "bbr_contracts"
   },
   {
     "name": "Jakob Poeltl",
@@ -1552,59 +1560,11 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Bub Carrington",
-    "team": "WAS",
-    "normalizedName": "bub carrington",
-    "formattedContractName": "bub carrington",
-    "salary": 4677600,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Caleb Love",
-    "team": "POR",
-    "normalizedName": "caleb love",
-    "formattedContractName": "caleb love",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
     "name": "Marvin Bagley III",
     "team": "DAL",
     "normalizedName": "marvin bagley",
     "formattedContractName": "marvin bagley",
     "salary": 2296274,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Josh Oduro",
-    "team": "NOP",
-    "normalizedName": "josh oduro",
-    "formattedContractName": "josh oduro",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
-    "name": "Adama-Alpha Bal",
-    "team": "MEM",
-    "normalizedName": "adama alpha bal",
-    "formattedContractName": "adama alpha bal",
-    "salary": 117045,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Will Riley",
-    "team": "WAS",
-    "normalizedName": "will riley",
-    "formattedContractName": "will riley",
-    "salary": 3512520,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Egor D\u0435min",
-    "team": "BKN",
-    "normalizedName": "egor d min",
-    "formattedContractName": "egor d min",
-    "salary": 6889200,
     "salarySource": "bbr_contracts"
   },
   {
@@ -1616,11 +1576,43 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Adama-Alpha Bal",
+    "team": "MEM",
+    "normalizedName": "adama alpha bal",
+    "formattedContractName": "adama alpha bal",
+    "salary": 117045,
+    "salarySource": "bbr_contracts"
+  },
+  {
     "name": "A.J. Green",
     "team": "MIL",
     "normalizedName": "a j green",
     "formattedContractName": "a j green",
     "salary": 2301587,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Caleb Love",
+    "team": "POR",
+    "normalizedName": "caleb love",
+    "formattedContractName": "caleb love",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Lucas Williamson",
+    "team": "MEM",
+    "normalizedName": "lucas williamson",
+    "formattedContractName": "lucas williamson",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Egor D\u0435min",
+    "team": "BKN",
+    "normalizedName": "egor d min",
+    "formattedContractName": "egor d min",
+    "salary": 6889200,
     "salarySource": "bbr_contracts"
   },
   {
@@ -1632,11 +1624,11 @@
     "salarySource": "espn_salaries"
   },
   {
-    "name": "Derrick Jones Jr.",
-    "team": "LAC",
-    "normalizedName": "derrick jones",
-    "formattedContractName": "derrick jones",
-    "salary": 10000000,
+    "name": "Will Riley",
+    "team": "WAS",
+    "normalizedName": "will riley",
+    "formattedContractName": "will riley",
+    "salary": 3512520,
     "salarySource": "bbr_contracts"
   },
   {
@@ -1680,6 +1672,22 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Precious Achiuwa",
+    "team": "SAC",
+    "normalizedName": "precious achiuwa",
+    "formattedContractName": "precious achiuwa",
+    "salary": 2111516,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Derrick Jones Jr.",
+    "team": "LAC",
+    "normalizedName": "derrick jones",
+    "formattedContractName": "derrick jones",
+    "salary": 10000000,
+    "salarySource": "bbr_contracts"
+  },
+  {
     "name": "Kevin Huerter",
     "team": "DET",
     "normalizedName": "kevin huerter",
@@ -1688,11 +1696,35 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Jordan Miller",
+    "team": "LAC",
+    "normalizedName": "jordan miller",
+    "formattedContractName": "jordan miller",
+    "salary": 712637,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Toby Okani",
+    "team": "MEM",
+    "normalizedName": "toby okani",
+    "formattedContractName": "toby okani",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
     "name": "Olivier-Maxence Prosper",
     "team": "MEM",
     "normalizedName": "olivier maxence prosper",
     "formattedContractName": "olivier maxence prosper",
     "salary": 1002360,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Isaiah Stewart",
+    "team": "DET",
+    "normalizedName": "isaiah stewart",
+    "formattedContractName": "isaiah stewart",
+    "salary": 15000000,
     "salarySource": "bbr_contracts"
   },
   {
@@ -1712,35 +1744,11 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Jordan Miller",
-    "team": "LAC",
-    "normalizedName": "jordan miller",
-    "formattedContractName": "jordan miller",
-    "salary": 712637,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Isaiah Stewart",
-    "team": "DET",
-    "normalizedName": "isaiah stewart",
-    "formattedContractName": "isaiah stewart",
-    "salary": 15000000,
-    "salarySource": "bbr_contracts"
-  },
-  {
     "name": "Ausar Thompson",
     "team": "DET",
     "normalizedName": "ausar thompson",
     "formattedContractName": "ausar thompson",
     "salary": 8775000,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Precious Achiuwa",
-    "team": "SAC",
-    "normalizedName": "precious achiuwa",
-    "formattedContractName": "precious achiuwa",
-    "salary": 2111516,
     "salarySource": "bbr_contracts"
   },
   {
@@ -1760,19 +1768,27 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Lucas Williamson",
-    "team": "MEM",
-    "normalizedName": "lucas williamson",
-    "formattedContractName": "lucas williamson",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
     "name": "Micah Potter",
     "team": "IND",
     "normalizedName": "micah potter",
     "formattedContractName": "micah potter",
     "salary": 1527805,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Javon Small",
+    "team": "MEM",
+    "normalizedName": "javon small",
+    "formattedContractName": "javon small",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Zaccharie Risacher",
+    "team": "ATL",
+    "normalizedName": "zaccharie risacher",
+    "formattedContractName": "zaccharie risacher",
+    "salary": 13197720,
     "salarySource": "bbr_contracts"
   },
   {
@@ -1792,38 +1808,6 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Zaccharie Risacher",
-    "team": "ATL",
-    "normalizedName": "zaccharie risacher",
-    "formattedContractName": "zaccharie risacher",
-    "salary": 13197720,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Javon Small",
-    "team": "MEM",
-    "normalizedName": "javon small",
-    "formattedContractName": "javon small",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
-    "name": "Aaron Wiggins",
-    "team": "OKC",
-    "normalizedName": "aaron wiggins",
-    "formattedContractName": "aaron wiggins",
-    "salary": 10102803,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Daniss Jenkins",
-    "team": "DET",
-    "normalizedName": "daniss jenkins",
-    "formattedContractName": "daniss jenkins",
-    "salary": 3809524,
-    "salarySource": "bbr_contracts"
-  },
-  {
     "name": "T.J. McConnell",
     "team": "IND",
     "normalizedName": "t j mcconnell",
@@ -1840,11 +1824,19 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Marcus Smart",
-    "team": "LAL",
-    "normalizedName": "marcus smart",
-    "formattedContractName": "marcus smart",
-    "salary": 19920855,
+    "name": "Aaron Wiggins",
+    "team": "OKC",
+    "normalizedName": "aaron wiggins",
+    "formattedContractName": "aaron wiggins",
+    "salary": 10102803,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Daniss Jenkins",
+    "team": "DET",
+    "normalizedName": "daniss jenkins",
+    "formattedContractName": "daniss jenkins",
+    "salary": 3809524,
     "salarySource": "bbr_contracts"
   },
   {
@@ -1872,6 +1864,14 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Marcus Smart",
+    "team": "LAL",
+    "normalizedName": "marcus smart",
+    "formattedContractName": "marcus smart",
+    "salary": 19920855,
+    "salarySource": "bbr_contracts"
+  },
+  {
     "name": "Jaden Hardy",
     "team": "WAS",
     "normalizedName": "jaden hardy",
@@ -1896,22 +1896,6 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Gui Santos",
-    "team": "GSW",
-    "normalizedName": "gui santos",
-    "formattedContractName": "gui santos",
-    "salary": 2221677,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Cam Whitmore",
-    "team": "WAS",
-    "normalizedName": "cam whitmore",
-    "formattedContractName": "cam whitmore",
-    "salary": 3539760,
-    "salarySource": "bbr_contracts"
-  },
-  {
     "name": "Corey Kispert",
     "team": "ATL",
     "normalizedName": "corey kispert",
@@ -1928,6 +1912,30 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Gui Santos",
+    "team": "GSW",
+    "normalizedName": "gui santos",
+    "formattedContractName": "gui santos",
+    "salary": 2221677,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Cam Whitmore",
+    "team": "WAS",
+    "normalizedName": "cam whitmore",
+    "formattedContractName": "cam whitmore",
+    "salary": 3539760,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Quenton Jackson",
+    "team": "IND",
+    "normalizedName": "quenton jackson",
+    "formattedContractName": "quenton jackson",
+    "salary": 601553,
+    "salarySource": "espn_salaries"
+  },
+  {
     "name": "Tristan Vukcevic",
     "team": "WAS",
     "normalizedName": "tristan vukcevic",
@@ -1942,14 +1950,6 @@
     "formattedContractName": "devin carter",
     "salary": 4923720,
     "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Quenton Jackson",
-    "team": "IND",
-    "normalizedName": "quenton jackson",
-    "formattedContractName": "quenton jackson",
-    "salary": 601553,
-    "salarySource": "espn_salaries"
   },
   {
     "name": "Herbert Jones",
@@ -1976,11 +1976,35 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Jordan Clarkson",
-    "team": "NYK",
-    "normalizedName": "jordan clarkson",
-    "formattedContractName": "jordan clarkson",
-    "salary": 12947835,
+    "name": "John Poulakidas",
+    "team": "DAL",
+    "normalizedName": "john poulakidas",
+    "formattedContractName": "john poulakidas",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Payton Sandfort",
+    "team": "OKC",
+    "normalizedName": "payton sandfort",
+    "formattedContractName": "payton sandfort",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Cody Williams",
+    "team": "UTA",
+    "normalizedName": "cody williams",
+    "formattedContractName": "cody williams",
+    "salary": 5742480,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Justin Champagnie",
+    "team": "WAS",
+    "normalizedName": "justin champagnie",
+    "formattedContractName": "justin champagnie",
+    "salary": 2349578,
     "salarySource": "bbr_contracts"
   },
   {
@@ -2000,43 +2024,27 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Cody Williams",
-    "team": "UTA",
-    "normalizedName": "cody williams",
-    "formattedContractName": "cody williams",
-    "salary": 5742480,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Vit Krejci",
-    "team": "POR",
-    "normalizedName": "vit krejci",
-    "formattedContractName": "vit krejci",
-    "salary": 2349578,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Justin Champagnie",
-    "team": "WAS",
-    "normalizedName": "justin champagnie",
-    "formattedContractName": "justin champagnie",
-    "salary": 2349578,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Collin Murray-Boyles",
-    "team": "TOR",
-    "normalizedName": "collin murray boyles",
-    "formattedContractName": "collin murray boyles",
-    "salary": 6332520,
-    "salarySource": "bbr_contracts"
-  },
-  {
     "name": "Jonas Valanciunas",
     "team": "DEN",
     "normalizedName": "jonas valanciunas",
     "formattedContractName": "jonas valana ia nas",
     "salary": 10395000,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Jordan Clarkson",
+    "team": "NYK",
+    "normalizedName": "jordan clarkson",
+    "formattedContractName": "jordan clarkson",
+    "salary": 12947835,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Nique Clifford",
+    "team": "SAC",
+    "normalizedName": "nique clifford",
+    "formattedContractName": "nique clifford",
+    "salary": 3108120,
     "salarySource": "bbr_contracts"
   },
   {
@@ -2053,6 +2061,14 @@
     "normalizedName": "jaden ivey",
     "formattedContractName": "jaden ivey",
     "salary": 10107163,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Vit Krejci",
+    "team": "POR",
+    "normalizedName": "vit krejci",
+    "formattedContractName": "vit krejci",
+    "salary": 2349578,
     "salarySource": "bbr_contracts"
   },
   {
@@ -2080,6 +2096,14 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Collin Murray-Boyles",
+    "team": "TOR",
+    "normalizedName": "collin murray boyles",
+    "formattedContractName": "collin murray boyles",
+    "salary": 6332520,
+    "salarySource": "bbr_contracts"
+  },
+  {
     "name": "Luke Kennard",
     "team": "LAL",
     "normalizedName": "luke kennard",
@@ -2093,22 +2117,6 @@
     "normalizedName": "kentavious caldwell pope",
     "formattedContractName": "kentavious caldwell pope",
     "salary": 21621500,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Nique Clifford",
-    "team": "SAC",
-    "normalizedName": "nique clifford",
-    "formattedContractName": "nique clifford",
-    "salary": 3108120,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Luguentz Dort",
-    "team": "OKC",
-    "normalizedName": "luguentz dort",
-    "formattedContractName": "luguentz dort",
-    "salary": 18222222,
     "salarySource": "bbr_contracts"
   },
   {
@@ -2128,11 +2136,11 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Ron Holland",
-    "team": "DET",
-    "normalizedName": "ron holland",
-    "formattedContractName": "ron holland",
-    "salary": 8657280,
+    "name": "Luguentz Dort",
+    "team": "OKC",
+    "normalizedName": "luguentz dort",
+    "formattedContractName": "luguentz dort",
+    "salary": 18222222,
     "salarySource": "bbr_contracts"
   },
   {
@@ -2144,12 +2152,12 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Jake LaRavia",
-    "team": "LAL",
-    "normalizedName": "jake laravia",
-    "formattedContractName": "jake laravia",
-    "salary": 6000000,
-    "salarySource": "bbr_contracts"
+    "name": "Josh Oduro",
+    "team": "NOP",
+    "normalizedName": "josh oduro",
+    "formattedContractName": "josh oduro",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
   },
   {
     "name": "Kadary Richmond",
@@ -2184,67 +2192,27 @@
     "salarySource": "imputed_minimum"
   },
   {
-    "name": "Bryce McGowens",
-    "team": "NOP",
-    "normalizedName": "bryce mcgowens",
-    "formattedContractName": "bryce mcgowens",
-    "salary": 724598,
+    "name": "Ron Holland",
+    "team": "DET",
+    "normalizedName": "ron holland",
+    "formattedContractName": "ron holland",
+    "salary": 8657280,
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Gary Trent Jr.",
-    "team": "MIL",
-    "normalizedName": "gary trent",
-    "formattedContractName": "gary trent",
-    "salary": 3697105,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "DeJon Jarreau",
-    "team": "MEM",
-    "normalizedName": "dejon jarreau",
-    "formattedContractName": "dejon jarreau",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
-    "name": "Tre Scott",
+    "name": "Chaney Johnson",
     "team": "BKN",
-    "normalizedName": "tre scott",
-    "formattedContractName": "tre scott",
+    "normalizedName": "chaney johnson",
+    "formattedContractName": "chaney johnson",
     "salary": 0,
     "salarySource": "imputed_minimum"
   },
   {
-    "name": "Moussa Diabate",
-    "team": "CHA",
-    "normalizedName": "moussa diabate",
-    "formattedContractName": "moussa diabata",
-    "salary": 2270735,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Nate Williams",
-    "team": "GSW",
-    "normalizedName": "nate williams",
-    "formattedContractName": "nate williams",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
-    "name": "Walter Clayton",
-    "team": "MEM",
-    "normalizedName": "walter clayton",
-    "formattedContractName": "walter clayton",
-    "salary": 3991320,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Bruce Brown",
-    "team": "DEN",
-    "normalizedName": "bruce brown",
-    "formattedContractName": "bruce brown",
-    "salary": 2296274,
+    "name": "Jake LaRavia",
+    "team": "LAL",
+    "normalizedName": "jake laravia",
+    "formattedContractName": "jake laravia",
+    "salary": 6000000,
     "salarySource": "bbr_contracts"
   },
   {
@@ -2264,10 +2232,122 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Jalen Slawson",
-    "team": "IND",
-    "normalizedName": "jalen slawson",
-    "formattedContractName": "jalen slawson",
+    "name": "Bez Mbeng",
+    "team": "UTA",
+    "normalizedName": "bez mbeng",
+    "formattedContractName": "bez mbeng",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Bryce McGowens",
+    "team": "NOP",
+    "normalizedName": "bryce mcgowens",
+    "formattedContractName": "bryce mcgowens",
+    "salary": 724598,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Gary Trent Jr.",
+    "team": "MIL",
+    "normalizedName": "gary trent",
+    "formattedContractName": "gary trent",
+    "salary": 3697105,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Mouhamadou Gueye",
+    "team": "CHI",
+    "normalizedName": "mouhamadou gueye",
+    "formattedContractName": "mouhamadou gueye",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "DeJon Jarreau",
+    "team": "MEM",
+    "normalizedName": "dejon jarreau",
+    "formattedContractName": "dejon jarreau",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "David Roddy",
+    "team": "DEN",
+    "normalizedName": "david roddy",
+    "formattedContractName": "david roddy",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Tre Scott",
+    "team": "BKN",
+    "normalizedName": "tre scott",
+    "formattedContractName": "tre scott",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Nate Williams",
+    "team": "GSW",
+    "normalizedName": "nate williams",
+    "formattedContractName": "nate williams",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Bruce Brown",
+    "team": "DEN",
+    "normalizedName": "bruce brown",
+    "formattedContractName": "bruce brown",
+    "salary": 2296274,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Moussa Diabate",
+    "team": "CHA",
+    "normalizedName": "moussa diabate",
+    "formattedContractName": "moussa diabata",
+    "salary": 2270735,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Tyson Etienne",
+    "team": "BKN",
+    "normalizedName": "tyson etienne",
+    "formattedContractName": "tyson etienne",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Leonard Miller",
+    "team": "CHI",
+    "normalizedName": "leonard miller",
+    "formattedContractName": "leonard miller",
+    "salary": 2221677,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Walter Clayton",
+    "team": "MEM",
+    "normalizedName": "walter clayton",
+    "formattedContractName": "walter clayton",
+    "salary": 3991320,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Paul Reed",
+    "team": "DET",
+    "normalizedName": "paul reed",
+    "formattedContractName": "paul reed",
+    "salary": 5335894,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Oscar Tshiebwe",
+    "team": "UTA",
+    "normalizedName": "oscar tshiebwe",
+    "formattedContractName": "oscar tshiebwe",
     "salary": 0,
     "salarySource": "imputed_minimum"
   },
@@ -2280,22 +2360,6 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Chaney Johnson",
-    "team": "BKN",
-    "normalizedName": "chaney johnson",
-    "formattedContractName": "chaney johnson",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
-    "name": "Bez Mbeng",
-    "team": "UTA",
-    "normalizedName": "bez mbeng",
-    "formattedContractName": "bez mbeng",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
     "name": "Quinten Post",
     "team": "GSW",
     "normalizedName": "quinten post",
@@ -2304,35 +2368,27 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Leonard Miller",
-    "team": "CHI",
-    "normalizedName": "leonard miller",
-    "formattedContractName": "leonard miller",
-    "salary": 2221677,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Leaky Black",
-    "team": "WAS",
-    "normalizedName": "leaky black",
-    "formattedContractName": "leaky black",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
-    "name": "Gary Payton II",
-    "team": "GSW",
-    "normalizedName": "gary payton",
-    "formattedContractName": "gary payton",
-    "salary": 2296274,
-    "salarySource": "bbr_contracts"
-  },
-  {
     "name": "Ousmane Dieng",
     "team": "MIL",
     "normalizedName": "ousmane dieng",
     "formattedContractName": "ousmane dieng",
     "salary": 6670882,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Buddy Hield",
+    "team": "ATL",
+    "normalizedName": "buddy hield",
+    "formattedContractName": "buddy hield",
+    "salary": 9219512,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Ryan Kalkbrenner",
+    "team": "CHA",
+    "normalizedName": "ryan kalkbrenner",
+    "formattedContractName": "ryan kalkbrenner",
+    "salary": 2296274,
     "salarySource": "bbr_contracts"
   },
   {
@@ -2352,19 +2408,19 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Ryan Kalkbrenner",
-    "team": "CHA",
-    "normalizedName": "ryan kalkbrenner",
-    "formattedContractName": "ryan kalkbrenner",
+    "name": "Gary Payton II",
+    "team": "GSW",
+    "normalizedName": "gary payton",
+    "formattedContractName": "gary payton",
     "salary": 2296274,
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Paul Reed",
-    "team": "DET",
-    "normalizedName": "paul reed",
-    "formattedContractName": "paul reed",
-    "salary": 5335894,
+    "name": "Ben Saraf",
+    "team": "BKN",
+    "normalizedName": "ben saraf",
+    "formattedContractName": "ben saraf",
+    "salary": 2884560,
     "salarySource": "bbr_contracts"
   },
   {
@@ -2392,6 +2448,22 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Jose Alvarado",
+    "team": "NYK",
+    "normalizedName": "jose alvarado",
+    "formattedContractName": "jose alvarado",
+    "salary": 4500000,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Bogdan Bogdanovic",
+    "team": "LAC",
+    "normalizedName": "bogdan bogdanovic",
+    "formattedContractName": "bogdan bogdanovia",
+    "salary": 16020000,
+    "salarySource": "bbr_contracts"
+  },
+  {
     "name": "Caris LeVert",
     "team": "DET",
     "normalizedName": "caris levert",
@@ -2408,20 +2480,12 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Ben Saraf",
-    "team": "BKN",
-    "normalizedName": "ben saraf",
-    "formattedContractName": "ben saraf",
-    "salary": 2884560,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Jose Alvarado",
-    "team": "NYK",
-    "normalizedName": "jose alvarado",
-    "formattedContractName": "jose alvarado",
-    "salary": 4500000,
-    "salarySource": "bbr_contracts"
+    "name": "Jamir Watkins",
+    "team": "WAS",
+    "normalizedName": "jamir watkins",
+    "formattedContractName": "jamir watkins",
+    "salary": 1131970,
+    "salarySource": "espn_salaries"
   },
   {
     "name": "Kris Dunn",
@@ -2432,51 +2496,11 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Tyson Etienne",
-    "team": "BKN",
-    "normalizedName": "tyson etienne",
-    "formattedContractName": "tyson etienne",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
     "name": "Nikola Jovic",
     "team": "MIA",
     "normalizedName": "nikola jovic",
     "formattedContractName": "nikola jovia",
     "salary": 4445417,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "John Poulakidas",
-    "team": "DAL",
-    "normalizedName": "john poulakidas",
-    "formattedContractName": "john poulakidas",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
-    "name": "Buddy Hield",
-    "team": "ATL",
-    "normalizedName": "buddy hield",
-    "formattedContractName": "buddy hield",
-    "salary": 9219512,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Seth Curry",
-    "team": "GSW",
-    "normalizedName": "seth curry",
-    "formattedContractName": "seth curry",
-    "salary": 1755198,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Terance Mann",
-    "team": "BKN",
-    "normalizedName": "terance mann",
-    "formattedContractName": "terance mann",
-    "salary": 15500000,
     "salarySource": "bbr_contracts"
   },
   {
@@ -2488,83 +2512,27 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Jalen Slawson",
+    "team": "IND",
+    "normalizedName": "jalen slawson",
+    "formattedContractName": "jalen slawson",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Terance Mann",
+    "team": "BKN",
+    "normalizedName": "terance mann",
+    "formattedContractName": "terance mann",
+    "salary": 15500000,
+    "salarySource": "bbr_contracts"
+  },
+  {
     "name": "Pat Spencer",
     "team": "GSW",
     "normalizedName": "pat spencer",
     "formattedContractName": "pat spencer",
     "salary": 857804,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Jaylin Williams",
-    "team": "OKC",
-    "normalizedName": "jaylin williams",
-    "formattedContractName": "jaylin williams",
-    "salary": 8450704,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "MarJon Beauchamp",
-    "team": "PHI",
-    "normalizedName": "marjon beauchamp",
-    "formattedContractName": "marjon beauchamp",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
-    "name": "Ben Sheppard",
-    "team": "IND",
-    "normalizedName": "ben sheppard",
-    "formattedContractName": "ben sheppard",
-    "salary": 2790720,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Bogdan Bogdanovic",
-    "team": "LAC",
-    "normalizedName": "bogdan bogdanovic",
-    "formattedContractName": "bogdan bogdanovia",
-    "salary": 16020000,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Javonte Green",
-    "team": "DET",
-    "normalizedName": "javonte green",
-    "formattedContractName": "javonte green",
-    "salary": 2296274,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Lawson Lovering",
-    "team": "MEM",
-    "normalizedName": "lawson lovering",
-    "formattedContractName": "lawson lovering",
-    "salary": 87784,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Oscar Tshiebwe",
-    "team": "UTA",
-    "normalizedName": "oscar tshiebwe",
-    "formattedContractName": "oscar tshiebwe",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
-    "name": "Jamir Watkins",
-    "team": "WAS",
-    "normalizedName": "jamir watkins",
-    "formattedContractName": "jamir watkins",
-    "salary": 1131970,
-    "salarySource": "espn_salaries"
-  },
-  {
-    "name": "Grant Williams",
-    "team": "CHA",
-    "normalizedName": "grant williams",
-    "formattedContractName": "grant williams",
-    "salary": 13645500,
     "salarySource": "bbr_contracts"
   },
   {
@@ -2576,11 +2544,59 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Moritz Wagner",
-    "team": "ORL",
-    "normalizedName": "moritz wagner",
-    "formattedContractName": "moritz wagner",
-    "salary": 5000000,
+    "name": "Jaylin Williams",
+    "team": "OKC",
+    "normalizedName": "jaylin williams",
+    "formattedContractName": "jaylin williams",
+    "salary": 8450704,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Leaky Black",
+    "team": "WAS",
+    "normalizedName": "leaky black",
+    "formattedContractName": "leaky black",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Seth Curry",
+    "team": "GSW",
+    "normalizedName": "seth curry",
+    "formattedContractName": "seth curry",
+    "salary": 1755198,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Ben Sheppard",
+    "team": "IND",
+    "normalizedName": "ben sheppard",
+    "formattedContractName": "ben sheppard",
+    "salary": 2790720,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Lawson Lovering",
+    "team": "MEM",
+    "normalizedName": "lawson lovering",
+    "formattedContractName": "lawson lovering",
+    "salary": 87784,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Ethan Thompson",
+    "team": "IND",
+    "normalizedName": "ethan thompson",
+    "formattedContractName": "ethan thompson",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Grant Williams",
+    "team": "CHA",
+    "normalizedName": "grant williams",
+    "formattedContractName": "grant williams",
+    "salary": 13645500,
     "salarySource": "bbr_contracts"
   },
   {
@@ -2590,6 +2606,30 @@
     "formattedContractName": "patrick williams",
     "salary": 18000000,
     "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Javonte Green",
+    "team": "DET",
+    "normalizedName": "javonte green",
+    "formattedContractName": "javonte green",
+    "salary": 2296274,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Moritz Wagner",
+    "team": "ORL",
+    "normalizedName": "moritz wagner",
+    "formattedContractName": "moritz wagner",
+    "salary": 5000000,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "MarJon Beauchamp",
+    "team": "PHI",
+    "normalizedName": "marjon beauchamp",
+    "formattedContractName": "marjon beauchamp",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
   },
   {
     "name": "Elijah Harkless",
@@ -2632,14 +2672,6 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Jamal Shead",
-    "team": "TOR",
-    "normalizedName": "jamal shead",
-    "formattedContractName": "jamal shead",
-    "salary": 1955377,
-    "salarySource": "bbr_contracts"
-  },
-  {
     "name": "Robert Williams",
     "team": "POR",
     "normalizedName": "robert williams",
@@ -2648,27 +2680,19 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Ethan Thompson",
-    "team": "IND",
-    "normalizedName": "ethan thompson",
-    "formattedContractName": "ethan thompson",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
+    "name": "Ryan Nembhard",
+    "team": "DAL",
+    "normalizedName": "ryan nembhard",
+    "formattedContractName": "ryan nembhard",
+    "salary": 321875,
+    "salarySource": "espn_salaries"
   },
   {
-    "name": "Trendon Watford",
-    "team": "PHI",
-    "normalizedName": "trendon watford",
-    "formattedContractName": "trendon watford",
-    "salary": 2461463,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Jevon Carter",
-    "team": "ORL",
-    "normalizedName": "jevon carter",
-    "formattedContractName": "jevon carter",
-    "salary": 7680524,
+    "name": "Jamal Shead",
+    "team": "TOR",
+    "normalizedName": "jamal shead",
+    "formattedContractName": "jamal shead",
+    "salary": 1955377,
     "salarySource": "bbr_contracts"
   },
   {
@@ -2688,14 +2712,6 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Ryan Nembhard",
-    "team": "DAL",
-    "normalizedName": "ryan nembhard",
-    "formattedContractName": "ryan nembhard",
-    "salary": 321875,
-    "salarySource": "espn_salaries"
-  },
-  {
     "name": "Drake Powell",
     "team": "BKN",
     "normalizedName": "drake powell",
@@ -2704,19 +2720,11 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Will Richard",
-    "team": "GSW",
-    "normalizedName": "will richard",
-    "formattedContractName": "will richard",
-    "salary": 1272870,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Tyrese Martin",
+    "name": "Trendon Watford",
     "team": "PHI",
-    "normalizedName": "tyrese martin",
-    "formattedContractName": "tyrese martin",
-    "salary": 2191897,
+    "normalizedName": "trendon watford",
+    "formattedContractName": "trendon watford",
+    "salary": 2461463,
     "salarySource": "bbr_contracts"
   },
   {
@@ -2728,6 +2736,14 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Jevon Carter",
+    "team": "ORL",
+    "normalizedName": "jevon carter",
+    "formattedContractName": "jevon carter",
+    "salary": 7680524,
+    "salarySource": "bbr_contracts"
+  },
+  {
     "name": "Andre Drummond",
     "team": "PHI",
     "normalizedName": "andre drummond",
@@ -2736,12 +2752,12 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "David Roddy",
-    "team": "DEN",
-    "normalizedName": "david roddy",
-    "formattedContractName": "david roddy",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
+    "name": "Will Richard",
+    "team": "GSW",
+    "normalizedName": "will richard",
+    "formattedContractName": "will richard",
+    "salary": 1272870,
+    "salarySource": "bbr_contracts"
   },
   {
     "name": "Jalen Wilson",
@@ -2749,6 +2765,22 @@
     "normalizedName": "jalen wilson",
     "formattedContractName": "jalen wilson",
     "salary": 2221677,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Rob Dillingham",
+    "team": "CHI",
+    "normalizedName": "rob dillingham",
+    "formattedContractName": "rob dillingham",
+    "salary": 6576120,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Tyrese Martin",
+    "team": "PHI",
+    "normalizedName": "tyrese martin",
+    "formattedContractName": "tyrese martin",
+    "salary": 2191897,
     "salarySource": "bbr_contracts"
   },
   {
@@ -2784,30 +2816,6 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Tidjane Salaun",
-    "team": "CHA",
-    "normalizedName": "tidjane salaun",
-    "formattedContractName": "tidjane salaa1 4n",
-    "salary": 7863240,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Rob Dillingham",
-    "team": "CHI",
-    "normalizedName": "rob dillingham",
-    "formattedContractName": "rob dillingham",
-    "salary": 6576120,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Gradey Dick",
-    "team": "TOR",
-    "normalizedName": "gradey dick",
-    "formattedContractName": "gradey dick",
-    "salary": 4990560,
-    "salarySource": "bbr_contracts"
-  },
-  {
     "name": "Jahmai Mashack",
     "team": "MEM",
     "normalizedName": "jahmai mashack",
@@ -2824,11 +2832,19 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Goga Bitadze",
-    "team": "ORL",
-    "normalizedName": "goga bitadze",
-    "formattedContractName": "goga bitadze",
-    "salary": 8333333,
+    "name": "Mac McClung",
+    "team": "CHI",
+    "normalizedName": "mac mcclung",
+    "formattedContractName": "mac mcclung",
+    "salary": 164060,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Gradey Dick",
+    "team": "TOR",
+    "normalizedName": "gradey dick",
+    "formattedContractName": "gradey dick",
+    "salary": 4990560,
     "salarySource": "bbr_contracts"
   },
   {
@@ -2837,6 +2853,46 @@
     "normalizedName": "justin edwards",
     "formattedContractName": "justin edwards",
     "salary": 2048494,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Hayden Gray",
+    "team": "UTA",
+    "normalizedName": "hayden gray",
+    "formattedContractName": "hayden gray",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Tidjane Salaun",
+    "team": "CHA",
+    "normalizedName": "tidjane salaun",
+    "formattedContractName": "tidjane salaa1 4n",
+    "salary": 7863240,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Goga Bitadze",
+    "team": "ORL",
+    "normalizedName": "goga bitadze",
+    "formattedContractName": "goga bitadze",
+    "salary": 8333333,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Charles Bassey",
+    "team": "GSW",
+    "normalizedName": "charles bassey",
+    "formattedContractName": "charles bassey",
+    "salary": 263940,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Kobe Brown",
+    "team": "IND",
+    "normalizedName": "kobe brown",
+    "formattedContractName": "kobe brown",
+    "salary": 2654880,
     "salarySource": "bbr_contracts"
   },
   {
@@ -2856,6 +2912,30 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Branden Carlson",
+    "team": "OKC",
+    "normalizedName": "branden carlson",
+    "formattedContractName": "branden carlson",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Ryan Dunn",
+    "team": "PHX",
+    "normalizedName": "ryan dunn",
+    "formattedContractName": "ryan dunn",
+    "salary": 2657760,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Anthony Gill",
+    "team": "WAS",
+    "normalizedName": "anthony gill",
+    "formattedContractName": "anthony gill",
+    "salary": 2296274,
+    "salarySource": "bbr_contracts"
+  },
+  {
     "name": "Kris Murray",
     "team": "POR",
     "normalizedName": "kris murray",
@@ -2872,6 +2952,14 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Nae'Qwan Tomlin",
+    "team": "CLE",
+    "normalizedName": "nae qwan tomlin",
+    "formattedContractName": "nae qwan tomlin",
+    "salary": 718150,
+    "salarySource": "bbr_contracts"
+  },
+  {
     "name": "Dean Wade",
     "team": "CLE",
     "normalizedName": "dean wade",
@@ -2880,11 +2968,19 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Anthony Gill",
-    "team": "WAS",
-    "normalizedName": "anthony gill",
-    "formattedContractName": "anthony gill",
-    "salary": 2296274,
+    "name": "Jamaree Bouyea",
+    "team": "PHX",
+    "normalizedName": "jamaree bouyea",
+    "formattedContractName": "jamaree bouyea",
+    "salary": 574210,
+    "salarySource": "espn_salaries"
+  },
+  {
+    "name": "E.J. Liddell",
+    "team": "BKN",
+    "normalizedName": "e j liddell",
+    "formattedContractName": "e j liddell",
+    "salary": 706898,
     "salarySource": "bbr_contracts"
   },
   {
@@ -2893,6 +2989,14 @@
     "normalizedName": "karlo matkovic",
     "formattedContractName": "karlo matkovia",
     "salary": 1955377,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Doug McDermott",
+    "team": "SAC",
+    "normalizedName": "doug mcdermott",
+    "formattedContractName": "doug mcdermott",
+    "salary": 2296274,
     "salarySource": "bbr_contracts"
   },
   {
@@ -2920,35 +3024,11 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Kobe Brown",
-    "team": "IND",
-    "normalizedName": "kobe brown",
-    "formattedContractName": "kobe brown",
-    "salary": 2654880,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Ryan Dunn",
-    "team": "PHX",
-    "normalizedName": "ryan dunn",
-    "formattedContractName": "ryan dunn",
-    "salary": 2657760,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Tre Mann",
-    "team": "CHA",
-    "normalizedName": "tre mann",
-    "formattedContractName": "tre mann",
-    "salary": 8000000,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Doug McDermott",
-    "team": "SAC",
-    "normalizedName": "doug mcdermott",
-    "formattedContractName": "doug mcdermott",
-    "salary": 2296274,
+    "name": "Terrence Shannon Jr.",
+    "team": "MIN",
+    "normalizedName": "terrence shannon",
+    "formattedContractName": "terrence shannon",
+    "salary": 2674080,
     "salarySource": "bbr_contracts"
   },
   {
@@ -2960,14 +3040,6 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Jamal Cain",
-    "team": "ORL",
-    "normalizedName": "jamal cain",
-    "formattedContractName": "jamal cain",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
     "name": "Eric Gordon",
     "team": "PHI",
     "normalizedName": "eric gordon",
@@ -2976,11 +3048,19 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Haywood Highsmith",
-    "team": "PHX",
-    "normalizedName": "haywood highsmith",
-    "formattedContractName": "haywood highsmith",
-    "salary": 6443984,
+    "name": "Killian Hayes",
+    "team": "SAC",
+    "normalizedName": "killian hayes",
+    "formattedContractName": "killian hayes",
+    "salary": 263940,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Aaron Holiday",
+    "team": "HOU",
+    "normalizedName": "aaron holiday",
+    "formattedContractName": "aaron holiday",
+    "salary": 2296274,
     "salarySource": "bbr_contracts"
   },
   {
@@ -3000,20 +3080,28 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Nae'Qwan Tomlin",
-    "team": "CLE",
-    "normalizedName": "nae qwan tomlin",
-    "formattedContractName": "nae qwan tomlin",
-    "salary": 718150,
+    "name": "Tre Mann",
+    "team": "CHA",
+    "normalizedName": "tre mann",
+    "formattedContractName": "tre mann",
+    "salary": 8000000,
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Mac McClung",
-    "team": "CHI",
-    "normalizedName": "mac mcclung",
-    "formattedContractName": "mac mcclung",
-    "salary": 164060,
+    "name": "Baylor Scheierman",
+    "team": "BOS",
+    "normalizedName": "baylor scheierman",
+    "formattedContractName": "baylor scheierman",
+    "salary": 2619000,
     "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Jamal Cain",
+    "team": "ORL",
+    "normalizedName": "jamal cain",
+    "formattedContractName": "jamal cain",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
   },
   {
     "name": "Dylan Cardwell",
@@ -3024,18 +3112,18 @@
     "salarySource": "espn_salaries"
   },
   {
-    "name": "Killian Hayes",
-    "team": "SAC",
-    "normalizedName": "killian hayes",
-    "formattedContractName": "killian hayes",
-    "salary": 263940,
+    "name": "Haywood Highsmith",
+    "team": "PHX",
+    "normalizedName": "haywood highsmith",
+    "formattedContractName": "haywood highsmith",
+    "salary": 6443984,
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Aaron Holiday",
-    "team": "HOU",
-    "normalizedName": "aaron holiday",
-    "formattedContractName": "aaron holiday",
+    "name": "Sion James",
+    "team": "CHA",
+    "normalizedName": "sion james",
+    "formattedContractName": "sion james",
     "salary": 2296274,
     "salarySource": "bbr_contracts"
   },
@@ -3048,19 +3136,11 @@
     "salarySource": "imputed_minimum"
   },
   {
-    "name": "Branden Carlson",
-    "team": "OKC",
-    "normalizedName": "branden carlson",
-    "formattedContractName": "branden carlson",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
-    "name": "Sion James",
-    "team": "CHA",
-    "normalizedName": "sion james",
-    "formattedContractName": "sion james",
-    "salary": 2296274,
+    "name": "Tyrese Proctor",
+    "team": "CLE",
+    "normalizedName": "tyrese proctor",
+    "formattedContractName": "tyrese proctor",
+    "salary": 1272870,
     "salarySource": "bbr_contracts"
   },
   {
@@ -3072,20 +3152,20 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Jamaree Bouyea",
-    "team": "PHX",
-    "normalizedName": "jamaree bouyea",
-    "formattedContractName": "jamaree bouyea",
-    "salary": 574210,
-    "salarySource": "espn_salaries"
+    "name": "Rayan Rupert",
+    "team": "MEM",
+    "normalizedName": "rayan rupert",
+    "formattedContractName": "rayan rupert",
+    "salary": 2353647,
+    "salarySource": "bbr_contracts"
   },
   {
-    "name": "Sidy Cissoko",
-    "team": "POR",
-    "normalizedName": "sidy cissoko",
-    "formattedContractName": "sidy cissoko",
-    "salary": 686243,
-    "salarySource": "bbr_contracts"
+    "name": "Trey Alexander",
+    "team": "NOP",
+    "normalizedName": "trey alexander",
+    "formattedContractName": "trey alexander",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
   },
   {
     "name": "Drew Eubanks",
@@ -3104,14 +3184,6 @@
     "salarySource": "imputed_minimum"
   },
   {
-    "name": "E.J. Liddell",
-    "team": "BKN",
-    "normalizedName": "e j liddell",
-    "formattedContractName": "e j liddell",
-    "salary": 706898,
-    "salarySource": "bbr_contracts"
-  },
-  {
     "name": "Garrison Mathews",
     "team": "IND",
     "normalizedName": "garrison mathews",
@@ -3120,35 +3192,11 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Marcus Sasser",
-    "team": "DET",
-    "normalizedName": "marcus sasser",
-    "formattedContractName": "marcus sasser",
-    "salary": 2886720,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Baylor Scheierman",
-    "team": "BOS",
-    "normalizedName": "baylor scheierman",
-    "formattedContractName": "baylor scheierman",
-    "salary": 2619000,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Ochai Agbaji",
-    "team": "BKN",
-    "normalizedName": "ochai agbaji",
-    "formattedContractName": "ochai agbaji",
-    "salary": 6383525,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Johnny Furphy",
-    "team": "IND",
-    "normalizedName": "johnny furphy",
-    "formattedContractName": "johnny furphy",
-    "salary": 1955377,
+    "name": "Asa Newell",
+    "team": "ATL",
+    "normalizedName": "asa newell",
+    "formattedContractName": "asa newell",
+    "salary": 3237480,
     "salarySource": "bbr_contracts"
   },
   {
@@ -3160,50 +3208,42 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Tyrese Proctor",
-    "team": "CLE",
-    "normalizedName": "tyrese proctor",
-    "formattedContractName": "tyrese proctor",
-    "salary": 1272870,
+    "name": "Marcus Sasser",
+    "team": "DET",
+    "normalizedName": "marcus sasser",
+    "formattedContractName": "marcus sasser",
+    "salary": 2886720,
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Terrence Shannon Jr.",
-    "team": "MIN",
-    "normalizedName": "terrence shannon",
-    "formattedContractName": "terrence shannon",
-    "salary": 2674080,
+    "name": "Nikola Topic",
+    "team": "OKC",
+    "normalizedName": "nikola topic",
+    "formattedContractName": "nikola topia",
+    "salary": 5182920,
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Charles Bassey",
-    "team": "GSW",
-    "normalizedName": "charles bassey",
-    "formattedContractName": "charles bassey",
-    "salary": 263940,
+    "name": "Ochai Agbaji",
+    "team": "BKN",
+    "normalizedName": "ochai agbaji",
+    "formattedContractName": "ochai agbaji",
+    "salary": 6383525,
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Mouhamadou Gueye",
-    "team": "CHI",
-    "normalizedName": "mouhamadou gueye",
-    "formattedContractName": "mouhamadou gueye",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
-    "name": "Rayan Rupert",
-    "team": "MEM",
-    "normalizedName": "rayan rupert",
-    "formattedContractName": "rayan rupert",
-    "salary": 2353647,
+    "name": "Sidy Cissoko",
+    "team": "POR",
+    "normalizedName": "sidy cissoko",
+    "formattedContractName": "sidy cissoko",
+    "salary": 686243,
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Adem Bona",
-    "team": "PHI",
-    "normalizedName": "adem bona",
-    "formattedContractName": "adem bona",
+    "name": "Johnny Furphy",
+    "team": "IND",
+    "normalizedName": "johnny furphy",
+    "formattedContractName": "johnny furphy",
     "salary": 1955377,
     "salarySource": "bbr_contracts"
   },
@@ -3216,11 +3256,19 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Asa Newell",
-    "team": "ATL",
-    "normalizedName": "asa newell",
-    "formattedContractName": "asa newell",
-    "salary": 3237480,
+    "name": "Jericho Sims",
+    "team": "MIL",
+    "normalizedName": "jericho sims",
+    "formattedContractName": "jericho sims",
+    "salary": 2461463,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Adem Bona",
+    "team": "PHI",
+    "normalizedName": "adem bona",
+    "formattedContractName": "adem bona",
+    "salary": 1955377,
     "salarySource": "bbr_contracts"
   },
   {
@@ -3232,11 +3280,11 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Jericho Sims",
-    "team": "MIL",
-    "normalizedName": "jericho sims",
-    "formattedContractName": "jericho sims",
-    "salary": 2461463,
+    "name": "Tyler Smith",
+    "team": "DAL",
+    "normalizedName": "tyler smith",
+    "formattedContractName": "tyler smith",
+    "salary": 1955377,
     "salarySource": "bbr_contracts"
   },
   {
@@ -3264,6 +3312,14 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Zyon Pullin",
+    "team": "MIN",
+    "normalizedName": "zyon pullin",
+    "formattedContractName": "zyon pullin",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
     "name": "Jeremiah Robinson-Earl",
     "team": "DAL",
     "normalizedName": "jeremiah robinson earl",
@@ -3276,6 +3332,14 @@
     "team": "CHA",
     "normalizedName": "pj hall",
     "formattedContractName": "pj hall",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Moussa Cisse",
+    "team": "DAL",
+    "normalizedName": "moussa cisse",
+    "formattedContractName": "moussa cisse",
     "salary": 0,
     "salarySource": "imputed_minimum"
   },
@@ -3320,6 +3384,14 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "RayJ Dennis",
+    "team": "ATL",
+    "normalizedName": "rayj dennis",
+    "formattedContractName": "rayj dennis",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
     "name": "Gabe Vincent",
     "team": "ATL",
     "normalizedName": "gabe vincent",
@@ -3333,6 +3405,14 @@
     "normalizedName": "mouhamed gueye",
     "formattedContractName": "mouhamed gueye",
     "salary": 2221677,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Kam Jones",
+    "team": "IND",
+    "normalizedName": "kam jones",
+    "formattedContractName": "kam jones",
+    "salary": 1272870,
     "salarySource": "bbr_contracts"
   },
   {
@@ -3352,14 +3432,6 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Liam McNeeley",
-    "team": "CHA",
-    "normalizedName": "liam mcneeley",
-    "formattedContractName": "liam mcneeley",
-    "salary": 2763960,
-    "salarySource": "bbr_contracts"
-  },
-  {
     "name": "Jase Richardson",
     "team": "ORL",
     "normalizedName": "jase richardson",
@@ -3376,6 +3448,22 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Keshon Gilbert",
+    "team": "ATL",
+    "normalizedName": "keshon gilbert",
+    "formattedContractName": "keshon gilbert",
+    "salary": 73153,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Rasheer Fleming",
+    "team": "PHX",
+    "normalizedName": "rasheer fleming",
+    "formattedContractName": "rasheer fleming",
+    "salary": 1272870,
+    "salarySource": "bbr_contracts"
+  },
+  {
     "name": "Josh Green",
     "team": "CHA",
     "normalizedName": "josh green",
@@ -3384,11 +3472,11 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Kam Jones",
-    "team": "IND",
-    "normalizedName": "kam jones",
-    "formattedContractName": "kam jones",
-    "salary": 1272870,
+    "name": "Keshad Johnson",
+    "team": "MIA",
+    "normalizedName": "keshad johnson",
+    "formattedContractName": "keshad johnson",
+    "salary": 1955377,
     "salarySource": "bbr_contracts"
   },
   {
@@ -3416,11 +3504,27 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Liam McNeeley",
+    "team": "CHA",
+    "normalizedName": "liam mcneeley",
+    "formattedContractName": "liam mcneeley",
+    "salary": 2763960,
+    "salarySource": "bbr_contracts"
+  },
+  {
     "name": "Grant Nelson",
     "team": "BKN",
     "normalizedName": "grant nelson",
     "formattedContractName": "grant nelson",
     "salary": 73153,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Micah Peavy",
+    "team": "NOP",
+    "normalizedName": "micah peavy",
+    "formattedContractName": "micah peavy",
+    "salary": 1272870,
     "salarySource": "bbr_contracts"
   },
   {
@@ -3440,28 +3544,44 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Moussa Cisse",
-    "team": "DAL",
-    "normalizedName": "moussa cisse",
-    "formattedContractName": "moussa cisse",
+    "name": "Ron Harper Jr.",
+    "team": "BOS",
+    "normalizedName": "ron harper",
+    "formattedContractName": "ron harper",
     "salary": 0,
     "salarySource": "imputed_minimum"
   },
   {
-    "name": "Rasheer Fleming",
-    "team": "PHX",
-    "normalizedName": "rasheer fleming",
-    "formattedContractName": "rasheer fleming",
-    "salary": 1272870,
+    "name": "Dalton Knecht",
+    "team": "LAL",
+    "normalizedName": "dalton knecht",
+    "formattedContractName": "dalton knecht",
+    "salary": 4010160,
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "RayJ Dennis",
-    "team": "ATL",
-    "normalizedName": "rayj dennis",
-    "formattedContractName": "rayj dennis",
+    "name": "A.J. Lawson",
+    "team": "TOR",
+    "normalizedName": "a j lawson",
+    "formattedContractName": "a j lawson",
+    "salary": 2270735,
+    "salarySource": "espn_salaries"
+  },
+  {
+    "name": "Tristan Enaruna",
+    "team": "CLE",
+    "normalizedName": "tristan enaruna",
+    "formattedContractName": "tristan enaruna",
     "salary": 0,
     "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Nicolas Batum",
+    "team": "LAC",
+    "normalizedName": "nicolas batum",
+    "formattedContractName": "nicolas batum",
+    "salary": 5601600,
+    "salarySource": "bbr_contracts"
   },
   {
     "name": "Tony Bradley",
@@ -3488,59 +3608,19 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Keshad Johnson",
-    "team": "MIA",
-    "normalizedName": "keshad johnson",
-    "formattedContractName": "keshad johnson",
-    "salary": 1955377,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Dalton Knecht",
-    "team": "LAL",
-    "normalizedName": "dalton knecht",
-    "formattedContractName": "dalton knecht",
-    "salary": 4010160,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "A.J. Lawson",
-    "team": "TOR",
-    "normalizedName": "a j lawson",
-    "formattedContractName": "a j lawson",
-    "salary": 2270735,
-    "salarySource": "espn_salaries"
-  },
-  {
-    "name": "Micah Peavy",
-    "team": "NOP",
-    "normalizedName": "micah peavy",
-    "formattedContractName": "micah peavy",
-    "salary": 1272870,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Payton Sandfort",
-    "team": "OKC",
-    "normalizedName": "payton sandfort",
-    "formattedContractName": "payton sandfort",
+    "name": "Riley Minix",
+    "team": "CLE",
+    "normalizedName": "riley minix",
+    "formattedContractName": "riley minix",
     "salary": 0,
     "salarySource": "imputed_minimum"
   },
   {
-    "name": "Trey Alexander",
-    "team": "NOP",
-    "normalizedName": "trey alexander",
-    "formattedContractName": "trey alexander",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
-    "name": "Nicolas Batum",
-    "team": "LAC",
-    "normalizedName": "nicolas batum",
-    "formattedContractName": "nicolas batum",
-    "salary": 5601600,
+    "name": "Joan Beringer",
+    "team": "MIN",
+    "normalizedName": "joan beringer",
+    "formattedContractName": "joan beringer",
+    "salary": 4201080,
     "salarySource": "bbr_contracts"
   },
   {
@@ -3552,14 +3632,6 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "DaRon Holmes",
-    "team": "DEN",
-    "normalizedName": "daron holmes",
-    "formattedContractName": "daron holmes",
-    "salary": 3218760,
-    "salarySource": "bbr_contracts"
-  },
-  {
     "name": "Caleb Martin",
     "team": "DAL",
     "normalizedName": "caleb martin",
@@ -3568,19 +3640,27 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Koby Brea",
+    "team": "PHX",
+    "normalizedName": "koby brea",
+    "formattedContractName": "koby brea",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Clint Capela",
+    "team": "HOU",
+    "normalizedName": "clint capela",
+    "formattedContractName": "clint capela",
+    "salary": 6700000,
+    "salarySource": "bbr_contracts"
+  },
+  {
     "name": "Noah Penda",
     "team": "ORL",
     "normalizedName": "noah penda",
     "formattedContractName": "noah penda",
     "salary": 1272870,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Nikola Topic",
-    "team": "OKC",
-    "normalizedName": "nikola topic",
-    "formattedContractName": "nikola topia",
-    "salary": 5182920,
     "salarySource": "bbr_contracts"
   },
   {
@@ -3608,11 +3688,11 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Myron Gardner",
-    "team": "MIA",
-    "normalizedName": "myron gardner",
-    "formattedContractName": "myron gardner",
-    "salary": 395029,
+    "name": "DaRon Holmes",
+    "team": "DEN",
+    "normalizedName": "daron holmes",
+    "formattedContractName": "daron holmes",
+    "salary": 3218760,
     "salarySource": "bbr_contracts"
   },
   {
@@ -3640,11 +3720,11 @@
     "salarySource": "imputed_minimum"
   },
   {
-    "name": "Clint Capela",
-    "team": "HOU",
-    "normalizedName": "clint capela",
-    "formattedContractName": "clint capela",
-    "salary": 6700000,
+    "name": "Jeremy Sochan",
+    "team": "NYK",
+    "normalizedName": "jeremy sochan",
+    "formattedContractName": "jeremy sochan",
+    "salary": 7874853,
     "salarySource": "bbr_contracts"
   },
   {
@@ -3656,6 +3736,30 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Myron Gardner",
+    "team": "MIA",
+    "normalizedName": "myron gardner",
+    "formattedContractName": "myron gardner",
+    "salary": 395029,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Olivier Sarr",
+    "team": "CLE",
+    "normalizedName": "olivier sarr",
+    "formattedContractName": "olivier sarr",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Keaton Wallace",
+    "team": "ATL",
+    "normalizedName": "keaton wallace",
+    "formattedContractName": "keaton wallace",
+    "salary": 2296274,
+    "salarySource": "bbr_contracts"
+  },
+  {
     "name": "Trayce Jackson-Davis",
     "team": "TOR",
     "normalizedName": "trayce jackson davis",
@@ -3664,26 +3768,18 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Jeremy Sochan",
-    "team": "NYK",
-    "normalizedName": "jeremy sochan",
-    "formattedContractName": "jeremy sochan",
-    "salary": 7874853,
-    "salarySource": "bbr_contracts"
+    "name": "Taj Gibson",
+    "team": "MEM",
+    "normalizedName": "taj gibson",
+    "formattedContractName": "taj gibson",
+    "salary": 960753,
+    "salarySource": "espn_salaries"
   },
   {
-    "name": "Joan Beringer",
-    "team": "MIN",
-    "normalizedName": "joan beringer",
-    "formattedContractName": "joan beringer",
-    "salary": 4201080,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Ron Harper Jr.",
-    "team": "BOS",
-    "normalizedName": "ron harper",
-    "formattedContractName": "ron harper",
+    "name": "Yuki Kawamura",
+    "team": "CHI",
+    "normalizedName": "yuki kawamura",
+    "formattedContractName": "yuki kawamura",
     "salary": 0,
     "salarySource": "imputed_minimum"
   },
@@ -3696,20 +3792,36 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Keaton Wallace",
-    "team": "ATL",
-    "normalizedName": "keaton wallace",
-    "formattedContractName": "keaton wallace",
-    "salary": 2296274,
+    "name": "AJ Johnson",
+    "team": "DAL",
+    "normalizedName": "aj johnson",
+    "formattedContractName": "aj johnson",
+    "salary": 3090480,
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Taj Gibson",
-    "team": "MEM",
-    "normalizedName": "taj gibson",
-    "formattedContractName": "taj gibson",
-    "salary": 960753,
-    "salarySource": "espn_salaries"
+    "name": "Dorian Finney-Smith",
+    "team": "HOU",
+    "normalizedName": "dorian finney smith",
+    "formattedContractName": "dorian finney smith",
+    "salary": 12700000,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Enrique Freeman",
+    "team": "MIN",
+    "normalizedName": "enrique freeman",
+    "formattedContractName": "enrique freeman",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Malevy Leons",
+    "team": "GSW",
+    "normalizedName": "malevy leons",
+    "formattedContractName": "malevy leons",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
   },
   {
     "name": "Dwight Powell",
@@ -3717,14 +3829,6 @@
     "normalizedName": "dwight powell",
     "formattedContractName": "dwight powell",
     "salary": 4000000,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Tyler Smith",
-    "team": "DAL",
-    "normalizedName": "tyler smith",
-    "formattedContractName": "tyler smith",
-    "salary": 1955377,
     "salarySource": "bbr_contracts"
   },
   {
@@ -3744,20 +3848,20 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Jamison Battle",
-    "team": "TOR",
-    "normalizedName": "jamison battle",
-    "formattedContractName": "jamison battle",
-    "salary": 1955377,
+    "name": "Amir Coffey",
+    "team": "PHX",
+    "normalizedName": "amir coffey",
+    "formattedContractName": "amir coffey",
+    "salary": 2296274,
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Dorian Finney-Smith",
-    "team": "HOU",
-    "normalizedName": "dorian finney smith",
-    "formattedContractName": "dorian finney smith",
-    "salary": 12700000,
-    "salarySource": "bbr_contracts"
+    "name": "Alex Antetokounmpo",
+    "team": "MIL",
+    "normalizedName": "alex antetokounmpo",
+    "formattedContractName": "alex antetokounmpo",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
   },
   {
     "name": "Kelly Olynyk",
@@ -3768,18 +3872,18 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Jamison Battle",
+    "team": "TOR",
+    "normalizedName": "jamison battle",
+    "formattedContractName": "jamison battle",
+    "salary": 1955377,
+    "salarySource": "bbr_contracts"
+  },
+  {
     "name": "Miles Kelly",
     "team": "DAL",
     "normalizedName": "miles kelly",
     "formattedContractName": "miles kelly",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
-    "name": "Malevy Leons",
-    "team": "GSW",
-    "normalizedName": "malevy leons",
-    "formattedContractName": "malevy leons",
     "salary": 0,
     "salarySource": "imputed_minimum"
   },
@@ -3792,12 +3896,20 @@
     "salarySource": "imputed_minimum"
   },
   {
-    "name": "AJ Johnson",
-    "team": "DAL",
-    "normalizedName": "aj johnson",
-    "formattedContractName": "aj johnson",
-    "salary": 3090480,
+    "name": "Tyus Jones",
+    "team": "DEN",
+    "normalizedName": "tyus jones",
+    "formattedContractName": "tyus jones",
+    "salary": 7000000,
     "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "CJ Huntley",
+    "team": "PHX",
+    "normalizedName": "cj huntley",
+    "formattedContractName": "cj huntley",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
   },
   {
     "name": "Chris Livingston",
@@ -3806,6 +3918,14 @@
     "formattedContractName": "chris livingston",
     "salary": 0,
     "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Khaman Maluach",
+    "team": "PHX",
+    "normalizedName": "khaman maluach",
+    "formattedContractName": "khaman maluach",
+    "salary": 6016080,
+    "salarySource": "bbr_contracts"
   },
   {
     "name": "Emanuel Miller",
@@ -3824,28 +3944,12 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Amir Coffey",
-    "team": "PHX",
-    "normalizedName": "amir coffey",
-    "formattedContractName": "amir coffey",
-    "salary": 2296274,
+    "name": "Julian Phillips",
+    "team": "MIN",
+    "normalizedName": "julian phillips",
+    "formattedContractName": "julian phillips",
+    "salary": 2221677,
     "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Tyus Jones",
-    "team": "DEN",
-    "normalizedName": "tyus jones",
-    "formattedContractName": "tyus jones",
-    "salary": 7000000,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Riley Minix",
-    "team": "CLE",
-    "normalizedName": "riley minix",
-    "formattedContractName": "riley minix",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
   },
   {
     "name": "Kobe Bufkin",
@@ -3854,6 +3958,22 @@
     "formattedContractName": "kobe bufkin",
     "salary": 5480297,
     "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Bronny James",
+    "team": "LAL",
+    "normalizedName": "bronny james",
+    "formattedContractName": "bronny james",
+    "salary": 1955377,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Curtis Jones",
+    "team": "DEN",
+    "normalizedName": "curtis jones",
+    "formattedContractName": "curtis jones",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
   },
   {
     "name": "David Jones Garcia",
@@ -3888,22 +4008,6 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Tristan Enaruna",
-    "team": "CLE",
-    "normalizedName": "tristan enaruna",
-    "formattedContractName": "tristan enaruna",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
-    "name": "Yuki Kawamura",
-    "team": "CHI",
-    "normalizedName": "yuki kawamura",
-    "formattedContractName": "yuki kawamura",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
     "name": "Kevon Looney",
     "team": "NOP",
     "normalizedName": "kevon looney",
@@ -3916,6 +4020,22 @@
     "team": "LAC",
     "normalizedName": "norchad omier",
     "formattedContractName": "norchad omier",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Jae'Sean Tate",
+    "team": "HOU",
+    "normalizedName": "jae sean tate",
+    "formattedContractName": "jae sean tate",
+    "salary": 2296274,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Rocco Zikarsky",
+    "team": "MIN",
+    "normalizedName": "rocco zikarsky",
+    "formattedContractName": "rocco zikarsky",
     "salary": 0,
     "salarySource": "imputed_minimum"
   },
@@ -3936,36 +4056,12 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Bronny James",
-    "team": "LAL",
-    "normalizedName": "bronny james",
-    "formattedContractName": "bronny james",
-    "salary": 1955377,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Khaman Maluach",
-    "team": "PHX",
-    "normalizedName": "khaman maluach",
-    "formattedContractName": "khaman maluach",
-    "salary": 6016080,
-    "salarySource": "bbr_contracts"
-  },
-  {
     "name": "Antonio Reeves",
     "team": "CHA",
     "normalizedName": "antonio reeves",
     "formattedContractName": "antonio reeves",
     "salary": 1955377,
     "salarySource": "espn_salaries"
-  },
-  {
-    "name": "Julian Phillips",
-    "team": "MIN",
-    "normalizedName": "julian phillips",
-    "formattedContractName": "julian phillips",
-    "salary": 2221677,
-    "salarySource": "bbr_contracts"
   },
   {
     "name": "Pat Connaughton",
@@ -3984,14 +4080,6 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Jae'Sean Tate",
-    "team": "HOU",
-    "normalizedName": "jae sean tate",
-    "formattedContractName": "jae sean tate",
-    "salary": 2296274,
-    "salarySource": "bbr_contracts"
-  },
-  {
     "name": "Mo Bamba",
     "team": "UTA",
     "normalizedName": "mo bamba",
@@ -4000,12 +4088,36 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Jayson Kent",
-    "team": "POR",
-    "normalizedName": "jayson kent",
-    "formattedContractName": "jayson kent",
+    "name": "JD Davison",
+    "team": "HOU",
+    "normalizedName": "jd davison",
+    "formattedContractName": "jd davison",
+    "salary": 2270735,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "John Tonje",
+    "team": "BOS",
+    "normalizedName": "john tonje",
+    "formattedContractName": "john tonje",
+    "salary": 73153,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Hunter Dickinson",
+    "team": "NOP",
+    "normalizedName": "hunter dickinson",
+    "formattedContractName": "hunter dickinson",
     "salary": 0,
     "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Andre Jackson Jr.",
+    "team": "MIL",
+    "normalizedName": "andre jackson",
+    "formattedContractName": "andre jackson",
+    "salary": 2221677,
+    "salarySource": "bbr_contracts"
   },
   {
     "name": "Chaz Lanier",
@@ -4014,6 +4126,22 @@
     "formattedContractName": "chaz lanier",
     "salary": 1372870,
     "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Kevin McCullar Jr.",
+    "team": "NYK",
+    "normalizedName": "kevin mccullar",
+    "formattedContractName": "kevin mccullar",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Lachlan Olbrich",
+    "team": "CHI",
+    "normalizedName": "lachlan olbrich",
+    "formattedContractName": "lachlan olbrich",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
   },
   {
     "name": "Lindy Waters III",
@@ -4029,22 +4157,6 @@
     "normalizedName": "chris boucher",
     "formattedContractName": "chris boucher",
     "salary": 2296274,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Koby Brea",
-    "team": "PHX",
-    "normalizedName": "koby brea",
-    "formattedContractName": "koby brea",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
-    "name": "Yang Hansen",
-    "team": "POR",
-    "normalizedName": "yang hansen",
-    "formattedContractName": "yang hansen",
-    "salary": 4422360,
     "salarySource": "bbr_contracts"
   },
   {
@@ -4064,27 +4176,27 @@
     "salarySource": "imputed_minimum"
   },
   {
-    "name": "Alex Antetokounmpo",
-    "team": "MIL",
-    "normalizedName": "alex antetokounmpo",
-    "formattedContractName": "alex antetokounmpo",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
-    "name": "JD Davison",
+    "name": "Jeff Green",
     "team": "HOU",
-    "normalizedName": "jd davison",
-    "formattedContractName": "jd davison",
-    "salary": 2270735,
+    "normalizedName": "jeff green",
+    "formattedContractName": "jeff green",
+    "salary": 2296274,
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Andre Jackson Jr.",
-    "team": "MIL",
-    "normalizedName": "andre jackson",
-    "formattedContractName": "andre jackson",
-    "salary": 2221677,
+    "name": "Yang Hansen",
+    "team": "POR",
+    "normalizedName": "yang hansen",
+    "formattedContractName": "yang hansen",
+    "salary": 4422360,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Ariel Hukporti",
+    "team": "NYK",
+    "normalizedName": "ariel hukporti",
+    "formattedContractName": "ariel hukporti",
+    "salary": 1955377,
     "salarySource": "bbr_contracts"
   },
   {
@@ -4092,14 +4204,6 @@
     "team": "TOR",
     "normalizedName": "alijah martin",
     "formattedContractName": "alijah martin",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
-    "name": "Lachlan Olbrich",
-    "team": "CHI",
-    "normalizedName": "lachlan olbrich",
-    "formattedContractName": "lachlan olbrich",
     "salary": 0,
     "salarySource": "imputed_minimum"
   },
@@ -4120,22 +4224,6 @@
     "salarySource": "imputed_minimum"
   },
   {
-    "name": "Jeff Green",
-    "team": "HOU",
-    "normalizedName": "jeff green",
-    "formattedContractName": "jeff green",
-    "salary": 2296274,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Ariel Hukporti",
-    "team": "NYK",
-    "normalizedName": "ariel hukporti",
-    "formattedContractName": "ariel hukporti",
-    "salary": 1955377,
-    "salarySource": "bbr_contracts"
-  },
-  {
     "name": "Dalano Banton",
     "team": "BOS",
     "normalizedName": "dalano banton",
@@ -4144,20 +4232,20 @@
     "salarySource": "bbr_contracts"
   },
   {
+    "name": "Isaiah Crawford",
+    "team": "HOU",
+    "normalizedName": "isaiah crawford",
+    "formattedContractName": "isaiah crawford",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
     "name": "Trentyn Flowers",
     "team": "CHI",
     "normalizedName": "trentyn flowers",
     "formattedContractName": "trentyn flowers",
     "salary": 0,
     "salarySource": "imputed_minimum"
-  },
-  {
-    "name": "Keshon Gilbert",
-    "team": "WAS",
-    "normalizedName": "keshon gilbert",
-    "formattedContractName": "keshon gilbert",
-    "salary": 73153,
-    "salarySource": "bbr_contracts"
   },
   {
     "name": "Colby Jones",
@@ -4172,6 +4260,14 @@
     "team": "MIN",
     "normalizedName": "johnny juzang",
     "formattedContractName": "johnny juzang",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Jayson Kent",
+    "team": "POR",
+    "normalizedName": "jayson kent",
+    "formattedContractName": "jayson kent",
     "salary": 0,
     "salarySource": "imputed_minimum"
   },
@@ -4208,12 +4304,12 @@
     "salarySource": "imputed_minimum"
   },
   {
-    "name": "Curtis Jones",
-    "team": "DEN",
-    "normalizedName": "curtis jones",
-    "formattedContractName": "curtis jones",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
+    "name": "Adou Thiero",
+    "team": "LAL",
+    "normalizedName": "adou thiero",
+    "formattedContractName": "adou thiero",
+    "salary": 1272870,
+    "salarySource": "bbr_contracts"
   },
   {
     "name": "Bobi Klintman",
@@ -4240,26 +4336,10 @@
     "salarySource": "espn_salaries"
   },
   {
-    "name": "Kevin McCullar Jr.",
-    "team": "NYK",
-    "normalizedName": "kevin mccullar",
-    "formattedContractName": "kevin mccullar",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
     "name": "Orlando Robinson",
     "team": "ORL",
     "normalizedName": "orlando robinson",
     "formattedContractName": "orlando robinson",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
-    "name": "Wendell Moore Jr.",
-    "team": "DET",
-    "normalizedName": "wendell moore",
-    "formattedContractName": "wendell moore",
     "salary": 0,
     "salarySource": "imputed_minimum"
   },
@@ -4280,20 +4360,36 @@
     "salarySource": "imputed_minimum"
   },
   {
+    "name": "Pacome Dadiet",
+    "team": "NYK",
+    "normalizedName": "pacome dadiet",
+    "formattedContractName": "paca me dadiet",
+    "salary": 2847600,
+    "salarySource": "bbr_contracts"
+  },
+  {
+    "name": "Wendell Moore Jr.",
+    "team": "DET",
+    "normalizedName": "wendell moore",
+    "formattedContractName": "wendell moore",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Mason Plumlee",
+    "team": "SAS",
+    "normalizedName": "mason plumlee",
+    "formattedContractName": "mason plumlee",
+    "salary": 3022108,
+    "salarySource": "bbr_contracts"
+  },
+  {
     "name": "Harrison Ingram",
     "team": "SAS",
     "normalizedName": "harrison ingram",
     "formattedContractName": "harrison ingram",
     "salary": 0,
     "salarySource": "imputed_minimum"
-  },
-  {
-    "name": "Adou Thiero",
-    "team": "LAL",
-    "normalizedName": "adou thiero",
-    "formattedContractName": "adou thiero",
-    "salary": 1272870,
-    "salarySource": "bbr_contracts"
   },
   {
     "name": "Jacob Toppin",
@@ -4312,14 +4408,6 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Mason Plumlee",
-    "team": "SAS",
-    "normalizedName": "mason plumlee",
-    "formattedContractName": "mason plumlee",
-    "salary": 3022108,
-    "salarySource": "bbr_contracts"
-  },
-  {
     "name": "Buddy Boeheim",
     "team": "OKC",
     "normalizedName": "buddy boeheim",
@@ -4328,12 +4416,12 @@
     "salarySource": "imputed_minimum"
   },
   {
-    "name": "Hunter Dickinson",
-    "team": "NOP",
-    "normalizedName": "hunter dickinson",
-    "formattedContractName": "hunter dickinson",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
+    "name": "Joe Ingles",
+    "team": "MIN",
+    "normalizedName": "joe ingles",
+    "formattedContractName": "joe ingles",
+    "salary": 2296274,
+    "salarySource": "bbr_contracts"
   },
   {
     "name": "Jonathan Mogbo",
@@ -4344,68 +4432,12 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Rocco Zikarsky",
-    "team": "MIN",
-    "normalizedName": "rocco zikarsky",
-    "formattedContractName": "rocco zikarsky",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
-    "name": "Colin Castleton",
-    "team": "ORL",
-    "normalizedName": "colin castleton",
-    "formattedContractName": "colin castleton",
-    "salary": 2191897,
-    "salarySource": "espn_salaries"
-  },
-  {
-    "name": "Isaiah Crawford",
-    "team": "HOU",
-    "normalizedName": "isaiah crawford",
-    "formattedContractName": "isaiah crawford",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
-    "name": "Pacome Dadiet",
-    "team": "NYK",
-    "normalizedName": "pacome dadiet",
-    "formattedContractName": "paca me dadiet",
-    "salary": 2847600,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Nigel Hayes-Davis",
-    "team": "PHX",
-    "normalizedName": "nigel hayes davis",
-    "formattedContractName": "nigel hayes davis",
-    "salary": 2048494,
-    "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Kyle Lowry",
-    "team": "PHI",
-    "normalizedName": "kyle lowry",
-    "formattedContractName": "kyle lowry",
+    "name": "Thanasis Antetokounmpo",
+    "team": "MIL",
+    "normalizedName": "thanasis antetokounmpo",
+    "formattedContractName": "thanasis antetokounmpo",
     "salary": 2296274,
     "salarySource": "bbr_contracts"
-  },
-  {
-    "name": "Olivier Sarr",
-    "team": "CLE",
-    "normalizedName": "olivier sarr",
-    "formattedContractName": "olivier sarr",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
-    "name": "TyTy Washington Jr.",
-    "team": "LAC",
-    "normalizedName": "tyty washington",
-    "formattedContractName": "tyty washington",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
   },
   {
     "name": "Amari Williams",
@@ -4424,20 +4456,20 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Thanasis Antetokounmpo",
-    "team": "MIL",
-    "normalizedName": "thanasis antetokounmpo",
-    "formattedContractName": "thanasis antetokounmpo",
-    "salary": 2296274,
-    "salarySource": "bbr_contracts"
+    "name": "Colin Castleton",
+    "team": "ORL",
+    "normalizedName": "colin castleton",
+    "formattedContractName": "colin castleton",
+    "salary": 2191897,
+    "salarySource": "espn_salaries"
   },
   {
-    "name": "Javonte Cooke",
-    "team": "POR",
-    "normalizedName": "javonte cooke",
-    "formattedContractName": "javonte cooke",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
+    "name": "Nigel Hayes-Davis",
+    "team": "PHX",
+    "normalizedName": "nigel hayes davis",
+    "formattedContractName": "nigel hayes davis",
+    "salary": 2048494,
+    "salarySource": "bbr_contracts"
   },
   {
     "name": "Dillon Jones",
@@ -4448,18 +4480,42 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Joe Ingles",
-    "team": "MIN",
-    "normalizedName": "joe ingles",
-    "formattedContractName": "joe ingles",
+    "name": "TyTy Washington Jr.",
+    "team": "LAC",
+    "normalizedName": "tyty washington",
+    "formattedContractName": "tyty washington",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Javonte Cooke",
+    "team": "POR",
+    "normalizedName": "javonte cooke",
+    "formattedContractName": "javonte cooke",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Kyle Lowry",
+    "team": "PHI",
+    "normalizedName": "kyle lowry",
+    "formattedContractName": "kyle lowry",
     "salary": 2296274,
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Zyon Pullin",
-    "team": "MIN",
-    "normalizedName": "zyon pullin",
-    "formattedContractName": "zyon pullin",
+    "name": "Trey Jemison",
+    "team": "NYK",
+    "normalizedName": "trey jemison",
+    "formattedContractName": "trey jemison",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Trevor Keels",
+    "team": "MIA",
+    "normalizedName": "trevor keels",
+    "formattedContractName": "trevor keels",
     "salary": 0,
     "salarySource": "imputed_minimum"
   },
@@ -4504,14 +4560,6 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Trevor Keels",
-    "team": "MIA",
-    "normalizedName": "trevor keels",
-    "formattedContractName": "trevor keels",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
     "name": "N'Faly Dante",
     "team": "ATL",
     "normalizedName": "n faly dante",
@@ -4528,10 +4576,18 @@
     "salarySource": "imputed_minimum"
   },
   {
-    "name": "Trey Jemison",
-    "team": "NYK",
-    "normalizedName": "trey jemison",
-    "formattedContractName": "trey jemison",
+    "name": "Vladislav Goldin",
+    "team": "MIA",
+    "normalizedName": "vladislav goldin",
+    "formattedContractName": "vladislav goldin",
+    "salary": 0,
+    "salarySource": "imputed_minimum"
+  },
+  {
+    "name": "Chris Manon",
+    "team": "LAL",
+    "normalizedName": "chris manon",
+    "formattedContractName": "chris manon",
     "salary": 0,
     "salarySource": "imputed_minimum"
   },
@@ -4544,14 +4600,6 @@
     "salarySource": "imputed_minimum"
   },
   {
-    "name": "CJ Huntley",
-    "team": "PHX",
-    "normalizedName": "cj huntley",
-    "formattedContractName": "cj huntley",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
     "name": "Garrett Temple",
     "team": "TOR",
     "normalizedName": "garrett temple",
@@ -4560,36 +4608,12 @@
     "salarySource": "bbr_contracts"
   },
   {
-    "name": "Chris Manon",
-    "team": "LAL",
-    "normalizedName": "chris manon",
-    "formattedContractName": "chris manon",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
-    "name": "Vladislav Goldin",
-    "team": "MIA",
-    "normalizedName": "vladislav goldin",
-    "formattedContractName": "vladislav goldin",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
     "name": "Max Shulga",
     "team": "BOS",
     "normalizedName": "max shulga",
     "formattedContractName": "max shulga",
     "salary": 0,
     "salarySource": "imputed_minimum"
-  },
-  {
-    "name": "John Tonje",
-    "team": "BOS",
-    "normalizedName": "john tonje",
-    "formattedContractName": "john tonje",
-    "salary": 73153,
-    "salarySource": "bbr_contracts"
   },
   {
     "name": "Jahmyl Telfort",
@@ -4620,14 +4644,6 @@
     "team": "NYK",
     "normalizedName": "tosan evbuomwan",
     "formattedContractName": "tosan evbuomwan",
-    "salary": 0,
-    "salarySource": "imputed_minimum"
-  },
-  {
-    "name": "Enrique Freeman",
-    "team": "MIN",
-    "normalizedName": "enrique freeman",
-    "formattedContractName": "enrique freeman",
     "salary": 0,
     "salarySource": "imputed_minimum"
   },
