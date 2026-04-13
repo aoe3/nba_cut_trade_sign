@@ -18,6 +18,14 @@ type BestPlayerResult = {
 
 const POSITION_ORDER: Position[] = ["PG", "SG", "SF", "PF", "C"];
 
+const RATING_EMOJI_MAP: Record<string, string> = {
+  "G-League": "🟤",
+  Bench: "⚪",
+  Starter: "🟡",
+  Superstar: "🟣",
+  "Hall of Fame": "🔴",
+};
+
 function getOrderedRows(state: GameState): RowState[] {
   return POSITION_ORDER.map((position) => state.rows[position]);
 }
@@ -69,17 +77,26 @@ function buildShareText(
   trades: number,
   bestPlayer: BestPlayerResult | null,
 ): string {
+  const ratingEmoji = RATING_EMOJI_MAP[rating] ?? "🏀";
+  const pctText =
+    finalScorePct !== null ? `${finalScorePct.toFixed(1)}%` : "--";
+
   const lines = [
-    `C.T.S. ${date}`,
-    `${rating}: ${finalScorePct !== null ? `${finalScorePct.toFixed(1)}%` : "--"}`,
+    `✂️🤝🖊️ C.T.S. ${date}`,
+    `${ratingEmoji} ${rating}: ${pctText} ${ratingEmoji}`,
     `Cuts: ${cuts} | Trades: ${trades}`,
+    "",
   ];
 
   if (bestPlayer) {
-    lines.push(`Best Player: ${bestPlayer.player.name}`);
+    lines.push("Best Player:");
+    lines.push(bestPlayer.player.name);
     lines.push(`${bestPlayer.player.position} | ${bestPlayer.player.team}`);
-    lines.push(`Score: ${bestPlayer.score.toFixed(1)}`);
+    lines.push(bestPlayer.score.toFixed(1));
+    lines.push("");
   }
+
+  lines.push("cuttradesign.com");
 
   return lines.join("\n");
 }
@@ -132,7 +149,7 @@ export function DailyShareModal({
     return null;
   }
 
-  async function handleCopy() {
+  async function handleShare() {
     try {
       await navigator.clipboard.writeText(shareText);
       setCopyFeedback("copied");
@@ -231,7 +248,7 @@ export function DailyShareModal({
             <button
               type="button"
               className="mode-btn mode-btn--primary"
-              onClick={handleCopy}
+              onClick={handleShare}
             >
               {copyFeedback === "copied"
                 ? "Copied"
