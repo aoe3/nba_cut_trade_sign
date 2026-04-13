@@ -192,31 +192,144 @@ function buildOrderedPool(
   return ordered.slice(0, STACK_DEPTH);
 }
 
-function buildTradeTargets(
+function pickNormalTradeTargets(
+  allEligiblePlayers: ScoredDraftBattlePlayer[],
+  basePlayer: ScoredDraftBattlePlayer,
+  usedIds: Set<string>,
+): ScoredDraftBattlePlayer[] {
+  let pool = allEligiblePlayers.filter(
+    (candidate) =>
+      candidate.id !== basePlayer.id &&
+      !usedIds.has(candidate.id) &&
+      Math.abs(candidate.gameScore - basePlayer.gameScore) <= TRADE_SCORE_WINDOW,
+  );
+
+  if (pool.length < TRADE_TARGET_COUNT) {
+    pool = allEligiblePlayers.filter(
+      (candidate) =>
+        candidate.id !== basePlayer.id &&
+        !usedIds.has(candidate.id) &&
+        Math.abs(candidate.gameScore - basePlayer.gameScore) <=
+          FALLBACK_TRADE_SCORE_WINDOW,
+    );
+  }
+
+  if (pool.length < TRADE_TARGET_COUNT) {
+    pool = rankClosest(
+      allEligiblePlayers.filter(
+        (candidate) =>
+          candidate.id !== basePlayer.id && !usedIds.has(candidate.id),
+      ),
+      basePlayer.gameScore,
+    ).slice(0, Math.max(TRADE_TARGET_COUNT, 18));
+  }
+
+  const ranked = rankClosest(pool, basePlayer.gameScore);
+  return ranked.slice(0, TRADE_TARGET_COUNT);
+}
+
+function maybeInjectJackpotTradeTarget(
+  allEligiblePlayers: ScoredDraftBattlePlayer[],
+  basePlayer: ScoredDraftBattlePlayer,
+  normalTargets: ScoredDraftBattlePlayer[],
+  usedIds: Set<string>,
+): (ScoredDraftBattlePlayer & { isJackpot?: boolean })[] {
+  const selected: (ScoredDraftBattlePlayer & { isJackpot?: boolean })[] =
+  normalTargets.map((player) => ({ ...player }));
+
+  if (selected.length === 0) {
+    throw new Error(`No trade targets available for ${basePlayer.name}.`);
+  }
+
+  const shouldHaveJackpot = Math.random() < TRADE_JACKPOT_CHANCE;
+
+  if (!shouldHaveJackpot) {
+    return selected;
+  }
+
+  const currentIds = new Set<string>([
+    basePlayer.id,
+    ...usedIds,
+    ...selected.map((player) => player.id),
+  ]);
+
+  const jackpotEligible = allEligiblePlayers
+    .filter(
+      (candidate) =>
+        !currentIds.has(candidate.id) &&
+        candidate.gameScore >=
+          basePlayer.gameScore * TRADE_JACKPOT_SCORE_MULTIPLIER,
+    )
+    .sort((a, b) => b.gameScore - a.gameScore);
+
+  if (jackpotEligible.length === 0) {
+    return selected;
+  }
+
+  const jackpotTarget = sampleOne(
+    jackpotEligible.slice(0, Math.min(6, jackpotEligible.length)),
+  );
+  const replacedIndex = randomInt(0, selected.length - 1);
+
+  selected[replacedIndex] = {
+    ...jackpotTarget,
+    isJackpot: true,
+  };
+
+  return selected;
+}
+
+function buildTradeTargetsByOptionId(
+  allEligiblePlayers: ScoredDraftBattlePlayer[],
   orderedPlayers: ScoredDraftBattlePlayer[],
-  playerIndex: number,
-): (DraftBattlePlayer & { isJackpot?: boolean })[] {
-  const basePlayer = orderedPlayers[playerIndex];
-  const remainingAhead = orderedPlayers.slice(playerIndex + 1);
+): Map<string, (DraftBattlePlayer & { isJackpot?: boolean })[]> {
+  const usedIds = new Set<string>(orderedPlayers.map((player) => player.id));
+  const tradeTargetsByOptionId = new Map<
+    string,
+    (DraftBattlePlayer & { isJackpot?: boolean })[]
+  >();
 
-  const nearby = rankClosest(remainingAhead, basePlayer.gameScore);
+  for (const basePlayer of orderedPlayers) {
+    const normalTargets = pickNormalTradeTargets(
+      allEligiblePlayers,
+      basePlayer,
+      usedIds,
+    );
 
-  const selected = nearby.slice(0, TRADE_TARGET_COUNT);
+    if (normalTargets.length < TRADE_TARGET_COUNT) {
+      throw new Error(
+        `Could not find ${TRADE_TARGET_COUNT} unique trade targets for ${basePlayer.name}.`,
+      );
+    }
 
-  const shouldHaveJackpot = Math.random() < 0.18; // tune this (0.15–0.25 feels good)
+    const selectedTargets = maybeInjectJackpotTradeTarget(
+      allEligiblePlayers,
+      basePlayer,
+      normalTargets,
+      usedIds,
+    );
 
-  const jackpotIndex = shouldHaveJackpot
-    ? Math.floor(Math.random() * selected.length)
-    : -1;
+    const finalizedTargets = selectedTargets.map((candidate) => {
+      const { gameScore: _gameScore, ...player } = candidate;
+      return {
+        ...player,
+        ...(candidate.isJackpot ? { isJackpot: true } : {}),
+      };
+    });
 
-  return selected.map((candidate, index) => {
-    const { gameScore: _gameScore, ...player } = candidate;
+    for (const tradeTarget of finalizedTargets) {
+      if (usedIds.has(tradeTarget.id)) {
+        throw new Error(
+          `Duplicate Draft Battle trade target generated for ${basePlayer.name}.`,
+        );
+      }
+      usedIds.add(tradeTarget.id);
+    }
 
-    return {
-      ...player,
-      isJackpot: index === jackpotIndex,
-    };
-  });
+    tradeTargetsByOptionId.set(basePlayer.id, finalizedTargets);
+  }
+
+  return tradeTargetsByOptionId;
 }
 
 function buildPool(
@@ -224,14 +337,25 @@ function buildPool(
 ): StackPool {
   const scoredPool = typedPlayers.filter(filterFn);
   const orderedPlayers = buildOrderedPool(scoredPool);
+  const tradeTargetsByOptionId = buildTradeTargetsByOptionId(
+    scoredPool,
+    orderedPlayers,
+  );
 
-  const options = orderedPlayers.map((player, playerIndex) => {
+  const options = orderedPlayers.map((player) => {
     const { gameScore: _gameScore, ...rawPlayer } = player;
+    const tradeTargets = tradeTargetsByOptionId.get(player.id);
+
+    if (!tradeTargets || tradeTargets.length !== TRADE_TARGET_COUNT) {
+      throw new Error(
+        `Expected ${TRADE_TARGET_COUNT} trade targets for ${player.name}, got ${tradeTargets?.length ?? 0}.`,
+      );
+    }
 
     return {
       player: rawPlayer,
       stats: pickRandomStats(rawPlayer),
-      tradeTargets: buildTradeTargets(orderedPlayers, playerIndex),
+      tradeTargets,
     };
   });
 

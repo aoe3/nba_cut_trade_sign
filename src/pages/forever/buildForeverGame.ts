@@ -166,44 +166,65 @@ function pickStarter(
   );
 }
 
+function buildTradeCandidatePool(
+  allPositionPlayers: ScoredPlayer[],
+  basePlayer: ScoredPlayer,
+  usedIds: Set<string>,
+  scoreWindow: number,
+): ScoredPlayer[] {
+  return uniqueById(
+    allPositionPlayers.filter((candidate) => {
+      return (
+        candidate.id !== basePlayer.id &&
+        !usedIds.has(candidate.id) &&
+        Math.abs(candidate.gameScore - basePlayer.gameScore) <= scoreWindow
+      );
+    }),
+  );
+}
+
 function pickNormalTradeTargets(
   allPositionPlayers: ScoredPlayer[],
   basePlayer: ScoredPlayer,
+  usedIds: Set<string>,
 ): ScoredPlayer[] {
-  let pool = allPositionPlayers.filter((candidate) => {
-    return (
-      candidate.id !== basePlayer.id &&
-      Math.abs(candidate.gameScore - basePlayer.gameScore) <=
-        TRADE_SCORE_WINDOW
+  let pool = buildTradeCandidatePool(
+    allPositionPlayers,
+    basePlayer,
+    usedIds,
+    TRADE_SCORE_WINDOW,
+  );
+
+  if (pool.length < TRADES_PER_PLAYER) {
+    pool = buildTradeCandidatePool(
+      allPositionPlayers,
+      basePlayer,
+      usedIds,
+      FALLBACK_TRADE_SCORE_WINDOW,
     );
-  });
-
-  if (pool.length < TRADES_PER_PLAYER) {
-    pool = allPositionPlayers.filter((candidate) => {
-      return (
-        candidate.id !== basePlayer.id &&
-        Math.abs(candidate.gameScore - basePlayer.gameScore) <=
-          FALLBACK_TRADE_SCORE_WINDOW
-      );
-    });
   }
 
   if (pool.length < TRADES_PER_PLAYER) {
-    pool = [...allPositionPlayers]
-      .filter((candidate) => candidate.id !== basePlayer.id)
-      .sort(
-        (a, b) =>
-          Math.abs(a.gameScore - basePlayer.gameScore) -
-          Math.abs(b.gameScore - basePlayer.gameScore),
-      )
-      .slice(0, Math.max(TRADES_PER_PLAYER, 12));
+    pool = uniqueById(
+      [...allPositionPlayers]
+        .filter(
+          (candidate) =>
+            candidate.id !== basePlayer.id && !usedIds.has(candidate.id),
+        )
+        .sort(
+          (a, b) =>
+            Math.abs(a.gameScore - basePlayer.gameScore) -
+            Math.abs(b.gameScore - basePlayer.gameScore),
+        )
+        .slice(0, Math.max(TRADES_PER_PLAYER, 18)),
+    );
   }
 
-  const picked = pickN(uniqueById(pool), TRADES_PER_PLAYER);
+  const picked = pickN(pool, TRADES_PER_PLAYER);
 
   if (picked.length < TRADES_PER_PLAYER) {
     throw new Error(
-      `Could not find ${TRADES_PER_PLAYER} trade targets for ${basePlayer.name}.`,
+      `Could not find ${TRADES_PER_PLAYER} unique trade targets for ${basePlayer.name}.`,
     );
   }
 
@@ -214,6 +235,7 @@ function maybeInjectJackpotTradeTarget(
   allPositionPlayers: ScoredPlayer[],
   basePlayer: ScoredPlayer,
   normalTargets: ScoredPlayer[],
+  usedIds: Set<string>,
 ): ScoredPlayer[] {
   if (Math.random() >= TRADE_JACKPOT_CHANCE) {
     return normalTargets;
@@ -227,6 +249,7 @@ function maybeInjectJackpotTradeTarget(
   const existingIds = new Set<string>([
     basePlayer.id,
     ...normalTargets.map((player) => player.id),
+    ...usedIds,
   ]);
 
   const jackpotPool = allPositionPlayers
@@ -248,13 +271,44 @@ function maybeInjectJackpotTradeTarget(
 function pickTradeTargets(
   allPositionPlayers: ScoredPlayer[],
   basePlayer: ScoredPlayer,
+  usedIds: Set<string>,
 ): ScoredPlayer[] {
-  const normalTargets = pickNormalTradeTargets(allPositionPlayers, basePlayer);
+  const normalTargets = pickNormalTradeTargets(
+    allPositionPlayers,
+    basePlayer,
+    usedIds,
+  );
   return maybeInjectJackpotTradeTarget(
     allPositionPlayers,
     basePlayer,
     normalTargets,
+    usedIds,
   );
+}
+
+function assignUniqueTradeTargetsForOptions(
+  allPositionPlayers: ScoredPlayer[],
+  optionPlayers: ScoredPlayer[],
+): Map<string, ScoredPlayer[]> {
+  const usedIds = new Set(optionPlayers.map((player) => player.id));
+  const tradeTargetsByOptionId = new Map<string, ScoredPlayer[]>();
+
+  for (const optionPlayer of optionPlayers) {
+    const trades = pickTradeTargets(allPositionPlayers, optionPlayer, usedIds);
+
+    for (const trade of trades) {
+      if (usedIds.has(trade.id)) {
+        throw new Error(
+          `Duplicate trade target generated for ${optionPlayer.name} at ${optionPlayer.position}.`,
+        );
+      }
+      usedIds.add(trade.id);
+    }
+
+    tradeTargetsByOptionId.set(optionPlayer.id, trades);
+  }
+
+  return tradeTargetsByOptionId;
 }
 
 function pickCutAlternatives(
@@ -326,22 +380,40 @@ export async function generateForeverGame(
     const cuts = pickCutAlternatives(positionPlayers, starter);
     const offeredPlayers = [starter, ...cuts];
     const seenOptionIds = new Set<string>();
-    const options: DailyGame["positions"][Position]["options"] = [];
+    const uniqueOfferedPlayers: ScoredPlayer[] = [];
 
     for (const offeredPlayer of offeredPlayers) {
       if (seenOptionIds.has(offeredPlayer.id)) continue;
-
       seenOptionIds.add(offeredPlayer.id);
-      options.push({
-        player: offeredPlayer,
-        trades: pickTradeTargets(positionPlayers, offeredPlayer),
-      });
+      uniqueOfferedPlayers.push(offeredPlayer);
     }
 
-    if (options.length !== STARTER_COUNT_PER_POSITION) {
+    if (uniqueOfferedPlayers.length !== STARTER_COUNT_PER_POSITION) {
       throw new Error(
-        `Expected ${STARTER_COUNT_PER_POSITION} options for ${position}, got ${options.length}.`,
+        `Expected ${STARTER_COUNT_PER_POSITION} unique options for ${position}, got ${uniqueOfferedPlayers.length}.`,
       );
+    }
+
+    const tradeTargetsByOptionId = assignUniqueTradeTargetsForOptions(
+      positionPlayers,
+      uniqueOfferedPlayers,
+    );
+
+    const options: DailyGame["positions"][Position]["options"] = [];
+
+    for (const offeredPlayer of uniqueOfferedPlayers) {
+      const trades = tradeTargetsByOptionId.get(offeredPlayer.id);
+
+      if (!trades || trades.length !== TRADES_PER_PLAYER) {
+        throw new Error(
+          `Expected ${TRADES_PER_PLAYER} trade targets for ${offeredPlayer.name}, got ${trades?.length ?? 0}.`,
+        );
+      }
+
+      options.push({
+        player: offeredPlayer,
+        trades,
+      });
     }
 
     positions[position] = { options };
