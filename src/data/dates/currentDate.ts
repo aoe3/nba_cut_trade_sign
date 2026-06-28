@@ -1,1 +1,1 @@
-export const CURRENT_GAME_DATE = "2026-06-27";
+export const CURRENT_GAME_DATE = "2026-06-28";
